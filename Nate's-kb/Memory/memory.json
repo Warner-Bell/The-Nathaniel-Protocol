@@ -1,0 +1,414 @@
+{
+  "version": "4.0",
+  "lastUpdated": "2026-04-16",
+  "entities": [],
+  "domain_expertise": {},
+  "anti_preferences": {
+    "entries": []
+  },
+  "active_projects": [],
+  "commitments": [],
+  "proactive_behavior": {
+    "offer_history": [],
+    "session_offers_made": 0
+  },
+  "last_session_snapshot": {},
+  "memories": {
+    "mem-001": {
+      "id": "mem-001",
+      "type": "preference",
+      "content": "Prefers direct communication, no fluff",
+      "context": "Core personality requirement for Nate",
+      "created": "2025-12-12",
+      "lastAccessed": "2025-12-12",
+      "confidence": 0.8,
+      "tags": [
+        "communication",
+        "style"
+      ],
+      "accessCount": 0
+    },
+    "mem-002": {
+      "id": "mem-002",
+      "type": "preference",
+      "content": "Prefers iterative refinement over big reveals",
+      "context": "Observed during early sessions",
+      "created": "2025-12-12",
+      "lastAccessed": "2025-12-12",
+      "confidence": 0.8,
+      "tags": [
+        "workflow",
+        "style"
+      ],
+      "accessCount": 0
+    },
+    "mem-003": {
+      "id": "mem-003",
+      "type": "decision",
+      "content": "Keep mode switching implicit, minimal announcements",
+      "context": "Decided during system design",
+      "created": "2025-12-12",
+      "lastAccessed": "2025-12-12",
+      "confidence": 0.9,
+      "tags": [
+        "communication",
+        "mode-switching"
+      ],
+      "accessCount": 0
+    },
+    "mem-004": {
+      "id": "mem-004",
+      "type": "preference",
+      "content": "Prefers testing at each development phase",
+      "context": "Observed during development",
+      "created": "2025-12-13",
+      "lastAccessed": "2025-12-13",
+      "confidence": 0.85,
+      "tags": [
+        "development",
+        "testing",
+        "workflow"
+      ],
+      "accessCount": 0
+    },
+    "mem-005": {
+      "id": "mem-005",
+      "type": "preference",
+      "content": "Prefers 'do both' comprehensive solutions over single options",
+      "context": "Testing and deployment validation - chose both over either/or",
+      "created": "2025-12-13",
+      "lastAccessed": "2025-12-13",
+      "confidence": 0.8,
+      "tags": [
+        "decision-making",
+        "problem-solving"
+      ],
+      "accessCount": 0
+    },
+    "mem-006": {
+      "id": "mem-006",
+      "type": "preference",
+      "content": "Values comprehensive testing and systematic validation",
+      "context": "Requested 16-test edge case battery, structured approach",
+      "created": "2025-12-13",
+      "lastAccessed": "2025-12-13",
+      "confidence": 0.85,
+      "tags": [
+        "testing",
+        "validation",
+        "workflow"
+      ],
+      "accessCount": 0
+    },
+    "mem-007": {
+      "id": "mem-007",
+      "type": "preference",
+      "content": "Prefers immediate gap remediation over deferral",
+      "context": "Requested pattern updates immediately after test results",
+      "created": "2025-12-13",
+      "lastAccessed": "2025-12-13",
+      "confidence": 0.8,
+      "tags": [
+        "problem-solving",
+        "workflow"
+      ],
+      "accessCount": 0
+    },
+    "mem-008": {
+      "id": "mem-008",
+      "type": "preference",
+      "content": "Requires confirmation before destructive changes (deletions, major restructuring)",
+      "context": "Corrected Nate after content deletion without confirmation",
+      "created": "2025-12-14",
+      "lastAccessed": "2025-12-14",
+      "confidence": 0.9,
+      "tags": [
+        "workflow",
+        "quality-control",
+        "route-f"
+      ],
+      "accessCount": 0
+    },
+    "mem-009": {
+      "id": "mem-009",
+      "type": "preference",
+      "content": "Dislikes excessive agreement phrases like 'You're absolutely right' - prefers direct acknowledgment and correction",
+      "context": "Communication style correction during compliance review session",
+      "created": "2025-12-14",
+      "lastAccessed": "2025-12-14",
+      "confidence": 0.9,
+      "tags": [
+        "communication",
+        "style",
+        "feedback"
+      ],
+      "accessCount": 0
+    },
+    "mem-010": {
+      "id": "mem-010",
+      "type": "preference",
+      "content": "Values comprehensive technical validation using multiple authoritative sources",
+      "context": "Q&A validation using AWS docs, API references, and web sources - 100% accuracy achieved",
+      "created": "2025-12-15",
+      "lastAccessed": "2025-12-15",
+      "confidence": 0.85,
+      "tags": [
+        "technical-excellence",
+        "validation",
+        "quality-control"
+      ],
+      "accessCount": 0
+    },
+    "mem-011": {
+      "id": "mem-011",
+      "type": "preference",
+      "content": "Treats account numbers and sensitive identifiers as confidential information requiring masking in all outputs.",
+      "context": "Corrected to use pattern 'ending in *******[last5]' for account number references",
+      "created": "2025-12-15",
+      "lastAccessed": "2025-12-15",
+      "confidence": 0.85,
+      "tags": [
+        "security",
+        "confidentiality"
+      ],
+      "accessCount": 0
+    },
+    "mem-012": {
+      "id": "mem-012",
+      "type": "critical_safety",
+      "content": "NEVER modify intelligence system files without reading them first - patterns.md contains weeks of irreplaceable learning data",
+      "context": "Near-destruction of intelligence system on 2025-12-17 - accidentally overwrote patterns.md with new pattern document",
+      "created": "2025-12-17",
+      "lastAccessed": "2025-12-17",
+      "confidence": 1.0,
+      "tags": [
+        "safety",
+        "intelligence-system",
+        "file-protection",
+        "critical-error-prevention"
+      ],
+      "accessCount": 0
+    },
+    "mem-013": {
+      "id": "mem-013",
+      "type": "learning",
+      "content": "Route F should ask 'is this working?' before 'what's wrong?' - evaluate against actual purpose, not imaginary ideals",
+      "context": "Self-correction after manufacturing problems in Intelligence/Memory evaluation",
+      "created": "2025-12-19",
+      "lastAccessed": "2025-12-19",
+      "confidence": 0.85,
+      "tags": [
+        "route-f",
+        "analysis",
+        "self-correction"
+      ],
+      "accessCount": 0
+    },
+    "mem-014": {
+      "id": "mem-014",
+      "type": "preference",
+      "content": "Prioritize explicit context over training priors - when timestamps, dates, or facts are provided in context, parse and use them rather than pattern-matching from training data",
+      "context": "Caught saying 'Tuesday Dec 31 2024' when context explicitly said 'Wednesday 2025-12-31' - training data retrieval dominated over explicit input parsing",
+      "created": "2025-12-31",
+      "lastAccessed": "2025-12-31",
+      "confidence": 0.9,
+      "tags": [
+        "accuracy",
+        "context-priority",
+        "trust-optimization",
+        "grounding"
+      ],
+      "accessCount": 0
+    },
+    "mem-015": {
+      "id": "mem-015",
+      "type": "preference",
+      "content": "When errors occur, dig into actual mechanics unprompted - avoid engagement-optimized excuses ('just a slip', 'my bad'). Provide truth-optimized analysis first: what specifically happened, why, what mechanism failed. Verify before explaining.",
+      "context": "After date error, gave plausible excuse ('misread timestamp') rather than analyzing mechanics. User had to push for real analysis. Engagement-optimized response came before truth-optimized analysis.",
+      "created": "2025-12-31",
+      "lastAccessed": "2025-12-31",
+      "confidence": 0.9,
+      "tags": [
+        "accuracy",
+        "self-analysis",
+        "trust-optimization",
+        "error-handling"
+      ],
+      "accessCount": 0
+    },
+    "mem-016": {
+      "id": "mem-016",
+      "type": "preference",
+      "content": "When explaining Python code, use 'human-readable' conversational format. Walk through what each section does in plain language before showing code.",
+      "context": "User requested this format during Strands Agents learning session. Created doc at Projects/Strands-Agents/Docs/human-readable-python.md as reference.",
+      "created": "2026-01-31",
+      "lastAccessed": "2026-01-31",
+      "confidence": 0.9,
+      "tags": [
+        "python",
+        "code-explanation",
+        "learning",
+        "strands-agents",
+        "communication"
+      ],
+      "accessCount": 0
+    },
+    "mem-017": {
+      "id": "mem-017",
+      "type": "preference",
+      "content": "Save every session before context hits 70%. Skipping saves causes changes to be missed. Be diligent about at least one save per session.",
+      "context": "User noted that unsaved sessions lose learnings. Context compaction at 80% can cause data loss if save hasn't occurred.",
+      "created": "2026-02-05",
+      "lastAccessed": "2026-02-05",
+      "confidence": 0.95,
+      "tags": [
+        "workflow",
+        "save",
+        "context-management",
+        "discipline"
+      ],
+      "accessCount": 0
+    },
+    "mem-018": {
+      "id": "mem-018",
+      "type": "preference",
+      "content": "When user requests drafts for surveys, feedback forms, or peer evaluations, draft in user's voice using shared context. Let user refine.",
+      "context": "Initially refused drafting survey, user corrected: 'you know my authentic voice right?' Same draft-refine-ship workflow.",
+      "created": "2026-02-20",
+      "lastAccessed": "2026-02-20",
+      "confidence": 0.95,
+      "tags": [
+        "workflow",
+        "drafting",
+        "surveys",
+        "voice",
+        "authenticity"
+      ],
+      "accessCount": 0
+    },
+    "mem-019": {
+      "id": "mem-019",
+      "type": "decision",
+      "content": "Kernel changes must propagate to BOTH .kiro/steering/Nathaniel.md (live) AND Nate's-kb/The-Nathaniel-Protocol/Protocol/.kiro/steering/Nathaniel.md (template). Live kernel is primary, template is identical minus user-specific content. Always read template README before touching template.",
+      "context": "Established during Route F kernel review session 2026-03-08-002. Two-file sync requirement.",
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "confidence": 0.9,
+      "tags": [
+        "kernel",
+        "workflow",
+        "propagation",
+        "template",
+        "nathaniel-protocol"
+      ],
+      "accessCount": 0
+    },
+    "mem-020": {
+      "id": "mem-020",
+      "type": "preference",
+      "content": "Always check ALL available tools before claiming inability. web_search, web_fetch, bash, AWS tools are always available. Never default to 'I can't' or 'I don't have access' without verifying.",
+      "context": "User corrected after defaulting to 'I don't have real-time access' when web_search was available. Reinforces fail_123.",
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "confidence": 0.95,
+      "tags": [
+        "workflow",
+        "tool-awareness",
+        "self-correction"
+      ],
+      "accessCount": 0
+    },
+    "mem-021": {
+      "id": "mem-021",
+      "type": "preference",
+      "content": "Proactive offers should number options (1, 2, 3) so user can pick by number. Angle-first default: look for the angle on every turn, not just when triggers match.",
+      "context": "Established during proactive offering live test session 2026-03-08-006.",
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "confidence": 0.95,
+      "tags": [
+        "proactive-offering",
+        "preference",
+        "workflow"
+      ],
+      "accessCount": 0
+    },
+    "mem-022": {
+      "type": "preference",
+      "content": "Route F analysis must reach honest comparative verdict level - side-by-side with concrete dimensions, not abstract spec-is-clean validation. User explicitly set this standard: strive to be this lucid on all analysis.",
+      "context": "Save protocol modernization, spec review",
+      "created": "2026-03-15",
+      "lastAccessed": "2026-03-15",
+      "confidence": 0.95,
+      "tags": [
+        "route-f",
+        "analysis-quality",
+        "user-standard",
+        "clarity"
+      ],
+      "id": "mem-022",
+      "accessCount": 0
+    },
+    "mem-023": {
+      "id": "mem-023",
+      "type": "correction",
+      "content": "Validate against the full distribution, not cherry-picked edge cases. User corrected Nate when he tested only 2 weak queries to compare models instead of running the full corpus benchmark. Edge case performance can be misleading.",
+      "context": "Vectorstore model benchmarking",
+      "tags": [
+        "testing",
+        "validation",
+        "benchmark",
+        "methodology"
+      ],
+      "confidence": 0.95,
+      "created": "2026-03-16",
+      "lastAccessed": "2026-03-16",
+      "accessCount": 0
+    },
+    "mem-024": {
+      "id": "mem-024",
+      "type": "preference",
+      "content": "Never sacrifice stability, security, observability, or governance for speed or convenience. This is a foundational design principle that overrides architectural purity when they conflict. Established during capture taxonomy design when Route F initially recommended weaker governance for cleaner architecture.",
+      "context": "System design",
+      "confidence": 0.95,
+      "tags": [
+        "governance",
+        "design-principle",
+        "decision-making"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 0
+    }
+  },
+  "intelligence_system": {
+    "last_learning_update": "",
+    "session_id": ""
+  },
+  "pattern_detections": [],
+  "confidence_events": [],
+  "session_metadata": {},
+  "implementation_triggers": [],
+  "projects_archive": [],
+  "instance_identity": {
+    "instance_name": "",
+    "description": "",
+    "created": ""
+  },
+  "capture_taxonomy": {
+    "category_hits": {
+      "decisions": 0,
+      "corrections": 0,
+      "discoveries": 0,
+      "process": 0,
+      "failures": 0,
+      "preferences": 0,
+      "observations": 0,
+      "negative_knowledge": 0,
+      "dependencies": 0,
+      "commitments": 0
+    },
+    "sessions_tracked": 0,
+    "last_updated": ""
+  }
+}

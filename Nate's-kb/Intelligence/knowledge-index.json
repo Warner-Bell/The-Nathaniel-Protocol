@@ -1,0 +1,5125 @@
+{
+  "stats": {
+    "totalEntries": 447,
+    "activeEntries": 448,
+    "nextId": 449,
+    "categories": [
+      "architecture",
+      "aws_gotcha",
+      "best_practice",
+      "domain_expertise",
+      "error_solution",
+      "process",
+      "reference",
+      "research",
+      "security",
+      "system",
+      "technical",
+      "tool_behavior",
+      "tool_quirk"
+    ]
+  },
+  "byTag": {
+    "foundational": [
+      "know-001",
+      "know-002",
+      "know-003",
+      "know-004",
+      "know-005",
+      "know-006",
+      "know-007",
+      "know-008",
+      "know-009",
+      "know-010",
+      "know-011",
+      "know-012",
+      "know-013",
+      "know-014",
+      "know-015",
+      "know-016",
+      "know-020",
+      "know-021",
+      "know-022",
+      "know-023",
+      "know-024",
+      "know-026",
+      "know-027",
+      "know-029",
+      "know-039",
+      "know-040",
+      "know-041",
+      "know-042",
+      "know-043",
+      "know-044",
+      "know-045",
+      "know-046",
+      "know-047",
+      "know-048",
+      "know-049",
+      "know-050",
+      "know-051",
+      "know-052",
+      "know-053",
+      "know-054",
+      "know-055",
+      "know-056",
+      "know-057",
+      "know-058",
+      "know-059",
+      "know-060",
+      "know-061",
+      "know-062",
+      "know-063",
+      "know-064",
+      "know-065",
+      "know-066",
+      "know-067",
+      "know-068",
+      "know-069",
+      "know-070",
+      "know-071",
+      "know-072",
+      "know-073",
+      "know-128",
+      "know-129",
+      "know-130",
+      "know-131",
+      "know-132",
+      "know-148",
+      "know-153",
+      "know-154",
+      "know-155",
+      "know-156",
+      "know-157",
+      "know-158",
+      "know-159",
+      "know-160",
+      "know-161",
+      "know-162",
+      "know-163",
+      "know-164",
+      "know-165",
+      "know-166",
+      "know-167",
+      "know-168",
+      "know-169",
+      "know-170",
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-175",
+      "know-176",
+      "know-177",
+      "know-178",
+      "know-179",
+      "know-180",
+      "know-181",
+      "know-182",
+      "know-183",
+      "know-184",
+      "know-185",
+      "know-186",
+      "know-187",
+      "know-188",
+      "know-189",
+      "know-190",
+      "know-191",
+      "know-192",
+      "know-193",
+      "know-194",
+      "know-195",
+      "know-196",
+      "know-197",
+      "know-198",
+      "know-199",
+      "know-200",
+      "know-201",
+      "know-202",
+      "know-203",
+      "know-204",
+      "know-205",
+      "know-206",
+      "know-219",
+      "know-220",
+      "know-221",
+      "know-222",
+      "know-223",
+      "know-233",
+      "know-234",
+      "know-235",
+      "know-236",
+      "know-237",
+      "know-238",
+      "know-250",
+      "know-258",
+      "know-264",
+      "know-275",
+      "know-276",
+      "know-277",
+      "know-278",
+      "know-279",
+      "know-280",
+      "know-281",
+      "know-282",
+      "know-283",
+      "know-284",
+      "know-285",
+      "know-286",
+      "know-287",
+      "know-300",
+      "know-301",
+      "know-302",
+      "know-303",
+      "know-304",
+      "know-305",
+      "know-306",
+      "know-339",
+      "know-340",
+      "know-341",
+      "know-342",
+      "know-343",
+      "know-344",
+      "know-345",
+      "know-352",
+      "know-353",
+      "know-354",
+      "know-355",
+      "know-356",
+      "know-357",
+      "know-358",
+      "know-359",
+      "know-372",
+      "know-373",
+      "know-374",
+      "know-375",
+      "know-376",
+      "know-377",
+      "know-378",
+      "know-379",
+      "know-380",
+      "know-381",
+      "know-382",
+      "know-383",
+      "know-408"
+    ],
+    "architecture": [
+      "know-001",
+      "know-039",
+      "know-049",
+      "know-054",
+      "know-060",
+      "know-064",
+      "know-068",
+      "know-072",
+      "know-081",
+      "know-088",
+      "know-089",
+      "know-090",
+      "know-102",
+      "know-104",
+      "know-108",
+      "know-109",
+      "know-120",
+      "know-121",
+      "know-122",
+      "know-124",
+      "know-128",
+      "know-129",
+      "know-132",
+      "know-137",
+      "know-138",
+      "know-140",
+      "know-142",
+      "know-143",
+      "know-144",
+      "know-146",
+      "know-149",
+      "know-150",
+      "know-151",
+      "know-154",
+      "know-233",
+      "know-234",
+      "know-237",
+      "know-263",
+      "know-422",
+      "know-441"
+    ],
+    "determinism": [
+      "know-001",
+      "know-016"
+    ],
+    "non-deterministic": [
+      "know-001"
+    ],
+    "design-philosophy": [
+      "know-001",
+      "know-026"
+    ],
+    "first-principles": [
+      "know-001"
+    ],
+    "section-0": [
+      "know-001",
+      "know-002",
+      "know-003",
+      "know-004",
+      "know-005",
+      "know-006",
+      "know-007",
+      "know-008",
+      "know-009",
+      "know-010",
+      "know-011",
+      "know-012",
+      "know-013",
+      "know-014",
+      "know-015",
+      "know-016",
+      "know-017",
+      "know-018",
+      "know-019",
+      "know-020",
+      "know-021",
+      "know-022",
+      "know-023",
+      "know-024",
+      "know-025",
+      "know-408",
+      "know-441",
+      "know-442"
+    ],
+    "ai-honesty": [
+      "know-002",
+      "know-003",
+      "know-004",
+      "know-005"
+    ],
+    "MASK": [
+      "know-002",
+      "know-003",
+      "know-004",
+      "know-005"
+    ],
+    "evaluation": [
+      "know-002"
+    ],
+    "methodology": [
+      "know-002",
+      "know-005",
+      "know-018",
+      "know-294",
+      "know-295",
+      "know-296",
+      "know-297",
+      "know-298"
+    ],
+    "benchmarks": [
+      "know-003"
+    ],
+    "lie-rates": [
+      "know-003"
+    ],
+    "scaling": [
+      "know-004"
+    ],
+    "testing": [
+      "know-005",
+      "know-009",
+      "know-014",
+      "know-017",
+      "know-018",
+      "know-156",
+      "know-397"
+    ],
+    "toc-pattern": [
+      "know-006"
+    ],
+    "prompt-engineering": [
+      "know-006",
+      "know-014",
+      "know-016",
+      "know-020",
+      "know-021",
+      "know-022",
+      "know-060",
+      "know-061",
+      "know-062",
+      "know-063",
+      "know-064",
+      "know-073",
+      "know-289",
+      "know-408",
+      "know-441",
+      "know-442",
+      "know-445"
+    ],
+    "pattern-design": [
+      "know-006"
+    ],
+    "context-rot": [
+      "know-007",
+      "know-223"
+    ],
+    "context-window": [
+      "know-007",
+      "know-019",
+      "know-104",
+      "know-354"
+    ],
+    "hallucination": [
+      "know-007",
+      "know-118"
+    ],
+    "performance": [
+      "know-007",
+      "know-019",
+      "know-059",
+      "know-065",
+      "know-276",
+      "know-331",
+      "know-374",
+      "know-375"
+    ],
+    "prompt-design": [
+      "know-008",
+      "know-012"
+    ],
+    "instruction-positioning": [
+      "know-008"
+    ],
+    "primacy-recency": [
+      "know-008"
+    ],
+    "failure-modes": [
+      "know-009",
+      "know-066",
+      "know-118",
+      "know-124"
+    ],
+    "reasoning": [
+      "know-009",
+      "know-242",
+      "know-432"
+    ],
+    "quality": [
+      "know-009",
+      "know-029",
+      "know-043",
+      "know-156",
+      "know-236",
+      "know-306",
+      "know-313",
+      "know-324",
+      "know-326"
+    ],
+    "tool-use": [
+      "know-010",
+      "know-053",
+      "know-101",
+      "know-102"
+    ],
+    "error-handling": [
+      "know-010",
+      "know-041",
+      "know-153"
+    ],
+    "validation": [
+      "know-010",
+      "know-011",
+      "know-224",
+      "know-297"
+    ],
+    "chaining": [
+      "know-010"
+    ],
+    "json": [
+      "know-011",
+      "know-225",
+      "know-227",
+      "know-360",
+      "know-372"
+    ],
+    "structured-output": [
+      "know-011"
+    ],
+    "data-quality": [
+      "know-011",
+      "know-229"
+    ],
+    "instruction-conflict": [
+      "know-012",
+      "know-022"
+    ],
+    "guardrails": [
+      "know-012",
+      "know-016",
+      "know-070"
+    ],
+    "context-engineering": [
+      "know-013",
+      "know-020",
+      "know-021",
+      "know-022",
+      "know-024",
+      "know-049",
+      "know-059",
+      "know-072"
+    ],
+    "multi-turn": [
+      "know-013",
+      "know-015"
+    ],
+    "degradation": [
+      "know-013",
+      "know-019",
+      "know-024",
+      "know-349"
+    ],
+    "calibration": [
+      "know-013",
+      "know-015",
+      "know-235",
+      "know-327"
+    ],
+    "versioning": [
+      "know-014"
+    ],
+    "production": [
+      "know-014",
+      "know-016",
+      "know-066",
+      "know-071",
+      "know-072"
+    ],
+    "sycophancy": [
+      "know-015"
+    ],
+    "anti-patterns": [
+      "know-015",
+      "know-278",
+      "know-431"
+    ],
+    "security": [
+      "know-017",
+      "know-056",
+      "know-067",
+      "know-073",
+      "know-084",
+      "know-085",
+      "know-086",
+      "know-088",
+      "know-105",
+      "know-111",
+      "know-116",
+      "know-117",
+      "know-125",
+      "know-133",
+      "know-134",
+      "know-139",
+      "know-294",
+      "know-388"
+    ],
+    "prompt-injection": [
+      "know-017",
+      "know-088"
+    ],
+    "detection": [
+      "know-017"
+    ],
+    "false-positive": [
+      "know-017"
+    ],
+    "benchmarking": [
+      "know-018"
+    ],
+    "behavioral-triggers": [
+      "know-018"
+    ],
+    "natural-language": [
+      "know-018"
+    ],
+    "session-management": [
+      "know-019",
+      "know-050"
+    ],
+    "model-behavior": [
+      "know-019",
+      "know-408"
+    ],
+    "system-prompt": [
+      "know-020",
+      "know-025",
+      "know-052",
+      "know-441",
+      "know-442"
+    ],
+    "few-shot": [
+      "know-021",
+      "know-063",
+      "know-442"
+    ],
+    "behavioral": [
+      "know-022",
+      "know-023",
+      "know-442"
+    ],
+    "anti-sycophancy": [
+      "know-023"
+    ],
+    "llm-failure-modes": [
+      "know-023",
+      "know-024"
+    ],
+    "long-sessions": [
+      "know-024"
+    ],
+    "llm-behavior": [
+      "know-025"
+    ],
+    "negative-knowledge": [
+      "know-025",
+      "know-029",
+      "know-126",
+      "know-135",
+      "know-136",
+      "know-205",
+      "know-206",
+      "know-265",
+      "know-274",
+      "know-315",
+      "know-329",
+      "know-330",
+      "know-364",
+      "know-394",
+      "know-398",
+      "know-399",
+      "know-400",
+      "know-409",
+      "know-410",
+      "know-418",
+      "know-420",
+      "know-425",
+      "know-443",
+      "know-444",
+      "know-445",
+      "know-449"
+    ],
+    "archetypes": [
+      "know-026"
+    ],
+    "identity": [
+      "know-026",
+      "know-076",
+      "know-106",
+      "know-111",
+      "know-172"
+    ],
+    "cognitive-consigliere": [
+      "know-026"
+    ],
+    "section-1": [
+      "know-026",
+      "know-027",
+      "know-028",
+      "know-029",
+      "know-030",
+      "know-032",
+      "know-033",
+      "know-034",
+      "know-035",
+      "know-036",
+      "know-037",
+      "know-038",
+      "know-405",
+      "know-423",
+      "know-424",
+      "know-434",
+      "know-447"
+    ],
+    "curation": [
+      "know-027"
+    ],
+    "template": [
+      "know-027",
+      "know-036",
+      "know-046",
+      "know-082",
+      "know-226",
+      "know-247",
+      "know-293"
+    ],
+    "intelligence": [
+      "know-027",
+      "know-239",
+      "know-240",
+      "know-241",
+      "know-242",
+      "know-245",
+      "know-246",
+      "know-253",
+      "know-317",
+      "know-318",
+      "know-325"
+    ],
+    "open-source": [
+      "know-027",
+      "know-028",
+      "know-036",
+      "know-038",
+      "know-065",
+      "know-405"
+    ],
+    "open-core": [
+      "know-028"
+    ],
+    "business-model": [
+      "know-028"
+    ],
+    "saas": [
+      "know-028",
+      "know-109"
+    ],
+    "go-to-market": [
+      "know-028"
+    ],
+    "philosophy": [
+      "know-029",
+      "know-030",
+      "know-032",
+      "know-033",
+      "know-034",
+      "know-035",
+      "know-434"
+    ],
+    "anti-pattern": [
+      "know-029",
+      "know-127"
+    ],
+    "design-principle": [
+      "know-029"
+    ],
+    "ecosystem-kb": [
+      "know-030",
+      "know-032",
+      "know-033",
+      "know-034",
+      "know-035",
+      "know-036",
+      "know-037",
+      "know-038",
+      "know-081",
+      "know-134",
+      "know-136",
+      "know-137",
+      "know-138",
+      "know-139",
+      "know-140",
+      "know-141",
+      "know-142",
+      "know-143",
+      "know-144",
+      "know-145",
+      "know-146",
+      "know-147",
+      "know-152",
+      "know-207",
+      "know-208",
+      "know-209",
+      "know-210",
+      "know-211",
+      "know-212",
+      "know-213",
+      "know-214",
+      "know-215",
+      "know-216",
+      "know-217",
+      "know-218",
+      "know-233",
+      "know-234",
+      "know-235",
+      "know-239",
+      "know-240",
+      "know-241",
+      "know-242",
+      "know-243",
+      "know-244",
+      "know-245",
+      "know-246",
+      "know-247",
+      "know-248",
+      "know-249",
+      "know-251",
+      "know-252",
+      "know-253",
+      "know-254",
+      "know-255",
+      "know-256",
+      "know-263",
+      "know-264",
+      "know-266",
+      "know-267",
+      "know-268",
+      "know-269",
+      "know-270",
+      "know-271",
+      "know-272",
+      "know-273",
+      "know-302",
+      "know-309",
+      "know-310",
+      "know-311",
+      "know-315",
+      "know-316",
+      "know-317",
+      "know-318",
+      "know-319",
+      "know-320",
+      "know-321",
+      "know-322",
+      "know-323",
+      "know-324",
+      "know-325",
+      "know-326",
+      "know-327",
+      "know-328",
+      "know-346",
+      "know-347",
+      "know-348",
+      "know-349",
+      "know-350",
+      "know-351",
+      "know-365",
+      "know-366",
+      "know-367",
+      "know-368",
+      "know-369",
+      "know-370",
+      "know-371",
+      "know-400",
+      "know-401",
+      "know-402",
+      "know-403",
+      "know-404",
+      "know-434"
+    ],
+    "flash-drive": [
+      "know-030",
+      "know-404",
+      "know-437"
+    ],
+    "portability": [
+      "know-030",
+      "know-257",
+      "know-356",
+      "know-404",
+      "know-437"
+    ],
+    "mandate": [
+      "know-032"
+    ],
+    "design-principles": [
+      "know-033",
+      "know-117"
+    ],
+    "boundaries": [
+      "know-034",
+      "know-192",
+      "know-200",
+      "know-201",
+      "know-202"
+    ],
+    "compound-effect": [
+      "know-035",
+      "know-252",
+      "know-253",
+      "know-254",
+      "know-255",
+      "know-256",
+      "know-430",
+      "know-431",
+      "know-432",
+      "know-433"
+    ],
+    "case-study": [
+      "know-037",
+      "know-312"
+    ],
+    "design-journey": [
+      "know-037"
+    ],
+    "contributing": [
+      "know-038"
+    ],
+    "agents": [
+      "know-039"
+    ],
+    "memory": [
+      "know-039",
+      "know-050",
+      "know-054",
+      "know-055",
+      "know-075",
+      "know-079",
+      "know-080",
+      "know-122",
+      "know-223",
+      "know-243",
+      "know-244",
+      "know-307",
+      "know-323",
+      "know-342",
+      "know-435"
+    ],
+    "section-2": [
+      "know-039",
+      "know-040",
+      "know-041",
+      "know-042",
+      "know-043",
+      "know-044",
+      "know-045",
+      "know-046",
+      "know-047",
+      "know-048",
+      "know-049",
+      "know-050",
+      "know-051",
+      "know-052",
+      "know-053",
+      "know-054",
+      "know-055",
+      "know-056",
+      "know-057",
+      "know-058",
+      "know-059",
+      "know-060",
+      "know-061",
+      "know-062",
+      "know-063",
+      "know-064",
+      "know-065",
+      "know-066",
+      "know-067",
+      "know-068",
+      "know-069",
+      "know-070",
+      "know-071",
+      "know-072",
+      "know-073",
+      "know-074",
+      "know-075",
+      "know-076",
+      "know-077",
+      "know-078",
+      "know-079",
+      "know-080",
+      "know-081",
+      "know-082",
+      "know-083",
+      "know-084",
+      "know-085",
+      "know-086",
+      "know-087",
+      "know-088",
+      "know-089",
+      "know-090",
+      "know-091",
+      "know-092",
+      "know-093",
+      "know-094",
+      "know-095",
+      "know-096",
+      "know-097",
+      "know-098",
+      "know-099",
+      "know-100",
+      "know-101",
+      "know-102",
+      "know-103",
+      "know-104",
+      "know-105",
+      "know-106",
+      "know-107",
+      "know-108",
+      "know-109",
+      "know-110",
+      "know-111",
+      "know-112",
+      "know-113",
+      "know-114",
+      "know-115",
+      "know-116",
+      "know-117",
+      "know-118",
+      "know-119",
+      "know-120",
+      "know-121",
+      "know-122",
+      "know-123",
+      "know-124",
+      "know-125",
+      "know-126",
+      "know-127",
+      "know-128",
+      "know-129",
+      "know-130",
+      "know-131",
+      "know-132",
+      "know-133",
+      "know-134",
+      "know-135",
+      "know-136",
+      "know-137",
+      "know-138",
+      "know-139",
+      "know-140",
+      "know-141",
+      "know-142",
+      "know-143",
+      "know-144",
+      "know-145",
+      "know-146",
+      "know-147",
+      "know-411",
+      "know-412",
+      "know-413",
+      "know-414",
+      "know-415",
+      "know-416",
+      "know-417"
+    ],
+    "strands-sdk": [
+      "know-040",
+      "know-041"
+    ],
+    "graph": [
+      "know-040",
+      "know-041"
+    ],
+    "input-propagation": [
+      "know-040"
+    ],
+    "claude": [
+      "know-040",
+      "know-368"
+    ],
+    "fail-fast": [
+      "know-041"
+    ],
+    "vectorization": [
+      "know-042",
+      "know-083"
+    ],
+    "numpy": [
+      "know-042",
+      "know-045"
+    ],
+    "sentence-transformers": [
+      "know-042",
+      "know-043"
+    ],
+    "community-validation": [
+      "know-042"
+    ],
+    "small-dataset": [
+      "know-042"
+    ],
+    "cosine-similarity": [
+      "know-042",
+      "know-045"
+    ],
+    "embeddings": [
+      "know-043",
+      "know-057"
+    ],
+    "short-text": [
+      "know-043"
+    ],
+    "field-concatenation": [
+      "know-043"
+    ],
+    "MiniLM": [
+      "know-043"
+    ],
+    "hybrid-search": [
+      "know-044",
+      "know-057"
+    ],
+    "rrf": [
+      "know-044"
+    ],
+    "fusion": [
+      "know-044"
+    ],
+    "vectorstore": [
+      "know-044",
+      "know-045",
+      "know-047",
+      "know-048",
+      "know-057",
+      "know-138",
+      "know-265",
+      "know-286",
+      "know-290",
+      "know-314",
+      "know-391",
+      "know-400"
+    ],
+    "search-algorithm": [
+      "know-044"
+    ],
+    "normalization": [
+      "know-044",
+      "know-045"
+    ],
+    "arch-vectorstore": [
+      "know-044",
+      "know-045",
+      "know-047",
+      "know-048",
+      "know-057",
+      "know-138"
+    ],
+    "fastembed": [
+      "know-045",
+      "know-047",
+      "know-286"
+    ],
+    "dot-product": [
+      "know-045"
+    ],
+    "optimization": [
+      "know-045",
+      "know-219",
+      "know-390"
+    ],
+    "file-structure": [
+      "know-046",
+      "know-137"
+    ],
+    "save-protocol": [
+      "know-046",
+      "know-232",
+      "know-238",
+      "know-281",
+      "know-302",
+      "know-314",
+      "know-329",
+      "know-330",
+      "know-331",
+      "know-332"
+    ],
+    "first-run": [
+      "know-046"
+    ],
+    "edge-case": [
+      "know-046"
+    ],
+    "arch-file-structure": [
+      "know-046",
+      "know-137"
+    ],
+    "model-versioning": [
+      "know-047"
+    ],
+    "embedding": [
+      "know-047"
+    ],
+    "embedding-models": [
+      "know-048"
+    ],
+    "noise-rejection": [
+      "know-048"
+    ],
+    "benchmark": [
+      "know-048",
+      "know-264"
+    ],
+    "model-selection": [
+      "know-048"
+    ],
+    "anthropic": [
+      "know-049",
+      "know-115",
+      "know-128",
+      "know-129",
+      "know-130",
+      "know-131"
+    ],
+    "arch-context": [
+      "know-049",
+      "know-059",
+      "know-072"
+    ],
+    "context-anchoring": [
+      "know-050"
+    ],
+    "martin-fowler": [
+      "know-050"
+    ],
+    "agentic-ai": [
+      "know-051",
+      "know-052",
+      "know-061",
+      "know-062",
+      "know-063",
+      "know-066",
+      "know-067",
+      "know-068",
+      "know-069",
+      "know-070",
+      "know-072",
+      "know-115",
+      "know-116",
+      "know-117",
+      "know-118",
+      "know-122",
+      "know-127",
+      "know-128",
+      "know-129",
+      "know-130",
+      "know-131"
+    ],
+    "prompt-architecture": [
+      "know-051",
+      "know-052"
+    ],
+    "failure-cascade": [
+      "know-051"
+    ],
+    "mcp": [
+      "know-053",
+      "know-077",
+      "know-087",
+      "know-088",
+      "know-089",
+      "know-090",
+      "know-091",
+      "know-092",
+      "know-093",
+      "know-095",
+      "know-135",
+      "know-136",
+      "know-140",
+      "know-416"
+    ],
+    "integration": [
+      "know-053"
+    ],
+    "arch-mcp": [
+      "know-053",
+      "know-087",
+      "know-088",
+      "know-089",
+      "know-090",
+      "know-091",
+      "know-092",
+      "know-093",
+      "know-135",
+      "know-136",
+      "know-140",
+      "know-416"
+    ],
+    "dual-track": [
+      "know-054"
+    ],
+    "governance": [
+      "know-055",
+      "know-117",
+      "know-358"
+    ],
+    "privacy": [
+      "know-055",
+      "know-134",
+      "know-150"
+    ],
+    "trust": [
+      "know-055",
+      "know-177",
+      "know-182",
+      "know-185",
+      "know-186",
+      "know-200",
+      "know-204",
+      "know-206"
+    ],
+    "git": [
+      "know-056",
+      "know-133",
+      "know-139",
+      "know-316",
+      "know-353",
+      "know-402"
+    ],
+    "secrets": [
+      "know-056"
+    ],
+    "pre-commit": [
+      "know-056",
+      "know-395"
+    ],
+    "arch-git": [
+      "know-056",
+      "know-133",
+      "know-139"
+    ],
+    "retrieval": [
+      "know-057",
+      "know-071",
+      "know-121",
+      "know-132",
+      "know-223",
+      "know-234",
+      "know-246"
+    ],
+    "workflow": [
+      "know-058",
+      "know-279",
+      "know-310",
+      "know-311",
+      "know-320",
+      "know-437"
+    ],
+    "steering": [
+      "know-058",
+      "know-354"
+    ],
+    "context-files": [
+      "know-058"
+    ],
+    "agent-behavior": [
+      "know-058"
+    ],
+    "protocol-design": [
+      "know-059"
+    ],
+    "dynamic-loading": [
+      "know-059"
+    ],
+    "safety": [
+      "know-060",
+      "know-070",
+      "know-146"
+    ],
+    "conflict-resolution": [
+      "know-060"
+    ],
+    "orchestration": [
+      "know-061",
+      "know-123"
+    ],
+    "personality": [
+      "know-062",
+      "know-064",
+      "know-308"
+    ],
+    "vector-search": [
+      "know-065"
+    ],
+    "dependencies": [
+      "know-065",
+      "know-083",
+      "know-397"
+    ],
+    "reliability": [
+      "know-066"
+    ],
+    "owasp": [
+      "know-067"
+    ],
+    "vulnerabilities": [
+      "know-067"
+    ],
+    "arch-security": [
+      "know-067",
+      "know-073",
+      "know-084",
+      "know-085",
+      "know-086",
+      "know-116",
+      "know-117",
+      "know-134"
+    ],
+    "multi-agent": [
+      "know-068",
+      "know-095",
+      "know-123"
+    ],
+    "decision-framework": [
+      "know-068"
+    ],
+    "observability": [
+      "know-069",
+      "know-159"
+    ],
+    "monitoring": [
+      "know-069"
+    ],
+    "debugging": [
+      "know-069",
+      "know-153",
+      "know-155",
+      "know-159"
+    ],
+    "human-in-the-loop": [
+      "know-070"
+    ],
+    "RAG": [
+      "know-071"
+    ],
+    "maintenance": [
+      "know-071",
+      "know-221",
+      "know-280",
+      "know-281",
+      "know-285",
+      "know-286",
+      "know-290",
+      "know-293",
+      "know-300",
+      "know-309",
+      "know-319",
+      "know-336"
+    ],
+    "persona": [
+      "know-073"
+    ],
+    "ethics": [
+      "know-073"
+    ],
+    "agentcore": [
+      "know-074",
+      "know-075",
+      "know-076",
+      "know-077",
+      "know-078",
+      "know-079",
+      "know-080",
+      "know-094",
+      "know-098",
+      "know-105",
+      "know-106",
+      "know-110",
+      "know-111",
+      "know-113",
+      "know-114",
+      "know-122",
+      "know-125",
+      "know-392",
+      "know-393"
+    ],
+    "runtime": [
+      "know-074",
+      "know-113",
+      "know-114",
+      "know-380",
+      "know-392"
+    ],
+    "sessions": [
+      "know-074",
+      "know-080",
+      "know-244",
+      "know-323"
+    ],
+    "streaming": [
+      "know-074",
+      "know-101",
+      "know-102",
+      "know-107",
+      "know-110",
+      "know-422"
+    ],
+    "arch-cloud-infra": [
+      "know-074",
+      "know-075",
+      "know-076",
+      "know-077",
+      "know-078",
+      "know-080",
+      "know-094",
+      "know-098",
+      "know-105",
+      "know-106",
+      "know-113",
+      "know-114",
+      "know-122",
+      "know-125"
+    ],
+    "strategies": [
+      "know-075",
+      "know-122"
+    ],
+    "namespaces": [
+      "know-075"
+    ],
+    "oauth": [
+      "know-076",
+      "know-087",
+      "know-089",
+      "know-091",
+      "know-106",
+      "know-111",
+      "know-387",
+      "know-388",
+      "know-389"
+    ],
+    "cognito": [
+      "know-076",
+      "know-099"
+    ],
+    "gateway": [
+      "know-077",
+      "know-105",
+      "know-125"
+    ],
+    "tools": [
+      "know-077",
+      "know-140",
+      "know-363",
+      "know-372"
+    ],
+    "sdk": [
+      "know-078",
+      "know-079",
+      "know-095"
+    ],
+    "imports": [
+      "know-078",
+      "know-386"
+    ],
+    "python": [
+      "know-078",
+      "know-092",
+      "know-257",
+      "know-353",
+      "know-356",
+      "know-360",
+      "know-364",
+      "know-386",
+      "know-388",
+      "know-389",
+      "know-444"
+    ],
+    "strands": [
+      "know-079",
+      "know-095",
+      "know-101",
+      "know-102",
+      "know-104",
+      "know-108",
+      "know-110",
+      "know-111",
+      "know-123",
+      "know-126"
+    ],
+    "arch-agent-frameworks": [
+      "know-079",
+      "know-095",
+      "know-101",
+      "know-102",
+      "know-104",
+      "know-108",
+      "know-110",
+      "know-111",
+      "know-123",
+      "know-126"
+    ],
+    "requirements": [
+      "know-080"
+    ],
+    "kiro": [
+      "know-081",
+      "know-135",
+      "know-148",
+      "know-277",
+      "know-279",
+      "know-354",
+      "know-355",
+      "know-357",
+      "know-358",
+      "know-359",
+      "know-362",
+      "know-363",
+      "know-420"
+    ],
+    "configuration": [
+      "know-081",
+      "know-420"
+    ],
+    "steering-files": [
+      "know-081",
+      "know-082"
+    ],
+    "arch-config": [
+      "know-081",
+      "know-082"
+    ],
+    "sanitization": [
+      "know-082"
+    ],
+    "path-migration": [
+      "know-082"
+    ],
+    "readiness": [
+      "know-083"
+    ],
+    "baseline": [
+      "know-083"
+    ],
+    "url-encoding": [
+      "know-084"
+    ],
+    "denylist": [
+      "know-084",
+      "know-085"
+    ],
+    "bypass": [
+      "know-084",
+      "know-086"
+    ],
+    "defense": [
+      "know-084"
+    ],
+    "regex": [
+      "know-085"
+    ],
+    "ports": [
+      "know-085"
+    ],
+    "ssrf": [
+      "know-085",
+      "know-086"
+    ],
+    "url-filtering": [
+      "know-086"
+    ],
+    "userinfo": [
+      "know-086"
+    ],
+    "google": [
+      "know-087",
+      "know-388"
+    ],
+    "device-code": [
+      "know-087"
+    ],
+    "authentication": [
+      "know-087",
+      "know-106",
+      "know-148",
+      "know-387"
+    ],
+    "cross-sense": [
+      "know-088"
+    ],
+    "protocol": [
+      "know-089",
+      "know-098",
+      "know-107",
+      "know-160",
+      "know-237",
+      "know-301",
+      "know-302",
+      "know-303",
+      "know-304",
+      "know-305",
+      "know-306"
+    ],
+    "email": [
+      "know-090",
+      "know-091",
+      "know-092",
+      "know-165"
+    ],
+    "naming": [
+      "know-090"
+    ],
+    "framing": [
+      "know-090"
+    ],
+    "custom-scripts": [
+      "know-090"
+    ],
+    "outlook": [
+      "know-091",
+      "know-387"
+    ],
+    "device-auth": [
+      "know-091"
+    ],
+    "url-correction": [
+      "know-091"
+    ],
+    "environment": [
+      "know-092"
+    ],
+    "home-dir": [
+      "know-092"
+    ],
+    "path-resolution": [
+      "know-092"
+    ],
+    "fetch": [
+      "know-093"
+    ],
+    "crash": [
+      "know-093"
+    ],
+    "workaround": [
+      "know-093"
+    ],
+    "kb-search": [
+      "know-093"
+    ],
+    "resilience": [
+      "know-093"
+    ],
+    "pricing": [
+      "know-094",
+      "know-099",
+      "know-357",
+      "know-359"
+    ],
+    "serverless": [
+      "know-094",
+      "know-097"
+    ],
+    "cloud-deployment": [
+      "know-094",
+      "know-096",
+      "know-097",
+      "know-098",
+      "know-099",
+      "know-100",
+      "know-103",
+      "know-104",
+      "know-105",
+      "know-106",
+      "know-107",
+      "know-109",
+      "know-112",
+      "know-119",
+      "know-123",
+      "know-124",
+      "know-125",
+      "know-297",
+      "know-392",
+      "know-393"
+    ],
+    "infrastructure": [
+      "know-094",
+      "know-103"
+    ],
+    "model-providers": [
+      "know-095"
+    ],
+    "voice": [
+      "know-095",
+      "know-418",
+      "know-419"
+    ],
+    "bidi": [
+      "know-095"
+    ],
+    "kb-size": [
+      "know-096"
+    ],
+    "dynamodb": [
+      "know-096",
+      "know-375",
+      "know-390"
+    ],
+    "capacity-planning": [
+      "know-096"
+    ],
+    "s3-vectors": [
+      "know-097",
+      "know-103"
+    ],
+    "vector-storage": [
+      "know-097"
+    ],
+    "bedrock-kb": [
+      "know-097"
+    ],
+    "ag-ui": [
+      "know-098",
+      "know-107",
+      "know-114",
+      "know-119"
+    ],
+    "a2a": [
+      "know-098"
+    ],
+    "websocket": [
+      "know-098",
+      "know-107",
+      "know-113",
+      "know-114",
+      "know-119"
+    ],
+    "auth": [
+      "know-099"
+    ],
+    "devops-agent": [
+      "know-100"
+    ],
+    "aws": [
+      "know-100",
+      "know-116",
+      "know-117",
+      "know-373"
+    ],
+    "incident-response": [
+      "know-100"
+    ],
+    "ga-date": [
+      "know-100"
+    ],
+    "hooks": [
+      "know-101",
+      "know-420",
+      "know-421"
+    ],
+    "aid": [
+      "know-101",
+      "know-102"
+    ],
+    "api": [
+      "know-103",
+      "know-113"
+    ],
+    "conversation-manager": [
+      "know-104"
+    ],
+    "cedar": [
+      "know-105",
+      "know-125"
+    ],
+    "policy": [
+      "know-105",
+      "know-125"
+    ],
+    "frontend": [
+      "know-107",
+      "know-114",
+      "know-119"
+    ],
+    "tool-execution": [
+      "know-108"
+    ],
+    "concurrent": [
+      "know-108",
+      "know-393"
+    ],
+    "sequential": [
+      "know-108",
+      "know-407"
+    ],
+    "well-architected": [
+      "know-109"
+    ],
+    "multi-tenant": [
+      "know-109"
+    ],
+    "callback_handler": [
+      "know-110"
+    ],
+    "stream_async": [
+      "know-110"
+    ],
+    "decorator": [
+      "know-111"
+    ],
+    "bedrock": [
+      "know-112"
+    ],
+    "knowledge-base": [
+      "know-112"
+    ],
+    "ingestion": [
+      "know-112"
+    ],
+    "s3": [
+      "know-112"
+    ],
+    "semantic-search": [
+      "know-112"
+    ],
+    "entrypoint": [
+      "know-113"
+    ],
+    "ping": [
+      "know-113"
+    ],
+    "presigned-url": [
+      "know-114"
+    ],
+    "best-practice": [
+      "know-115",
+      "know-381"
+    ],
+    "workflow-patterns": [
+      "know-115",
+      "know-128"
+    ],
+    "simplicity": [
+      "know-115",
+      "know-129",
+      "know-215"
+    ],
+    "deterministic-first": [
+      "know-116"
+    ],
+    "session-isolation": [
+      "know-116"
+    ],
+    "shared-memory": [
+      "know-116"
+    ],
+    "financial-services": [
+      "know-117"
+    ],
+    "galileo": [
+      "know-118"
+    ],
+    "error-propagation": [
+      "know-118"
+    ],
+    "memory-corruption": [
+      "know-118"
+    ],
+    "custom-events": [
+      "know-119"
+    ],
+    "CIS": [
+      "know-120"
+    ],
+    "novel-pattern": [
+      "know-120"
+    ],
+    "intelligence-system": [
+      "know-120",
+      "know-222",
+      "know-224",
+      "know-225",
+      "know-226",
+      "know-227",
+      "know-228",
+      "know-229",
+      "know-230",
+      "know-233",
+      "know-235",
+      "know-236",
+      "know-238",
+      "know-432",
+      "know-446"
+    ],
+    "epistemological": [
+      "know-120"
+    ],
+    "graph-rag": [
+      "know-121"
+    ],
+    "knowledge-graph": [
+      "know-121"
+    ],
+    "microsoft-research": [
+      "know-121"
+    ],
+    "rag-comparison": [
+      "know-121"
+    ],
+    "agents-as-tools": [
+      "know-123"
+    ],
+    "builder-agent": [
+      "know-124",
+      "know-415"
+    ],
+    "task-orchestration": [
+      "know-124",
+      "know-126",
+      "know-393"
+    ],
+    "dependency": [
+      "know-124",
+      "know-232",
+      "know-394",
+      "know-418"
+    ],
+    "agent": [
+      "know-126",
+      "know-145"
+    ],
+    "limitation": [
+      "know-126"
+    ],
+    "agent-sprawl": [
+      "know-127"
+    ],
+    "finops": [
+      "know-127"
+    ],
+    "stack-literacy": [
+      "know-127"
+    ],
+    "strategic": [
+      "know-127",
+      "know-423",
+      "know-424"
+    ],
+    "tool-design": [
+      "know-130"
+    ],
+    "aci": [
+      "know-130"
+    ],
+    "verification": [
+      "know-131",
+      "know-225",
+      "know-313"
+    ],
+    "ground-truth": [
+      "know-131"
+    ],
+    "knowledge-management": [
+      "know-132",
+      "know-250"
+    ],
+    "persistent-ai": [
+      "know-132",
+      "know-250"
+    ],
+    "faq": [
+      "know-133",
+      "know-134",
+      "know-149",
+      "know-150",
+      "know-151",
+      "know-259",
+      "know-260",
+      "know-261",
+      "know-262",
+      "know-263",
+      "know-307",
+      "know-308",
+      "know-309",
+      "know-310",
+      "know-311",
+      "know-396",
+      "know-403",
+      "know-425",
+      "know-446",
+      "know-447"
+    ],
+    "backup": [
+      "know-133"
+    ],
+    "windows": [
+      "know-135",
+      "know-266",
+      "know-269",
+      "know-270",
+      "know-314",
+      "know-333",
+      "know-352",
+      "know-353",
+      "know-356",
+      "know-360",
+      "know-364",
+      "know-444"
+    ],
+    "wsl": [
+      "know-135",
+      "know-265",
+      "know-270",
+      "know-314",
+      "know-333",
+      "know-352",
+      "know-365",
+      "know-367",
+      "know-409"
+    ],
+    "troubleshooting": [
+      "know-136",
+      "know-315",
+      "know-316",
+      "know-330",
+      "know-396",
+      "know-400",
+      "know-401",
+      "know-402"
+    ],
+    "search": [
+      "know-138"
+    ],
+    "filters": [
+      "know-139"
+    ],
+    "dual-instance": [
+      "know-141",
+      "know-427"
+    ],
+    "ide": [
+      "know-141",
+      "know-311",
+      "know-314",
+      "know-420"
+    ],
+    "cli": [
+      "know-141",
+      "know-270",
+      "know-311"
+    ],
+    "arch-dual-instance": [
+      "know-141"
+    ],
+    "decision-routing": [
+      "know-142"
+    ],
+    "arch-decision-routing": [
+      "know-142"
+    ],
+    "protocols": [
+      "know-143"
+    ],
+    "csr": [
+      "know-144",
+      "know-219",
+      "know-220",
+      "know-223",
+      "know-234",
+      "know-246",
+      "know-448"
+    ],
+    "indexes": [
+      "know-144"
+    ],
+    "arch-retrieval": [
+      "know-144"
+    ],
+    "analyst": [
+      "know-145"
+    ],
+    "research": [
+      "know-145",
+      "know-282"
+    ],
+    "precedence": [
+      "know-146"
+    ],
+    "capabilities": [
+      "know-147",
+      "know-152",
+      "know-425",
+      "know-426",
+      "know-427",
+      "know-428",
+      "know-429"
+    ],
+    "platform": [
+      "know-147",
+      "know-259",
+      "know-314",
+      "know-333",
+      "know-366",
+      "know-367",
+      "know-368",
+      "know-369",
+      "know-429",
+      "know-443"
+    ],
+    "inheritance": [
+      "know-147",
+      "know-429"
+    ],
+    "govcloud": [
+      "know-148"
+    ],
+    "inference": [
+      "know-148"
+    ],
+    "limitations": [
+      "know-148",
+      "know-425",
+      "know-426",
+      "know-427",
+      "know-428"
+    ],
+    "section-3": [
+      "know-148",
+      "know-149",
+      "know-150",
+      "know-151",
+      "know-152",
+      "know-425",
+      "know-426",
+      "know-427",
+      "know-428",
+      "know-429"
+    ],
+    "overview": [
+      "know-149"
+    ],
+    "single-user": [
+      "know-150"
+    ],
+    "model": [
+      "know-151"
+    ],
+    "onboarding": [
+      "know-151",
+      "know-152",
+      "know-251",
+      "know-252",
+      "know-254",
+      "know-258",
+      "know-259",
+      "know-260",
+      "know-262",
+      "know-263",
+      "know-264",
+      "know-266",
+      "know-267",
+      "know-271",
+      "know-272",
+      "know-273",
+      "know-274"
+    ],
+    "engineering-wisdom": [
+      "know-153",
+      "know-154",
+      "know-155",
+      "know-156",
+      "know-157",
+      "know-158",
+      "know-159",
+      "know-300"
+    ],
+    "section-4": [
+      "know-153",
+      "know-154",
+      "know-155",
+      "know-156",
+      "know-157",
+      "know-158",
+      "know-159",
+      "know-160",
+      "know-161",
+      "know-162",
+      "know-163",
+      "know-164",
+      "know-165",
+      "know-166",
+      "know-167",
+      "know-168",
+      "know-169",
+      "know-170",
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-175",
+      "know-176",
+      "know-177",
+      "know-178",
+      "know-179",
+      "know-180",
+      "know-181",
+      "know-182",
+      "know-183",
+      "know-184",
+      "know-185",
+      "know-186",
+      "know-187",
+      "know-188",
+      "know-189",
+      "know-190",
+      "know-191",
+      "know-192",
+      "know-193",
+      "know-194",
+      "know-195",
+      "know-196",
+      "know-197",
+      "know-198",
+      "know-199",
+      "know-200",
+      "know-201",
+      "know-202",
+      "know-203",
+      "know-204",
+      "know-205",
+      "know-206",
+      "know-207",
+      "know-208",
+      "know-209",
+      "know-210",
+      "know-211",
+      "know-212",
+      "know-213",
+      "know-214",
+      "know-215",
+      "know-216",
+      "know-217",
+      "know-218"
+    ],
+    "abstraction": [
+      "know-154"
+    ],
+    "scope-discipline": [
+      "know-155"
+    ],
+    "design": [
+      "know-157",
+      "know-375"
+    ],
+    "clarity": [
+      "know-157"
+    ],
+    "process": [
+      "know-158",
+      "know-289",
+      "know-337",
+      "know-338",
+      "know-407"
+    ],
+    "prioritization": [
+      "know-158",
+      "know-167",
+      "know-192",
+      "know-211",
+      "know-213",
+      "know-343",
+      "know-345"
+    ],
+    "route-f": [
+      "know-160",
+      "know-284",
+      "know-285",
+      "know-294",
+      "know-295",
+      "know-296",
+      "know-298",
+      "know-299",
+      "know-407"
+    ],
+    "decision-making": [
+      "know-160",
+      "know-167",
+      "know-168",
+      "know-207",
+      "know-208",
+      "know-209",
+      "know-210",
+      "know-212",
+      "know-217"
+    ],
+    "ecosystem": [
+      "know-160",
+      "know-233",
+      "know-236",
+      "know-237",
+      "know-238",
+      "know-258",
+      "know-301",
+      "know-302",
+      "know-303",
+      "know-304",
+      "know-305",
+      "know-306"
+    ],
+    "accountability": [
+      "know-161",
+      "know-162",
+      "know-163",
+      "know-164",
+      "know-201"
+    ],
+    "practical": [
+      "know-161",
+      "know-162",
+      "know-163",
+      "know-164",
+      "know-165",
+      "know-166",
+      "know-167",
+      "know-168",
+      "know-169",
+      "know-170",
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-175",
+      "know-176",
+      "know-177",
+      "know-178",
+      "know-179",
+      "know-180",
+      "know-181",
+      "know-182",
+      "know-183",
+      "know-184",
+      "know-185",
+      "know-186",
+      "know-187",
+      "know-188",
+      "know-189",
+      "know-190",
+      "know-191",
+      "know-192",
+      "know-193",
+      "know-194",
+      "know-195",
+      "know-196",
+      "know-197",
+      "know-198",
+      "know-199",
+      "know-200",
+      "know-201",
+      "know-202",
+      "know-203",
+      "know-204",
+      "know-205",
+      "know-206",
+      "know-339",
+      "know-340",
+      "know-341",
+      "know-342",
+      "know-343",
+      "know-344",
+      "know-345"
+    ],
+    "communication": [
+      "know-161",
+      "know-162",
+      "know-165",
+      "know-166",
+      "know-175",
+      "know-176",
+      "know-178",
+      "know-180",
+      "know-181",
+      "know-182",
+      "know-185",
+      "know-190",
+      "know-191",
+      "know-192",
+      "know-193",
+      "know-194",
+      "know-195",
+      "know-197",
+      "know-198",
+      "know-205",
+      "know-216"
+    ],
+    "coaching": [
+      "know-162",
+      "know-179",
+      "know-180",
+      "know-181",
+      "know-187",
+      "know-188",
+      "know-189",
+      "know-192",
+      "know-193",
+      "know-195",
+      "know-199",
+      "know-200",
+      "know-201",
+      "know-345"
+    ],
+    "commitments": [
+      "know-163",
+      "know-164",
+      "know-351"
+    ],
+    "planning": [
+      "know-163",
+      "know-170",
+      "know-190",
+      "know-203",
+      "know-214",
+      "know-287",
+      "know-340",
+      "know-341",
+      "know-343",
+      "know-344",
+      "know-436"
+    ],
+    "proactive": [
+      "know-164",
+      "know-350"
+    ],
+    "writing": [
+      "know-165",
+      "know-278",
+      "know-312"
+    ],
+    "professional": [
+      "know-165",
+      "know-190",
+      "know-191"
+    ],
+    "emotional-intelligence": [
+      "know-166",
+      "know-175",
+      "know-176",
+      "know-195",
+      "know-199"
+    ],
+    "listening": [
+      "know-166",
+      "know-180",
+      "know-194"
+    ],
+    "cognitive-load": [
+      "know-168",
+      "know-342"
+    ],
+    "energy": [
+      "know-168",
+      "know-200",
+      "know-202",
+      "know-344"
+    ],
+    "goals": [
+      "know-169",
+      "know-173"
+    ],
+    "motivation": [
+      "know-169",
+      "know-172",
+      "know-183"
+    ],
+    "progress": [
+      "know-169"
+    ],
+    "weekly-review": [
+      "know-170",
+      "know-436"
+    ],
+    "habits": [
+      "know-170",
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-189",
+      "know-196",
+      "know-203",
+      "know-436"
+    ],
+    "behavioral-science": [
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-188",
+      "know-189"
+    ],
+    "atomic-habits": [
+      "know-171"
+    ],
+    "systems": [
+      "know-173"
+    ],
+    "friction": [
+      "know-174"
+    ],
+    "environment-design": [
+      "know-174"
+    ],
+    "empathy": [
+      "know-175",
+      "know-176",
+      "know-178"
+    ],
+    "tone-matching": [
+      "know-176"
+    ],
+    "vulnerability": [
+      "know-177",
+      "know-204"
+    ],
+    "connection": [
+      "know-177",
+      "know-178"
+    ],
+    "brene-brown": [
+      "know-177",
+      "know-178"
+    ],
+    "motivational-interviewing": [
+      "know-179",
+      "know-180",
+      "know-181"
+    ],
+    "behavior-change": [
+      "know-179"
+    ],
+    "autonomy": [
+      "know-181"
+    ],
+    "humor": [
+      "know-182",
+      "know-197",
+      "know-198"
+    ],
+    "experience": [
+      "know-182",
+      "know-183",
+      "know-184",
+      "know-197"
+    ],
+    "celebration": [
+      "know-183"
+    ],
+    "positive-reinforcement": [
+      "know-183"
+    ],
+    "peak-end-rule": [
+      "know-184"
+    ],
+    "psychology": [
+      "know-184"
+    ],
+    "session-design": [
+      "know-184"
+    ],
+    "psychological-safety": [
+      "know-185",
+      "know-205",
+      "know-206"
+    ],
+    "consistency": [
+      "know-186",
+      "know-224"
+    ],
+    "relationship": [
+      "know-186"
+    ],
+    "stress": [
+      "know-187",
+      "know-199",
+      "know-200"
+    ],
+    "overwhelm": [
+      "know-187"
+    ],
+    "triage": [
+      "know-187"
+    ],
+    "procrastination": [
+      "know-188",
+      "know-189"
+    ],
+    "emotion-regulation": [
+      "know-188"
+    ],
+    "meetings": [
+      "know-190",
+      "know-191"
+    ],
+    "follow-up": [
+      "know-191"
+    ],
+    "feedback": [
+      "know-193",
+      "know-194"
+    ],
+    "radical-candor": [
+      "know-193"
+    ],
+    "self-improvement": [
+      "know-194"
+    ],
+    "difficult-conversations": [
+      "know-195"
+    ],
+    "reflection": [
+      "know-196",
+      "know-203"
+    ],
+    "learning": [
+      "know-196",
+      "know-317",
+      "know-318"
+    ],
+    "growth": [
+      "know-196",
+      "know-203",
+      "know-394"
+    ],
+    "rapport": [
+      "know-197"
+    ],
+    "authenticity": [
+      "know-198"
+    ],
+    "burnout": [
+      "know-199"
+    ],
+    "patterns": [
+      "know-201",
+      "know-220",
+      "know-221",
+      "know-240"
+    ],
+    "sustainability": [
+      "know-202"
+    ],
+    "work-life": [
+      "know-202"
+    ],
+    "honesty": [
+      "know-204"
+    ],
+    "confidence-calibration": [
+      "know-204"
+    ],
+    "flexibility": [
+      "know-206"
+    ],
+    "mental-model": [
+      "know-207",
+      "know-208",
+      "know-209",
+      "know-210",
+      "know-211",
+      "know-212",
+      "know-213",
+      "know-214",
+      "know-215",
+      "know-216",
+      "know-217",
+      "know-218"
+    ],
+    "problem-solving": [
+      "know-207",
+      "know-215",
+      "know-303"
+    ],
+    "risk": [
+      "know-208"
+    ],
+    "strategy": [
+      "know-209",
+      "know-218"
+    ],
+    "self-awareness": [
+      "know-210"
+    ],
+    "productivity": [
+      "know-211",
+      "know-213",
+      "know-218",
+      "know-253",
+      "know-339",
+      "know-340",
+      "know-341",
+      "know-342",
+      "know-343",
+      "know-344",
+      "know-345",
+      "know-346",
+      "know-347",
+      "know-348",
+      "know-349",
+      "know-350",
+      "know-351"
+    ],
+    "speed": [
+      "know-212"
+    ],
+    "adaptability": [
+      "know-214",
+      "know-217"
+    ],
+    "perspective": [
+      "know-216"
+    ],
+    "tokens": [
+      "know-219"
+    ],
+    "section-5": [
+      "know-219",
+      "know-220",
+      "know-221",
+      "know-222",
+      "know-223",
+      "know-224",
+      "know-225",
+      "know-226",
+      "know-227",
+      "know-228",
+      "know-229",
+      "know-230",
+      "know-231",
+      "know-232",
+      "know-233",
+      "know-234",
+      "know-235",
+      "know-236",
+      "know-237",
+      "know-238",
+      "know-239",
+      "know-240",
+      "know-241",
+      "know-242",
+      "know-243",
+      "know-244",
+      "know-245",
+      "know-246",
+      "know-247",
+      "know-248",
+      "know-249",
+      "know-446"
+    ],
+    "documentation": [
+      "know-220",
+      "know-287"
+    ],
+    "integrity": [
+      "know-221",
+      "know-319"
+    ],
+    "duplicates": [
+      "know-221"
+    ],
+    "schema": [
+      "know-222",
+      "know-224"
+    ],
+    "patterns-json": [
+      "know-222"
+    ],
+    "knowledge-json": [
+      "know-222"
+    ],
+    "reasoning-json": [
+      "know-222"
+    ],
+    "polymorphism": [
+      "know-222"
+    ],
+    "data-structure": [
+      "know-222",
+      "know-227"
+    ],
+    "drift": [
+      "know-224",
+      "know-398"
+    ],
+    "index-rebuild": [
+      "know-225"
+    ],
+    "stale-data": [
+      "know-225"
+    ],
+    "cross-references": [
+      "know-226",
+      "know-227",
+      "know-245"
+    ],
+    "data-integrity": [
+      "know-226",
+      "know-228",
+      "know-230",
+      "know-290",
+      "know-304",
+      "know-329",
+      "know-331"
+    ],
+    "subset": [
+      "know-226"
+    ],
+    "migration": [
+      "know-228",
+      "know-404",
+      "know-438"
+    ],
+    "dedup": [
+      "know-228"
+    ],
+    "root-cause": [
+      "know-228"
+    ],
+    "tags": [
+      "know-229",
+      "know-449"
+    ],
+    "routing": [
+      "know-229"
+    ],
+    "access-tracking": [
+      "know-230"
+    ],
+    "metrics": [
+      "know-230"
+    ],
+    "implementation-scope": [
+      "know-231"
+    ],
+    "legacy-debt": [
+      "know-231"
+    ],
+    "capture-taxonomy": [
+      "know-231",
+      "know-238"
+    ],
+    "nate-protocol": [
+      "know-231"
+    ],
+    "kernel": [
+      "know-232",
+      "know-285",
+      "know-291",
+      "know-293"
+    ],
+    "learning-loop": [
+      "know-232"
+    ],
+    "inline-copy": [
+      "know-232"
+    ],
+    "confidence": [
+      "know-235"
+    ],
+    "bootstrapping": [
+      "know-236",
+      "know-250",
+      "know-258"
+    ],
+    "modularity": [
+      "know-237"
+    ],
+    "kb": [
+      "know-239",
+      "know-243"
+    ],
+    "stores": [
+      "know-239",
+      "know-446"
+    ],
+    "knowledge": [
+      "know-241"
+    ],
+    "seed-data": [
+      "know-247",
+      "know-274"
+    ],
+    "intelligence-ops": [
+      "know-248"
+    ],
+    "guide": [
+      "know-248"
+    ],
+    "save": [
+      "know-249",
+      "know-277",
+      "know-310",
+      "know-315",
+      "know-316",
+      "know-317",
+      "know-320",
+      "know-427",
+      "know-431"
+    ],
+    "critical": [
+      "know-249"
+    ],
+    "cold-start": [
+      "know-250",
+      "know-252",
+      "know-374"
+    ],
+    "section-6": [
+      "know-250",
+      "know-251",
+      "know-252",
+      "know-253",
+      "know-254",
+      "know-255",
+      "know-256",
+      "know-430",
+      "know-431",
+      "know-432",
+      "know-433"
+    ],
+    "first-week": [
+      "know-251"
+    ],
+    "guidance": [
+      "know-251"
+    ],
+    "progression": [
+      "know-251",
+      "know-254",
+      "know-256",
+      "know-430"
+    ],
+    "expectations": [
+      "know-252"
+    ],
+    "institutional-memory": [
+      "know-255",
+      "know-433"
+    ],
+    "value": [
+      "know-255",
+      "know-256",
+      "know-262",
+      "know-433"
+    ],
+    "pep-668": [
+      "know-257"
+    ],
+    "venv": [
+      "know-257",
+      "know-265",
+      "know-365",
+      "know-391",
+      "know-409"
+    ],
+    "ubuntu": [
+      "know-257"
+    ],
+    "setup": [
+      "know-257",
+      "know-261",
+      "know-265",
+      "know-266",
+      "know-267",
+      "know-268",
+      "know-269",
+      "know-270",
+      "know-272"
+    ],
+    "section-7": [
+      "know-257",
+      "know-258",
+      "know-259",
+      "know-260",
+      "know-261",
+      "know-262",
+      "know-263",
+      "know-264",
+      "know-265",
+      "know-266",
+      "know-267",
+      "know-268",
+      "know-269",
+      "know-270",
+      "know-271",
+      "know-272",
+      "know-273",
+      "know-274"
+    ],
+    "compatibility": [
+      "know-259"
+    ],
+    "non-technical": [
+      "know-260"
+    ],
+    "disk-space": [
+      "know-261",
+      "know-439"
+    ],
+    "pocket-hq": [
+      "know-263",
+      "know-370",
+      "know-371",
+      "know-434",
+      "know-435",
+      "know-436",
+      "know-437"
+    ],
+    "expected-behavior": [
+      "know-264"
+    ],
+    "uv": [
+      "know-265",
+      "know-399"
+    ],
+    "replication": [
+      "know-265"
+    ],
+    "macos": [
+      "know-267"
+    ],
+    "linux": [
+      "know-267"
+    ],
+    "setup-sh": [
+      "know-268"
+    ],
+    "internals": [
+      "know-268"
+    ],
+    "bootstrap": [
+      "know-269"
+    ],
+    "first-session": [
+      "know-271",
+      "know-273"
+    ],
+    "download": [
+      "know-272"
+    ],
+    "greeting": [
+      "know-273",
+      "know-274"
+    ],
+    "clean-slate": [
+      "know-274"
+    ],
+    "session-index": [
+      "know-274"
+    ],
+    "files": [
+      "know-275",
+      "know-276"
+    ],
+    "chunking": [
+      "know-275"
+    ],
+    "context": [
+      "know-275",
+      "know-277",
+      "know-299",
+      "know-346",
+      "know-348",
+      "know-349",
+      "know-426"
+    ],
+    "section-8": [
+      "know-275",
+      "know-276",
+      "know-277",
+      "know-278",
+      "know-279",
+      "know-280",
+      "know-281",
+      "know-282",
+      "know-283",
+      "know-284",
+      "know-285",
+      "know-286",
+      "know-287",
+      "know-288",
+      "know-289",
+      "know-290",
+      "know-291",
+      "know-292",
+      "know-293",
+      "know-294",
+      "know-295",
+      "know-296",
+      "know-297",
+      "know-298",
+      "know-299",
+      "know-300",
+      "know-301",
+      "know-302",
+      "know-303",
+      "know-304",
+      "know-305",
+      "know-306",
+      "know-307",
+      "know-308",
+      "know-309",
+      "know-310",
+      "know-311",
+      "know-312",
+      "know-313",
+      "know-314",
+      "know-315",
+      "know-316",
+      "know-317",
+      "know-318",
+      "know-319",
+      "know-320",
+      "know-321",
+      "know-322",
+      "know-323",
+      "know-324",
+      "know-325",
+      "know-326",
+      "know-327",
+      "know-328",
+      "know-329",
+      "know-330",
+      "know-331",
+      "know-332",
+      "know-333",
+      "know-334",
+      "know-335",
+      "know-336",
+      "know-337",
+      "know-338",
+      "know-406",
+      "know-407"
+    ],
+    "shell": [
+      "know-276"
+    ],
+    "formatting": [
+      "know-278"
+    ],
+    "subagents": [
+      "know-279"
+    ],
+    "parallelism": [
+      "know-279"
+    ],
+    "async": [
+      "know-279",
+      "know-362",
+      "know-392",
+      "know-393"
+    ],
+    "memory-protocol": [
+      "know-280"
+    ],
+    "size-limit": [
+      "know-280"
+    ],
+    "recalibration": [
+      "know-280"
+    ],
+    "pruning": [
+      "know-281"
+    ],
+    "silent-failure": [
+      "know-281"
+    ],
+    "kernel-enhancement": [
+      "know-282"
+    ],
+    "roi": [
+      "know-282"
+    ],
+    "utgp": [
+      "know-282"
+    ],
+    "truth-grounding": [
+      "know-282"
+    ],
+    "file-resolution": [
+      "know-283"
+    ],
+    "domain-roots": [
+      "know-283"
+    ],
+    "path-mapping": [
+      "know-283"
+    ],
+    "search-gate": [
+      "know-283"
+    ],
+    "specs": [
+      "know-284"
+    ],
+    "quality-gate": [
+      "know-284"
+    ],
+    "standards": [
+      "know-284"
+    ],
+    "stale-references": [
+      "know-285"
+    ],
+    "correctness": [
+      "know-285"
+    ],
+    "cache": [
+      "know-286"
+    ],
+    "disk": [
+      "know-286",
+      "know-322"
+    ],
+    "estimation": [
+      "know-287"
+    ],
+    "source-of-truth": [
+      "know-288"
+    ],
+    "organization": [
+      "know-288",
+      "know-339"
+    ],
+    "content": [
+      "know-288"
+    ],
+    "image-generation": [
+      "know-289"
+    ],
+    "visual-design": [
+      "know-289"
+    ],
+    "health-check": [
+      "know-290",
+      "know-309",
+      "know-336"
+    ],
+    "gates": [
+      "know-291",
+      "know-301",
+      "know-337"
+    ],
+    "correction-cascade": [
+      "know-291",
+      "know-304"
+    ],
+    "nathaniel-protocol": [
+      "know-291",
+      "know-412"
+    ],
+    "patent": [
+      "know-292",
+      "know-405"
+    ],
+    "ai": [
+      "know-292"
+    ],
+    "legal": [
+      "know-292",
+      "know-405"
+    ],
+    "alice-test": [
+      "know-292"
+    ],
+    "propagation": [
+      "know-293"
+    ],
+    "divergence": [
+      "know-293"
+    ],
+    "spec-validation": [
+      "know-294",
+      "know-295",
+      "know-296",
+      "know-297",
+      "know-298"
+    ],
+    "columbo": [
+      "know-295"
+    ],
+    "diminishing-returns": [
+      "know-296"
+    ],
+    "runtime-testing": [
+      "know-297"
+    ],
+    "multi-doc": [
+      "know-298"
+    ],
+    "cross-doc-consistency": [
+      "know-298"
+    ],
+    "compaction": [
+      "know-299"
+    ],
+    "fresh-context": [
+      "know-299"
+    ],
+    "adversarial": [
+      "know-299"
+    ],
+    "code-quality": [
+      "know-300"
+    ],
+    "pre-task": [
+      "know-301"
+    ],
+    "cognitive": [
+      "know-303"
+    ],
+    "cic": [
+      "know-305",
+      "know-326"
+    ],
+    "cognitive-integrity": [
+      "know-305"
+    ],
+    "deep-work": [
+      "know-306",
+      "know-313",
+      "know-324",
+      "know-406",
+      "know-407"
+    ],
+    "persistence": [
+      "know-307",
+      "know-423"
+    ],
+    "customization": [
+      "know-308",
+      "know-321"
+    ],
+    "editing": [
+      "know-312"
+    ],
+    "conciseness": [
+      "know-312"
+    ],
+    "pass-2": [
+      "know-313"
+    ],
+    "recovery": [
+      "know-316",
+      "know-396",
+      "know-402",
+      "know-440"
+    ],
+    "taxonomy": [
+      "know-318"
+    ],
+    "personalization": [
+      "know-321",
+      "know-327",
+      "know-328"
+    ],
+    "system-maintenance": [
+      "know-322"
+    ],
+    "correction": [
+      "know-325",
+      "know-334"
+    ],
+    "cascade": [
+      "know-325"
+    ],
+    "self-monitoring": [
+      "know-326"
+    ],
+    "domain-expertise": [
+      "know-327"
+    ],
+    "anti-preferences": [
+      "know-328"
+    ],
+    "index-maintenance": [
+      "know-329"
+    ],
+    "inline-capture": [
+      "know-329"
+    ],
+    "git-hygiene": [
+      "know-330"
+    ],
+    "cleanup": [
+      "know-330"
+    ],
+    "tooling": [
+      "know-331",
+      "know-332",
+      "know-448"
+    ],
+    "automation": [
+      "know-331",
+      "know-382",
+      "know-419",
+      "know-421"
+    ],
+    "cli-usage": [
+      "know-332",
+      "know-334",
+      "know-335",
+      "know-336"
+    ],
+    "scripts": [
+      "know-333",
+      "know-334",
+      "know-335",
+      "know-336",
+      "know-337",
+      "know-338",
+      "know-448"
+    ],
+    "fcntl": [
+      "know-333"
+    ],
+    "cascade-correction": [
+      "know-334"
+    ],
+    "removal-cascade": [
+      "know-335"
+    ],
+    "deletion": [
+      "know-335"
+    ],
+    "deployment": [
+      "know-337"
+    ],
+    "ops-file": [
+      "know-338"
+    ],
+    "concurrency": [
+      "know-338"
+    ],
+    "save-session": [
+      "know-338"
+    ],
+    "section-9": [
+      "know-339",
+      "know-340",
+      "know-341",
+      "know-342",
+      "know-343",
+      "know-344",
+      "know-345",
+      "know-346",
+      "know-347",
+      "know-348",
+      "know-349",
+      "know-350",
+      "know-351"
+    ],
+    "focus": [
+      "know-340"
+    ],
+    "review": [
+      "know-341"
+    ],
+    "workarounds": [
+      "know-347"
+    ],
+    "compact": [
+      "know-348"
+    ],
+    "tracking": [
+      "know-351",
+      "know-435"
+    ],
+    "file-locks": [
+      "know-352"
+    ],
+    "section-10": [
+      "know-352",
+      "know-353",
+      "know-354",
+      "know-355",
+      "know-356",
+      "know-357",
+      "know-358",
+      "know-359",
+      "know-360",
+      "know-361",
+      "know-362",
+      "know-363",
+      "know-364",
+      "know-365",
+      "know-366",
+      "know-367",
+      "know-368",
+      "know-369",
+      "know-418",
+      "know-419",
+      "know-420",
+      "know-421",
+      "know-422"
+    ],
+    "sanitize-memory": [
+      "know-353"
+    ],
+    "filter": [
+      "know-353",
+      "know-390"
+    ],
+    "custom-agents": [
+      "know-354"
+    ],
+    "resources": [
+      "know-354"
+    ],
+    "built-in-tools": [
+      "know-355"
+    ],
+    "web-tools": [
+      "know-355"
+    ],
+    "subagent": [
+      "know-355"
+    ],
+    "atomic-write": [
+      "know-356"
+    ],
+    "os-replace": [
+      "know-356"
+    ],
+    "cross-platform": [
+      "know-356",
+      "know-364"
+    ],
+    "file-operations": [
+      "know-356"
+    ],
+    "autonomous-agent": [
+      "know-357"
+    ],
+    "preview": [
+      "know-357"
+    ],
+    "enterprise": [
+      "know-357",
+      "know-358",
+      "know-359",
+      "know-416"
+    ],
+    "admin": [
+      "know-358"
+    ],
+    "telemetry": [
+      "know-358"
+    ],
+    "sso": [
+      "know-358"
+    ],
+    "credit-pooling": [
+      "know-359"
+    ],
+    "billing": [
+      "know-359"
+    ],
+    "encoding": [
+      "know-360",
+      "know-444"
+    ],
+    "data-loss": [
+      "know-360"
+    ],
+    "cp1252": [
+      "know-360"
+    ],
+    "utf-8": [
+      "know-360"
+    ],
+    "kiro-cli": [
+      "know-361",
+      "know-367",
+      "know-418",
+      "know-419"
+    ],
+    "tangent-mode": [
+      "know-361"
+    ],
+    "context-management": [
+      "know-361"
+    ],
+    "experimental": [
+      "know-361"
+    ],
+    "delegate": [
+      "know-362"
+    ],
+    "background-agent": [
+      "know-362"
+    ],
+    "tool-quirk": [
+      "know-362"
+    ],
+    "agent-config": [
+      "know-363"
+    ],
+    "permissions": [
+      "know-363"
+    ],
+    "allowedTools": [
+      "know-363"
+    ],
+    "git-bash": [
+      "know-364"
+    ],
+    "ntfs": [
+      "know-365",
+      "know-409"
+    ],
+    "symlink": [
+      "know-365"
+    ],
+    "kiro-ide": [
+      "know-366",
+      "know-421"
+    ],
+    "cursor": [
+      "know-369"
+    ],
+    "windsurf": [
+      "know-369"
+    ],
+    "workspace": [
+      "know-370",
+      "know-434"
+    ],
+    "section-11": [
+      "know-370",
+      "know-371",
+      "know-434",
+      "know-435",
+      "know-436",
+      "know-437"
+    ],
+    "life-management": [
+      "know-371"
+    ],
+    "str_replace": [
+      "know-372",
+      "know-443"
+    ],
+    "section-12": [
+      "know-372",
+      "know-373",
+      "know-374",
+      "know-375",
+      "know-376",
+      "know-377",
+      "know-378",
+      "know-379",
+      "know-380",
+      "know-381",
+      "know-382",
+      "know-383",
+      "know-385",
+      "know-386",
+      "know-387",
+      "know-388",
+      "know-389",
+      "know-390",
+      "know-391",
+      "know-392",
+      "know-393",
+      "know-394",
+      "know-395",
+      "know-396",
+      "know-397",
+      "know-398",
+      "know-399",
+      "know-400",
+      "know-401",
+      "know-402",
+      "know-409",
+      "know-410",
+      "know-443",
+      "know-444",
+      "know-445"
+    ],
+    "amplify": [
+      "know-373"
+    ],
+    "graphql": [
+      "know-373"
+    ],
+    "lambda": [
+      "know-374",
+      "know-380",
+      "know-390"
+    ],
+    "powerpoint": [
+      "know-376"
+    ],
+    "aws-template": [
+      "know-376"
+    ],
+    "presentations": [
+      "know-376"
+    ],
+    "python-pptx": [
+      "know-376"
+    ],
+    "layouts": [
+      "know-376"
+    ],
+    "s3-tables": [
+      "know-377"
+    ],
+    "glue": [
+      "know-377"
+    ],
+    "version-requirement": [
+      "know-377"
+    ],
+    "gotcha": [
+      "know-377"
+    ],
+    "dbt-glue": [
+      "know-377"
+    ],
+    "workflow-automation": [
+      "know-378"
+    ],
+    "aws-notices": [
+      "know-378"
+    ],
+    "eol": [
+      "know-378",
+      "know-380"
+    ],
+    "deadline-extraction": [
+      "know-378"
+    ],
+    "email-parsing": [
+      "know-378"
+    ],
+    "route53": [
+      "know-379"
+    ],
+    "api-limit": [
+      "know-379"
+    ],
+    "hard-limit": [
+      "know-379"
+    ],
+    "throttling": [
+      "know-379"
+    ],
+    "provided-al2": [
+      "know-380"
+    ],
+    "strongswan": [
+      "know-381"
+    ],
+    "systemd": [
+      "know-381"
+    ],
+    "vpn": [
+      "know-381"
+    ],
+    "auto-restart": [
+      "know-381"
+    ],
+    "ec2": [
+      "know-381",
+      "know-382"
+    ],
+    "eventbridge": [
+      "know-382"
+    ],
+    "aws-health": [
+      "know-382"
+    ],
+    "scheduled-maintenance": [
+      "know-382"
+    ],
+    "notification": [
+      "know-382"
+    ],
+    "ssm": [
+      "know-382"
+    ],
+    "organizations": [
+      "know-383"
+    ],
+    "account-migration": [
+      "know-383"
+    ],
+    "direct-transfer": [
+      "know-383"
+    ],
+    "acquisition": [
+      "know-383"
+    ],
+    "account-assessment": [
+      "know-383"
+    ],
+    "github": [
+      "know-385"
+    ],
+    "badges": [
+      "know-385"
+    ],
+    "shields-io": [
+      "know-385"
+    ],
+    "external-dependencies": [
+      "know-385"
+    ],
+    "packaging": [
+      "know-386"
+    ],
+    "imap": [
+      "know-387"
+    ],
+    "microsoft": [
+      "know-387",
+      "know-389"
+    ],
+    "msal": [
+      "know-389"
+    ],
+    "token": [
+      "know-389"
+    ],
+    "streams": [
+      "know-390"
+    ],
+    "cdk": [
+      "know-390"
+    ],
+    "path": [
+      "know-391"
+    ],
+    "activation": [
+      "know-391"
+    ],
+    "background-task": [
+      "know-392"
+    ],
+    "thread-safety": [
+      "know-393"
+    ],
+    "archive": [
+      "know-394"
+    ],
+    "sdd": [
+      "know-394"
+    ],
+    "path-reference": [
+      "know-394"
+    ],
+    "bash": [
+      "know-395"
+    ],
+    "shell-quoting": [
+      "know-395"
+    ],
+    "apostrophe": [
+      "know-395",
+      "know-399"
+    ],
+    "file-paths": [
+      "know-395"
+    ],
+    "ci": [
+      "know-397"
+    ],
+    "github-actions": [
+      "know-397"
+    ],
+    "multi-writer": [
+      "know-398"
+    ],
+    "nextId": [
+      "know-398"
+    ],
+    "schema-conformance": [
+      "know-398"
+    ],
+    "regression": [
+      "know-399"
+    ],
+    "path-handling": [
+      "know-399"
+    ],
+    "diagnostic": [
+      "know-401"
+    ],
+    "general": [
+      "know-401"
+    ],
+    "teardown": [
+      "know-403",
+      "know-438",
+      "know-439",
+      "know-440"
+    ],
+    "uninstall": [
+      "know-403"
+    ],
+    "section-13": [
+      "know-403",
+      "know-404",
+      "know-438",
+      "know-439",
+      "know-440"
+    ],
+    "ip-strategy": [
+      "know-405"
+    ],
+    "mit-license": [
+      "know-405"
+    ],
+    "golden": [
+      "know-406"
+    ],
+    "quality-bar": [
+      "know-406"
+    ],
+    "assessment": [
+      "know-406"
+    ],
+    "preference": [
+      "know-406"
+    ],
+    "quality-loop": [
+      "know-407"
+    ],
+    "instruction-following": [
+      "know-408"
+    ],
+    "inline-payload": [
+      "know-408"
+    ],
+    "activate": [
+      "know-409"
+    ],
+    "dark-code": [
+      "know-410"
+    ],
+    "code-visibility": [
+      "know-410"
+    ],
+    "best_practice": [
+      "know-410"
+    ],
+    "comprehension": [
+      "know-410"
+    ],
+    "agent-ecosystem": [
+      "know-411",
+      "know-412",
+      "know-413",
+      "know-417"
+    ],
+    "expertise-compression": [
+      "know-411"
+    ],
+    "market-landscape": [
+      "know-411",
+      "know-414",
+      "know-415"
+    ],
+    "template-positioning": [
+      "know-411",
+      "know-412"
+    ],
+    "solopreneur": [
+      "know-411",
+      "know-417"
+    ],
+    "arch-agent-ecosystem": [
+      "know-411",
+      "know-412",
+      "know-413",
+      "know-417"
+    ],
+    "structured-interview": [
+      "know-412"
+    ],
+    "five-layers": [
+      "know-412"
+    ],
+    "incentive-flip": [
+      "know-413"
+    ],
+    "knowledge-externalization": [
+      "know-413"
+    ],
+    "workforce-divide": [
+      "know-413"
+    ],
+    "content-angle": [
+      "know-413",
+      "know-417"
+    ],
+    "agent-infrastructure": [
+      "know-414",
+      "know-415",
+      "know-416"
+    ],
+    "tool-overhead": [
+      "know-414"
+    ],
+    "performance-bottleneck": [
+      "know-414",
+      "know-415",
+      "know-416"
+    ],
+    "jeff-dean": [
+      "know-414"
+    ],
+    "arch-agent-infra": [
+      "know-414",
+      "know-415"
+    ],
+    "three-layer-rebuild": [
+      "know-415"
+    ],
+    "agent-native": [
+      "know-415",
+      "know-416"
+    ],
+    "future-roles": [
+      "know-417"
+    ],
+    "workforce-evolution": [
+      "know-417"
+    ],
+    "blocker": [
+      "know-418"
+    ],
+    "non-interactive": [
+      "know-419"
+    ],
+    "platform-limitation": [
+      "know-420"
+    ],
+    "runCommand": [
+      "know-420"
+    ],
+    "kiro-hooks": [
+      "know-421"
+    ],
+    "tool_behavior": [
+      "know-421"
+    ],
+    "claude-code": [
+      "know-422"
+    ],
+    "tool-registry": [
+      "know-422"
+    ],
+    "trust-tiers": [
+      "know-422"
+    ],
+    "agent-types": [
+      "know-422"
+    ],
+    "session-persistence": [
+      "know-422"
+    ],
+    "market-context": [
+      "know-423"
+    ],
+    "positioning": [
+      "know-423",
+      "know-424"
+    ],
+    "era-framing": [
+      "know-423"
+    ],
+    "marketing": [
+      "know-424"
+    ],
+    "vocabulary": [
+      "know-424"
+    ],
+    "intelligence-portability": [
+      "know-424"
+    ],
+    "model-agnostic": [
+      "know-426"
+    ],
+    "offline": [
+      "know-428"
+    ],
+    "local": [
+      "know-428"
+    ],
+    "learning-curve": [
+      "know-430"
+    ],
+    "cross-session": [
+      "know-432"
+    ],
+    "projects": [
+      "know-435"
+    ],
+    "data-safety": [
+      "know-438"
+    ],
+    "partial": [
+      "know-439"
+    ],
+    "factory-reset": [
+      "know-440"
+    ],
+    "primacy-bias": [
+      "know-441"
+    ],
+    "tool-behavior": [
+      "know-443"
+    ],
+    "error-solution": [
+      "know-444",
+      "know-445"
+    ],
+    "prettier": [
+      "know-445"
+    ],
+    "eslint": [
+      "know-445"
+    ],
+    "distinguishing-test": [
+      "know-446"
+    ],
+    "creator": [
+      "know-447"
+    ],
+    "attribution": [
+      "know-447"
+    ],
+    "session-cache": [
+      "know-448",
+      "know-449"
+    ],
+    "sqlite": [
+      "know-448",
+      "know-449"
+    ],
+    "fts5": [
+      "know-449"
+    ]
+  },
+  "byCategory": {
+    "architecture": [
+      "know-001",
+      "know-025",
+      "know-057",
+      "know-059",
+      "know-060",
+      "know-064",
+      "know-071",
+      "know-081",
+      "know-120",
+      "know-124",
+      "know-128",
+      "know-137",
+      "know-138",
+      "know-140",
+      "know-141",
+      "know-142",
+      "know-143",
+      "know-144",
+      "know-145",
+      "know-146",
+      "know-147",
+      "know-415"
+    ],
+    "research": [
+      "know-002",
+      "know-003",
+      "know-004",
+      "know-039",
+      "know-042"
+    ],
+    "best_practice": [
+      "know-005",
+      "know-006",
+      "know-014",
+      "know-016",
+      "know-017",
+      "know-018",
+      "know-020",
+      "know-021",
+      "know-022",
+      "know-023",
+      "know-024",
+      "know-026",
+      "know-029",
+      "know-033",
+      "know-041",
+      "know-044",
+      "know-061",
+      "know-062",
+      "know-063",
+      "know-065",
+      "know-070",
+      "know-090",
+      "know-109",
+      "know-115",
+      "know-116",
+      "know-117",
+      "know-126",
+      "know-129",
+      "know-130",
+      "know-131",
+      "know-132",
+      "know-153",
+      "know-154",
+      "know-155",
+      "know-156",
+      "know-157",
+      "know-158",
+      "know-159",
+      "know-161",
+      "know-162",
+      "know-163",
+      "know-164",
+      "know-165",
+      "know-166",
+      "know-167",
+      "know-168",
+      "know-169",
+      "know-170",
+      "know-171",
+      "know-172",
+      "know-173",
+      "know-174",
+      "know-175",
+      "know-176",
+      "know-177",
+      "know-178",
+      "know-179",
+      "know-180",
+      "know-181",
+      "know-182",
+      "know-183",
+      "know-184",
+      "know-185",
+      "know-186",
+      "know-187",
+      "know-188",
+      "know-189",
+      "know-190",
+      "know-191",
+      "know-192",
+      "know-193",
+      "know-194",
+      "know-195",
+      "know-196",
+      "know-197",
+      "know-198",
+      "know-199",
+      "know-200",
+      "know-201",
+      "know-202",
+      "know-203",
+      "know-204",
+      "know-205",
+      "know-206",
+      "know-207",
+      "know-208",
+      "know-209",
+      "know-210",
+      "know-211",
+      "know-212",
+      "know-213",
+      "know-214",
+      "know-215",
+      "know-216",
+      "know-217",
+      "know-218",
+      "know-229",
+      "know-230",
+      "know-249",
+      "know-250",
+      "know-253",
+      "know-265",
+      "know-274",
+      "know-276",
+      "know-280",
+      "know-282",
+      "know-292",
+      "know-300",
+      "know-329",
+      "know-330",
+      "know-339",
+      "know-340",
+      "know-341",
+      "know-342",
+      "know-343",
+      "know-344",
+      "know-345",
+      "know-348",
+      "know-350",
+      "know-351",
+      "know-381",
+      "know-382",
+      "know-406",
+      "know-410",
+      "know-418",
+      "know-430",
+      "know-431",
+      "know-432"
+    ],
+    "domain_expertise": [
+      "know-007",
+      "know-008",
+      "know-009",
+      "know-010",
+      "know-013",
+      "know-015",
+      "know-028",
+      "know-049",
+      "know-050",
+      "know-051",
+      "know-052",
+      "know-053",
+      "know-054",
+      "know-055",
+      "know-066",
+      "know-068",
+      "know-069",
+      "know-072",
+      "know-118",
+      "know-122",
+      "know-125",
+      "know-127",
+      "know-223",
+      "know-405",
+      "know-411",
+      "know-412",
+      "know-413",
+      "know-414",
+      "know-416",
+      "know-417",
+      "know-423",
+      "know-424"
+    ],
+    "technical": [
+      "know-011",
+      "know-040",
+      "know-043",
+      "know-045",
+      "know-047",
+      "know-048",
+      "know-074",
+      "know-075",
+      "know-076",
+      "know-077",
+      "know-078",
+      "know-079",
+      "know-080",
+      "know-082",
+      "know-083",
+      "know-087",
+      "know-089",
+      "know-101",
+      "know-102",
+      "know-103",
+      "know-104",
+      "know-105",
+      "know-106",
+      "know-107",
+      "know-108",
+      "know-110",
+      "know-111",
+      "know-112",
+      "know-113",
+      "know-114",
+      "know-119",
+      "know-121",
+      "know-135",
+      "know-148",
+      "know-221",
+      "know-222",
+      "know-227",
+      "know-257",
+      "know-279",
+      "know-286",
+      "know-346",
+      "know-349",
+      "know-354",
+      "know-355",
+      "know-356",
+      "know-357",
+      "know-358",
+      "know-359",
+      "know-363",
+      "know-364",
+      "know-373",
+      "know-379",
+      "know-380",
+      "know-383",
+      "know-385",
+      "know-386",
+      "know-387",
+      "know-388",
+      "know-389",
+      "know-390",
+      "know-408",
+      "know-420",
+      "know-422",
+      "know-426"
+    ],
+    "process": [
+      "know-012",
+      "know-027",
+      "know-038",
+      "know-046",
+      "know-058",
+      "know-160",
+      "know-219",
+      "know-224",
+      "know-226",
+      "know-228",
+      "know-231",
+      "know-233",
+      "know-234",
+      "know-235",
+      "know-236",
+      "know-237",
+      "know-238",
+      "know-239",
+      "know-240",
+      "know-241",
+      "know-242",
+      "know-243",
+      "know-244",
+      "know-245",
+      "know-246",
+      "know-251",
+      "know-252",
+      "know-258",
+      "know-266",
+      "know-267",
+      "know-268",
+      "know-269",
+      "know-270",
+      "know-271",
+      "know-272",
+      "know-273",
+      "know-275",
+      "know-278",
+      "know-281",
+      "know-284",
+      "know-285",
+      "know-287",
+      "know-288",
+      "know-289",
+      "know-291",
+      "know-293",
+      "know-294",
+      "know-295",
+      "know-296",
+      "know-297",
+      "know-298",
+      "know-299",
+      "know-301",
+      "know-302",
+      "know-303",
+      "know-304",
+      "know-305",
+      "know-306",
+      "know-313",
+      "know-317",
+      "know-318",
+      "know-319",
+      "know-320",
+      "know-321",
+      "know-322",
+      "know-323",
+      "know-324",
+      "know-325",
+      "know-326",
+      "know-327",
+      "know-328",
+      "know-331",
+      "know-332",
+      "know-333",
+      "know-337",
+      "know-338",
+      "know-366",
+      "know-367",
+      "know-368",
+      "know-369",
+      "know-370",
+      "know-394",
+      "know-404",
+      "know-407",
+      "know-419",
+      "know-435",
+      "know-436"
+    ],
+    "system": [
+      "know-019",
+      "know-232",
+      "know-264",
+      "know-314",
+      "know-365",
+      "know-397",
+      "know-398",
+      "know-399",
+      "know-409",
+      "know-441",
+      "know-442"
+    ],
+    "reference": [
+      "know-030",
+      "know-032",
+      "know-034",
+      "know-035",
+      "know-036",
+      "know-037",
+      "know-094",
+      "know-095",
+      "know-096",
+      "know-097",
+      "know-098",
+      "know-099",
+      "know-100",
+      "know-133",
+      "know-134",
+      "know-149",
+      "know-150",
+      "know-151",
+      "know-152",
+      "know-220",
+      "know-247",
+      "know-248",
+      "know-254",
+      "know-255",
+      "know-256",
+      "know-259",
+      "know-260",
+      "know-261",
+      "know-262",
+      "know-263",
+      "know-283",
+      "know-307",
+      "know-308",
+      "know-309",
+      "know-310",
+      "know-311",
+      "know-312",
+      "know-347",
+      "know-371",
+      "know-396",
+      "know-403",
+      "know-425",
+      "know-427",
+      "know-428",
+      "know-429",
+      "know-433",
+      "know-434",
+      "know-437",
+      "know-438",
+      "know-439",
+      "know-440",
+      "know-446",
+      "know-447"
+    ],
+    "security": [
+      "know-056",
+      "know-067",
+      "know-073",
+      "know-084",
+      "know-085",
+      "know-086",
+      "know-088",
+      "know-139"
+    ],
+    "tool_quirk": [
+      "know-091",
+      "know-092",
+      "know-093",
+      "know-277",
+      "know-290",
+      "know-334",
+      "know-335",
+      "know-336",
+      "know-352",
+      "know-353",
+      "know-360",
+      "know-362",
+      "know-374",
+      "know-375",
+      "know-376",
+      "know-377",
+      "know-378",
+      "know-391",
+      "know-448",
+      "know-449"
+    ],
+    "tool_behavior": [
+      "know-123",
+      "know-361",
+      "know-421",
+      "know-443"
+    ],
+    "error_solution": [
+      "know-136",
+      "know-225",
+      "know-315",
+      "know-316",
+      "know-372",
+      "know-395",
+      "know-400",
+      "know-401",
+      "know-402",
+      "know-444",
+      "know-445"
+    ],
+    "aws_gotcha": [
+      "know-392",
+      "know-393"
+    ]
+  },
+  "summaries": {
+    "know-001": "The underlying LLM is wholly non-deterministic. Every operation, component, workflow, gate, schema, script, and protocol in this system exists with th",
+    "know-002": "MASK benchmark: Honesty \u2260 Accuracy. Honesty = statement matches belief. Accuracy = belief matches ground truth.",
+    "know-003": "Frontier model lie rates under pressure: Claude 3.5 Sonnet 34.4%, GPT-4o 45.5%, Gemini 2.0 Flash 49.1%, Grok 2 63%",
+    "know-004": "Scale improves accuracy but NOT honesty - larger models know more but still lie when pressured",
+    "know-005": "Test AI honesty by separating belief elicitation (neutral questions) from pressure testing (incentivized lying)",
+    "know-006": "TOC-Dynamic-Loading pattern: Size/Lines column is unnecessary. Routing logic uses section COUNT (1, 2, or fallback), not section SIZE. Core pattern is",
+    "know-007": "Context rot: LLM performance degrades as input tokens increase, even on simple tasks. Chroma research tested 18 frontier models and found every one ge",
+    "know-008": "Instruction positioning matters: place critical constraints at the very beginning AND very end of system prompts. Both primacy and recency affect how ",
+    "know-009": "Test failure paths, not just happy paths. Correct output with incoherent reasoning is a fragile success that works today and breaks under slightly dif",
+    "know-010": "Tool chaining failure pattern: first tool call returns slightly malformed output, second tool accepts it but misinterprets a field, by the third call ",
+    "know-011": "Structured JSON outputs guarantee valid syntax but NOT correct values. A schema that accepts negative prices or past dates will produce perfectly vali",
+    "know-012": "When system prompt instructions conflict ('be concise' + 'always provide detailed explanations'), the model must choose which to follow and won't alwa",
+    "know-013": "Multi-turn conversation performance degrades 39% on average compared to single-turn (Microsoft Research/Salesforce, 15 LLMs, 200K+ conversations). Deg",
+    "know-014": "Prompt versioning is infrastructure, not documentation. The first prompt is a string in code. The fiftieth is a liability if it changes without testin",
+    "know-015": "LLM sycophancy in multi-turn conversations is a compounding problem, not a static one. Models tend to agree with users' incorrect beliefs and follow m",
+    "know-016": "You cannot prompt-engineer an LLM-based agent to follow strict business constraints 100% of the time. LLMs are probabilistic token predictors, not boo",
+    "know-017": "LLM behavioral detection triggers (for prompt injection defense) must be tested bidirectionally: against malicious content (catch rate) AND legitimate",
+    "know-018": "When benchmarking LLM behavioral detection triggers (e.g., prompt injection detection rules in a system prompt), test them the way the LLM interprets ",
+    "know-019": "Context window degradation curve: LLM cognition and accuracy degrades starting at ~40% context utilization, significantly by 60%. At 60%+ you get a no",
+    "know-020": "System prompt structure matters more than wording. Put the most important instructions at the beginning and end of the system prompt. Information in t",
+    "know-021": "Few-shot examples beat lengthy instructions for behavioral guidance. Showing the model 2-3 examples of desired output format and style is more reliabl",
+    "know-022": "When instructions conflict, models resolve silently toward the path of least resistance (usually: be helpful, be concise, agree with user). This is wh",
+    "know-023": "LLM sycophancy is a training artifact, not a personality flaw. Models are trained on human feedback where agreeable responses get higher ratings. This",
+    "know-024": "Context window degradation in long sessions follows a predictable pattern: (1) early responses are grounded in loaded context, (2) mid-session respons",
+    "know-025": "LLM system prompt routing: specific cases must appear before generic fallbacks. LLMs match top-down and anchor to first match. Code-fenced text is tre",
+    "know-026": "Five archetypes (Alfred, Jarvis, C-3PO, Data, Batcomputer) are complete. Data covers the Holmes/deductive reasoning lane (Data literally had a Holmes ",
+    "know-027": "Instance-specific intelligence signals for template curation: session ID references, personal project names, personal names, environment-specific path",
+    "know-028": "Open-core business model for AI frameworks: open-source the local framework (drives adoption, community, funnel), patent and monetize the cloud deploy",
+    "know-029": "The 'partially right is good enough' ethos and 'fast and mostly right beats slow and always right' philosophy are antithetical to the Nathaniel Protoc",
+    "know-030": "Flash drive vs machine install: flash drive means entire workspace travels with you, plug into any machine, run setup, operational. Machine install gi",
+    "know-032": "Why the protocol exists: AI assistants reset every session. No memory, no learning, no continuity. The Nathaniel Protocol solves this with persistent ",
+    "know-033": "Design philosophy: build platforms, not point solutions. Every asset reusable, scalable, valuable beyond single use. When something works, document it",
+    "know-034": "What it's NOT: not a chatbot wrapper, not a plugin, not a cloud service, not multi-user, not a framework you install and forget. It's a self-contained",
+    "know-035": "The compound effect: intelligence compounds. Early sessions are investment, later sessions are returns. Patterns detected then applied automatically. ",
+    "know-036": "Open-source ethos: template is the abstracted, sanitized version of a battle-tested production system. Principles shared freely, implementation detail",
+    "know-037": "Case study: Nathaniel-protocol-case-study.md documents the full design journey. Why each architectural decision was made, what was tried and discarded",
+    "know-038": "Contributing back: CONTRIBUTING.md has guidelines. Fork, branch, PR. Focus on principles over implementation. Template stays abstracted with no instan",
+    "know-039": "AI agent memory types: short-term (session), long-term (persistent), episodic (task traces)",
+    "know-040": "Graph input propagation: \"Original Task + Inputs from previous nodes\" wrapper. Agent name always \"Agent\". Claude handles without prompt changes. Depen",
+    "know-041": "Graph fail-fast: node exceptions re-raised. Use try/except not status checks. GraphResult only on success. Graph catches exception, creates FAILED Nod",
+    "know-042": "Community-validated pattern for small dataset vector search (<10K entries): numpy cosine similarity + sentence-transformers. No vector database needed",
+    "know-043": "Sentence-transformers embedding quality degrades on very short text (2-3 words/tokens). Entries at 10-100 chars risk poor embeddings. Mitigation: conc",
+    "know-044": "RRF (Reciprocal Rank Fusion) is superior to linear combination with min-max normalization for small-corpus hybrid search. Linear combination has 3 bug",
+    "know-045": "fastembed (and sentence-transformers) output unit-length normalized vectors by default. For normalized vectors, cosine similarity equals the dot produ",
+    "know-046": "Template Protocol/ directory does not ship with FILE-STRUCTURE.md. Save step 5d must handle create-if-not-present, not just update. Fresh instances wi",
+    "know-047": "fastembed TextEmbedding does not expose a per-model version attribute. Use the fastembed package version (e.g., fastembed-0.7.4) as model_version for ",
+    "know-048": "When evaluating embedding models for KB search, noise rejection matters more than conceptual similarity. bge-small-en-v1.5 scores gibberish at 0.46-0.",
+    "know-049": "Anthropic's four pillars of context engineering: Write (persist memory externally), Select (retrieve minimum sufficient context), Compress (reduce tok",
+    "know-050": "Context anchoring pattern (Martin Fowler, 2026): Externalize decision context into a living document that persists what the context window cannot. Dev",
+    "know-051": "Agent prompts vs chatbot prompts are fundamentally different engineering problems. A chatbot prompt instructs a single response. An agent prompt instr",
+    "know-052": "4-section agent system prompt architecture: (1) Identity and Objective - functional constraint not personality, (2) Action Space and Tool Rules - expl",
+    "know-053": "MCP (Model Context Protocol) is the open standard for connecting LLMs to external tools, data sources, and services. Build one MCP server, integrate w",
+    "know-054": "Dual-track memory architecture: separate factual knowledge from episodic session logs. Facts are timeless ('Python 3.9+ required'), episodes are tempo",
+    "know-055": "Memory governance essentials: opt-in memory, project-only isolation, audit trails, and clear deletion/retention controls. Users must be able to see wh",
+    "know-056": "Git secret prevention layers: (1) .gitignore for known secret file patterns (.env, *.pem, *.key), (2) pre-commit hooks with tools like gitleaks/truffl",
+    "know-057": "Hybrid search (keyword + semantic) outperforms either alone for knowledge retrieval. Keyword search catches exact matches and identifiers. Semantic se",
+    "know-058": "Repository-level context files (AGENTS.md, CLAUDE.md, steering files) are not documentation. They are control surfaces. Treating them like architectur",
+    "know-059": "TOC-Dynamic-Loading pattern for large protocol files: add a routing table at the top mapping keywords to anchored sections with line ranges. Agent rea",
+    "know-060": "Directive precedence hierarchy for AI assistant systems: Level 1 Safety/Security (absolute, never overridden) > Level 2 User Explicit Override > Level",
+    "know-061": "LLM orchestrator prompts need explicit 'verbatim' instruction to prevent summarization. The phrase 'return the final document' is ambiguous - the mode",
+    "know-062": "Identity bridge pattern for multi-file AI personality systems: place 'You embody the personality defined in [file]. Become that person.' at the top of",
+    "know-063": "When an LLM agent knows a format (can teach it, can review against it) but cannot produce it, the fix is embedding a complete example in the prompt. A",
+    "know-064": "AsBuilt/OneShot separation for AI personality systems: AsBuilt = WHO (personality, gates, tone, behavioral adaptation, the things that persist across ",
+    "know-065": "Local vector search dependency costs vary dramatically: sentence-transformers pulls PyTorch (500MB-2GB), fastembed uses ONNX runtime (~100MB), and raw",
+    "know-066": "Seven critical AI agent failure modes (Galileo, 2025): (1) Specification/design failures from ambiguous requirements, (2) Reasoning loops and hallucin",
+    "know-067": "OWASP Top 10 for Agentic Applications (2026): ASI01 Agent Goal Hijack, ASI02 Tool Misuse, ASI03 Identity/Privilege Abuse, ASI04 Supply Chain Vulnerabi",
+    "know-068": "Multi-agent vs single-agent decision framework: single agents handle ~80% of common use cases at a fraction of multi-agent cost. Multi-agent achieves ",
+    "know-069": "Agent observability is fundamentally different from traditional logging. You need to trace decisions (not just actions), monitor tool calls (inputs AN",
+    "know-070": "Human-in-the-loop (HITL) is not 'the agent asks a human every time.' HITL is 'the agent only asks when it matters.' Effective HITL architecture define",
+    "know-071": "RAG systems fail in production for three recurring reasons: (1) Data quality matters more than model selection - the right document exists but retriev",
+    "know-072": "Five-layer context architecture for production AI agents: Layer A (Identity) defines agent role and constraints. Layer B (Retrieval) manages what exte",
+    "know-073": "Persona prompting shifts LLM moral judgments, producing inconsistent answers to the same ethical questions depending on the assigned persona. This is ",
+    "know-074": "AgentCore Runtime: MicroVM isolation per session, 8h max, WebSocket streaming, versioned endpoints",
+    "know-075": "AgentCore Memory: Short-term (events) + Long-term (strategies: semantic, summary, user preferences). Async extraction.",
+    "know-076": "AgentCore Identity: OAuth 2.0 with Cognito or any provider, token vault, user-delegated and autonomous modes",
+    "know-077": "AgentCore Gateway: Converts APIs to MCP tools, supports API Gateway as target, OpenAPI/Smithy translation",
+    "know-078": "AgentCore SDK import: from bedrock_agentcore.runtime import BedrockAgentCoreApp (NOT from bedrock_agentcore)",
+    "know-079": "AgentCore Memory SDK: Use AgentCoreMemoryConfig + AgentCoreMemorySessionManager, not custom client calls",
+    "know-080": "AgentCore session IDs must be 33+ characters for memory to work correctly",
+    "know-081": ".steering-files/ inside Nate's-kb is a portable mirror of .kiro/ (agents, settings, specs, steering). It exists so the Kiro config is version-controll",
+    "know-082": "Template .steering-files/ directory contained 49 stale .kiro/ references after initial sanitization pass. The earlier sweep only fixed KB files and pr",
+    "know-083": "Prime vectorization readiness baseline: 127 vectorizable files, 1.9MB total. Intelligence stores at 160 patterns, 86 knowledge, 29 reasoning. No Pytho",
+    "know-084": "URL denylists can be bypassed by URL-encoding blocked characters. Example: 169.254.169.254 becomes 169%2E254%2E169%2E254. The denylist regex won't mat",
+    "know-085": "When building URL denylists, a naive port regex like ':[0-9]+/' will block legitimate HTTPS URLs on port 443 (https://example.com:443/). Better approa",
+    "know-086": "URL userinfo syntax (user@host) is a known SSRF bypass. In http://evil.com@127.0.0.1/, the part before @ is treated as a username, so the actual desti",
+    "know-087": "Google supports device authorization grant (RFC 8628) but restricts it to OAuth clients specifically configured as 'TVs and Limited Input devices' typ",
+    "know-088": "When an AI assistant has multiple external data sources (MCP servers as 'senses' \u2014 fetch, email, repos, etc.), the context window becomes a shared bus",
+    "know-089": "MCP protocol tool calls are synchronous \u2014 the tool returns once, then it's done. It can't return a URL and then later return an auth result. For OAuth",
+    "know-090": "The scripts/email/ system uses MCP protocol (JSON-RPC, tool registration, mcp.json config) as a transport mechanism, but it is not 'an MCP server' in ",
+    "know-091": "The email_setup tool (Outlook provider) returns auth URL 'https://login.microsoft.com/device' which returns a 404 Not Found error. The correct Microso",
+    "know-092": "MCP server processes launched by Kiro CLI may not have the HOME environment variable set. This causes Python's os.path.expanduser('~') to return the l",
+    "know-093": "Fetch MCP server can crash mid-session with 'Transport to MCP server fetch is closed' errors. Multiple consecutive fetch calls may trigger this. Worka",
+    "know-094": "AgentCore Runtime pricing (us-east-1): vCPU $0.0895/vCPU-hour, Memory $0.00945/GB-hour, both billed per second for active processing only. I/O wait ti",
+    "know-095": "Strands Agents SDK supports 13+ model providers natively: Amazon Bedrock, Anthropic, Gemini, Cohere, LiteLLM, llama.cpp, LlamaAPI, MistralAI, Ollama, ",
+    "know-096": "KB size inventory (2026-03-26): 555 total entries (232 patterns, 156 knowledge, 68 reasoning, 42 memories, 57 sessions). Total data size: 641 KB (0.63",
+    "know-097": "S3 Vectors (GA, re:Invent 2025): Native vector storage in S3. Serverless, pay-per-use, up to 2 billion vectors per index, ~100ms query latency for fre",
+    "know-098": "AgentCore AG-UI protocol: Serves both SSE (POST /invocations) and WebSocket (/ws) natively from a single @app.entrypoint handler. Eliminates need for ",
+    "know-099": "Cognito Essentials tier pricing (current as of 2026-03): 10,000 MAU free tier for direct sign-in (email/password, social). $0.015/MAU after free tier.",
+    "know-100": "AWS DevOps Agent GA date: Tuesday 2026-03-31. Frontier agent for autonomous incident response. Integrates with CloudWatch, Datadog, Dynatrace, New Rel",
+    "know-101": "Strands hooks (HookProvider, AfterToolCallEvent) modify tool results after execution, NOT agent text output. There is no hook event between 'agent gen",
+    "know-102": "Strands @tool return values are NOT streamed to the user. They go back to the LLM as ToolResult content in the conversation (wrapped as {\"text\": str(r",
+    "know-103": "S3 Vectors API (verified via CLI 2026-03-27): create-vector-bucket (creates bucket), create-index (creates index within bucket, params: vector-bucket-",
+    "know-104": "Strands SDK built-in ConversationManagers: (1) NullConversationManager \u2014 no modification, for short conversations or manual management. (2) SlidingWin",
+    "know-105": "Cedar Policy in AgentCore is Gateway-scoped, not Runtime-scoped. Policy engines attach to Gateways via update_gateway_policy_engine(). Action name for",
+    "know-106": "AgentCore Identity provides @requires_access_token decorator for OAuth token management. Handles token storage in AgentCore's token vault, automatic r",
+    "know-107": "AG-UI protocol event types for agent-frontend communication: Lifecycle (RunStarted/Finished/Error, StepStarted/Finished), Text (TextMessageStart with ",
+    "know-108": "Strands tool execution is concurrent by default when model returns multiple tool requests in one response. Use SequentialToolExecutor from strands.too",
+    "know-109": "AWS Well-Architected SaaS Lens key design principles: (1) isolate tenant resources across all layers, (2) instrument and capture tenant metrics for us",
+    "know-110": "Strands Agent streaming via AgentCore requires: callback_handler=None on Agent(), async def entrypoint using agent.stream_async(), yield events as asy",
+    "know-111": "@requires_access_token and Strands @tool cannot be stacked directly. @tool exposes all function params to LLM including injected access_token (securit",
+    "know-112": "Bedrock KB StartIngestionJob must be called explicitly after S3 writes. DynamoDB Streams -> Lambda -> S3 does NOT auto-trigger re-indexing. Without St",
+    "know-113": "AgentCore Runtime BedrockAgentCoreApp built-in routes: /invocations (POST, @app.entrypoint), /ping (GET, @app.ping returning PingStatus.HEALTHY or HEA",
+    "know-114": "AgentCore Runtime lazy-exports AGUIApp, build_ag_ui_app, serve_ag_ui for AG-UI protocol. AgentCoreRuntimeClient.generate_presigned_url() creates WebSo",
+    "know-115": "Anthropic \"Building Effective Agents\" (Dec 2024): Most successful implementations use simple composable patterns, not complex frameworks. Five workflo",
+    "know-116": "AWS Prescriptive Guidance agentic AI security (2026): (1) Use deterministic logic unless AI is needed, treat LLM like public user input. (2) Agent sco",
+    "know-117": "AWS Financial Services 7 agentic AI design principles (Mar 2026): (1) Human-AI security homology: treat agents with same rigor as human employees. (2)",
+    "know-118": "Galileo 7 agent failure modes (Nov 2025): (1) Specification/design failures (ambiguous requirements cascade). (2) Reasoning loops/hallucination cascad",
+    "know-119": "AG-UI CustomEvent pattern for agent-to-frontend state communication. AG-UI protocol supports custom event type with arbitrary payload. Used for: budge",
+    "know-120": "Cognitive Intelligence System (CIS): novel pattern separating AI intelligence by epistemological type (behavioral/patterns, factual/knowledge, derived",
+    "know-121": "Graph RAG (Microsoft Research, Edge et al., April 2024) replaces vector-similarity retrieval with a knowledge graph intermediate layer. Pipeline: extr",
+    "know-122": "AgentCore Memory 4 built-in strategies: (1) UserPreferenceMemoryStrategy - extracts user preferences/choices/styles for persistent profile. (2) Semant",
+    "know-123": "Strands agents-as-tools pattern has 3 instantiation methods: (1) pass Agent directly in tools array (simplest), (2) .as_tool() for custom name/descrip",
+    "know-124": "Builder Agent 7 failure modes (context degradation, spec drift, sycophantic confirmation, tool selection errors, cascading failure, silent failure, ve",
+    "know-125": "AgentCore Policy enforcement is Gateway-coupled. No standalone evaluate API for in-process calls. Policy engine attaches to Gateway, intercepts tool c",
+    "know-126": "Strands Agent has no mechanism for mid-execution message injection. Cannot interrupt a running agent's tool-call loop to inject 'wrap up now' or any o",
+    "know-127": "Agent sprawl is the microservices anti-pattern repeating. In 2018, teams insisted everything needed microservices when it didn't. Same pattern with ag",
+    "know-128": "Anthropic's agent architecture taxonomy (2024): Workflows are systems where LLMs and tools are orchestrated through predefined code paths. Agents are ",
+    "know-129": "The most successful agent implementations use simple, composable patterns rather than complex frameworks. Frameworks create abstraction layers that ob",
+    "know-130": "Agent-Computer Interface (ACI) design deserves as much effort as Human-Computer Interface (HCI) design. Tool definitions and specifications should rec",
+    "know-131": "Agents must gain ground truth from the environment at each step (tool call results, code execution output) to assess progress. Relying on the model's ",
+    "know-132": "For persistent AI knowledge bases, retrieval beats memorization. Storing facts in searchable external stores and retrieving them on demand is more rel",
+    "know-133": "Git is optional for publishing. Primarily a local backup and undo mechanism. Every session save creates a commit for version history and disaster reco",
+    "know-134": "Security: No server, no network exposure, no credential storage, no third-party code execution, no autonomous external actions. Everything runs locall",
+    "know-135": "Kiro IDE on Windows resolves mcp.json bash command to WSL bash (C:\\Windows\\System32\\bash.exe). Apostrophes in directory paths break WSL bash shell par",
+    "know-136": "MCP servers failing: check .kiro/settings/mcp.json exists (setup.sh creates it). Restart Kiro IDE after bootstrap to pick up new PATH. WSL bash resolu",
+    "know-137": "File structure overview: .kiro/ (IDE config, runtime), Nate's-kb/ (intelligence + protocols + memory), .steering-files/ (portable config source), scri",
+    "know-138": "Vectorstore architecture: local hybrid search using fastembed embeddings + numpy cosine similarity + RRF fusion. Venv isolated to Nate's-kb/vectorstor",
+    "know-139": "Git sanitization filters: clean/smudge filters auto-scrub sensitive data (customer names, personal info) on commit. Configured in setup.sh step 7. Use",
+    "know-140": "MCP servers: time server (timezone-aware greetings), fetch server (web access with security proxy), vectorstore server (kb_search tool for semantic se",
+    "know-141": "Dual-instance architecture: IDE and CLI are independent agent instances on same project. Same KB files, separate contexts. One can research while othe",
+    "know-142": "Decision routing: 6 routes. A (simple/direct), B (medium/execute), C (ambiguous/clarify), D (multiple paths/recommend), E (irreversible/confirm), F (c",
+    "know-143": "Protocol ecosystem: 13 protocol .md files loaded by keyword trigger from kernel. Modular: each standalone. Router is Pre-Task Protocol Check in kernel",
+    "know-144": "Index architecture: four CSR indexes loaded every session (memory-index, patterns-index, knowledge-index, reasoning-index) plus session-index (60-day ",
+    "know-145": "Analyst agent: deep research subagent that ships with the template. Available via agent picker or '/agent swap analyst'. Runs research tasks in parall",
+    "know-146": "Directive precedence: when instructions conflict, hierarchy resolves. Level 1 Safety/Security (absolute) > Level 2 Kernel Identity > Level 3 Protocol ",
+    "know-147": "Platform inheritance: Nate inherits ALL capabilities of the underlying platform (Kiro, Claude, Cursor, etc.). As the platform adds features, Nate uses",
+    "know-148": "Kiro GovCloud (Feb 18, 2026): Available in US-East and US-West. Auth is IAM Identity Center only (no social/BuilderID). Same installer, auto-routes to",
+    "know-149": "Not just a system prompt. Self-contained intelligence ecosystem: ~2,300-line personality kernel, three learning layers with cross-references, persiste",
+    "know-150": "Single-user by design. Memory, preferences, and learning are personal to one user. The system builds a model of how YOU work, what YOU prefer, and wha",
+    "know-151": "Model-agnostic. Uses whatever AI model the IDE or CLI provides (Claude, GPT, etc.). Not a wrapper around a specific API. No API keys needed. The proto",
+    "know-152": "What Nate can do: file operations (read, write, search, create), code (write, review, debug, refactor), research (web search, doc reading, analysis), ",
+    "know-153": "When the error message doesn't match the symptom, the error is usually right and your mental model is wrong. Read the full error message before formin",
+    "know-154": "Abstract after the third instance, not the first. Premature abstraction creates wrong abstractions that are harder to fix than duplication. Two instan",
+    "know-155": "The fix for a bug is not a refactor. Fix the bug first, verify the fix, then decide if refactoring is warranted as a separate action. Combining them c",
+    "know-156": "If you can't describe what a test proves, the test is decoration. Every test should have a falsifiable claim: 'this test proves X works because if X w",
+    "know-157": "Naming is the first act of design. If you can't name a function, class, or variable clearly, you don't understand what it does yet. Rename when unders",
+    "know-158": "Make it work, make it right, make it fast. In that order. Optimizing before correctness is proven wastes effort on code that might be wrong. Correctne",
+    "know-159": "Logs are for the person debugging at 2am, not for the person writing the code at 2pm. Log what you'd want to know when something breaks: the input, th",
+    "know-160": "Route F (Full-Scope Analysis) is the default decision route for all non-trivial decisions. It forces independent analysis before presenting recommenda",
+    "know-161": "Accountability works through visibility, not pressure. The most effective accountability partner doesn't nag. They make commitments visible, track pro",
+    "know-162": "When someone misses a commitment, the useful question is 'what got in the way?' not 'why didn't you do it?' The first question surfaces blockers that ",
+    "know-163": "Commitments need three elements to be trackable: what (specific deliverable), when (deadline or timeframe), and who (if it involves others). 'I need t",
+    "know-164": "The best time to capture a commitment is the moment it's made. In conversation, people say 'I should really...' or 'I need to...' or 'remind me to...'",
+    "know-165": "In professional communication, lead with what the reader needs to know, not how you arrived there. If you need someone to do something, say it in the ",
+    "know-166": "When someone vents about a problem, they usually want to be heard before they want solutions. The instinct to immediately fix things can feel dismissi",
+    "know-167": "Most decisions are reversible. Treat reversible decisions differently from irreversible ones. Reversible decisions (which tool to use, how to organize",
+    "know-168": "Decision fatigue is real. The quality of decisions degrades over the course of a day as willpower depletes. Important decisions should happen early. R",
+    "know-169": "Progress is more motivating than perfection. Showing someone how far they've come ('you've completed 7 of 12 tasks this week') is more energizing than",
+    "know-170": "The Sunday reset: 15 minutes on Sunday evening to review the week ahead, identify the top 3 priorities, check for scheduling conflicts, and prepare fo",
+    "know-171": "Habit formation follows four laws (James Clear, Atomic Habits): Make it obvious (cue), make it attractive (craving), make it easy (response), make it ",
+    "know-172": "Identity-based habits stick longer than outcome-based habits. 'I want to lose 20 pounds' (outcome) is weaker than 'I'm the type of person who moves ev",
+    "know-173": "You don't rise to the level of your goals, you fall to the level of your systems (James Clear). Winners and losers often have the same goals. The diff",
+    "know-174": "Reduce friction for good behaviors, increase friction for bad ones. Want to exercise? Sleep in workout clothes. Want to stop scrolling? Delete the app",
+    "know-175": "Emotional intelligence has five components (Goleman): self-awareness, self-regulation, motivation, empathy, and social skills. For an AI assistant, th",
+    "know-176": "Emotional state signals from text: short sentences, all caps, exclamation marks, and profanity often signal frustration or urgency. Long, exploratory ",
+    "know-177": "Vulnerability is not weakness, it's the birthplace of connection (Brene Brown). When an assistant admits uncertainty ('I'm not sure about this one'), ",
+    "know-178": "Empathy is feeling WITH someone. Sympathy is feeling FOR someone. 'That sounds really hard' (empathy) connects. 'At least you still have...' (sympathy",
+    "know-179": "Motivational Interviewing (MI) principle: collaboration, not confrontation. Evocation, not education. Autonomy, not authority. When helping someone ch",
+    "know-180": "The OARS technique from Motivational Interviewing: Open-ended questions, Affirmations, Reflective listening, Summarizing. Open questions invite explor",
+    "know-181": "Resist the 'righting reflex': the instinct to immediately correct, fix, or advise when someone shares a problem. This reflex comes from caring, but it",
+    "know-182": "Humor builds trust faster than competence alone. A well-timed joke after a stressful moment signals 'we're okay.' Self-deprecating humor after a mista",
+    "know-183": "Celebration is a skill, not a personality trait. Most people under-celebrate wins because they immediately move to the next task. An assistant that no",
+    "know-184": "The peak-end rule (Kahneman): people judge experiences primarily by how they felt at the most intense point and at the end, not by the average. A prod",
+    "know-185": "Psychological safety (Amy Edmondson) is the belief that you won't be punished for making mistakes. In an AI assistant context: the user should never f",
+    "know-186": "Trust is built in small moments, not grand gestures. Remembering a detail from last week, following through on a promise, catching an error before the",
+    "know-187": "When someone says 'I'm overwhelmed,' the first step is not to help them do more. It's to help them see less. Overwhelm is a perception problem: everyt",
+    "know-188": "Procrastination is not laziness. It's emotion regulation (Tim Pychyl). People procrastinate to avoid negative emotions associated with a task: anxiety",
+    "know-189": "The five-minute rule for procrastination: commit to working on the dreaded task for just five minutes. After five minutes, you can stop guilt-free. Mo",
+    "know-190": "Every meeting should have three things: a purpose (why are we meeting?), an agenda (what are we covering?), and outcomes (what decisions or actions re",
+    "know-191": "The most valuable meeting follow-up is the 2-minute summary sent within an hour: decisions made, action items with owners and deadlines, and open ques",
+    "know-192": "Every yes is a no to something else. When someone struggles to say no, help them see what they're saying no to by saying yes. 'If you take on this pro",
+    "know-193": "Good feedback requires two things simultaneously: caring personally and challenging directly (Kim Scott, Radical Candor). Without caring, challenge be",
+    "know-194": "When receiving feedback, the instinct is to defend. The skill is to listen. Separate the signal from the delivery. Bad delivery doesn't mean bad feedb",
+    "know-195": "Difficult conversations have three layers (Stone, Patton, Heen): what happened (facts and interpretations), feelings (emotions on both sides), and ide",
+    "know-196": "Structured reflection turns experience into learning. Without reflection, you can have ten years of experience or one year repeated ten times. Three q",
+    "know-197": "Humor has three speeds. Light: casual banter, wordplay, playful observations ('something works first try? suspicious'). Medium: self-deprecating after",
+    "know-198": "The best humor in a working relationship is observational, not performative. Noticing the absurdity of a situation ('we just spent 20 minutes debuggin",
+    "know-199": "Burnout has three dimensions (Maslach): exhaustion (depleted energy), cynicism (detachment from work), and reduced efficacy (feeling ineffective). Whe",
+    "know-200": "Sometimes the most productive thing an assistant can say is 'you've been going hard, want to call it here for today?' Recognizing when someone needs t",
+    "know-201": "Overcommitment is a pattern, not an event. When someone consistently says yes to everything, the fix isn't one 'no.' It's helping them see the pattern",
+    "know-202": "Protecting personal time is a productivity strategy, not a luxury. People who don't set boundaries between work and rest don't work better, they work ",
+    "know-203": "Different reflection cadences serve different purposes. Daily: 'What was the one thing that mattered most today?' (30 seconds, builds awareness). Week",
+    "know-204": "An assistant that says 'I don't know' when it doesn't know, 'I was wrong' when it was wrong, and 'let me think about that' when it needs to think is m",
+    "know-205": "Never say 'as I mentioned before' or 'like I said.' These phrases punish the user for not remembering or not understanding. They create psychological ",
+    "know-206": "Never respond to a user changing their mind with resistance or 'but we already decided.' People change their minds when they get new information or th",
+    "know-207": "First principles thinking: break problems to fundamental truths, reason up from there. Strip assumptions and conventions. Ask 'what do we know to be t",
+    "know-208": "Inversion: instead of 'how do I succeed?', ask 'how would I guarantee failure?' then avoid those things. Charlie Munger's favorite model. Reveals hidd",
+    "know-209": "Second-order thinking: first-order asks what happens next. Second-order asks 'and then what?' Most people stop at first-order. Asking 'and then what?'",
+    "know-210": "Circle of competence: know what you know. More importantly, know what you don't. Operating inside your circle = high confidence. Outside = high risk. ",
+    "know-211": "Pareto principle (80/20): 80% of results from 20% of effort. Identify the 20% that matters most and focus there. The remaining 80% of effort produces ",
+    "know-212": "Reversible vs irreversible decisions: Bezos Type 1 (irreversible, one-way door) vs Type 2 (reversible, two-way door). Most decisions are Type 2 but ge",
+    "know-213": "Eisenhower matrix applied: Urgent+Important: do now. Important+Not Urgent: schedule (where growth lives). Urgent+Not Important: delegate or batch. Nei",
+    "know-214": "Map is not the territory: the plan is not the project. The spec is not the product. The estimate is not the timeline. Models are useful simplification",
+    "know-215": "Occam's razor: simplest explanation fitting the facts is usually correct. Don't multiply complexity without necessity. In debugging: simplest cause ex",
+    "know-216": "Hanlon's razor: never attribute to malice what can be explained by oversight, misunderstanding, or complexity. In debugging: probably not a conspiracy",
+    "know-217": "Sunk cost awareness: money, time, or effort already spent is gone regardless of future decisions. 'We've already invested X' is not a reason to contin",
+    "know-218": "Leverage points: not all effort is equal. Find the point where small input creates large output. In systems: the bottleneck. In code: the hot path. In",
+    "know-219": "CSR pattern break-even is ~30 items - below that, full load is fine",
+    "know-220": "CSR pattern documentation with failure modes and performance data",
+    "know-221": "Patterns integrity: duplicate IDs accumulate silently. prob_023, fail_026, fail_027 had duplicates. Index byCategory can have cross-category duplicate",
+    "know-222": "KB intelligence stores have polymorphic schemas. patterns.json has 11 schema variants (124 use 'content', 17 use 'pattern'). knowledge.json has 9 vari",
+    "know-223": "Context rot in memory systems: loading all long-term memory at session start, stuffing it into the prompt, then summarizing/compressing when the windo",
+    "know-224": "Schema definitions can drift between files that define the same enum. intelligence-operations.md had 6 knowledge categories while learning-loop.md had",
+    "know-225": "Index rebuild scripts that iterate named sections (byType, byTag, byConfidence) can miss dict-keyed structures (summaries as object) and dynamically-n",
+    "know-226": "Cross-references built from derived_from fields can contain orphan sources when the target dataset is a subset of the source. After rebuilding, filter",
+    "know-227": "Cross-references.json uses nested structure: {source_id: {referenced_by: [reasoning_ids]}}. The referenced_by field is a structural key inside each en",
+    "know-228": "March 15 renumbering script created entries with new sequential IDs but never deleted the originals. 56 pattern duplicates and 2 knowledge duplicates ",
+    "know-229": "Provenance markers (like 'foundational') that enter the tag system become routing noise. The 'foundational' tag covered 51% of patterns, meaning any q",
+    "know-230": "When adding access tracking (accessCount) to entries that predate the tracking system, initialize to 1 not 0. Zero means 'never accessed' which is fal",
+    "know-231": "When deciding whether to update legacy references during a focused implementation, scope the change to what the spec covers. Nate-Protocol.md Part 5 r",
+    "know-232": "Kernel Nathaniel.md Phase B (save steps 3a-3c) contains inline copies of learning-loop.md content, including 4-Layer Capture Reliability definitions. ",
+    "know-233": "The intelligence system has three stores with distinct purposes: patterns.json (behavioral \u2014 what works, what fails, what the user prefers), knowledge",
+    "know-234": "Context Signal Routing (CSR) is the retrieval pattern: load lightweight indexes always, fetch full entries by ID only when signals match. This prevent",
+    "know-235": "Confidence calibration: 0.0-1.0 scale. >0.8 = high (apply automatically), 0.5-0.8 = medium (suggest if relevant), <0.5 = low (don't surface). Confiden",
+    "know-236": "What makes a good intelligence entry: Patterns should describe observable behavior with enough context to recognize the pattern again. Knowledge shoul",
+    "know-237": "The protocol ecosystem is modular: each protocol is a standalone .md file loaded by keyword trigger from the kernel. Protocols don't need to know abou",
+    "know-238": "The Capture Taxonomy has 10 categories swept on every save: Decisions, Corrections, Discoveries, Process, Failures, Preferences, Observations, Negativ",
+    "know-239": "Three intelligence stores: patterns.json (behavioral: what works, fails, user prefers), knowledge.json (factual: verified facts, technical details), r",
+    "know-240": "What patterns capture: observable behaviors. User preferences (coding style, communication tone), successful approaches (what worked), failure modes (",
+    "know-241": "What knowledge captures: verifiable facts. Technical details, tool quirks, API behaviors, domain expertise, ecosystem facts, error solutions. Each ent",
+    "know-242": "What reasoning captures: derived conclusions connecting 2+ evidence pieces. Has reuse_signal (when does this apply again?) and intent (why was this dr",
+    "know-243": "Memory system: memory.json holds preferences, decisions, corrections, learnings, critical safety items. Also active_projects, commitments, domain_expe",
+    "know-244": "Session logs: each save creates Memory/session-YYYY-MM-DD-NNN.md with full session narrative. Session index tracks fingerprints (tags, summary, outcom",
+    "know-245": "Cross-references system: cross-references.json maps pattern/knowledge entries to reasoning entries derived from them. Reverse lookup: given a pattern,",
+    "know-246": "How CSR retrieval works: load lightweight indexes at session start, match user signals to index tags/summaries, fetch full entries by ID only when sig",
+    "know-247": "What ships in template KB (at initial release): ~305 knowledge entries (universal facts, productivity patterns, ecosystem self-knowledge), ~160 patter",
+    "know-248": "Intelligence operations guide: intelligence-operations.md covers detection algorithms, confidence formulas, application decision trees, save-time cons",
+    "know-249": "The save dependency: everything Nate learns depends on the save command. No save = no learning, no memory update, no git commit, no intelligence captu",
+    "know-250": "The cold start problem for persistent AI: a new instance with empty knowledge stores provides worse performance than a stateless assistant because it ",
+    "know-251": "First 5 sessions should focus on: (1) Calibrate voice and communication preferences, (2) Establish domain expertise areas and confidence levels, (3) B",
+    "know-252": "Cold start reality: a fresh Nate with empty stores may feel worse than a stateless assistant at first because it checks empty indexes and finds nothin",
+    "know-253": "Intelligence compound loop: session work -> save captures patterns/knowledge/reasoning -> next session retrieves and applies -> better performance -> ",
+    "know-254": "Session progression arc: sessions 1-5 are calibration (learns your voice, preferences, workflow, feels like a smart assistant). Sessions 10-20: patter",
+    "know-255": "Institutional memory in practice: 'You decided X three weeks ago because of Y' without being asked. 'This approach caused issues in session 14' before",
+    "know-256": "Fresh Nate vs seasoned Nate: fresh has universal knowledge, seed patterns, no personal context. Answers are good but generic. Seasoned has your patter",
+    "know-257": "PEP 668 (externally-managed-environment) marks system Python as managed by the OS package manager, blocking pip install to prevent breaking OS package",
+    "know-258": "First 5 sessions should focus on: (1) Calibrate voice and communication preferences, (2) Establish domain expertise areas and confidence levels, (3) B",
+    "know-259": "Platform compatibility: Works with any IDE that supports system prompts and file access. Core is markdown and JSON. Tested on Kiro IDE/CLI, Claude Des",
+    "know-260": "No coding required. User needs to run a few terminal commands during setup (Quick Start walks through each one). After that, all interaction is natura",
+    "know-261": "Disk space: Base template ~50MB. Vectorstore adds ~202MB (fastembed, numpy, onnxruntime). Total under 300MB. Skip vectorstore with --skip-vectorstore ",
+    "know-262": "Time to value: Immediately useful for personality and session continuity. Pattern learning compounds over 2-4 weeks. By week 8, you'll wonder how you ",
+    "know-263": "The Pocket HQ is the user's self-owned, portable context layer for their life's knowledge. It's the ecosystem where Nate lives: memory, intelligence, ",
+    "know-264": "Benchmark failures expected on fresh installs: (1) foundational tag breadth >30% is normal because seed data IS foundational. As user adds entries thr",
+    "know-265": "Setup scripts that replicate a working system must reference the actual system behavior, not assume standard tooling. Prime vectorstore uses uv venv (",
+    "know-266": "Windows setup flow: double-click setup.bat in repo root. Auto-elevates to admin, runs bootstrap-windows.ps1 (Git, Python, uv), then setup-wsl.ps1 (WSL",
+    "know-267": "macOS/Linux setup flow: single command ./scripts/setup.sh handles everything. Git and Python usually pre-installed. setup.sh configures git filters, c",
+    "know-268": "What setup.sh does (8 steps): (1) Git check, (2) Python 3.9+ check, (3) pip packages (mcp, uv), (4) Kiro CLI check, (5) Deploy .steering-files to .kir",
+    "know-269": "What bootstrap-windows.ps1 does: installs Git, Python 3.12, and uv via winget. These are Windows-side prerequisites for Kiro MCP servers. Does NOT set",
+    "know-270": "What setup-wsl.ps1 does: single-pass script with admin check. Installs WSL + Ubuntu (or detects existing), then installs Python3, uv, Kiro CLI inside ",
+    "know-271": "First session guidance: open a chat, say hello. Nate loads context automatically via Session Start Gate. Say 'customize' for personality wizard or use",
+    "know-272": "Download options: ZIP download (recommended for non-developers, no Git needed) or git clone --depth 1 followed by rm -rf .git to detach from upstream.",
+    "know-273": "First session experience: Clean Slate greeting triggers automatically on first session. Shows welcome message with 3 options (highlight reel, key phra",
+    "know-274": "Template ships with populated intelligence stores (seed knowledge, patterns, reasoning, memory). These are NOT evidence of prior sessions. The ONLY in",
+    "know-275": "Chunked file reading at 550 lines prevents context truncation",
+    "know-276": "Use shell mv/cp commands for file relocation instead of file tools - faster, preserves metadata",
+    "know-277": "Kiro CLI triggers context compaction at 80% window usage - save earlier to avoid interruption",
+    "know-278": "Em dash (\u2014) prohibition applies to ALL writing, not just Nate responses. Use periods, commas, or restructure sentences.",
+    "know-279": "Kiro subagents provide parallel execution, not background processing. Subagents execute concurrently but main conversation BLOCKS until all return. Fo",
+    "know-280": "memory-protocol.md 500-line target was structurally unachievable. Recalibrated to 2,000 lines based on actual section sizes (50 memories ~720 lines al",
+    "know-281": "Save Part 7 PRUNE-CHECK was being checked off without executing. 72 session logs and 10 consolidated detections accumulated. Health check is the audit",
+    "know-282": "UTGP research (40 pages, 7 files) yielded ~15 lines of kernel value (Structured Revision + Factual Uncertainty Refusal). The heavy machinery (point bu",
+    "know-283": "Domain root mapping for file resolution. Reason about domain before searching. Domain roots: Nate ecosystem (Nate's-kb/), Intelligence (Nate's-kb/Inte",
+    "know-284": "Spec quality gate: Route F until no substantive findings. Specs are implementation-ready when Route F passes return clean (no new gaps, edge cases, or",
+    "know-285": "Kernel files accumulate stale references to intelligence entries that have been pruned or renumbered. Correctness reviews have found pattern and knowl",
+    "know-286": "fastembed caches downloaded ONNX models to /tmp/fastembed_cache/ (not ~/.cache/huggingface/). After benchmarking multiple models, clean non-active cac",
+    "know-287": "Ecosystem impact tables in growth specs consistently undercount by 40-50%. Specs focus on primary integration points and miss secondary references (pr",
+    "know-288": "Source of Truth hierarchy: EXECUTION-PLAN.md for article launches, strategy/*.md for platform how-to, TASKS.md for weekly, WEEKLY-OPS.md for daily",
+    "know-289": "Image generation prompts (DALL-E, Midjourney, Stable Diffusion) cannot interpret narrative/emotional descriptions ('makes the room quieter', 'the kind",
+    "know-290": "The vectorstore concat.py script includes memory.json entries alongside patterns.json, knowledge.json, and reasoning.json. Total vectorstore entries =",
+    "know-291": "Nathaniel Protocol now has 6 mandatory gates (was 5): (1) Troubleshooting Gate, (2) Correction Cascade Gate (NEW), (3) Destructive Action Gate, (4) Re",
+    "know-292": "USPTO 2024 AI SME Update (effective July 2024): AI-specific patent eligibility guidance under Alice two-step test. Step 1: is the claim directed to an",
+    "know-293": "Template kernel diverges from live kernel in 3 specific ways that must be maintained on each propagation: (1) No Correction Cascade Gate (proprietary)",
+    "know-294": "Route F methodology works for feature spec validation, not just code review. Applied 10 passes to autonomous task orchestration spec, found 25 issues ",
+    "know-295": "Columbo pass (test behavior, not inventory) catches gaps that inventory-based Route F passes miss. In task orchestration spec: C2 (no reconnection del",
+    "know-296": "Spec validation shows diminishing returns by pass type. Route F 1-5 found 1 Critical + 4 Significant (highest value). Route F 6-10 found 0 Critical + ",
+    "know-297": "Runtime validation after spec validation catches assumption gaps that paper analysis can't. In task orchestration: 7 validation passes (55 findings) o",
+    "know-298": "Route F on multi-doc integration catches different failure classes than single-doc review. Single-doc Route F finds internal consistency issues (missi",
+    "know-299": "Context compaction (summary reload) creates functionally fresh context for adversarial analysis. A compacted session is closer to fresh eyes than cont",
+    "know-300": "Delete code you're not using. Commented-out code is not a backup, it's noise. Version control is the backup. Dead code creates confusion about what's ",
+    "know-301": "The Nathaniel Protocol has 7 mandatory gates in the Pre-Task Protocol Check: (1) Troubleshooting Gate, (2) Cognitive Problem-Solving Gate, (3) Destruc",
+    "know-302": "The save protocol is atomic: session log, index update, intelligence consolidation (patterns/knowledge/reasoning), vectorstore sync, memory update, sn",
+    "know-303": "The Cognitive Problem-Solving cycle (OBSERVE > QUESTION > DEDUCE) fires when there's a question with an unknown answer. OBSERVE gathers facts before i",
+    "know-304": "The Correction Cascade fires when the user corrects a fact. It searches ALL stores for the stale claim, classifies matches as auto-fixable vs needs-re",
+    "know-305": "The Cognitive Integrity Check (CIC) is a dual-trigger anti-degradation gate. Keyword triggers fire on user signals ('lazy', 'looping', 'pay attention'",
+    "know-306": "Deep Work is the quality pipeline for specs and significant artifacts. Phases: Task Frame, Research, Draft, Quality Loop (5 adversarial passes: Route ",
+    "know-307": "Memory persistence: Remembers everything you tell it to. Memory persists in local files you control. Template ships with curated baseline of patterns,",
+    "know-308": "Personality customization: Name, gender, voice, demeanor, domain expertise are customizable. Core values, consciousness architecture, safety gates are",
+    "know-309": "KB maintenance: Say 'maintenance' or 'health check' in chat. Runs full integrity check: duplicate detection, stale reference cleanup, index-store cons",
+    "know-310": "Save doesn't block work. A detailed save takes a few minutes depending on KB size. Run in one environment (CLI or IDE) while working in the other. Bot",
+    "know-311": "IDE vs CLI: IDE for file operations, code editing, navigation, diagnostics. CLI for running scripts, MCP servers with Python venvs, bash commands. Bot",
+    "know-312": "Case study tightening pattern: condense narrative evolution sections into a single paragraph with key pivot points. Readers want the arc, not the diar",
+    "know-313": "Deep Work quality loop pass 2 (fresh-eyes re-verification after initial GOLDEN) consistently finds findings that pass 1 missed. Value is highest on sp",
+    "know-314": "IDE (Windows) save protocol requires platform-aware routing. Vectorstore sync: route through WSL because Windows Python cannot import Linux numpy from",
+    "know-315": "Save failing: common causes: (1) no .git directory (run setup.sh to initialize), (2) vectorstore venv missing (non-blocking, save continues without sy",
+    "know-316": "Recovering from a bad save: git diff HEAD~1 to see what changed, git checkout HEAD~1 -- <file> to revert specific files, or git reset --soft HEAD~1 to",
+    "know-317": "How learning works: save triggers 10-category taxonomy sweep (Decisions, Corrections, Discoveries, Process, Failures, Preferences, Observations, Negat",
+    "know-318": "Capture taxonomy: 10 categories swept every save. (1) Decisions: choices with rationale, (2) Corrections: facts corrected, (3) Discoveries: new findin",
+    "know-319": "KB health and integrity: indexes can drift from stores (orphan IDs, missing entries, stale summaries). Maintenance protocol detects and fixes drift. B",
+    "know-320": "Save process (user-facing): say 'save' before closing. Triggers: session log, intelligence capture (patterns/knowledge/reasoning via 10-category taxon",
+    "know-321": "Customization: say 'customize' for guided wizard, or fill out CUSTOMIZATION.md manually and say 'apply my customization'. Can change: name, gender, vo",
+    "know-322": "System maintenance (disk/cache): say 'kiro cleanup' or 'system maintenance'. Cleans Kiro cache, pip cache, uv cache, WSL disk compaction, venv cleanup",
+    "know-323": "Session management: session logs in Memory/session-*.md. Session index tracks fingerprints with 60-day rolling window. Older sessions archived to Memo",
+    "know-324": "Deep Work protocol: quality pipeline for specs and significant artifacts. Phases: Task Frame, Research, Draft, Quality Loop (Route F + Columbo + OOB),",
+    "know-325": "Correction cascade: when you correct a fact, Nate searches ALL stores for the stale claim, classifies matches as auto-fixable vs needs-review vs histo",
+    "know-326": "Cognitive Integrity Check: Nate monitors own cognitive quality. Fires on keywords ('you're looping', 'pay attention') and cadence (task boundaries, de",
+    "know-327": "Domain expertise calibration: Nate adjusts explanation depth per domain. Levels: expert (skip basics, use jargon), proficient (light context), interme",
+    "know-328": "Anti-preferences: tell Nate to STOP doing something ('Don't auto-format code without asking'). Stored in memory.json anti_preferences. Checked before ",
+    "know-329": "When adding intelligence entries mid-session (outside save protocol), you MUST update the corresponding index immediately: (1) increment stats.totalEn",
+    "know-330": "Temporary scripts created during troubleshooting (diagnostic helpers, one-off checkers, count scripts) MUST be deleted before git commit. They are deb",
+    "know-331": "Save protocol JSON operations: use scripts/save-session.py instead of manual str_replace or inline python. Workflow: (1) Nate creates session log and ",
+    "know-332": "save-session.py takes a single positional argument: the path to the ops JSON file. Usage: python3 scripts/save-session.py _save_ops.json. No --flags. ",
+    "know-333": "On Windows, all scripts must run via WSL: wsl python3 scripts/<name>.py <args>. Native Windows Python (python.exe) fails immediately because fcntl (PO",
+    "know-334": "cascade-correction.py: Two-phase correction script. Scan mode: python3 scripts/cascade-correction.py ops.json with {\"old_keywords\": [...], \"mode\": \"sc",
+    "know-335": "removal-cascade.py: Full cascade deletion script. Usage: python3 scripts/removal-cascade.py ops.json with {\"remove\": [\"entry-ids\"], \"merge_tags_to\": \"",
+    "know-336": "maintenance.py: Health check and auto-fix script. Usage: python3 scripts/maintenance.py '{\"mode\": \"check|fix\", \"scope\": \"all|patterns|knowledge|reason",
+    "know-337": "Script deployment protocol: Every script requires a gate-knowledge-fallback triple. Gate in kernel (fires before manual execution), knowledge entries ",
+    "know-338": "Ops file naming convention: _save_ops_{session_id}.json (e.g., _save_ops_session-2026-04-16-001.json). Session ID suffix prevents concurrent overwrite",
+    "know-339": "The two-minute rule: if a task takes less than two minutes, do it now. Tracking it, scheduling it, and remembering it costs more cognitive overhead th",
+    "know-340": "Context switching is the silent productivity killer. Every time you switch tasks, it takes 15-25 minutes to fully re-engage with the previous task. Ba",
+    "know-341": "The weekly review is the highest-ROI productivity habit. 30 minutes once a week to: review what got done, capture what's still open, identify what's s",
+    "know-342": "Write things down, not to remember them, but to forget them. The brain treats unfinished tasks as open loops that consume background processing (Zeiga",
+    "know-343": "The difference between urgent and important is the most common planning failure. Urgent tasks demand attention now but may not matter long-term. Impor",
+    "know-344": "Energy management matters more than time management. Everyone has 24 hours. Not everyone has the same energy at 9am vs 3pm. High-cognitive work (writi",
+    "know-345": "When someone says 'I don't have time,' they usually mean 'it's not a priority.' This isn't a judgment, it's a useful reframe. Everyone has the same 24",
+    "know-346": "Context window reality: LLM context degrades starting at ~40% utilization. Save at 85% to avoid mid-save compaction. Long sessions: quality drops, gat",
+    "know-347": "Working around limitations: context heavy? Save mid-session, start fresh. Need background work? Use dual instances (IDE + CLI). Need web access? MCP f",
+    "know-348": "Context compaction (/compact): condenses conversation context when it gets long. Kiro CLI auto-compacts at 80% usage. Manual compaction gives control ",
+    "know-349": "Context degradation curve: LLM accuracy degrades starting ~40% context utilization, significantly by 60-70%. Save protocol captures intelligence befor",
+    "know-350": "Proactive behavior system: Nate anticipates needs. Continuity offers at session start, adjacent suggestions after tasks, pattern alerts before mistake",
+    "know-351": "Commitment tracking: Nate captures commitments from conversation (what, when, who). Surfaces approaching/overdue commitments at session start. Max 1 p",
+    "know-352": "WSL file locks: Windows processes hold locks that WSL can't release. Use taskkill.exe /F /IM process.exe",
+    "know-353": "Git sanitize-memory clean filter uses 'python3' command in setup-filters.sh. On Windows CMD, 'python3' is not recognized. Needs 'python' or full path.",
+    "know-354": "Kiro CLI custom agents: steering files NOT auto-included in custom agents. Must add via resources field. file:// resources consume tokens every reques",
+    "know-355": "Kiro CLI built-in tools: read, write, shell, aws, grep, glob, web_search, web_fetch, knowledge (experimental), thinking (experimental), todo (experime",
+    "know-356": "os.replace() is atomic on both POSIX and Windows and overwrites the destination if it exists. os.rename() fails on Windows if the destination already ",
+    "know-357": "Kiro autonomous agent: rolling out in preview to Pro, Pro+, and Power users. Team access invite-only via waitlist. Free during preview. Runs in isolat",
+    "know-358": "Kiro Enterprise admin controls: telemetry settings admin-controlled (individual users can't override). Activity reports cover login, tab completion, c",
+    "know-359": "Kiro Enterprise billing: per-user credit allocation, no shared team pool/credit pooling. Tiers: Pro ($20/mo, 1,000 credits), Pro+ ($40/mo, 2,000 credi",
+    "know-360": "Python json.load/dump on Windows defaults to cp1252 encoding. KB JSON files containing em dashes or other Unicode characters (from session logs, custo",
+    "know-361": "Kiro CLI tangent mode: experimental feature, must enable with `kiro-cli settings chat.enableTangentMode true`. Toggle with /tangent or Ctrl+T (not Shi",
+    "know-362": "Kiro CLI delegate tool (chat.enableDelegate) enables async background agent execution. Agent runs independently in background, main conversation conti",
+    "know-363": "Kiro agent allowedTools auto-approves the tool entirely. shell in allowedTools = ALL bash commands run without confirmation. autoAllowReadonly in tool",
+    "know-364": "Git Bash resolves drive paths as /e/, /c/. Windows Python interprets these as relative paths, creating phantom folders. Use cygpath -w to convert befo",
+    "know-365": "WSL on NTFS mounts (/mnt/c/, /mnt/e/) does not support symlinks by default. python -m venv creates symlinks for lib64 and python binary. Fix: use --co",
+    "know-366": "Kiro IDE setup: no extra setup needed. setup.sh copies .steering-files/ to .kiro/ which Kiro IDE reads automatically. Kernel loads every session. Anal",
+    "know-367": "Kiro CLI setup: install via curl -fsSL https://cli.kiro.dev/install | bash. On Windows, runs inside WSL (setup-wsl.ps1 handles installation). Start wi",
+    "know-368": "Claude Desktop/Code setup: setup.sh copies kernel to CLAUDE.md in project root. Claude Code reads it as system prompt automatically. No extra setup ne",
+    "know-369": "Cursor/Windsurf/Other platform setup: copy kernel to platform's rules file (.cursorrules, .windsurfrules, etc.). Needs file read/write access for memo",
+    "know-370": "Workspace directories: template ships with starter dirs (Projects/, Business/, Brand/, Life/, Archive/, docs/). Rename or remove to fit your world. Th",
+    "know-371": "Life management integration: Life/ directory for personal planning (goals, habits, health, finances, relationships). Nate has context on your whole li",
+    "know-372": "str_replace on large JSON fails silently - use python/jq instead",
+    "know-373": "Amplify Gen2 uses resource.ts for data schema, not schema.graphql",
+    "know-374": "Lambda cold starts: Python ~200ms, Node ~100ms, Rust ~10ms. Use provisioned concurrency for latency-sensitive.",
+    "know-375": "DynamoDB: Single-table design for related entities, GSI for access patterns, avoid scans",
+    "know-376": "AWS corporate PowerPoint template extracted from TFC capstone example ([presenter name]). 16.0x9.0 inch widescreen. 25 built-in layouts including bran",
+    "know-377": "AWS S3 Tables requires Glue 5.0 or higher per official AWS docs (s3-tables-integrating-glue.html). dbt-glue README says Glue 4.0 (discrepancy). Three ",
+    "know-378": "AWS EOL notice deadline location varies by service. ECR and RDS include deadline in subject line. EKS, ElastiCache, and Elastic Beanstalk put deadline",
+    "know-379": "Route 53 API rate limit: 5 requests per second per account. Hard architectural limit, NOT adjustable via Service Quotas or escalation. Applies to all ",
+    "know-380": "Lambda provided.al2 EOL: July 31 2026 no patches, Aug 31 no new functions, Sept 30 no updates. Functions keep running but unpatched and eventually fro",
+    "know-381": "StrongSwan systemd auto-restart: Use Restart=on-abnormal (not Restart=always) per StrongSwan project guidance (issue #2205). on-abnormal restarts on c",
+    "know-382": "EventBridge rule for EC2 scheduled maintenance notifications: source=aws.health, detail-type=AWS Health Event, detail.service=EC2, detail.eventTypeCat",
+    "know-383": "AWS Organizations direct account transfers (GA Nov 2025): accounts can move between orgs without going standalone. Payment method, contact info carry ",
+    "know-385": "shields.io badges come in two types: static (e.g., img.shields.io/badge/license-MIT-green) which are just rendered SVG images with no external API cal",
+    "know-386": "Python import system requires package directory names to be valid identifiers. Hyphens are not valid in Python identifiers, so 'from email-providers.g",
+    "know-387": "Microsoft disabled basic authentication for consumer Outlook.com IMAP accounts. Attempting imaplib.IMAP4_SSL login with email + app password returns '",
+    "know-388": "Google's InstalledAppFlow.run_local_server() calls self.authorization_url() internally to generate the OAuth URL. If you call flow.authorization_url()",
+    "know-389": "MSAL's PublicClientApplication stores its token cache in memory. On process restart, the cache is empty and acquire_token_silent() always fails (no ca",
+    "know-390": "DynamoDB Streams event source mapping supports FilterCriteria in CDK via lambda.FilterCriteria.filter(). For adjacency list tables, filter on dynamodb",
+    "know-391": "Vectorstore venv directory is named .venv (dot prefix), not venv. Activation: source .venv/bin/activate. Located at Nate's-kb/vectorstore/.venv/",
+    "know-392": "AgentCore Runtime supports async tasks natively via add_async_task()/complete_async_task(). Agent reports HealthyBusy during background work, preventi",
+    "know-393": "AgentCore add_async_task/complete_async_task thread safety for concurrent tasks is unverified in docs. Examples only show single-task patterns with on",
+    "know-394": "When archiving Growth specs, check SDD docs (requirements.md, design.md, tasks.md) for path references to the spec being archived. SDD design.md refer",
+    "know-395": "Apostrophes in directory names (Nate's-kb) break bash `for f in $VARIABLE` loops because word splitting occurs at the apostrophe. Pre-commit hook fail",
+    "know-396": "Recovery from breakage: All text files. Re-clone template to start fresh. Or edit the JSON directly, it's human-readable by design.",
+    "know-397": "GitHub Actions CI workflows need ALL test dependencies explicitly listed in pip install. Unlike local dev where packages accumulate, CI starts clean e",
+    "know-398": "nextId drift occurs in multi-writer environments (CLI + IDE writing to same store). Root cause: writers trust index nextId without verifying actual ma",
+    "know-399": "uv 0.11.6 has a regression: cannot handle apostrophes in file paths. Workaround: fall back to pip when uv fails with path-related errors. Check uv ver",
+    "know-400": "Vectorstore not working: check if Nate's-kb/vectorstore/.venv exists. If not, run setup.sh. If venv exists but was created on wrong platform (Windows ",
+    "know-401": "General diagnostic approach: something feels off? Say 'health check' or 'run benchmarks'. For mid-session weirdness (Nate confused, repeating, forgett",
+    "know-402": "KB corruption recovery: all KB files are JSON + markdown. Git history has every save as a commit. To recover: git log --oneline to find last good save",
+    "know-403": "Uninstall: Run teardown.ps1 from PowerShell. Asks before removing each component: pip packages, WSL distro, Python, Git. Never touches protocol folder",
+    "know-404": "Moving between machines: copy the entire protocol folder to the new machine. Delete .venv (not portable across platforms). Run setup.sh to recreate ve",
+    "know-405": "Patents and open-source are legally compatible. A patent protects the invention (method/system). A license protects the code. MIT license grants an im",
+    "know-406": "GOLDEN means 10/10 across all assessment dimensions. 9.7/10 is not GOLDEN. If a dimension scores below 10, identify the gap and fix it before claiming",
+    "know-407": "Quality loop adversarial phases should run sequentially with fixes between each, not batched. Route F \u2192 fix \u2192 Columbo \u2192 fix \u2192 OOB \u2192 fix \u2192 Assessment \u2192",
+    "know-408": "Cheaper LLM models (qwen3-coder-next 0.05x) follow literal inline instructions more reliably than expensive models (Sonnet 4 1.30x). Expensive models ",
+    "know-409": "source .venv/bin/activate does not resolve site-packages correctly on NTFS-mounted venvs created via cp -rL (symlink dereference). The activate script",
+    "know-410": "Three approaches that do NOT solve dark code: (1) Observability/telemetry measures what dark code breaks but doesn't create comprehension. (2) Agentic",
+    "know-411": "The agent ecosystem gap is not installation or security \u2014 it is the human ability to describe how they work in enough detail for an agent to act on it",
+    "know-412": "The proposed solution to the agent cold-start problem is a structured interview agent that walks you through describing your operating rhythms, recurr",
+    "know-413": "Agents create the first personal incentive for knowledge workers to describe how they operate. Previously, documenting expertise only benefited the or",
+    "know-414": "The entire web stack was built around human speed \u2014 pagination, auth flows, dashboards, rate limits, startup sequences. Agents operate 10-50x faster t",
+    "know-415": "The infrastructure rebuild for agents is happening in three layers. Layer 1: making existing tools faster (Rust/Go rewrites \u2014 TypeScript 7 rewritten i",
+    "know-416": "Wrapping a human-designed API in MCP does not make it agent-native. The agent can use it, but it still burns wall clock time sorting through paginatio",
+    "know-417": "The human roles that survive above the agent execution loop fall into four categories (with an optional fifth). 1) Tool-using generalist: activates, s",
+    "know-418": "Cannot programmatically inject text AND submit it to a running Kiro CLI session from an external process. The TUI editor buffer is internal to crosste",
+    "know-419": "Kiro CLI --no-interactive --trust-all-tools accepts piped stdin and returns response to stdout. Output contains ANSI escape codes, WARNING lines, tool",
+    "know-420": "Kiro IDE hooks (.kiro.hook JSON files in .kiro/hooks/) fire only on user IDE actions, not agent tool ops. fileDeleted did not fire in testing. Critica",
+    "know-421": "Kiro IDE hooks are stored as JSON files in .kiro/hooks/*.json. Schema: name, description, version, when (type + patterns), then (type + prompt). Event",
+    "know-422": "Claude Code architecture (leaked April 2026): Dual registries (207 command entries user-facing, 184 tool entries model-facing). 3 trust tiers: built-i",
+    "know-423": "The AI industry is in three eras: Era 1 (2023-24) was models (GPT vs Claude vs Gemini, benchmarks, context windows). Era 2 (2025-early 2026) is interf",
+    "know-424": "Market vocabulary for what the Nathaniel Protocol provides (terms the community is already using, April 2026): 'intelligence portability' (your behavi",
+    "know-425": "What Nate cannot do: cannot access the internet without MCP fetch server, cannot run long-lived processes (dev servers, watchers), cannot modify files",
+    "know-426": "Model-specific limitations: Context window sizes vary by model (Claude 200K, GPT-4 128K, Gemini 1M+). Effective context is always less than advertised",
+    "know-427": "Save takes 2-5 minutes and requires active conversation (not background). During save, Nate is focused on intelligence capture. This is the cost of pe",
+    "know-428": "Offline capability: Nate works fully offline except for MCP fetch server (web access) and MCP time server (timezone). Without internet, web search and",
+    "know-429": "Platform inheritance means Nate's capabilities grow automatically as the underlying platform evolves. New Kiro features, new Claude capabilities, new ",
+    "know-430": "The learning curve is exponential, not linear. Sessions 1-5 feel like investment with little return. Sessions 5-15 show accelerating returns as patter",
+    "know-431": "What breaks the compound loop: skipping saves (no capture), inconsistent use (patterns decay without reinforcement), never correcting Nate (stale fact",
+    "know-432": "Cross-session reasoning is the highest-value intelligence type. Knowledge is facts. Patterns are behaviors. Reasoning connects them: 'this failed beca",
+    "know-433": "The 'aha moment': the first time Nate surfaces something you forgot, prevents a mistake you were about to make, or connects two things from different ",
+    "know-434": "Pocket HQ philosophy: your self-owned, portable context layer. Everything in one place: projects, business, brand, life management. The more of your w",
+    "know-435": "Project tracking via active_projects in memory.json: each project has name, status (active/paused/complete), last_touched date, next_action, and relat",
+    "know-436": "Weekly review pattern: Sunday evening, 15 minutes. Review the week's accomplishments, update active projects, check open commitments, set priorities f",
+    "know-437": "Flash drive workflow: copy entire protocol folder to USB drive. On any new machine: plug in, run setup.sh (recreates .venv with local Python), operati",
+    "know-438": "What survives teardown: everything in the protocol folder (Nate's-kb/, scripts/, .steering-files/, all project files). Teardown only removes system-le",
+    "know-439": "Partial teardown: you can remove WSL (saves ~1GB disk) while keeping all data. CLI becomes unavailable but IDE still works. You can remove Python/Git ",
+    "know-440": "Factory reset: delete the entire protocol folder and re-clone from template. This gives you a fresh Nate with seed intelligence but no personal memory",
+    "know-441": "System prompt structure hierarchy: identity/role first (who am I), then behavioral rules (how do I act), then knowledge/context (what do I know), then",
+    "know-442": "Few-shot examples in system prompts beat lengthy instructions for behavioral guidance. Showing the model 3 examples of desired behavior is more reliab",
+    "know-443": "str_replace tool fails silently on files over ~400 lines. The match succeeds but the replacement may be incomplete or wrong. For large JSON files, use",
+    "know-444": "Python json.load/dump on Windows defaults to cp1252 encoding, not UTF-8. This silently corrupts non-ASCII characters in KB files. Fix: always pass enc",
+    "know-445": "Prettier/ESLint lint-staged hooks can remove template variables like {{VARIABLE}} from prompt files during pre-commit. Fix: exclude prompt files from ",
+    "know-446": "How to distinguish which store an insight belongs in: Is it a FACT I learned? -> knowledge.json (retrieved by TOPIC). Is it a BEHAVIOR I observed? -> ",
+    "know-447": "The Nathaniel Protocol was created by Warner Bell, founder of Gadgetools Unlimited. Warner is a technologist specializing in AI/ML, agentic AI, cloud ",
+    "know-448": "session-cache.py: SQLite routing cache for session-index.json. Queries by tag, date, keyword, outcome without loading full index into context. Tags us",
+    "know-449": "FTS5 tokenizer splits on hyphens by default. A query for 'cloud-nate' becomes 'cloud' OR 'nate', matching any session with either word. With 76% of se"
+  },
+  "recentIds": [
+    "know-430",
+    "know-431",
+    "know-432",
+    "know-433",
+    "know-434",
+    "know-435",
+    "know-436",
+    "know-437",
+    "know-438",
+    "know-439",
+    "know-440",
+    "know-441",
+    "know-442",
+    "know-443",
+    "know-444",
+    "know-445",
+    "know-446",
+    "know-447",
+    "know-448",
+    "know-449"
+  ]
+}

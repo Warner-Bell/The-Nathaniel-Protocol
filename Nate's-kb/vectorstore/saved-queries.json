@@ -1,0 +1,27 @@
+{
+    "stale-high-confidence": {
+        "description": "High-confidence entries never accessed in 90 days",
+        "filters": {"min_confidence": 0.8, "not_accessed_since_days": 90},
+        "format": "table"
+    },
+    "never-accessed": {
+        "description": "Entries with zero access count",
+        "filters": {"max_access_count": 0},
+        "format": "table"
+    },
+    "low-confidence": {
+        "description": "Entries with confidence below 0.5",
+        "filters": {"max_confidence": 0.5},
+        "format": "table"
+    },
+    "refinement-candidates": {
+        "description": "L1 entries with enough access to warrant promotion review",
+        "filters": {"min_access_count": 3, "level": 1},
+        "format": "table"
+    },
+    "confidence-outliers": {
+        "description": "Very low confidence entries",
+        "filters": {"max_confidence": 0.3},
+        "format": "table"
+    }
+}

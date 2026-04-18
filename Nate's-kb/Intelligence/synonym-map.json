@@ -1,0 +1,274 @@
+{
+  "_meta": {
+    "description": "Synonym expansion map for CSR retrieval. Consulted at query time to bridge vocabulary gaps.",
+    "usage": "When scanning index tags for a keyword, also check synonyms. Bidirectional: if A maps to B, B implicitly maps to A.",
+    "maintenance": "Cap at ~100 entries. Prune during monthly maintenance. Add new synonyms when CSR misses are detected.",
+    "last_updated": "2026-04-16"
+  },
+  "synonyms": {
+    "portable": [
+      "flash-drive",
+      "removable",
+      "mobile",
+      "usb",
+      "transferable"
+    ],
+    "memory": [
+      "recall",
+      "remember",
+      "persistence",
+      "session-memory",
+      "long-term-memory"
+    ],
+    "retrieval": [
+      "search",
+      "lookup",
+      "query",
+      "fetch",
+      "find",
+      "routing"
+    ],
+    "kernel": [
+      "nathaniel.md",
+      "steering",
+      "system-prompt",
+      "personality"
+    ],
+    "save": [
+      "persist",
+      "store",
+      "checkpoint",
+      "consolidate",
+      "commit"
+    ],
+    "error": [
+      "fail",
+      "bug",
+      "broken",
+      "issue",
+      "problem",
+      "crash"
+    ],
+    "architecture": [
+      "design",
+      "structure",
+      "system-design",
+      "layout",
+      "blueprint"
+    ],
+    "template": [
+      "framework",
+      "open-source",
+      "protocol",
+      "templatize",
+      "scaffold"
+    ],
+    "debug": [
+      "troubleshoot",
+      "diagnose",
+      "fix",
+      "investigate",
+      "trace"
+    ],
+    "performance": [
+      "speed",
+      "latency",
+      "optimization",
+      "fast",
+      "slow",
+      "bottleneck"
+    ],
+    "security": [
+      "credentials",
+      "secrets",
+      "git-hardening",
+      "exposure",
+      "sensitive"
+    ],
+    "pattern": [
+      "behavior",
+      "preference",
+      "approach",
+      "habit",
+      "tendency"
+    ],
+    "knowledge": [
+      "fact",
+      "discovery",
+      "learning",
+      "finding",
+      "insight"
+    ],
+    "reasoning": [
+      "conclusion",
+      "deduction",
+      "inference",
+      "derivation",
+      "connection"
+    ],
+    "proactive": [
+      "anticipate",
+      "suggest",
+      "offer",
+      "initiative",
+      "predict"
+    ],
+    "route-f": [
+      "analysis",
+      "interrogate",
+      "evaluate",
+      "review"
+    ],
+    "writing": [
+      "draft",
+      "document",
+      "article",
+      "blog",
+      "content-creation"
+    ],
+    "development": [
+      "build",
+      "code",
+      "implement",
+      "deploy",
+      "ship"
+    ],
+    "planning": [
+      "roadmap",
+      "breakdown",
+      "estimate",
+      "timeline",
+      "scope"
+    ],
+    "research": [
+      "investigate",
+      "explore",
+      "compare",
+      "study",
+      "survey"
+    ],
+    "maintenance": [
+      "cleanup",
+      "health",
+      "integrity",
+      "prune",
+      "housekeeping"
+    ],
+    "portability": [
+      "cross-platform",
+      "flash-drive",
+      "mobile-drive",
+      "transferable"
+    ],
+    "vectorization": [
+      "embeddings",
+      "semantic-search",
+      "vector-search",
+      "similarity"
+    ],
+    "csr": [
+      "context-signal-routing",
+      "index-routing",
+      "tag-matching",
+      "retrieval"
+    ],
+    "agent": [
+      "kiro-agent",
+      "spawn",
+      "custom-agent",
+      "ai-agent"
+    ],
+    "prompt": [
+      "system-prompt",
+      "steering",
+      "instructions",
+      "kernel"
+    ],
+    "dependency": [
+      "requirement",
+      "prerequisite",
+      "install",
+      "package",
+      "library"
+    ],
+    "git": [
+      "version-control",
+      "commit",
+      "branch",
+      "repository",
+      "repo"
+    ],
+    "test": [
+      "validate",
+      "verify",
+      "check",
+      "confirm",
+      "assert"
+    ],
+    "config": [
+      "configuration",
+      "settings",
+      "setup",
+      "options",
+      "preferences"
+    ],
+    "foundational": [
+      "core",
+      "base",
+      "fundamental",
+      "principle"
+    ],
+    "ecosystem-kb": [
+      "seed",
+      "template-kb",
+      "ecosystem-knowledge"
+    ],
+    "practical": [
+      "actionable",
+      "applied",
+      "hands-on"
+    ],
+    "communication": [
+      "voice",
+      "tone",
+      "messaging",
+      "interaction"
+    ],
+    "quality": [
+      "validation",
+      "verification",
+      "testing",
+      "review"
+    ],
+    "intelligence-system": [
+      "kb",
+      "knowledge-base",
+      "stores",
+      "intelligence"
+    ],
+    "onboarding": [
+      "setup",
+      "getting-started",
+      "first-session",
+      "new-user"
+    ],
+    "negative-knowledge": [
+      "anti-pattern",
+      "dont",
+      "avoid",
+      "wrong-approach"
+    ],
+    "agentic-ai": [
+      "agent",
+      "multi-agent",
+      "autonomous",
+      "ai-agent"
+    ],
+    "cloud-deployment": [
+      "cloud",
+      "deploy",
+      "hosting",
+      "saas"
+    ]
+  }
+}

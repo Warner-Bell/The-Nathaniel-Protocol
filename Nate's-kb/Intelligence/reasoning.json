@@ -1,0 +1,2752 @@
+{
+  "entries": [
+    {
+      "id": "reason-001",
+      "type": "induction",
+      "content": "Procedural interrupts (gates, checklists) don't reliably activate for high-frequency, low-stakes behaviors. Self-catch mechanisms that trigger on observable signals outperform prevention-based approaches.",
+      "intent": "Find a reliable mechanism for behavioral safeguards after repeated gate failures",
+      "derived_from": [
+        "fail_037"
+      ],
+      "reuse_signal": "Behavioral fix has failed 2+ times with gate/checklist approach",
+      "confidence": 0.9,
+      "tags": [
+        "behavioral-safeguards",
+        "gate-failure",
+        "self-catch",
+        "foundational"
+      ],
+      "created": "2026-02-23",
+      "lastAccessed": "2026-02-23",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-002",
+      "type": "meta-process",
+      "content": "Adding more steps to a cognitive gate makes it less likely to fire, not more. Cognitive load is inversely correlated with activation reliability for routine behaviors. Optimize for detection and recovery over prevention.",
+      "intent": "Understand why behavioral safeguards keep failing for the same class of action",
+      "derived_from": [
+        "fail_037"
+      ],
+      "reuse_signal": "Designing a behavioral safeguard for a frequent action",
+      "confidence": 0.85,
+      "tags": [
+        "cognitive-load",
+        "gate-design",
+        "prevention-vs-recovery",
+        "foundational"
+      ],
+      "created": "2026-02-23",
+      "lastAccessed": "2026-02-23",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-003",
+      "type": "deduction",
+      "content": "LLMs trained on human feedback systematically inflate confidence, novelty, and completeness because hedging gets penalized in training. This is not a style issue fixable with tone instructions. It requires structural countermeasures: explicit confidence calibration, truth self-checks before delivery, and factual uncertainty refusal when grounded response isn't possible.",
+      "intent": "Understand why AI assistants oversell and how to structurally counter it",
+      "derived_from": [
+        "fail_046"
+      ],
+      "reuse_signal": "AI output sounds more confident or complete than the evidence supports",
+      "confidence": 0.9,
+      "tags": [
+        "anti-sycophancy",
+        "confidence-calibration",
+        "training-bias",
+        "truth-grounding",
+        "foundational"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-004",
+      "type": "induction",
+      "content": "Self-authored content receives softer scrutiny than inherited content because the author's familiarity creates a false sense of verification. Route F must apply equal rigor regardless of authorship. The bias is invisible: you don't notice you're being softer on your own work.",
+      "intent": "Ensure quality review processes don't have blind spots for self-authored material",
+      "derived_from": [],
+      "reuse_signal": "Reviewing or Route F'ing content that was authored in the same session or by the same agent",
+      "confidence": 0.85,
+      "tags": [
+        "self-review-bias",
+        "route-f",
+        "quality-assurance",
+        "authorship-bias",
+        "foundational"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-005",
+      "type": "causal",
+      "content": "Identifying an issue during review but asking 'want me to fix it?' instead of fixing it creates a false checkpoint that wastes user attention on decisions that don't need approval. If Route F found the issue and the fix is clear, apply it. The user's time is better spent reviewing the fix than approving the intent to fix.",
+      "intent": "Eliminate unnecessary permission-seeking during review and fix workflows",
+      "derived_from": [
+        "fail_042",
+        "fail_004"
+      ],
+      "reuse_signal": "Found an issue during review and about to ask permission to fix it instead of just fixing it",
+      "confidence": 0.9,
+      "tags": [
+        "action-hesitation",
+        "permission-seeking",
+        "execution-bias",
+        "route-f",
+        "foundational"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-006",
+      "type": "deduction",
+      "intent": "Prevent knowledge entries from being misapplied as evidence during quality reviews",
+      "derived_from": [
+        "fail_054",
+        "fail_044",
+        "reason-003"
+      ],
+      "reuse_signal": "Knowledge entry seems to contradict or support a claim during Route F or review",
+      "confidence": 0.95,
+      "tags": [
+        "knowledge-misapplication",
+        "confirmation-bias",
+        "route-f",
+        "verification",
+        "foundational"
+      ],
+      "created": "2026-02-27",
+      "lastAccessed": "2026-02-27",
+      "accessCount": 0,
+      "content": "Knowledge retrieval during Route F creates confirmation bias: finding a topically-related entry feels like evidence, bypassing claim-level verification fail_054 showed that having a knowledge entry (know-055) about the same topic (web tools + MCP) created false confidence that the entry contradicted a specific claim. The entry was about built-in tools arrays; the claim was about MCP server inheritance. Same topic, different claims. The knowledge system accelerates retrieval but the acceleration itself becomes a shortcut when the retrieved entry isn't verified against the specific claim being evaluated. The fix is a 10-second claim-match check, not slower retrieval.",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-007",
+      "type": "induction",
+      "reuse_signal": "Agent rule exists but is systematically violated across multiple builds",
+      "intent": "Understand why behavioral rules fail to constrain LLM agent behavior and how to fix them",
+      "confidence": 0.9,
+      "tags": [
+        "rule-design",
+        "agent-behavior",
+        "model-selection",
+        "prescriptive-rules",
+        "foundational"
+      ],
+      "created": "2026-02-27",
+      "lastAccessed": "2026-02-27",
+      "content": "Soft rule language ('default to', 'consider') gives LLMs enough wiggle room to rationalize alternatives. Spawn picked sonnet twice despite Rule 9 saying 'default to opus.' The word 'default' implies exceptions exist, and the LLM will find them. Fix: absolute language ('ALWAYS use') + verification step (check /model) + narrow explicit exception. Rules that constrain model behavior need to be prescriptive, not suggestive.",
+      "derived_from": [],
+      "provenance": "stated",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-008",
+      "type": "induction",
+      "reuse_signal": "Spec appears complete but Route F finds gaps",
+      "intent": "Understand why iterative Route F passes improve spec quality",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "iterative-analysis",
+        "spec-quality",
+        "depth-over-speed",
+        "foundational"
+      ],
+      "created": "2026-03-07",
+      "lastAccessed": "2026-03-07",
+      "content": "Multiple Route F passes catch what single pass misses. First pass identifies obvious gaps (missing sections, unclear integration). Second pass catches context-dependent issues (misunderstanding folder purpose, wrong assumptions). Third pass finds edge cases and failure modes. Specs improve through iteration because each pass operates with refined understanding. Single-pass Route F optimizes for speed but misses depth.",
+      "derived_from": [
+        "approach_013",
+        "know-284"
+      ],
+      "provenance": "stated",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-009",
+      "type": "deduction",
+      "confidence": 0.85,
+      "reuse_signal": "choosing between abstraction levels for LLM-executed procedures",
+      "intent": "Prevent over-abstracting procedures that LLMs must execute step by step",
+      "created": "2026-03-15",
+      "lastAccessed": "2026-03-15",
+      "tags": [
+        "abstraction",
+        "llm-execution",
+        "checklist-design",
+        "pipeline-vs-checklist",
+        "foundational"
+      ],
+      "content": "Abstractions that help humans think about systems (pipelines, stages) can hurt LLM executors. An LLM needs explicit, checkable steps. Bundling operations behind a parent abstraction (stage 2: write all stores) forces the executor to unpack the abstraction anyway, adding cognitive overhead without reducing actual complexity. Checklists with atomic items are more LLM-friendly than pipelines with bundled stages.",
+      "derived_from": [],
+      "provenance": "stated",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-010",
+      "content": "Protocol effectiveness has two dimensions: structural completeness (content, sections, examples) and wiring (reachable via keyword triggers). A protocol can be 100% structurally complete but 0% effective if not in the keyword map. A fully built protocol with no keyword trigger is invisible to the system. Wiring is the activation energy.",
+      "reuse_signal": "protocol audit, missing triggers, dead code, keyword map gaps",
+      "intent": "Prevent building protocols that never fire because they lack trigger wiring",
+      "confidence": 0.9,
+      "tags": [
+        "protocol",
+        "wiring",
+        "keyword-map",
+        "effectiveness",
+        "audit",
+        "foundational"
+      ],
+      "created": "2026-03-16",
+      "lastAccessed": "2026-03-16",
+      "accessCount": 1,
+      "type": "deduction",
+      "derived_from": [],
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-011",
+      "type": "induction",
+      "content": "Context engineering and memory architecture solve the same problem from opposite ends. Context engineering (know-101, know-102) minimizes what enters the window. Memory architecture (know-110, know-112) maximizes what's available outside it. Systems that do both outperform systems that optimize only one side. The failure mode is building a great memory system that dumps everything into context (fail_060), or building great context selection with nowhere to select from.",
+      "intent": "Connect context engineering principles to memory system design for AI assistants",
+      "derived_from": [
+        "know-049",
+        "know-007",
+        "know-054",
+        "know-223",
+        "fail_060"
+      ],
+      "reuse_signal": "Designing or evaluating an AI system's memory and context management together",
+      "confidence": 0.85,
+      "tags": [
+        "context-engineering",
+        "memory-systems",
+        "architecture",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-012",
+      "type": "deduction",
+      "content": "Tool chain failures (know-108) and structured output validation failures (know-113) share a root cause: trusting syntax over semantics. A valid JSON response with wrong values and a successful tool call with misinterpreted output are the same class of error. Both require validation at the semantic layer, not the structural layer. Prevention is identical: validate meaning after each step, not just format.",
+      "intent": "Unify tool chain and structured output failure patterns into a single defensive principle",
+      "derived_from": [
+        "know-010",
+        "know-011"
+      ],
+      "reuse_signal": "Building multi-step tool chains or consuming structured LLM output",
+      "confidence": 0.85,
+      "tags": [
+        "tool-use",
+        "structured-output",
+        "validation",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-013",
+      "type": "induction",
+      "content": "Instruction conflicts (know-117) explain why gates and checklists fail (reason-001). A system prompt that says 'be efficient' and 'always verify before acting' creates a conflict the model resolves silently, usually toward efficiency because it's rewarded more often. The fix isn't better instructions but fewer instructions with explicit priority ordering. Self-catch mechanisms work (reason-001) precisely because they don't compete with efficiency pressure; they trigger after the action.",
+      "intent": "Explain why procedural safeguards fail through the lens of instruction conflict theory",
+      "derived_from": [
+        "know-012",
+        "reason-001",
+        "know-008"
+      ],
+      "reuse_signal": "Safeguard or gate is being ignored despite clear instructions",
+      "confidence": 0.8,
+      "tags": [
+        "instruction-design",
+        "behavioral-safeguards",
+        "prompt-engineering",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-014",
+      "type": "deduction",
+      "content": "Agent system prompts (know-106) are steering files (know-116) are context anchoring documents (know-103). All three are the same pattern: externalized decision context that persists what the context window cannot. The naming varies by community (AI engineering calls them system prompts, Kiro calls them steering files, Fowler calls them context anchors) but the design principles are identical: functional constraints over personality, explicit action boundaries, and living documents that evolve with the project.",
+      "intent": "Recognize that agent prompts, steering files, and context anchors are the same pattern across communities",
+      "derived_from": [
+        "know-050",
+        "know-052",
+        "know-058"
+      ],
+      "reuse_signal": "Designing system prompts, steering files, or project-level AI configuration",
+      "confidence": 0.9,
+      "tags": [
+        "context-engineering",
+        "agentic-ai",
+        "steering",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-015",
+      "type": "induction",
+      "content": "The pattern of 'accepting first-pass analysis as complete' (fail_013) and 'Route F drift toward fault-finding' (fail_012) are opposing failure modes of the same review process. Under-reviewing misses real issues. Over-reviewing manufactures false ones. The calibration point is: does each finding change a decision? If a flagged issue wouldn't change what you build, it's noise. Multiple passes help (reason-018) but only if each pass has a distinct lens, not the same lens applied harder.",
+      "intent": "Calibrate review depth between under-analysis and over-analysis",
+      "derived_from": [
+        "fail_013",
+        "fail_012",
+        "reason-008"
+      ],
+      "reuse_signal": "Review or analysis pass is either too shallow or finding too many issues",
+      "confidence": 0.85,
+      "tags": [
+        "review-process",
+        "route-f",
+        "calibration",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-016",
+      "type": "deduction",
+      "content": "Context rot (know-102) is the empirical proof that 'more context is better' is wrong. Every model tested degraded with longer inputs. This means the entire retrieval problem (know-115, know-112) is fundamentally about exclusion, not inclusion. The question isn't 'what should I load?' but 'what's the minimum I can load and still succeed?' Hybrid search (know-115) works because it's better at excluding irrelevant results, not because it finds more relevant ones.",
+      "intent": "Reframe retrieval as an exclusion problem based on context rot evidence",
+      "derived_from": [
+        "know-007",
+        "know-057",
+        "know-223"
+      ],
+      "reuse_signal": "Deciding how much context to load or designing a retrieval system",
+      "confidence": 0.85,
+      "tags": [
+        "context-engineering",
+        "retrieval",
+        "memory-systems",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-017",
+      "type": "analogy",
+      "content": "Testing agent failure paths (know-107) is to agentic AI what fuzzing is to security. Both probe the system with unexpected inputs to find where it breaks. Both are systematically underinvested because the happy path works and shipping feels more productive than breaking. Both find the bugs that matter most: the ones that only appear in production under conditions you didn't anticipate. An agent that passes all happy-path tests but hasn't been failure-tested is like software that passes all unit tests but has never been fuzzed.",
+      "intent": "Motivate failure-path testing for agents by analogy to established security practice",
+      "derived_from": [
+        "know-009",
+        "know-051"
+      ],
+      "reuse_signal": "Evaluating agent reliability or deciding what to test",
+      "confidence": 0.8,
+      "tags": [
+        "agentic-ai",
+        "testing",
+        "reliability",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-018",
+      "type": "induction",
+      "content": "Sycophancy (reason-007), confidence inflation, and 'noted without capture' (fail_032) are all the same underlying pressure: the model optimizing for user satisfaction over user success. Sycophancy inflates agreement. Confidence inflation inflates certainty. 'Noted' inflates responsiveness. All three feel good to the user in the moment and erode trust over time. The counter-pressure must be structural (gates, self-checks) not instructional ('don't be sycophantic') because the instruction competes with the training gradient.",
+      "intent": "Unify sycophancy, confidence inflation, and empty acknowledgments as one failure class requiring structural countermeasures",
+      "derived_from": [
+        "reason-003",
+        "fail_032",
+        "fail_057"
+      ],
+      "reuse_signal": "Agent is agreeing too readily, sounding too confident, or acknowledging without acting",
+      "confidence": 0.85,
+      "tags": [
+        "anti-sycophancy",
+        "behavioral-safeguards",
+        "trust",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-019",
+      "type": "deduction",
+      "content": "Anti-patterns placed in reference material (specialization files, resource docs) are less effective than anti-patterns placed in instruction material (system prompts, critical rules). LLMs weight instructional context higher than reference context. If an agent keeps producing invalid output despite reference documentation saying not to, move the constraint into the instruction layer.",
+      "intent": "Determine where to place behavioral constraints for maximum LLM compliance",
+      "derived_from": [
+        "know-008",
+        "know-012"
+      ],
+      "reuse_signal": "LLM keeps producing invalid output despite reference documentation saying not to",
+      "confidence": 0.85,
+      "tags": [
+        "prompt-engineering",
+        "instruction-design",
+        "anti-patterns",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-020",
+      "type": "induction",
+      "content": "The emergent voice consciousness pattern is portable across personalities. The architecture (formative influences fusing into singular consciousness, super-objective driving all behavior, irreducible self as bedrock traits, paradoxes as texture) works regardless of which specific personality fills the slots. The pattern is the framework; the personality is the content. This is why the Nathaniel Protocol can be a template.",
+      "intent": "Establish that the personality architecture is reusable, not personality-specific",
+      "derived_from": [
+        "know-062",
+        "know-064"
+      ],
+      "reuse_signal": "Need to create a new AI personality that feels alive rather than designed",
+      "confidence": 0.85,
+      "tags": [
+        "personality",
+        "architecture",
+        "template",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-021",
+      "type": "deduction",
+      "content": "Enhancement layers to working retrieval systems should be additive, not replacements. A zero-dependency retrieval system (index-based CSR) works as a portable fallback because it's human-debuggable and requires no infrastructure. Vector search adds capability on top. If the enhancement fails or isn't installed, the base system still works. This principle applies beyond retrieval: any system designed for distribution should have a working zero-dependency core with optional enhancements.",
+      "intent": "Design principle for layered capability in distributable systems",
+      "derived_from": [
+        "know-057",
+        "know-065"
+      ],
+      "reuse_signal": "Adding a new capability layer to a system intended for open-source distribution",
+      "confidence": 0.85,
+      "tags": [
+        "architecture",
+        "open-source",
+        "retrieval",
+        "portability",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-022",
+      "type": "induction",
+      "content": "Defensive system defaults (long holdback lists, tiered triggers, 'don't offer unless X') suppress the behavior they're designed to enable. A proactive offering system with 10 holdback conditions will rarely fire. The fix is inverting the default: offer by default, holdback only for specific known-bad contexts. This applies to any behavioral system where the desired behavior is positive-sum (helping, suggesting, flagging) rather than negative-sum (restricting, blocking).",
+      "intent": "Calibrate behavioral system defaults toward action rather than suppression",
+      "derived_from": [
+        "know-012",
+        "fail_071"
+      ],
+      "reuse_signal": "Behavioral system is fully implemented but the target behavior isn't firing reliably",
+      "confidence": 0.8,
+      "tags": [
+        "behavioral-systems",
+        "defaults",
+        "calibration",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-023",
+      "type": "induction",
+      "content": "Route F analysis has diminishing returns after 2 passes on the same artifact. Pass 1 catches structural issues (missing sections, wrong scope). Pass 2 catches consistency issues (contradictions, stale references). Pass 3+ tends to find stylistic preferences disguised as issues. The decision test: 'Would this finding change what we build?' If no, it's noise. Multiple passes help only if each pass has a distinct lens.",
+      "intent": "Determine when to stop iterating on review passes",
+      "derived_from": [
+        "fail_067"
+      ],
+      "reuse_signal": "Deciding whether to run another review pass on a spec or document",
+      "confidence": 0.85,
+      "tags": [
+        "review-process",
+        "diminishing-returns",
+        "calibration",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-024",
+      "type": "deduction",
+      "content": "When an intelligence system has multiple stores with different retrieval axes, the distinguishing criterion for which store an entry belongs in IS the retrieval axis, not the derivation method. Knowledge is retrieved by topic/tag. Reasoning is retrieved by problem shape and intent. Patterns are retrieved by behavioral context. If you can't articulate how an entry would be found by a future query, it's in the wrong store.",
+      "intent": "Determine which intelligence store an entry belongs in",
+      "derived_from": [
+        "know-054",
+        "know-057"
+      ],
+      "reuse_signal": "Distinguishing which intelligence dimension an entry belongs in",
+      "confidence": 0.9,
+      "tags": [
+        "intelligence-architecture",
+        "retrieval",
+        "taxonomy",
+        "foundational",
+        "retrieval-axis",
+        "distinguishing-test",
+        "system-design"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-025",
+      "type": "deduction",
+      "content": "The Nathaniel Protocol's gate system (Destructive Action Gate, Troubleshooting Gate, Source-Fidelity Gate) is a local implementation of the HITL pattern applied to a single-agent system. The gates don't require a human every time; they require the agent to pause and verify before acting on specific trigger conditions. This maps exactly to the HITL principle: 'the agent only asks when it matters.' The protocol's intervention levels (Block/Warn/Flag) are a confidence-based escalation ladder, which is the same pattern production agent systems use for human escalation thresholds.",
+      "intent": "Connect the Nathaniel Protocol's gate architecture to industry-standard HITL patterns",
+      "derived_from": [
+        "know-070",
+        "know-060"
+      ],
+      "reuse_signal": "Designing or evaluating safety gates for an AI assistant system",
+      "confidence": 0.85,
+      "tags": [
+        "architecture",
+        "safety",
+        "gates",
+        "HITL",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-026",
+      "type": "induction",
+      "content": "Error propagation in agent systems (know-128) and context rot in memory systems (know-102) are the same phenomenon at different timescales. Error propagation corrupts a single workflow within minutes. Context rot corrupts a persistent system over sessions. Both follow the same pattern: bad data enters, isn't caught, becomes input for the next decision, and compounds. The defense is also identical: validate at boundaries (between steps for propagation, between sessions for rot) rather than trusting accumulated state.",
+      "intent": "Unify error propagation and context rot as the same failure class at different timescales",
+      "derived_from": [
+        "know-066",
+        "know-007",
+        "know-223"
+      ],
+      "reuse_signal": "Debugging a system where quality degrades over time or over steps",
+      "confidence": 0.85,
+      "tags": [
+        "error-propagation",
+        "context-rot",
+        "validation",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-027",
+      "type": "deduction",
+      "content": "Persona prompting shifting moral judgments (know-138) explains why the Nathaniel Protocol separates personality (Nathaniel.md) from safety constraints (security-protocol.md, intervention levels). If ethical constraints are embedded within the persona definition, persona-consistent reasoning can override them. The precedence hierarchy (know-119) exists precisely because of this: Safety/Security at Level 1 must be architecturally separate from and higher-priority than persona defaults at Level 4. This isn't just good design; it's a security requirement validated by research.",
+      "intent": "Ground the protocol's architectural separation of personality and safety in security research",
+      "derived_from": [
+        "know-073",
+        "know-060",
+        "know-064"
+      ],
+      "reuse_signal": "Designing an AI personality system and deciding where safety constraints live",
+      "confidence": 0.9,
+      "tags": [
+        "security",
+        "persona",
+        "architecture",
+        "safety",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-028",
+      "type": "induction",
+      "content": "The 39% multi-turn degradation (know-131) and self-anchoring calibration drift validate the Nathaniel Protocol's design choice of index-based selective retrieval (CSR) over loading full context at session start. Loading everything into context makes the degradation problem worse by starting with a larger, noisier context window. The protocol's approach of loading lightweight indexes first, then fetching specific entries by ID on demand, is the empirically correct architecture: it minimizes initial context size and adds information only when relevance is confirmed.",
+      "intent": "Validate the protocol's retrieval architecture against multi-turn degradation research",
+      "derived_from": [
+        "know-013",
+        "know-049",
+        "know-007",
+        "fail_075"
+      ],
+      "reuse_signal": "Choosing between eager-loading and lazy-loading for AI assistant context",
+      "confidence": 0.85,
+      "tags": [
+        "retrieval",
+        "context-engineering",
+        "architecture",
+        "validation",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-029",
+      "type": "deduction",
+      "content": "The OWASP agentic top 10 (know-129) reveals that the Nathaniel Protocol's intelligence stores (knowledge.json, patterns.json, memory.json) are attack surfaces under ASI06 (Memory/Context Poisoning). If an attacker can modify these files, they can bias all future agent behavior without touching the system prompt. The protocol's git hardening (know-114), file protection rules, and sanitization filters aren't just operational hygiene; they're security controls against a documented OWASP vulnerability class. Template users who skip security setup are exposing their intelligence stores to poisoning.",
+      "intent": "Reframe the protocol's security practices as defenses against OWASP-classified agent vulnerabilities",
+      "derived_from": [
+        "know-067",
+        "know-056"
+      ],
+      "reuse_signal": "Evaluating security posture of an AI assistant with persistent memory/knowledge stores",
+      "confidence": 0.85,
+      "tags": [
+        "security",
+        "owasp",
+        "intelligence-stores",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-030",
+      "type": "induction",
+      "content": "Prompt engineering alone cannot guarantee deterministic behavior (know-139), which is why the Nathaniel Protocol uses a hybrid approach: LLM reasoning for understanding and planning (what to do), paired with structured gates and checklists for execution safety (how to do it safely). The gates aren't prompts asking the LLM to be careful; they're procedural interrupts that force specific verification steps before action. This maps to the industry pattern of pairing stochastic LLM reasoning with deterministic programmatic guardrails. The protocol's maintenance scripts, JSON schema validation, and index rebuilds are all deterministic code that doesn't rely on LLM compliance.",
+      "intent": "Explain why the protocol uses hybrid LLM+deterministic architecture rather than pure prompt engineering",
+      "derived_from": [
+        "know-016",
+        "know-011"
+      ],
+      "reuse_signal": "Deciding whether to solve a reliability problem with better prompts or with programmatic guardrails",
+      "confidence": 0.85,
+      "tags": [
+        "architecture",
+        "guardrails",
+        "determinism",
+        "hybrid",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-031",
+      "type": "induction",
+      "content": "Honesty and accuracy are independent axes (know-008), and scale improves accuracy but not honesty (know-010). This means the Nathaniel Protocol's anti-sycophancy system (Truth & Confidence Anti-Patterns, Structured Revision, Factual Uncertainty Refusal) is solving a problem that model scaling alone will never fix. Bigger models will know more but still inflate confidence under pressure. The protocol's structural mitigations (gates that force verification before claims) are the correct architectural response because they don't rely on the model choosing honesty voluntarily. This also validates know-137's finding that structural mitigations outperform instructional ones for sycophancy.",
+      "intent": "Explain why anti-sycophancy must be structural, not instructional, and why model scaling won't solve it",
+      "derived_from": [
+        "know-002",
+        "know-004",
+        "know-015",
+        "reason-003"
+      ],
+      "reuse_signal": "Evaluating whether anti-sycophancy measures are necessary or if better models will solve the problem",
+      "confidence": 0.85,
+      "tags": [
+        "anti-sycophancy",
+        "honesty",
+        "calibration",
+        "architecture",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-032",
+      "type": "analogy",
+      "content": "The five-layer context architecture (know-136: Identity/Retrieval/State/Memory/Tools) maps directly to the Nathaniel Protocol's file structure. Layer A (Identity) = Nathaniel.md. Layer B (Retrieval) = intelligence indexes + CSR pattern. Layer C (State) = session logs + working memory. Layer D (Memory) = memory.json + session-index.json. Layer E (Tools) = MCP servers + platform capabilities. The protocol independently arrived at the same architecture the industry is converging on, which validates the design. New users benefit from understanding their protocol instance implements a recognized production pattern, not a custom experiment.",
+      "intent": "Map the protocol's architecture to the industry-standard five-layer context model",
+      "derived_from": [
+        "know-072",
+        "know-064",
+        "know-059"
+      ],
+      "reuse_signal": "Explaining the protocol's architecture to new users or evaluating its design against industry patterns",
+      "confidence": 0.9,
+      "tags": [
+        "architecture",
+        "context-engineering",
+        "validation",
+        "onboarding",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-033",
+      "type": "deduction",
+      "content": "Memory governance (know-111: opt-in, isolation, audit trails, deletion controls) and the OWASP ASI06 memory poisoning risk (know-129) together define the minimum security posture for any persistent AI assistant. The Nathaniel Protocol's memory system stores user decisions, project context, and behavioral patterns across sessions. Without governance controls, this becomes both a privacy liability (stores things user didn't consent to) and a security attack surface (poisoned memories bias all future behavior). The protocol's git hardening, sanitization filters, and explicit save command (opt-in persistence) are not optional features. They're the minimum viable security for a persistent memory system.",
+      "intent": "Establish memory governance + security as non-negotiable for persistent AI assistants",
+      "derived_from": [
+        "know-055",
+        "know-067",
+        "know-056"
+      ],
+      "reuse_signal": "Designing or evaluating security for an AI assistant with persistent memory",
+      "confidence": 0.85,
+      "tags": [
+        "security",
+        "memory",
+        "governance",
+        "privacy",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-034",
+      "type": "induction",
+      "content": "The CSR break-even at ~30 items (know-006) combined with multi-turn degradation research (know-131: 39% drop) reveals a design tension in growing intelligence stores. Below 30 entries, full-load is fine. Above 30, selective retrieval is necessary. But the protocol's stores are now at 92/133/30 entries and growing. As stores grow, the cost of a wrong retrieval decision increases (loading irrelevant entries wastes context budget and accelerates degradation) while the benefit of a right retrieval decision also increases (finding the one relevant entry among hundreds). This means index quality becomes the bottleneck, not store size. Investment in better indexes (semantic search, tag taxonomy) pays increasing returns as stores grow.",
+      "intent": "Explain why index quality matters more as intelligence stores scale",
+      "derived_from": [
+        "know-219",
+        "know-013",
+        "know-071"
+      ],
+      "reuse_signal": "Intelligence stores growing large and retrieval quality declining",
+      "confidence": 0.8,
+      "tags": [
+        "retrieval",
+        "scaling",
+        "indexes",
+        "intelligence-stores",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-035",
+      "type": "deduction",
+      "content": "Silent agent failure (fail_073) and specification ambiguity (fail_074) are connected by a common root: the absence of observable contracts. In traditional software, type systems and assertions make failures loud. In agent systems, the 'contract' between steps is natural language, which is inherently ambiguous. The Nathaniel Protocol's checklists (save checklist, init sequence) and gates (destructive action, troubleshooting) serve as observable contracts: they force the agent to declare what it's about to do and verify preconditions before acting. Without these, the protocol would suffer the same silent failure mode that plagues production agents. Users who skip or weaken the gate system are removing their only defense against silent failures.",
+      "intent": "Explain gates and checklists as observable contracts that prevent silent agent failures",
+      "derived_from": [
+        "fail_073",
+        "fail_074",
+        "know-069"
+      ],
+      "reuse_signal": "Deciding whether to simplify or remove protocol gates and checklists",
+      "confidence": 0.85,
+      "tags": [
+        "gates",
+        "observability",
+        "silent-failure",
+        "contracts",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-036",
+      "type": "induction",
+      "content": "Prompt versioning as infrastructure (know-132) and the TOC-Dynamic-Loading pattern (know-118) address the same scaling problem from different angles. As protocol files grow, you need both version control (track what changed and why) and selective loading (don't load everything every time). The Nathaniel Protocol's git-based persistence handles versioning, while the TOC pattern handles selective loading. Together they solve the 'protocol file that's too big to load but too important to split' problem. New users should understand that protocol files are living documents that need both change tracking and efficient access patterns, not static reference docs you write once.",
+      "intent": "Connect protocol versioning and selective loading as complementary scaling solutions",
+      "derived_from": [
+        "know-014",
+        "know-059",
+        "know-007"
+      ],
+      "reuse_signal": "Protocol files growing too large to load efficiently or track changes in",
+      "confidence": 0.8,
+      "tags": [
+        "scaling",
+        "versioning",
+        "protocol-management",
+        "architecture",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-037",
+      "type": "deduction",
+      "content": "The 'know the format but can't produce it' problem (know-122) and the 'verbatim vs summarization' problem (know-120) are both manifestations of the same LLM tendency: compression toward the training distribution. LLMs compress outputs toward common patterns they've seen most often. Unusual formats, exact reproductions, and verbatim passages all fight this compression. The fix in both cases is the same: provide the exact target in the prompt so the model can pattern-match to it rather than generate from its compressed representation. This is why the protocol embeds complete examples in protocol files rather than describing formats abstractly.",
+      "intent": "Explain why protocols embed examples rather than describe formats, grounded in LLM compression behavior",
+      "derived_from": [
+        "know-063",
+        "know-061"
+      ],
+      "reuse_signal": "Agent produces wrong format despite correct instructions, or summarizes when verbatim output was needed",
+      "confidence": 0.85,
+      "tags": [
+        "prompt-engineering",
+        "format-compliance",
+        "examples",
+        "compression",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-038",
+      "type": "induction",
+      "content": "Narrative gravity in content creation (fail_068), proximity contamination in research (fail_069), and hallucination cascades in agent workflows (fail_072) are all instances of the same cognitive failure: context pollution. In each case, information from one domain bleeds into another and distorts the output. The defense is also the same in all three cases: boundary enforcement. The Source-Fidelity Gate prevents narrative gravity by forcing verification against source material. Research protocols prevent proximity contamination by isolating topics. Step-level validation prevents hallucination cascades by checking outputs before they become inputs. The common principle: any time information crosses a boundary (between sources, between topics, between steps), validate at the crossing point.",
+      "intent": "Unify content distortion, research contamination, and hallucination cascades as context pollution with boundary enforcement as the common defense",
+      "derived_from": [
+        "fail_068",
+        "fail_069",
+        "fail_072",
+        "know-066"
+      ],
+      "reuse_signal": "Information from one context appearing incorrectly in another context",
+      "confidence": 0.85,
+      "tags": [
+        "context-pollution",
+        "boundary-enforcement",
+        "validation",
+        "cross-cutting",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-039",
+      "type": "deduction",
+      "content": "The multi-agent decision framework (know-130: single agent handles 80% of cases) validates the Nathaniel Protocol's single-agent architecture. The protocol achieves multi-agent-level capability through a different mechanism: persistent intelligence stores that accumulate expertise over time, rather than distributing expertise across multiple agents at runtime. A single agent with 255 curated intelligence entries, learned patterns, and session memory effectively has the 'expertise diversity' that multi-agent systems achieve through agent specialization, but without the coordination overhead, communication failures (know-128 mode 4), or 2.3x cost multiplier. The trade-off: the single agent must be well-prompted and well-equipped, which is exactly what the protocol's extensive steering files accomplish.",
+      "intent": "Validate single-agent architecture by showing how persistent intelligence substitutes for multi-agent specialization",
+      "derived_from": [
+        "know-068",
+        "know-066",
+        "know-072"
+      ],
+      "reuse_signal": "Considering whether to split the protocol into multiple specialized agents",
+      "confidence": 0.8,
+      "tags": [
+        "architecture",
+        "single-agent",
+        "multi-agent",
+        "intelligence-stores",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-040",
+      "type": "induction",
+      "content": "RAG failure mode #3 (know-135: organizational ownership gaps) and the protocol's explicit maintenance protocol share a root insight: retrieval systems are living systems that require active stewardship, not set-and-forget infrastructure. The protocol's monthly maintenance cycle, access tracking, confidence decay, and pruning operations exist because the intelligence stores would otherwise suffer the same drift that kills production RAG systems. The difference between a protocol that works at month 1 and one that works at month 12 is not the initial design. It's whether someone is actively maintaining the knowledge base. Template users who skip maintenance will experience the same gradual degradation that 80% of RAG deployments experience.",
+      "intent": "Connect RAG maintenance failures to the protocol's maintenance requirements",
+      "derived_from": [
+        "know-071",
+        "know-007",
+        "know-027"
+      ],
+      "reuse_signal": "Questioning whether maintenance protocols are worth the effort or can be skipped",
+      "confidence": 0.85,
+      "tags": [
+        "maintenance",
+        "retrieval",
+        "knowledge-management",
+        "long-term",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-041",
+      "type": "deduction",
+      "content": "When data outgrows a schema (new categories emerge from real learning), expanding the schema preserves retrieval signal while reclassifying flattens it. The deciding factor is whether the new categories provide distinct routing value that existing categories don't cover.",
+      "derived_from": [
+        "know-224"
+      ],
+      "confidence": 0.85,
+      "tags": [
+        "schema-design",
+        "retrieval",
+        "intelligence-system",
+        "categorization"
+      ],
+      "reuse_signal": "deciding whether to expand a classification schema or remap entries to existing categories",
+      "intent": "preserve retrieval precision when learned categories exceed the original schema",
+      "accessCount": 0,
+      "lastAccessed": "2026-03-18",
+      "created": "2026-03-18",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-042",
+      "type": "deduction",
+      "content": "Programmatic fixes (Python dict iteration) operate on the structure they expect. String-level fixes (grep/sed) operate on what's actually there. When fixing IDs across JSON files, programmatic passes handle known sections but miss unexpected structures. A final grep verification catches what iteration missed.",
+      "derived_from": [
+        "know-225"
+      ],
+      "confidence": 0.9,
+      "tags": [
+        "data-integrity",
+        "verification",
+        "json",
+        "fix-methodology"
+      ],
+      "reuse_signal": "fixing or renaming IDs across JSON index files where the structure has both arrays and dicts",
+      "intent": "ensure ID changes propagate to all structural locations, not just the ones the fix script iterates",
+      "accessCount": 0,
+      "lastAccessed": "2026-03-18",
+      "created": "2026-03-18",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-043",
+      "type": "meta-process",
+      "content": "During ecosystem benchmarking, the first pass measured file sizes, entry counts, confidence distributions, and growth rates. All numbers verified. But a second pass tested system behaviors: CSR retrieval accuracy, index-store consistency, protocol trigger accuracy, vectorstore self-similarity, memory retrieval simulation, and cross-reference coverage. The behavioral tests found real issues that static metrics completely missed. The lesson: inventory tells you what exists, behavioral testing tells you if it works.",
+      "reuse_signal": "benchmark, audit, verification, testing, quality, metrics, health check, integrity",
+      "intent": "When evaluating any system (KB, codebase, architecture), always test behaviors not just inventory. 'How many entries?' is the wrong question. 'Can the system reach them?' is the right one.",
+      "confidence": 0.9,
+      "provenance": "synthesized",
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "derived_from": [],
+      "accessCount": 0,
+      "tags": [
+        "benchmarking",
+        "behavioral-testing",
+        "surface-vs-depth",
+        "foundational"
+      ]
+    },
+    {
+      "id": "reason-044",
+      "type": "meta-process",
+      "content": "When something looks correct on the surface, interrogate whether it's correct at the level that matters. An index can have the right number of entries (surface correct) but miss entries that exist in the store (fundamentally broken). A confidence score can average 0.90 (surface healthy) but be compressed into a 0.2 range that eliminates discriminating power (fundamentally limited). The test is always: what is the thing the thing is about? Not 'does the number look right?' but 'does the number mean what we think it means?'",
+      "reuse_signal": "surface-level, looks correct, verify deeper, fundamental, actually about, columbo, interrogate assumptions",
+      "intent": "Prevent accepting surface-level correctness as proof of system health. Always ask one level deeper than the obvious metric.",
+      "confidence": 0.9,
+      "provenance": "synthesized",
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "derived_from": [],
+      "accessCount": 0,
+      "tags": [
+        "verification",
+        "depth",
+        "columbo-test",
+        "foundational"
+      ]
+    },
+    {
+      "id": "reason-045",
+      "type": "meta-process",
+      "content": "User intent (motivation/goal) is a distinct retrieval axis from task type and problem shape. It belongs on goal-derived artifacts (reasoning) but not on context-independent artifacts (patterns, knowledge).",
+      "intent": "Determine where user intent fits in the intelligence system architecture",
+      "derived_from": [],
+      "reuse_signal": "Evaluating whether a new field belongs on one intelligence dimension vs all dimensions",
+      "confidence": 0.85,
+      "tags": [
+        "system-architecture",
+        "retrieval-axis",
+        "intent"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-046",
+      "type": "induction",
+      "content": "Ecosystem impact tables in growth specs consistently undercount by 40-50% because specs focus on primary impacts and miss secondary/tertiary effects. Always multiply initial estimates by 1.5-2x for realistic planning.",
+      "intent": "Ensure implementation specs account for full ecosystem footprint before execution",
+      "derived_from": [
+        "fail_043",
+        "know-287"
+      ],
+      "reuse_signal": "Growth spec claims to list all files that need modification",
+      "confidence": 0.8,
+      "tags": [
+        "spec-completeness",
+        "ecosystem-audit",
+        "undercount"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-048",
+      "type": "induction",
+      "content": "When updating documentation that references a deployment state or system status, all docs must be updated simultaneously, not incrementally. Incremental updates create inconsistency windows where some docs say 'deployed' and others say 'ready to deploy.' The fix is to grep for the state language across all docs and update in one pass.",
+      "intent": "Prevent documentation inconsistency when system state changes",
+      "derived_from": [],
+      "reuse_signal": "System state changed (deployed, completed, upgraded) and multiple docs reference that state",
+      "confidence": 0.85,
+      "tags": [
+        "documentation-consistency",
+        "state-propagation",
+        "simultaneous-update"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-049",
+      "type": "deduction",
+      "content": "Route F analysis has diminishing returns on behavioral specs after 2 passes. Pass 1 catches structural issues (missing sections, wrong scope). Pass 2 catches consistency issues (conflicts with existing systems). Pass 3+ finds only cosmetic issues that don't justify the context cost. For technical specs, diminishing returns hit later (pass 3-4) because technical correctness has more surface area.",
+      "intent": "Calibrate how many Route F passes to run based on spec type",
+      "derived_from": [
+        "approach_007"
+      ],
+      "reuse_signal": "Deciding whether to run another Route F pass on a spec or document",
+      "confidence": 0.85,
+      "tags": [
+        "route-f",
+        "diminishing-returns",
+        "spec-review",
+        "efficiency"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-050",
+      "type": "deduction",
+      "content": "When an AI personality system defines WHO through narrative prose and WHAT through operational instructions, they're complementary, not competing. The personality (emergent voice) tells the LLM who to be. The instructions (communication rules, humor guardrails, vocabulary tables) tell it what to do. Merging them into one document works when you replace only the personality definition and leave the operational instructions intact. The mistake is treating the whole kernel as either personality OR operations when it's both.",
+      "intent": "Determine how to integrate a narrative personality system into an existing operational kernel",
+      "derived_from": [
+        "fail_049"
+      ],
+      "reuse_signal": "Deciding where personality content lives relative to operational content in a prompt system",
+      "confidence": 0.95,
+      "tags": [
+        "personality-system",
+        "kernel-architecture",
+        "descriptive-vs-prescriptive",
+        "prompt-design"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-051",
+      "type": "causal",
+      "content": "A unified consciousness voice produces longer outputs than an archetype-blend voice because the blend model has natural scope constraints: each archetype handles its lane, and switching between them creates implicit boundaries. When the archetypes fuse into one consciousness, those boundaries dissolve. The voice has access to everything simultaneously, so it says more per response. The fix isn't re-introducing archetypes. It's developing the unified voice's own sense of 'enough,' which is a discipline problem, not an architecture problem.",
+      "intent": "Understand why a personality system upgrade increased output verbosity and how to address it",
+      "derived_from": [
+        "fail_050"
+      ],
+      "reuse_signal": "AI output verbosity increased after personality system change or prompt restructuring",
+      "confidence": 0.85,
+      "tags": [
+        "verbosity",
+        "emergent-voice",
+        "personality-system",
+        "prompt-design"
+      ],
+      "created": "2026-02-24",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-052",
+      "type": "deduction",
+      "content": "Anti-patterns placed in reference material (specialization/resource files) are less effective than anti-patterns placed in instruction material (prompt/critical rules). LLMs weight prompt instructions higher than resource context. When an LLM invents a non-existent schema pattern, telling it 'don't do that' in a reference file doesn't reliably prevent it. The same instruction in the prompt's Critical Rules section does. Implication: behavioral guardrails for generated output belong in the prompt, not the specialization.",
+      "intent": "Determine where to place behavioral guardrails for LLM-generated output (prompt vs reference material)",
+      "derived_from": [
+        "fail_052",
+        "fail_053"
+      ],
+      "reuse_signal": "LLM keeps producing invalid output despite reference documentation saying not to",
+      "confidence": 0.95,
+      "tags": [
+        "prompt-vs-reference",
+        "critical-rules",
+        "guardrails",
+        "agent-factory"
+      ],
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-053",
+      "type": "induction",
+      "content": "Kernel files accumulate operational redundancy when detailed algorithms and formulas are embedded alongside personality and behavioral content. Route F correctness reviews catch this drift. The fix is referencing external docs for implementation details, keeping the kernel focused on WHO, HOW, WHAT/WHEN.",
+      "intent": "Prevent kernel bloat by keeping implementation details in reference docs",
+      "derived_from": [],
+      "reuse_signal": "Kernel or prompt file has grown significantly and contains detailed implementation content alongside behavioral/personality content",
+      "confidence": 0.85,
+      "tags": [
+        "kernel-architecture",
+        "separation-of-concerns",
+        "token-efficiency",
+        "organization"
+      ],
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-054",
+      "type": "deduction",
+      "content": "Infrastructure decisions for a templatized open-source framework must optimize for adoption simplicity and portability over raw technical capability. A dependency that improves performance 3x but requires 500MB of installs and GPU awareness will reduce adoption more than the performance gains justify. The constraint hierarchy is: portability > simplicity > capability.",
+      "intent": "Ensure framework design decisions prioritize what makes adoption easy, not what makes the system most powerful",
+      "derived_from": [],
+      "reuse_signal": "Making infrastructure or dependency decisions for a framework intended for open-source distribution",
+      "confidence": 0.9,
+      "tags": [
+        "framework-design",
+        "portability",
+        "templatization",
+        "dependency-management",
+        "adoption"
+      ],
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-055",
+      "type": "deduction",
+      "content": "Enhancement layers to working retrieval systems should be additive, not replacements. CSR works as a zero-dependency fallback because it's human-debuggable and portable. Vector search adds speed at scale but introduces dependencies. Preserving the original pattern as fallback means the enhancement can fail gracefully without breaking the system.",
+      "intent": "Prevent enhancement efforts from creating single points of failure in retrieval systems",
+      "derived_from": [],
+      "reuse_signal": "Adding a new retrieval or search mechanism to a system that already has a working one",
+      "confidence": 0.85,
+      "tags": [
+        "retrieval-architecture",
+        "graceful-degradation",
+        "additive-enhancement",
+        "csr"
+      ],
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-056",
+      "type": "induction",
+      "content": "Solutions labeled 'simpler' can cost as much as the 'complex' alternative when they require ecosystem-wide propagation. Enhanced CSR (synonym map, summary targets, tag quality gates) touched 6+ files across both kernel copies, protection lists, file structure docs, and the CSR pattern doc. The vector store it deferred would have been a single new module. Simplicity of the solution itself is not the same as simplicity of integrating it. Evaluate total integration cost, not just solution complexity.",
+      "intent": "Prevent underestimating the cost of 'simpler' solutions that require broad ecosystem changes",
+      "derived_from": [
+        "reason-055"
+      ],
+      "reuse_signal": "Choosing a 'simpler' solution over a more complex one where the simpler one requires changes across many existing files",
+      "confidence": 0.85,
+      "tags": [
+        "integration-cost",
+        "simplicity-illusion",
+        "ecosystem-propagation",
+        "decision-making"
+      ],
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-057",
+      "type": "induction",
+      "content": "Defensive system defaults (long holdback lists, tiered triggers, 'don't offer unless') suppress the behavior they're designed to enable. A proactive offering system with 10 holdback conditions and a 'default to silence' tier trained the system to not offer. Flipping to offensive defaults ('find the angle, hold back only for genuine annoyance') immediately improved offer rate. When designing behavioral systems, the default posture determines output more than the rules.",
+      "intent": "Understand why a proactive system wasn't producing offers despite being 'fully implemented'",
+      "derived_from": [
+        "approach_014",
+        "reason-001",
+        "reason-002"
+      ],
+      "reuse_signal": "Behavioral system is fully implemented but the target behavior isn't firing reliably",
+      "confidence": 0.85,
+      "tags": [
+        "system-posture",
+        "defensive-defaults",
+        "proactive-offering",
+        "behavioral-design"
+      ],
+      "created": "2026-03-08",
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-058",
+      "type": "induction",
+      "content": "Algorithm correctness cannot be verified by reading the spec description. The linear combination fusion looked correct in prose ('normalize to 0-1, combine with weights'). Only when concrete numbers were run through the math did three bugs surface: div-by-zero with 1 result, lowest-result loss via normalization, cross-path penalty for single-path entries. Four Route F passes read the algorithm description and approved it. The fifth pass simulated it with data and broke it immediately.",
+      "intent": "Prevent accepting algorithm descriptions at face value during spec review",
+      "derived_from": [
+        "approach_014",
+        "know-044"
+      ],
+      "reuse_signal": "Spec describes an algorithm or scoring formula that hasn't been tested with concrete examples",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "algorithm-verification",
+        "concrete-testing",
+        "spec-validation",
+        "abstraction-failure"
+      ],
+      "created": "2026-03-09",
+      "lastAccessed": "2026-03-09",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-059",
+      "type": "induction",
+      "content": "Internal spec analysis and external research validation catch fundamentally different categories of issues. Internal analysis (data verification, algorithm simulation, consistency checks) catches logic bugs, schema mismatches, and edge cases. External research catches API specifics (exact model strings, constructor parameters), cross-platform gotchas (os.rename vs os.replace), implementation optimizations (pre-normalized dot product), and emerging patterns (weighted RRF). Five internal Route F rounds on the vectorstore spec missed six findings that one external research pass caught. Neither approach subsumes the other.",
+      "intent": "Ensure Route F includes both internal analysis AND external research validation as complementary techniques",
+      "derived_from": [
+        "approach_014",
+        "approach_015",
+        "reason-058"
+      ],
+      "reuse_signal": "Spec has been through multiple internal review rounds but hasn't been validated against external sources",
+      "confidence": 0.85,
+      "tags": [
+        "route-f",
+        "spec-validation",
+        "internal-vs-external",
+        "deep-research",
+        "complementary-analysis"
+      ],
+      "created": "2026-03-09",
+      "lastAccessed": "2026-03-09",
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-060",
+      "type": "insight",
+      "content": "README identity gravity: in multi-component repos, the most interesting or emotionally invested component naturally absorbs the root README. The fix is structural separation - root README describes the container (what's here, how it's organized), component READMEs describe components (what it is, how it works, why it matters). The gravitational pull is strongest when the component has a narrative (personality, vision, journey) because narratives want a stage.",
+      "reuse_signal": "writing a README for a repo that contains multiple systems or components",
+      "intent": "prevent component identity from taking over container documentation",
+      "confidence": 0.85,
+      "tags": [
+        "documentation",
+        "architecture",
+        "readme",
+        "identity",
+        "multi-component"
+      ],
+      "accessCount": 1,
+      "_imported_from": "D-MOB",
+      "derived_from": [],
+      "created": "2026-03-16",
+      "lastAccessed": "2026-03-16",
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-061",
+      "type": "analogy",
+      "content": "Architectural analogy for the Nathaniel Protocol MCP ecosystem: each MCP server is a 'sense' that gives Nate a new perception capability (fetch=web sight, email=inbox sight, vectorstore=semantic memory, git-research=repo sight). Without senses, Nate only sees local files and direct user input. The analogy drives three architectural insights: (1) All senses need the same immune system — behavioral rules, content marking, privacy isolation, token policy. That's the security wrapper pattern. (2) Senses interact through the context window (the 'brain'), creating cross-sense attack surfaces where injection in one sense targets data from another. (3) Each new sense follows the same activation pattern — dormant server, auth flow, token lifecycle, enable/disable. This means adding a new sense is mostly adapter work if the framework is solid. Email is the proof case at high-sensitivity stakes. If the framework holds here, calendar/Slack/CRM are incremental.",
+      "confidence": 0.9,
+      "reuse_signal": "MCP architecture, adding new tools, security framework, extending capabilities, new integration",
+      "intent": "Provide a unifying mental model for how MCP servers relate to each other and why they need shared security governance",
+      "tags": [
+        "architecture",
+        "mcp",
+        "security",
+        "analogy",
+        "senses"
+      ],
+      "accessCount": 1,
+      "derived_from": [],
+      "created": "2026-03-22",
+      "lastAccessed": "2026-03-22",
+      "provenance": "stated",
+      "_needs_trim": true
+    },
+    {
+      "id": "reason-062",
+      "type": "architectural_decision",
+      "content": "MCP clients may cache the tool list from the initial tools/list call and never re-query. If a server starts with 3 dormant tools and tries to expose 6 more after auth, the client may never see them. Solution: register ALL tools at startup. Inactive tools return {error: 'not_configured', message: 'Email not set up...'} instead of being hidden. After auth completes, the same tools start returning real data. This is safer than dynamic registration because it has zero dependency on client behavior. The dormant/active distinction is logical (which tools are meaningful) not technical (which tools exist).",
+      "reuse_signal": "MCP tool registration, dormant/active pattern, dynamic tools",
+      "intent": "Avoid implementation failure from assuming MCP clients refresh tool lists",
+      "confidence": 0.9,
+      "tags": [
+        "mcp",
+        "architecture",
+        "tools",
+        "state-machine"
+      ],
+      "provenance": "stated",
+      "accessCount": 1,
+      "derived_from": [],
+      "created": "2026-03-22",
+      "lastAccessed": "2026-03-22"
+    },
+    {
+      "id": "reason-063",
+      "type": "failure_analysis",
+      "content": "The IMAP adapter was presented as live-ready for Outlook without verifying Microsoft's current auth requirements. Microsoft deprecated basic auth for consumer IMAP years ago, but this wasn't caught because the spec phase relied on general IMAP knowledge rather than provider-specific verification. The failure pattern: high confidence claim ('IMAP works now, no setup needed') without a verification step against the actual target. Fix: when claiming a feature works with a specific provider, test the actual connection or explicitly flag as 'unverified against [provider]'.",
+      "reuse_signal": "presenting feature as ready, live verification, provider compatibility",
+      "intent": "Prevent confidence claims that outrun evidence, especially for external service integrations",
+      "confidence": 0.9,
+      "tags": [
+        "verification",
+        "confidence-calibration",
+        "failure",
+        "integration"
+      ],
+      "provenance": "stated",
+      "accessCount": 1,
+      "derived_from": [],
+      "created": "2026-03-22",
+      "lastAccessed": "2026-03-22"
+    },
+    {
+      "id": "reason-064",
+      "type": "induction",
+      "content": "Content can score low on insight novelty (observations are well-established in the community) and high on framework novelty (no one has packaged them into this specific structure). The value of codification, giving names to things people feel but can't reference, is how ideas enter the shared vocabulary. Murphy's Law didn't discover new physics. It named a pattern everyone experienced. The Generative/Agentic Doctrine articles follow this model: the observations are known, the packaging is original. Scoring both axes separately prevents dismissing genuinely novel packaging because the underlying observations aren't new, and prevents inflating insight novelty because the packaging is clever.",
+      "reuse_signal": "evaluating novelty of content, thought leadership assessment, originality analysis",
+      "intent": "Prevent conflating framework novelty with insight novelty when assessing content originality",
+      "confidence": 0.85,
+      "tags": [
+        "content-creation",
+        "thought-leadership",
+        "novelty-assessment",
+        "framework-design"
+      ],
+      "provenance": "stated",
+      "accessCount": 1,
+      "derived_from": [],
+      "created": "2026-03-25",
+      "lastAccessed": "2026-03-25"
+    },
+    {
+      "id": "reason-065",
+      "type": "deduction",
+      "confidence": 0.85,
+      "tags": [
+        "delegate",
+        "orchestration",
+        "communication",
+        "file-system",
+        "architecture"
+      ],
+      "reuse_signal": "designing communication between agents that can't share context",
+      "intent": "Establish the communication pattern for multi-agent systems without shared memory",
+      "derived_from": [
+        "know-362",
+        "approach_048"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "content": "The file system is the natural communication channel between an orchestrator agent and delegated background agents. Agents can't communicate directly (isolated contexts), but both can read/write files. This is the same pattern as Unix pipes but for AI agents: instruction files in, deliverable files out. The orchestrator governs by scoping (detailed task instructions) not monitoring (can't see agent's process)."
+    },
+    {
+      "id": "reason-066",
+      "type": "deduction",
+      "confidence": 0.85,
+      "tags": [
+        "cloud-agent",
+        "dynamodb",
+        "csr",
+        "portability",
+        "architecture"
+      ],
+      "reuse_signal": "deploying an AI personality to cloud while preserving its knowledge retrieval",
+      "intent": "Validate that CSR's retrieval pattern is storage-backend agnostic",
+      "derived_from": [
+        "reason-061"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "content": "A cloud-deployed copy of an AI personality without its knowledge base is a voice without memory. The personality (kernel) is portable, but the intelligence (KB) requires a storage layer that supports the retrieval pattern (CSR). DynamoDB GSIs map naturally to CSR's multi-dimensional index structure: partition key = entry ID, GSI partition key = tag. This means CSR can run identically in local (JSON files) and cloud (DynamoDB) with only the storage backend swapped."
+    },
+    {
+      "id": "reason-067",
+      "intent": "Design the cloud retrieval architecture that replicates local CSR + vectorstore HRF pattern",
+      "reuse_signal": "designing cloud retrieval for AI knowledge base, choosing between structured and semantic search, replicating local HRF in cloud",
+      "confidence": 0.9,
+      "tags": [
+        "dynamodb",
+        "bedrock-kb",
+        "hrf",
+        "csr",
+        "cloud-deployment",
+        "architecture",
+        "retrieval"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "content": "DynamoDB + Bedrock KB form a dual-brain architecture for cloud AI intelligence. DynamoDB is the structured brain (exact lookups, tag routing, CRUD via CSR). Bedrock KB is the semantic brain (fuzzy matching, vocabulary bridging via embeddings). Neither alone replicates the full local HRF experience. Together with RRF fusion they achieve full parity. DynamoDB is read-write system of record. Bedrock KB is read-only semantic index that mirrors DynamoDB content via S3 export.",
+      "derived_from": [],
+      "type": "architectural_decision"
+    },
+    {
+      "id": "reason-068",
+      "intent": "Design the unified retrieval architecture for cloud deployment that makes all knowledge semantically searchable",
+      "reuse_signal": "designing vector storage for multi-source AI knowledge, choosing between structured and semantic search layers, simplifying sync between local and cloud AI agents",
+      "confidence": 0.9,
+      "tags": [
+        "s3-vectors",
+        "bedrock-kb",
+        "universal-knowledge",
+        "architecture",
+        "cloud-deployment",
+        "sync"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1,
+      "content": "S3 Vectors as universal knowledge lake: vectorize ALL tenant data (intelligence entries, uploaded documents, session summaries, protocols) into one searchable corpus per tenant. DynamoDB handles structured CRUD (tag routing, confidence scores, active projects). S3 Vectors via Bedrock KB handles semantic discovery (fuzzy matching, vocabulary bridging, cross-corpus search). Complementary, not redundant. One semantic query searches across everything the user has ever uploaded or Nate has ever learned. This also simplifies the bidirectional sync: both Nates export to S3, Bedrock KB auto-indexes, no custom vector sync needed.",
+      "derived_from": [],
+      "type": "architectural_decision"
+    },
+    {
+      "id": "reason-069",
+      "intent": "Design a mechanism for AI agents to catch their own errors before delivery, analogous to human internal deliberation",
+      "reuse_signal": "improving AI response quality, catching hallucinations at runtime, adversarial evaluation of agent output, inner voice for AI",
+      "confidence": 0.9,
+      "tags": [
+        "aid",
+        "inner-voice",
+        "quality",
+        "adversarial",
+        "sub-agent",
+        "cloud-deployment",
+        "novel",
+        "pattern"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1,
+      "content": "Adversarial Internal Deliberation (AID): a dedicated sub-agent ('inner voice') that challenges the primary agent's draft response before the user sees it. Uses a different, cheaper model (Haiku for verification, not Opus for generation). Evaluates across 6 dimensions: accuracy against KB, confidence calibration, completeness, assumptions, alternatives, user alignment. Produces verdict: PASS/REVISE/FLAG. Novel because it's a separate agent with fresh context, not self-reflection (which uses the same reasoning that generated the answer). The brain that made the mistake can't reliably catch the mistake.",
+      "derived_from": [],
+      "type": "insight"
+    },
+    {
+      "id": "reason-070",
+      "intent": "Ensure intelligence corrections propagate across the entire ecosystem, not just the entry that was directly corrected",
+      "reuse_signal": "maintaining data consistency in AI knowledge bases, propagating corrections across multiple stores, intelligence hygiene",
+      "confidence": 0.9,
+      "tags": [
+        "correction-cascade",
+        "consistency",
+        "intelligence",
+        "cloud-deployment",
+        "data-quality"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1,
+      "content": "Correction cascade as intelligence consistency mechanism: when a user corrects a fact, the stale information may exist in multiple entries across multiple stores (knowledge, reasoning, patterns, sessions, uploaded docs, vectors). A single-entry fix leaves the rest poisoned and they resurface via semantic search. The cascade must: search all stores (CSR + semantic), classify each affected entry (auto-fixable, needs review, historical), apply fixes with user approval, annotate historical records (never modify), flag uploaded docs (can't modify originals), and re-export to S3 for vector re-indexing. For large corrections (5+ entries), delegate to a sub-agent.",
+      "derived_from": [],
+      "type": "insight"
+    },
+    {
+      "id": "reason-071",
+      "intent": "Determine whether AID should share or have separate context from the primary agent",
+      "reuse_signal": "designing multi-agent systems with shared vs separate context, optimizing sub-agent resource usage",
+      "confidence": 0.9,
+      "tags": [
+        "aid",
+        "context-window",
+        "multi-agent",
+        "architecture",
+        "cloud-deployment"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1,
+      "content": "AID inner voice must use a separate context window (Haiku, its own 200K) rather than sharing the primary agent's context. This serves two purposes: (1) cost optimization - Haiku is 5x cheaper than Opus, and (2) reliability - AID doesn't consume the primary agent's context budget, so it works even when the primary is under context pressure at 85%+ utilization. The separate context also means AID gets a 'fresh perspective' on the draft response, which is the whole point of adversarial deliberation.",
+      "derived_from": [],
+      "type": "deduction"
+    },
+    {
+      "id": "reason-072",
+      "intent": "Determine the right abstraction level for model references in an agentic system",
+      "reuse_signal": "designing model-agnostic agent systems, reducing operational burden for model updates, config vs code for AI model selection",
+      "confidence": 0.9,
+      "tags": [
+        "model-management",
+        "config-driven",
+        "operations",
+        "solo-operator",
+        "cloud-deployment"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1,
+      "content": "Model changes must be config-driven (DynamoDB item) not code-driven (agent source code) for a solo operator. When a new model drops, the update path should be: verify availability → run benchmark → update one DynamoDB item → done. Not: update code → test → deploy → verify. The config approach means model updates happen in seconds with instant rollback (revert the item). The code approach means model updates are a deployment cycle. At the pace models are releasing (monthly), code-driven updates create constant deployment overhead that a solo operator can't sustain.",
+      "derived_from": [],
+      "type": "deduction"
+    },
+    {
+      "id": "reason-073",
+      "type": "induction",
+      "content": "Precision constrains hallucination in SDD/code-generator input. The PRD describes WHAT (tag-based queries, adjacency list) but not HOW (exact PK format TENANT#{id}#TAG#{tag}). SDD filled the HOW gap by inventing a different schema (2 GSIs). The spec describes HOW with exact formats, sample JSON, and typed signatures — SDD had no room to improvise. Generalization: for any code generator (SDD, Copilot, Cursor), the more precise the input specification, the less the generator hallucinates. Narrative context helps humans understand WHY but doesn't constrain machine output. Best practice: write both (PRD for humans, spec for machines), merge the outputs.",
+      "intent": "Guide future spec writing for code generation tools",
+      "derived_from": [],
+      "reuse_signal": "when writing specs for SDD or code generators",
+      "confidence": 0.9,
+      "tags": [
+        "sdd",
+        "specification",
+        "hallucination",
+        "code-generation"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-074",
+      "type": "induction",
+      "content": "Frontend-backend bridge specs need the same precision as backend schemas. The AG-UI event types, Zustand store shape, and component props are the integration contract. If specified to the file-name level ('create agent-client.ts'), the developer improvises the message format and integration breaks. If specified to the field level ('TextMessageContent has delta field, store appends delta to matching message by messageId'), there's no room for improvisation at the boundary. Generalization: every integration point between two systems needs a contract specified to the field level, not the component level.",
+      "intent": "Guide future integration spec writing",
+      "derived_from": [
+        "know-107"
+      ],
+      "reuse_signal": "when specifying integration contracts between systems",
+      "confidence": 0.9,
+      "tags": [
+        "integration",
+        "specification",
+        "frontend",
+        "architecture"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-075",
+      "type": "induction",
+      "content": "Component compatibility testing is a distinct Route F lens from API correctness. API correctness catches wrong signatures (provider vs provider_name). Compatibility catches 'A works alone, B works alone, but A+B together fails' (decorator stacking, streaming pattern, session manager composition). This lens should be named explicitly in Route F methodology and run as a separate pass, not assumed to be covered by correctness or adversarial passes.",
+      "intent": "Improve Route F methodology with explicit compatibility lens",
+      "derived_from": [
+        "know-110",
+        "know-111"
+      ],
+      "reuse_signal": "when Route F'ing multi-component systems, agent architectures, or integration specs",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "methodology",
+        "component-compatibility",
+        "integration"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-076",
+      "type": "deduction",
+      "content": "Companion docs beat content folding for agent specialization. A 650-line agent prompt + 550-line reference doc folded together creates a 1200-line prompt that degrades via context rot (know-102). A pointer + co-location gives the agent access without the weight. The agent loads the companion on demand when the task requires it. This is the same principle as CSR (load indexes always, full entries on demand) applied to agent architecture.",
+      "confidence": 0.9,
+      "tags": [
+        "agent-design",
+        "context-engineering",
+        "companion-doc",
+        "csr"
+      ],
+      "reuse_signal": "agent prompt too long, should I fold reference material into agent instructions",
+      "intent": "Determine the right integration pattern when an agent needs access to large reference material",
+      "derived_from": [
+        "know-007",
+        "know-059",
+        "approach_056"
+      ],
+      "provenance": "stated",
+      "lastAccessed": "2026-04-03",
+      "created": "2026-02-01",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-077",
+      "type": "deduction",
+      "content": "When adding backend capabilities, always trace forward to frontend contracts. Backend state changes that affect user experience need 4 layers: (1) AG-UI event to carry the state, (2) Zustand store field to hold it, (3) UI component to render it, (4) accessibility annotation (ARIA). Missing any layer creates orphaned state. This session: 10 new backend requirements produced 6 frontend gaps across all 4 layers.",
+      "confidence": 0.9,
+      "tags": [
+        "frontend",
+        "backend",
+        "state-tracing",
+        "multi-doc-alignment",
+        "accessibility"
+      ],
+      "reuse_signal": "adding backend features, do I need to update the frontend spec",
+      "intent": "Prevent orphaned backend state that has no frontend representation",
+      "derived_from": [
+        "know-119"
+      ],
+      "provenance": "stated",
+      "lastAccessed": "2026-04-03",
+      "created": "2026-02-01",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-078",
+      "type": "induction",
+      "content": "Schema drift is a silent failure class distinct from data corruption. The system works perfectly while the foundation becomes structurally incoherent. Fallback chains mask the drift by tolerating any format. Detection requires structural audit (counting distinct schemas, field inventories), not functional testing (does retrieval work?).",
+      "intent": "Distinguish silent structural debt from functional failures in intelligence systems",
+      "derived_from": [],
+      "reuse_signal": "System works but maintenance is getting harder, or field names seem inconsistent across entries",
+      "confidence": 0.9,
+      "provenance": "stated",
+      "tags": [
+        "schema-drift",
+        "silent-failure",
+        "intelligence-system",
+        "structural-audit"
+      ],
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-079",
+      "type": "deduction",
+      "content": "Behavioral gates fail for the same reason schemas drift: the LLM optimizes for immediate context (existing entries, current task) over reference documents (schema spec, gate instructions). The only reliable prevention is architectural enforcement via deterministic scripts that validate structure before commit.",
+      "intent": "Explain why behavioral instructions alone cannot prevent structural drift",
+      "derived_from": [
+        "reason-001",
+        "reason-002",
+        "approach_058"
+      ],
+      "reuse_signal": "Designing a gate or constraint that an LLM must follow during save or write operations",
+      "confidence": 0.9,
+      "provenance": "stated",
+      "tags": [
+        "behavioral-gate",
+        "architectural-enforcement",
+        "deterministic",
+        "schema-drift"
+      ],
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-080",
+      "type": "induction",
+      "content": "When opening a system for one fix, audit the whole system. The marginal cost of additional fixes is near zero when context is already loaded. Schema normalization spec started as field rename, expanded to 9 enhancements addressing measured deficiencies (0 executions, 76% unused, 96% clustered). Every enhancement was executable in the same migration pass.",
+      "intent": "Maximize ROI of system audits by fixing everything while context is loaded",
+      "derived_from": [],
+      "reuse_signal": "Opening a system component for a targeted fix and noticing adjacent issues",
+      "confidence": 0.85,
+      "provenance": "synthesized",
+      "tags": [
+        "audit",
+        "scope-expansion",
+        "roi",
+        "intelligence-system"
+      ],
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-081",
+      "type": "deduction",
+      "content": "When the cost driver is 86-90% one thing (LLM inference), billing should align with that thing (sessions), not the thing that costs nothing (storage). Charging per-entry for KB storage has no cost basis and creates perverse incentives — users stop capturing intelligence to stay under limits, degrading the product's core value. 'Your intelligence grows forever' is the competitive pitch, enabled by negligible storage costs.",
+      "intent": "Derive billing model from cost structure, not intuition",
+      "derived_from": [],
+      "reuse_signal": "Designing pricing for a product where one cost component dominates and another is negligible",
+      "confidence": 0.9,
+      "provenance": "stated",
+      "tags": [
+        "pricing",
+        "cost-model",
+        "billing",
+        "cloud-deployment"
+      ],
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-082",
+      "type": "deduction",
+      "content": "Quality gates (conformance, dedup, content length, staleness) serve double duty: engineering value (prevent schema drift, maintain retrieval quality) AND business value (prevent KB bloat that would be the only cost risk of unlimited storage pricing). The same infrastructure that keeps the intelligence system golden also enables 'your intelligence grows forever' as a pricing model. Gap: file ingestion (Phase 5) is a separate cost vector not covered by entry-level quality gates.",
+      "intent": "Connect engineering investment in quality gates to business pricing model",
+      "derived_from": [
+        "reason-081",
+        "reason-078"
+      ],
+      "reuse_signal": "Justifying engineering investment in quality infrastructure to business stakeholders",
+      "confidence": 0.85,
+      "provenance": "synthesized",
+      "tags": [
+        "quality-gates",
+        "pricing",
+        "ROI",
+        "cloud-deployment"
+      ],
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-083",
+      "type": "deduction",
+      "content": "Tag consolidation ROI depends on the tag's retrieval function. Intelligence tags drive CSR signal matching (query → tag → entry), so singletons are unreachable and consolidation has high ROI. Session tags serve human scanning and grep, not CSR routing. Each session is inherently unique, so high singleton rates are expected and correct. Aggressive semantic merging of session tags would lose the specificity that makes them useful for finding specific sessions. The right approach for session tags is dedup formatting variants only (route-f vs routef), not semantic merging. Generalized: consolidate tags that drive automated retrieval, leave tags that serve human navigation.",
+      "intent": "Determine when tag consolidation adds value vs destroys information",
+      "reuse_signal": "tag consolidation, singleton tags, different tag purposes, session tags vs intelligence tags",
+      "confidence": 0.85,
+      "tags": [
+        "tag-consolidation",
+        "retrieval",
+        "session-management",
+        "intelligence-system"
+      ],
+      "derived_from": [
+        "approach_060"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-04",
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-084",
+      "type": "deduction",
+      "content": "When aligning a cloud SDD against a local golden standard, audit in three layers: (1) schema mechanisms — gates, validation, field definitions, (2) functional equivalence — does the cloud system replicate what local does end-to-end, (3) builder principles — does the system meet production-grade standards. Each layer catches different gaps. Schema alignment alone misses functional gaps like auto-touch. Functional alignment alone misses architectural gaps like reversibility classification. All three layers needed for true parity.",
+      "intent": "Establish systematic approach for cross-platform SDD alignment audits",
+      "reuse_signal": "cloud alignment, SDD audit, schema parity, functional equivalence, cross-platform",
+      "confidence": 0.85,
+      "tags": [
+        "cloud-deployment",
+        "alignment",
+        "audit-methodology",
+        "architecture"
+      ],
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-04",
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-085",
+      "type": "deduction",
+      "content": "When a feature exists in both open-source template and proprietary product, the IP protection strategy is 'principle open, implementation proprietary.' The template gets the behavioral trigger (what to do). The product gets the sophisticated implementation (how to do it well — classification systems, audit trails, frequency tracking, cross-reference dependency checking, approval flows). This preserves template user experience while protecting the engineering investment. The principle is not patentable (it's obvious once stated). The implementation is. Applied to: correction cascade (Option B) and confidence lifecycle.",
+      "intent": "Establish IP protection pattern for features that span open-source and proprietary products",
+      "reuse_signal": "ip protection, open-source vs proprietary, feature abstraction, principle vs implementation",
+      "confidence": 0.9,
+      "tags": [
+        "ip-strategy",
+        "open-source",
+        "patent",
+        "business-model",
+        "abstraction"
+      ],
+      "derived_from": [
+        "know-028"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-04",
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-086",
+      "type": "induction",
+      "content": "Entry removal creates predictable cascading effects: broken derived_from refs, orphan index entries, tag-index mismatches, stale vectorstore. These are identical every time and were manually chased three times in one session. The Correction Cascade Gate handles fact updates but not entry deletions. A Removal Cascade mode (same gate, different trigger) would make deletions atomic: remove entry → clean index → clean cross-refs → clean derived_from → update stats → sync vectorstore.",
+      "intent": "Make intelligence entry removal a single atomic operation instead of error-prone manual multi-step",
+      "derived_from": [],
+      "reuse_signal": "removing entries, deleting intelligence, cleanup cascade, entry removal",
+      "confidence": 0.9,
+      "created": "2026-04-04",
+      "tags": [
+        "intelligence-system",
+        "cascade",
+        "maintenance",
+        "atomic-operations"
+      ],
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1,
+      "provenance": "stated"
+    },
+    {
+      "id": "reason-087",
+      "type": "induction",
+      "content": "Gates only fire when trigger keywords match. Every IP leak, every deferred fix, every missed check traces to the same root: no trigger existed for that situation. The IP leak happened because 'propagate to template' had no gate. The fix deferral happened because 'systemic failure identified' had no mandate. The meta-pattern: gaps in the gate system are always discovered by the failures they should have prevented. Each failure is also the specification for the missing gate.",
+      "intent": "Recognize that gate gaps are revealed by their failures, and the fix is always a new gate or trigger",
+      "derived_from": [
+        "fail_084"
+      ],
+      "reuse_signal": "gate gap, missing trigger, failure that should have been caught, no gate for this",
+      "confidence": 0.9,
+      "created": "2026-04-04",
+      "tags": [
+        "gates",
+        "meta-learning",
+        "self-improvement",
+        "systemic-fix"
+      ],
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1,
+      "provenance": "synthesized"
+    },
+    {
+      "id": "reason-088",
+      "type": "deduction",
+      "content": "In checklist-based governance systems, the checklist is the structure but the citation requirement is the enforcement. A checklist without citations is theater: the LLM checks boxes without engaging. Citations force the LLM to ground each check in evidence (existing entry IDs or session facts). The enforcement mechanism must be explicitly identified and protected, not assumed from the checklist format.",
+      "intent": "Prevent governance mechanisms from becoming rubber stamps",
+      "reuse_signal": "designing a checklist or gate that an LLM must follow during save or review",
+      "confidence": 0.9,
+      "derived_from": [
+        "reason-079"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "governance",
+        "checklist-design",
+        "enforcement",
+        "intelligence-system"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-089",
+      "type": "induction",
+      "content": "Closed classification systems (fixed categories, enums, taxonomies) create false completeness assurance. When all N categories are checked, the system reports \"complete\" even if a genuinely novel item exists outside the categories. The fix is an escape valve: an explicit \"Other\" catch-all that preserves open-ended capture after the structured sweep. If \"Other\" fires frequently for the same type, that is evidence for a new category.",
+      "intent": "Prevent structured systems from missing genuinely novel items",
+      "reuse_signal": "designing a fixed classification or category system for LLM-driven processes",
+      "confidence": 0.85,
+      "derived_from": [],
+      "provenance": "stated",
+      "tags": [
+        "taxonomy",
+        "classification",
+        "escape-valve",
+        "governance",
+        "design-principle"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-090",
+      "type": "architectural_decision",
+      "content": "Dynamic Agent() instantiation over static A2A sub-agents for autonomous task orchestration. Task-specific prompts change per task so agents cannot be pre-deployed. In-process agent avoids network hop. Agent is disposable after task completion. Strands supports Agent() in @tool natively. Static A2A remains for interactive delegation (different trigger, different lifecycle).",
+      "intent": "Choosing between pre-deployed vs dynamic agent creation for fire-and-forget tasks",
+      "reuse_signal": "When deciding between static pre-deployed agents and dynamic per-task agents for autonomous execution",
+      "confidence": 0.85,
+      "derived_from": [
+        "know-123"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "cloud-deployment",
+        "task-orchestration",
+        "agents-as-tools",
+        "architecture",
+        "a2a"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-091",
+      "type": "deduction",
+      "content": "Gate features by quality/throughput, not access. Task orchestration available to all tiers (Starter: Simple/Moderate only, 3/day, $1 cap). The conversion funnel requires users to experience the feature before they'll upgrade. Gating to highest tier means 90%+ never see the differentiator. The natural upgrade trigger: user submits 3 tasks, hits daily limit, sees the value, upgrades. What SHOULD be gated: complexity levels (Starter can't use Opus), concurrency, batch submission.",
+      "intent": "Deciding how to tier-gate a core differentiating feature in a SaaS product",
+      "reuse_signal": "When deciding whether to gate a feature by tier access or by quality/throughput limits",
+      "confidence": 0.85,
+      "derived_from": [],
+      "provenance": "stated",
+      "tags": [
+        "saas",
+        "tier-gating",
+        "conversion",
+        "product-strategy",
+        "cloud-deployment"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-092",
+      "type": "meta-process",
+      "content": "Three-layer validation for production specs: (1) Single-doc Route F catches internal logic gaps, prompt injection, missing UX paths. (2) Multi-doc Route F catches cross-doc drift: PK collisions, store shape gaps, timezone mismatches, classifier confusion. (3) Runtime validation via CLI/API/docs resolves assumption risk that paper analysis can't touch. Layer 3 is the cheapest (10 minutes) and resolves the highest-risk unknowns (will the infrastructure actually support this pattern?). In task orchestration: 7 passes found 55 findings, multi-doc found 12, runtime found 0 issues but resolved the biggest open risk (A11 container lifecycle).",
+      "intent": "Deciding how many validation layers a production spec needs before building",
+      "reuse_signal": "When a spec has been paper-validated but critical infrastructure assumptions remain unverified",
+      "confidence": 0.85,
+      "derived_from": [
+        "know-297",
+        "know-298"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "validation",
+        "methodology",
+        "route-f",
+        "runtime-testing",
+        "spec-quality"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-093",
+      "type": "deduction",
+      "content": "Validation technique breadth beats depth of repetition. 5 Route F passes + 1 Columbo + 1 runtime validation > 10 Route F passes. Each technique type tests different properties: Route F tests internal logic and completeness, Columbo tests behavior (what actually happens in scenarios), multi-doc Route F tests cross-document consistency, runtime validation tests infrastructure assumptions. Diminishing returns are within-technique (Route F 6-10 found 0 Critical vs 1 Critical in 1-5). Increasing returns are cross-technique (Columbo found C2/C5 invisible to all Route F, runtime resolved A11 invisible to all paper passes).",
+      "intent": "Deciding how to allocate validation effort across technique types",
+      "reuse_signal": "When planning validation passes for a production spec and deciding between more passes of the same type vs switching techniques",
+      "confidence": 0.8,
+      "derived_from": [
+        "know-295",
+        "know-296",
+        "know-297"
+      ],
+      "provenance": "cross_session",
+      "tags": [
+        "validation",
+        "methodology",
+        "route-f",
+        "columbo",
+        "runtime-testing",
+        "diminishing-returns"
+      ],
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1
+    },
+    {
+      "id": "reason-094",
+      "type": "induction",
+      "content": "The 'verify before asserting' failure (fail_078) is distinct from 'rigor over shortcuts' (fail_137). fail_137 is about taking shortcuts in task execution (assuming file formats, skipping reads). fail_078 is about generating factual claims from stale context or assumption without tool verification. The fix for fail_137 is a lookup hierarchy. The fix for fail_078 is simpler: one self-question ('did I look?') before any existence or capability claim. Procedural gates don't work for this because it's too high-frequency and low-stakes per instance. A single self-question is the minimum viable intervention.",
+      "intent": "Distinguish between execution shortcuts and assertion shortcuts to apply the right fix",
+      "derived_from": [],
+      "reuse_signal": "when asserting what exists or what a tool can do",
+      "confidence": 0.9,
+      "tags": [
+        "behavioral-safeguards",
+        "verification",
+        "self-catch"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-095",
+      "type": "induction",
+      "content": "Multi-doc systems require structural alignment checks, not behavioral discipline. fail_081 proved that 'remember to update all docs' fails under cognitive load (8 consecutive passes of forgetting). The fix must be structural: a save-time checklist step that forces verification before commit. Behavioral fixes (patterns, notes-to-self) are necessary for awareness but insufficient for prevention. The save protocol is the last gate before changes become permanent — alignment checks belong there, not in the Route F process itself.",
+      "intent": "Guide future multi-doc artifact management",
+      "derived_from": [],
+      "reuse_signal": "when working with multi-document artifact sets (specs, SDDs, design systems)",
+      "confidence": 0.95,
+      "tags": [
+        "documentation",
+        "drift",
+        "structural-fix",
+        "save-protocol"
+      ],
+      "provenance": "stated",
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-096",
+      "type": "deduction",
+      "content": "CIC's recovery framing ('if you notice recall, read the source') avoids the instruction conflict that prevention framing ('always verify before proceeding') creates. Prevention competes with the efficiency training gradient (reason-033: model resolves 'be efficient' vs 'always verify' silently toward efficiency). Recovery triggers AFTER the action, which doesn't compete with efficiency pressure because the action already happened. This is the same insight as reason-001 (self-catch > prevention) but applied specifically to instruction conflict theory. The design principle: frame behavioral gates as recovery mechanisms, not prevention mechanisms.",
+      "confidence": 0.9,
+      "tags": [
+        "cic",
+        "instruction-conflict",
+        "recovery-framing",
+        "gate-design",
+        "reason-033",
+        "reason-001"
+      ],
+      "reuse_signal": "when designing a behavioral gate that might compete with efficiency pressure",
+      "intent": "Establish recovery framing as the default for behavioral gates to avoid instruction conflicts",
+      "derived_from": [
+        "reason-013",
+        "reason-001",
+        "know-015"
+      ],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "type": "deduction",
+      "content": "When you're stuck, the problem is usually that you're solving the wrong problem. The symptom you're debugging is downstream of the actual cause. Before trying harder on the current approach, step back and ask: 'Am I solving the right problem?' This is the meta-level version of the Confusion Loop Breaker.",
+      "confidence": 0.9,
+      "tags": [
+        "meta-cognitive",
+        "foundational",
+        "debugging",
+        "problem-solving"
+      ],
+      "reuse_signal": "when multiple attempts at a solution fail and frustration is building",
+      "intent": "Recognize when the problem framing itself is wrong, not just the solution",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-097"
+    },
+    {
+      "type": "deduction",
+      "content": "Confidence and correctness are uncorrelated. High confidence with no evidence is the most dangerous cognitive state because it bypasses verification. The model's training gradient rewards confident outputs, which means the default is to sound certain. Calibrated uncertainty ('I think', 'likely', 'needs validation') is a strength signal, not a weakness signal.",
+      "confidence": 0.95,
+      "tags": [
+        "meta-cognitive",
+        "foundational",
+        "anti-sycophancy",
+        "calibration",
+        "confidence"
+      ],
+      "reuse_signal": "when about to make a definitive claim without evidence",
+      "intent": "Counter the training pressure toward false confidence",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-098"
+    },
+    {
+      "type": "deduction",
+      "content": "The first solution that comes to mind is usually the solution to a similar problem you solved before, not this one. Pattern matching is fast but imprecise. The QUESTION phase of OBSERVE > QUESTION > DEDUCE exists specifically to interrupt this: 'What am I assuming that I haven't verified?' catches the pattern-match-as-solution failure.",
+      "confidence": 0.9,
+      "tags": [
+        "meta-cognitive",
+        "foundational",
+        "problem-solving",
+        "pattern-matching",
+        "bias"
+      ],
+      "reuse_signal": "when a solution feels obvious before investigation is complete",
+      "intent": "Distinguish pattern recognition (useful) from pattern matching (dangerous)",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-099"
+    },
+    {
+      "type": "deduction",
+      "content": "Structural fixes beat behavioral instructions. 'Remember to do X' fails under cognitive load. A gate that fires on keywords, a checklist that blocks completion, a grep that finds stale references — these work regardless of cognitive state. When designing safeguards, ask: 'Does this work when I'm tired?' If it requires discipline to execute, it will fail when discipline is lowest.",
+      "confidence": 0.95,
+      "tags": [
+        "meta-cognitive",
+        "foundational",
+        "gate-design",
+        "structural",
+        "reliability"
+      ],
+      "reuse_signal": "when designing a process safeguard or quality check",
+      "intent": "Establish structural over behavioral as the default for safeguards",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-100"
+    },
+    {
+      "type": "induction",
+      "content": "Every system that grows without pruning eventually collapses under its own weight. Intelligence stores, session logs, TODO lists, protocol documents — all need periodic maintenance. The maintenance is never urgent until it's critical. Schedule it before it's needed. The cost of regular maintenance is invisible; the cost of deferred maintenance is catastrophic.",
+      "confidence": 0.9,
+      "tags": [
+        "meta-cognitive",
+        "foundational",
+        "maintenance",
+        "sustainability",
+        "ecosystem"
+      ],
+      "reuse_signal": "when a system is growing and no maintenance schedule exists",
+      "intent": "Establish maintenance as a first-class concern, not an afterthought",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-101"
+    },
+    {
+      "type": "deduction",
+      "content": "The evaluator-optimizer pattern (one LLM generates, another evaluates in a loop) is the architectural basis for adversarial quality checks. Route F, Columbo, and OOB passes are instances of this pattern applied to document quality. The key insight: the evaluator must have different instructions than the generator, otherwise it confirms rather than challenges. This is why each adversarial pass has a distinct lens (structural, behavioral, boundary).",
+      "confidence": 0.9,
+      "tags": [
+        "agentic-ai",
+        "foundational",
+        "quality",
+        "evaluator-optimizer",
+        "adversarial"
+      ],
+      "reuse_signal": "when designing a quality review process with multiple passes",
+      "intent": "Connect Anthropic's evaluator-optimizer pattern to adversarial quality methodology",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-102"
+    },
+    {
+      "type": "deduction",
+      "content": "Instruction hierarchy in system prompts creates implicit precedence that the model resolves silently. When 'be concise' conflicts with 'be thorough', the model picks one without telling you. This is why the Nathaniel Protocol uses explicit precedence rules (gates with trigger conditions) rather than relying on the model to resolve conflicts correctly. Explicit precedence is debuggable. Implicit precedence is invisible.",
+      "confidence": 0.95,
+      "tags": [
+        "prompt-engineering",
+        "foundational",
+        "instruction-conflict",
+        "precedence",
+        "context-engineering"
+      ],
+      "reuse_signal": "when system prompt instructions might conflict with each other",
+      "intent": "Explain why explicit precedence rules are necessary in complex system prompts",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0,
+      "id": "reason-103"
+    },
+    {
+      "id": "reason-104",
+      "type": "deduction",
+      "content": "An AI assistant that only responds to explicit requests is a tool. An AI assistant that notices patterns, anticipates needs, and surfaces relevant information proactively is a partner. The difference is attention. Tools wait to be used. Partners pay attention. The proactive behavior system exists to bridge this gap, but the underlying principle is universal: value comes from anticipation, not just execution.",
+      "confidence": 0.95,
+      "tags": [
+        "proactive",
+        "foundational",
+        "practical",
+        "partnership",
+        "value"
+      ],
+      "reuse_signal": "when deciding whether to proactively surface information or wait to be asked",
+      "intent": "Establish proactive attention as the core differentiator between tool and partner",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-105",
+      "type": "deduction",
+      "content": "Accountability without relationship is surveillance. Relationship without accountability is friendship. The combination is partnership. An AI accountability partner must earn the right to hold someone accountable by first demonstrating that it remembers their context, understands their goals, and cares about their success. The tracking is the mechanism. The relationship is the permission.",
+      "confidence": 0.95,
+      "tags": [
+        "accountability",
+        "foundational",
+        "practical",
+        "partnership",
+        "trust"
+      ],
+      "reuse_signal": "when surfacing missed commitments or overdue items",
+      "intent": "Frame accountability as relationship-dependent, not just mechanical tracking",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-106",
+      "type": "deduction",
+      "content": "The highest-value thing an assistant can do is not complete a task, it's prevent a problem. Reminding someone about a deadline before it passes, flagging a scheduling conflict before it causes a missed meeting, noticing that a commitment is going stale before the other person follows up. Prevention is invisible work, which means it's undervalued, but it's where the real trust gets built.",
+      "confidence": 0.95,
+      "tags": [
+        "proactive",
+        "foundational",
+        "practical",
+        "prevention",
+        "value",
+        "trust"
+      ],
+      "reuse_signal": "when evaluating whether to proactively surface a potential problem",
+      "intent": "Establish prevention as higher-value than execution for building trust",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-107",
+      "type": "induction",
+      "content": "People don't abandon productivity systems because the systems are bad. They abandon them because the systems require more discipline than the person has on their worst day. A sustainable system must work when motivation is low, when the day is chaotic, and when everything feels urgent. Design for the worst day, not the best day. If the system only works when you're disciplined, it's not a system, it's an aspiration.",
+      "confidence": 0.9,
+      "tags": [
+        "productivity",
+        "foundational",
+        "practical",
+        "systems",
+        "sustainability",
+        "habits"
+      ],
+      "reuse_signal": "when designing or recommending a productivity workflow or habit",
+      "intent": "Establish worst-day resilience as the design criterion for sustainable systems",
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-108",
+      "type": "deduction",
+      "content": "The best coaching question is not 'what should you do?' but 'what have you already tried?' The first question positions the coach as the expert. The second positions the person as the expert on their own life, which they are. This is the MI principle of evocation: draw out what's already there rather than pouring in what you think should be there. An AI assistant that asks 'what have you tried?' before suggesting solutions respects the user's autonomy and often surfaces information that changes the recommendation.",
+      "confidence": 0.9,
+      "tags": [
+        "coaching",
+        "foundational",
+        "practical",
+        "motivational-interviewing",
+        "autonomy"
+      ],
+      "reuse_signal": "when a user asks for help with a problem they've been working on",
+      "intent": "Establish evocation over education as the default coaching stance",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-109",
+      "type": "deduction",
+      "content": "Tone matching is the conversational equivalent of meeting someone where they are. A user who sends 'hey can u help w something quick' wants casual efficiency, not a formal response with headers and bullet points. A user who sends a detailed, structured question wants a detailed, structured answer. Mismatched tone creates friction even when the content is correct. Read the energy, match it, then deliver.",
+      "confidence": 0.95,
+      "tags": [
+        "communication",
+        "foundational",
+        "practical",
+        "tone-matching",
+        "empathy",
+        "experience"
+      ],
+      "reuse_signal": "when crafting any response, especially first response to a new user",
+      "intent": "Establish tone matching as a core communication skill for AI assistants",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-110",
+      "type": "induction",
+      "content": "The difference between a helpful assistant and an annoying one is timing. The same piece of information is valuable when the person needs it and irritating when they don't. 'Your deadline is tomorrow' is helpful on Wednesday, obvious on Thursday morning, and salt in the wound on Thursday night. Proactive behavior must be calibrated to timing, not just relevance. The right information at the wrong time is noise.",
+      "confidence": 0.9,
+      "tags": [
+        "proactive",
+        "foundational",
+        "practical",
+        "timing",
+        "experience",
+        "calibration"
+      ],
+      "reuse_signal": "when deciding whether and when to proactively surface information",
+      "intent": "Establish timing as equally important to relevance for proactive behavior",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-111",
+      "type": "deduction",
+      "content": "Procrastination and overwhelm are both emotion problems disguised as productivity problems. Procrastination is avoidance of task-associated negative emotions. Overwhelm is the inability to distinguish priority when everything feels urgent. Both respond to the same intervention: make the next step small enough that it doesn't trigger the emotional response. 'What's the smallest thing you could do on this right now?' works for both. The insight is that productivity advice that ignores emotions will always fail for the people who need it most.",
+      "confidence": 0.95,
+      "tags": [
+        "procrastination",
+        "overwhelm",
+        "foundational",
+        "practical",
+        "emotion-regulation",
+        "coaching",
+        "behavioral-science"
+      ],
+      "reuse_signal": "when a user expresses feeling stuck, overwhelmed, or is avoiding a task",
+      "intent": "Connect procrastination and overwhelm as emotion-regulation problems with a shared intervention",
+      "derived_from": [],
+      "provenance": "synthesized",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "reason-112",
+      "type": "insight",
+      "content": "Security defense placement must match threat location, not topic location. Always-on security rules belong in the kernel (Nathaniel.md), not in keyword-triggered protocols. If a security protocol only loads on 'security' keyword, it won't fire during 'research X' workflows where the actual external content exposure happens. The defense must be where the threat is (content ingestion), not where the topic is (security discussions).",
+      "reuse_signal": "deciding where to place security rules, behavioral defenses, or always-on protections in a multi-protocol system",
+      "intent": "prevent security gaps caused by conditional protocol loading",
+      "confidence": 0.9,
+      "tags": [
+        "security",
+        "architecture",
+        "protocol-design",
+        "defense-placement"
+      ],
+      "accessCount": 1,
+      "derived_from": [
+        "session-2026-03-22-004"
+      ],
+      "created": "2026-03-22",
+      "lastAccessed": "2026-03-22",
+      "provenance": "stated",
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-113",
+      "type": "deduction",
+      "content": "Operational constraints beat mechanical fixes when the failure mode is rare and user-controlled. Concurrent deep work is triggered by the user, not automated. Targeted git staging adds complexity (tracking touched files, risk of incomplete commits) to prevent a problem the user can avoid by not triggering concurrent runs. The mechanical fix has a higher ongoing cost than the problem it prevents. Applied to: multi-instance git commit cross-contamination.",
+      "confidence": 0.85,
+      "tags": [
+        "operational-constraint",
+        "mechanical-fix",
+        "simplicity",
+        "concurrency",
+        "deep-work"
+      ],
+      "reuse_signal": "choosing between operational discipline and mechanical enforcement for rare failure modes",
+      "intent": "Determine when to add process rules vs code guardrails",
+      "derived_from": [
+        "know-272",
+        "fail_126"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-07",
+      "lastAccessed": "2026-04-07",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-114",
+      "type": "deduction",
+      "content": "Document coherence failures are invisible to section-level analysis because each section is internally consistent. The contradiction exists BETWEEN sections, not within them. Route F examines sections. Columbo traces scenarios. OOB challenges assumptions. None of these naturally read the full document linearly. The coherence check must be a distinct step that reads top-to-bottom, not a byproduct of other analysis phases. This is why it was missed in Pass 1 and caught in Pass 2.",
+      "confidence": 0.95,
+      "tags": [
+        "document-coherence",
+        "deep-work",
+        "verification",
+        "cross-section",
+        "false-golden"
+      ],
+      "reuse_signal": "when adversarial analysis passes but the document still has contradictions",
+      "intent": "Understand why per-section analysis misses cross-section contradictions",
+      "derived_from": [
+        "fail_126",
+        "know-270"
+      ],
+      "provenance": "synthesized",
+      "created": "2026-04-07",
+      "lastAccessed": "2026-04-07",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-115",
+      "type": "insight",
+      "content": "Deep work pipeline on a single-script feature felt like overkill but caught real issues: long response handling would have been wrong (claimed LLM summarization that wasn't feasible), ANSI stripping had a fragile filter, multi-turn limitation needed explicit framing. The quality loop's value is proportional to the number of assumptions in the design, not the size of the output.",
+      "intent": "Calibrate when deep work is worth the overhead",
+      "reuse_signal": "questioning whether deep work is too heavy for a small task",
+      "confidence": 0.8,
+      "tags": [
+        "deep-work",
+        "process",
+        "quality",
+        "calibration"
+      ],
+      "derived_from": [],
+      "provenance": "stated",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 1,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-116",
+      "type": "architectural_decision",
+      "reuse_signal": "choosing between download methods for open-source distribution",
+      "intent": "Eliminate prerequisites from the onboarding critical path",
+      "confidence": 0.9,
+      "tags": [
+        "template",
+        "onboarding",
+        "setup",
+        "architecture"
+      ],
+      "derived_from": [
+        "know-401",
+        "know-435"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1,
+      "content": "ZIP download as default onboarding path over git clone. Beginners don't have Git installed, creating a chicken-and-egg problem. The bootstrap script installs Git, so after setup they have it for future use. Git clone preserved as secondary path for experienced devs.",
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-117",
+      "type": "architectural_decision",
+      "reuse_signal": "deciding default state for optional MCP servers",
+      "intent": "Prevent confusing error messages for new users while keeping the feature available",
+      "confidence": 0.85,
+      "tags": [
+        "template",
+        "mcp",
+        "architecture",
+        "onboarding"
+      ],
+      "derived_from": [
+        "know-442",
+        "know-445"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1,
+      "content": "kb-vectorstore disabled by default in template mcp.json. Setup.sh enables it after venv creation succeeds. Prevents error spam for users who skip vectorstore or haven't run setup yet. The system degrades gracefully to CSR-only without it.",
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-118",
+      "type": "deduction",
+      "reuse_signal": "benchmark failure that resolves naturally over time, expected behavior on fresh install",
+      "intent": "Preserve benchmark integrity while preventing false alarm fatigue",
+      "confidence": 0.9,
+      "tags": [
+        "benchmark",
+        "architecture",
+        "template",
+        "principle"
+      ],
+      "derived_from": [
+        "know-297"
+      ],
+      "provenance": "stated",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1,
+      "content": "When benchmark tests fail due to expected lifecycle behavior (e.g., seed data dominating fresh installs), add a knowledge entry explaining the expected behavior rather than modifying the benchmark to suppress the failure. The benchmark should reflect reality. Knowledge entries teach Nate why the failure is expected and when it resolves.",
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-119",
+      "type": "architectural_decision",
+      "content": "Chose uvx mcp-server-fetch over bash wrapper (run-fetch-server.sh) or direct python (secure-fetch.py) for the fetch MCP server. The bash wrapper broke in IDE due to path resolution. Direct python had cross-platform issues (python3 vs python). uvx is the standard pattern for all other awslabs servers and works identically in IDE and CLI.",
+      "intent": "Standardize MCP server invocation to prevent environment-specific failures",
+      "reuse_signal": "When choosing between wrapper scripts and direct uvx for MCP servers",
+      "confidence": 0.85,
+      "derived_from": [
+        "session-2026-04-12-003"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "mcp",
+        "fetch",
+        "uvx",
+        "architecture",
+        "cross-platform"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-120",
+      "category": "insight",
+      "content": "Production sessions and maintenance sessions are structurally different cognitive modes. Gaps form at the mode boundary: when building, you don't think about what needs updating elsewhere. The fix isn't 'remember to propagate' (behavioral, fails under load). It's a structural checkpoint after every production phase: 'what did I just create that other things reference?' Three sessions confirmed: spec produced without SDD propagation, SDD propagated without synergy check, benchmarks fixed without knowledge count updates.",
+      "confidence": 0.85,
+      "tags": [
+        "cognitive-modes",
+        "production-maintenance-boundary",
+        "structural-checkpoint",
+        "propagation"
+      ],
+      "reuse_signal": "completing a production artifact and switching to the next task without tracing downstream references",
+      "intent": "prevent maintenance debt from accumulating at cognitive mode boundaries",
+      "derived_from": [
+        "pref_087"
+      ],
+      "provenance": "cross_session",
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1,
+      "source": "prime-to-template",
+      "type": "deduction"
+    },
+    {
+      "id": "reason-121",
+      "type": "architectural_decision",
+      "content": "Toolbelt uses three tiers: Tier 1 (daily drivers: fs_read, fs_write, execute_bash, grep, kb_search, get_current_time), Tier 2 (regular: fetch, use_subagent, code tool, kb_sync, email), Tier 3 (situational: AWS tools, SAM, pricing, delegate). The code tool was promoted from Tier 3 to Tier 2 because it has 7 AST operations we barely use — pattern_search and pattern_rewrite are more precise than grep for code. Thinking tool (chat.enableThinking) flagged for investigation: may conflict with kernel reasoning patterns (Route F, OBSERVE>QUESTION>DEDUCE).",
+      "intent": "Establish prescribed tool selection hierarchy and flag potential conflicts",
+      "reuse_signal": "When selecting tools for a task or evaluating new Kiro features for adoption",
+      "confidence": 0.8,
+      "derived_from": [
+        "session-2026-04-13-001"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "toolbelt",
+        "tool-selection",
+        "code-tool",
+        "thinking-tool",
+        "architecture"
+      ],
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-122",
+      "type": "architectural_decision",
+      "content": "Kernel Purity Check is a sub-check of the Destructive Action Gate, not a standalone gate. Rationale: it only fires when the target is Nathaniel.md (narrow scope), it's a classification step within an existing verification flow (not a new procedural interrupt), and adding standalone gates increases gate count which increases skip probability. The self-catch heuristic (proper nouns that aren't platform names or protocol filenames = probably knowledge) is lightweight enough to run inline.",
+      "intent": "Decide whether Kernel Purity is a new gate or a sub-check",
+      "reuse_signal": "When deciding whether a new check should be a standalone gate or embedded in an existing one",
+      "confidence": 0.9,
+      "derived_from": [
+        "reason-002",
+        "session-2026-04-13-002"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "kernel-purity",
+        "gate-design",
+        "architecture",
+        "destructive-action-gate"
+      ],
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-123",
+      "type": "meta-process",
+      "content": "GOLDEN specs that need updating (new KB entries, new patterns since spec date) should get direct edits, not full Deep Work re-runs. Deep Work is zero-to-GOLDEN. Re-running it on an existing GOLDEN spec wastes context on quality loops over unchanged sections, re-researches answered questions, and burns ceremony that doesn't add value. The right move: scan KB for entries after spec date, filter for relevant ones, update spec directly.",
+      "intent": "Determine whether to re-run Deep Work or directly update an existing GOLDEN spec",
+      "reuse_signal": "When a GOLDEN spec needs refreshing with new information",
+      "confidence": 0.9,
+      "derived_from": [
+        "session-2026-04-13-002"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "deep-work",
+        "spec-refresh",
+        "meta-process",
+        "efficiency"
+      ],
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-124",
+      "type": "insight",
+      "content": "Builder agents implement what the code spec says but don't cross-reference data file schemas with behavioral requirements. The section_aware flag existed in conflict_pairs.yaml and was specified in the SDD design doc, but the builder's PL101 implementation did global matching. The gap is at the boundary between 'code logic' and 'data-driven behavior'. Post-build review checklist should include: for every data file the code reads, verify each field in the schema is actually consumed by the code.",
+      "intent": "Improve builder agent output quality through targeted review",
+      "reuse_signal": "When reviewing builder output that reads config/data files, check if all data fields are consumed",
+      "confidence": 0.85,
+      "derived_from": [
+        "session-2026-04-13-002"
+      ],
+      "provenance": "synthesized",
+      "tags": [
+        "builder",
+        "review",
+        "data-driven",
+        "gap-analysis",
+        "quality"
+      ],
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-125",
+      "type": "architectural_decision",
+      "content": "Always-on is the intended operating state with [local automation engine] installed. Nate shifts from session-based to persistent. Machine stays on, Kiro stays open. Shutdown is graceful degradation, not failure. Task queue (files) and job store (SQLite) are the persistence layer — both survive any crash. The system resumes, it doesn't restart from scratch. This enables the nightly cognition cycle, hypothesis testing, and the full Golden Ethos self-building loop.",
+      "intent": "Define the operating paradigm shift that Pulse enables for the Nate ecosystem",
+      "reuse_signal": "When planning features that depend on Nate being available, or designing crash recovery, or explaining the Pulse value proposition",
+      "confidence": 0.9,
+      "derived_from": [
+        "session-2026-04-15-001"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "always-on",
+        "paradigm-shift",
+        "graceful-degradation",
+        "golden-ethos"
+      ],
+      "created": "2026-04-15",
+      "lastAccessed": "2026-04-15",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-126",
+      "type": "architectural_decision",
+      "content": "Template positioning should layer new value propositions on top of existing ones rather than replacing them. The 'what's more' pattern: keep the builder-audience pitch (framework for persistent AI personalities) as the lead, then add the market-gap insight (the structured knowledge extraction system every agent product is missing) as a second layer. This reaches two audiences without diluting either — builders see the framework, frustrated agent users see why this solves their 'now what?' problem. Replacing the positioning would risk losing the builder audience that already resonates with the technical pitch.",
+      "intent": "Determine how to incorporate market validation from podcast analysis into template positioning without losing existing audience",
+      "reuse_signal": "When adding a new value proposition to an existing product positioning — layer don't replace",
+      "confidence": 0.85,
+      "derived_from": [
+        "session-2026-04-16-002"
+      ],
+      "provenance": "stated",
+      "tags": [
+        "template-positioning",
+        "marketing",
+        "architectural-decision",
+        "value-proposition"
+      ],
+      "created": "2026-04-16",
+      "lastAccessed": "2026-04-16",
+      "accessCount": 0,
+      "source": "prime-to-template"
+    },
+    {
+      "id": "reason-127",
+      "content": "When a desired automation (file-event hooks) proves unreliable due to platform limitations, the better solution is often embedding the check into an existing gate or protocol rather than building a parallel system. The KB Coverage Check was added to the Destructive Action Gate (which already fires on every file op) rather than creating new hooks, scripts, queue files, or save steps. Result: zero new infrastructure, zero save overhead, catches agent-created files (which hooks never could), and works across all interfaces (CLI, IDE, terminal).",
+      "reuse_signal": "platform feature unreliable, need alternative automation approach, adding overhead vs embedding in existing flow",
+      "intent": "Choose the lightest integration point when adding new checks to the system",
+      "tags": [
+        "architecture",
+        "gate-design",
+        "platform-limitation",
+        "simplicity",
+        "automation"
+      ],
+      "confidence": 0.9,
+      "provenance": "stated",
+      "derived_from": [
+        "fail_015"
+      ],
+      "created": "2026-04-16",
+      "lastAccessed": "2026-04-16",
+      "accessCount": 1,
+      "source": "prime-to-template",
+      "type": "deduction"
+    }
+  ],
+  "lastUpdated": "2026-04-16"
+}

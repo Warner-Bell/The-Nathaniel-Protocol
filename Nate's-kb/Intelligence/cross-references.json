@@ -1,0 +1,522 @@
+{
+  "fail_037": {
+    "referenced_by": [
+      "reason-001",
+      "reason-002"
+    ]
+  },
+  "fail_046": {
+    "referenced_by": [
+      "reason-003"
+    ]
+  },
+  "fail_042": {
+    "referenced_by": [
+      "reason-005"
+    ]
+  },
+  "fail_004": {
+    "referenced_by": [
+      "reason-005"
+    ]
+  },
+  "fail_054": {
+    "referenced_by": [
+      "reason-006"
+    ]
+  },
+  "fail_044": {
+    "referenced_by": [
+      "reason-006"
+    ]
+  },
+  "approach_013": {
+    "referenced_by": [
+      "reason-008"
+    ]
+  },
+  "know-284": {
+    "referenced_by": [
+      "reason-008"
+    ]
+  },
+  "know-049": {
+    "referenced_by": [
+      "reason-011",
+      "reason-028"
+    ]
+  },
+  "know-007": {
+    "referenced_by": [
+      "reason-011",
+      "reason-016",
+      "reason-026",
+      "reason-028",
+      "reason-036",
+      "reason-040",
+      "reason-076"
+    ]
+  },
+  "know-054": {
+    "referenced_by": [
+      "reason-011",
+      "reason-024"
+    ]
+  },
+  "know-223": {
+    "referenced_by": [
+      "reason-011",
+      "reason-016",
+      "reason-026"
+    ]
+  },
+  "fail_060": {
+    "referenced_by": [
+      "reason-011"
+    ]
+  },
+  "know-010": {
+    "referenced_by": [
+      "reason-012"
+    ]
+  },
+  "know-011": {
+    "referenced_by": [
+      "reason-012",
+      "reason-030"
+    ]
+  },
+  "know-012": {
+    "referenced_by": [
+      "reason-013",
+      "reason-019",
+      "reason-022"
+    ]
+  },
+  "know-008": {
+    "referenced_by": [
+      "reason-013",
+      "reason-019"
+    ]
+  },
+  "know-050": {
+    "referenced_by": [
+      "reason-014"
+    ]
+  },
+  "know-052": {
+    "referenced_by": [
+      "reason-014"
+    ]
+  },
+  "know-058": {
+    "referenced_by": [
+      "reason-014"
+    ]
+  },
+  "fail_013": {
+    "referenced_by": [
+      "reason-015"
+    ]
+  },
+  "fail_012": {
+    "referenced_by": [
+      "reason-015"
+    ]
+  },
+  "know-057": {
+    "referenced_by": [
+      "reason-016",
+      "reason-021",
+      "reason-024"
+    ]
+  },
+  "know-009": {
+    "referenced_by": [
+      "reason-017"
+    ]
+  },
+  "know-051": {
+    "referenced_by": [
+      "reason-017"
+    ]
+  },
+  "fail_032": {
+    "referenced_by": [
+      "reason-018"
+    ]
+  },
+  "fail_057": {
+    "referenced_by": [
+      "reason-018"
+    ]
+  },
+  "know-062": {
+    "referenced_by": [
+      "reason-020"
+    ]
+  },
+  "know-064": {
+    "referenced_by": [
+      "reason-020",
+      "reason-027",
+      "reason-032"
+    ]
+  },
+  "know-065": {
+    "referenced_by": [
+      "reason-021"
+    ]
+  },
+  "fail_071": {
+    "referenced_by": [
+      "reason-022"
+    ]
+  },
+  "fail_067": {
+    "referenced_by": [
+      "reason-023"
+    ]
+  },
+  "know-070": {
+    "referenced_by": [
+      "reason-025"
+    ]
+  },
+  "know-060": {
+    "referenced_by": [
+      "reason-025",
+      "reason-027"
+    ]
+  },
+  "know-066": {
+    "referenced_by": [
+      "reason-026",
+      "reason-038",
+      "reason-039"
+    ]
+  },
+  "know-073": {
+    "referenced_by": [
+      "reason-027"
+    ]
+  },
+  "know-013": {
+    "referenced_by": [
+      "reason-028",
+      "reason-034"
+    ]
+  },
+  "fail_075": {
+    "referenced_by": [
+      "reason-028"
+    ]
+  },
+  "know-067": {
+    "referenced_by": [
+      "reason-029",
+      "reason-033"
+    ]
+  },
+  "know-056": {
+    "referenced_by": [
+      "reason-029",
+      "reason-033"
+    ]
+  },
+  "know-016": {
+    "referenced_by": [
+      "reason-030"
+    ]
+  },
+  "know-002": {
+    "referenced_by": [
+      "reason-031"
+    ]
+  },
+  "know-004": {
+    "referenced_by": [
+      "reason-031"
+    ]
+  },
+  "know-015": {
+    "referenced_by": [
+      "reason-031",
+      "reason-096"
+    ]
+  },
+  "know-072": {
+    "referenced_by": [
+      "reason-032",
+      "reason-039"
+    ]
+  },
+  "know-059": {
+    "referenced_by": [
+      "reason-032",
+      "reason-036",
+      "reason-076"
+    ]
+  },
+  "know-055": {
+    "referenced_by": [
+      "reason-033"
+    ]
+  },
+  "know-219": {
+    "referenced_by": [
+      "reason-034"
+    ]
+  },
+  "know-071": {
+    "referenced_by": [
+      "reason-034",
+      "reason-040"
+    ]
+  },
+  "fail_073": {
+    "referenced_by": [
+      "reason-035"
+    ]
+  },
+  "fail_074": {
+    "referenced_by": [
+      "reason-035"
+    ]
+  },
+  "know-069": {
+    "referenced_by": [
+      "reason-035"
+    ]
+  },
+  "know-014": {
+    "referenced_by": [
+      "reason-036"
+    ]
+  },
+  "know-063": {
+    "referenced_by": [
+      "reason-037"
+    ]
+  },
+  "know-061": {
+    "referenced_by": [
+      "reason-037"
+    ]
+  },
+  "fail_068": {
+    "referenced_by": [
+      "reason-038"
+    ]
+  },
+  "fail_069": {
+    "referenced_by": [
+      "reason-038"
+    ]
+  },
+  "fail_072": {
+    "referenced_by": [
+      "reason-038"
+    ]
+  },
+  "know-068": {
+    "referenced_by": [
+      "reason-039"
+    ]
+  },
+  "know-027": {
+    "referenced_by": [
+      "reason-040"
+    ]
+  },
+  "know-224": {
+    "referenced_by": [
+      "reason-041"
+    ]
+  },
+  "know-225": {
+    "referenced_by": [
+      "reason-042"
+    ]
+  },
+  "fail_043": {
+    "referenced_by": [
+      "reason-046"
+    ]
+  },
+  "know-287": {
+    "referenced_by": [
+      "reason-046"
+    ]
+  },
+  "approach_007": {
+    "referenced_by": [
+      "reason-049"
+    ]
+  },
+  "fail_049": {
+    "referenced_by": [
+      "reason-050"
+    ]
+  },
+  "fail_050": {
+    "referenced_by": [
+      "reason-051"
+    ]
+  },
+  "fail_052": {
+    "referenced_by": [
+      "reason-052"
+    ]
+  },
+  "fail_053": {
+    "referenced_by": [
+      "reason-052"
+    ]
+  },
+  "approach_014": {
+    "referenced_by": [
+      "reason-057",
+      "reason-058",
+      "reason-059"
+    ]
+  },
+  "know-044": {
+    "referenced_by": [
+      "reason-058"
+    ]
+  },
+  "approach_015": {
+    "referenced_by": [
+      "reason-059"
+    ]
+  },
+  "know-362": {
+    "referenced_by": [
+      "reason-065"
+    ]
+  },
+  "approach_048": {
+    "referenced_by": [
+      "reason-065"
+    ]
+  },
+  "know-107": {
+    "referenced_by": [
+      "reason-074"
+    ]
+  },
+  "know-110": {
+    "referenced_by": [
+      "reason-075"
+    ]
+  },
+  "know-111": {
+    "referenced_by": [
+      "reason-075"
+    ]
+  },
+  "approach_056": {
+    "referenced_by": [
+      "reason-076"
+    ]
+  },
+  "know-119": {
+    "referenced_by": [
+      "reason-077"
+    ]
+  },
+  "approach_058": {
+    "referenced_by": [
+      "reason-079"
+    ]
+  },
+  "approach_060": {
+    "referenced_by": [
+      "reason-083"
+    ]
+  },
+  "know-028": {
+    "referenced_by": [
+      "reason-085"
+    ]
+  },
+  "fail_084": {
+    "referenced_by": [
+      "reason-087"
+    ]
+  },
+  "know-123": {
+    "referenced_by": [
+      "reason-090"
+    ]
+  },
+  "know-297": {
+    "referenced_by": [
+      "reason-092",
+      "reason-093",
+      "reason-118"
+    ]
+  },
+  "know-298": {
+    "referenced_by": [
+      "reason-092"
+    ]
+  },
+  "know-295": {
+    "referenced_by": [
+      "reason-093"
+    ]
+  },
+  "know-296": {
+    "referenced_by": [
+      "reason-093"
+    ]
+  },
+  "know-272": {
+    "referenced_by": [
+      "reason-113"
+    ]
+  },
+  "fail_126": {
+    "referenced_by": [
+      "reason-113",
+      "reason-114"
+    ]
+  },
+  "know-270": {
+    "referenced_by": [
+      "reason-114"
+    ]
+  },
+  "know-401": {
+    "referenced_by": [
+      "reason-116"
+    ]
+  },
+  "know-435": {
+    "referenced_by": [
+      "reason-116"
+    ]
+  },
+  "know-442": {
+    "referenced_by": [
+      "reason-117"
+    ]
+  },
+  "know-445": {
+    "referenced_by": [
+      "reason-117"
+    ]
+  },
+  "pref_087": {
+    "referenced_by": [
+      "reason-120"
+    ]
+  },
+  "fail_015": {
+    "referenced_by": [
+      "reason-127"
+    ]
+  }
+}

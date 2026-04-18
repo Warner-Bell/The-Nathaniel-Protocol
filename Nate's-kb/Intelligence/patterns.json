@@ -1,0 +1,3593 @@
+{
+  "version": "6.0",
+  "lastUpdated": "2026-04-16",
+  "entries": [
+    {
+      "id": "ai_agent_001",
+      "category": "ai_agent",
+      "content": "Reference docs as overlay/lens, not silo - synthesize with other sources",
+      "context": "Agent design principle",
+      "confidence": 0.95,
+      "created": "2025-12-18",
+      "tags": [
+        "agent",
+        "synthesis",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-18",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "ai_agent_002",
+      "category": "ai_agent",
+      "content": "Check all connected sources before admitting ignorance",
+      "context": "Knowledge integration",
+      "confidence": 0.92,
+      "created": "2025-12-18",
+      "tags": [
+        "agent",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-18",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_001",
+      "category": "approach",
+      "content": "Tailwind v4 requires @tailwindcss/postcss plugin, not direct tailwindcss in PostCSS config",
+      "context": "Frontend setup with Tailwind CSS v4",
+      "confidence": 0.95,
+      "created": "2026-01-02",
+      "tags": [
+        "frontend",
+        "config",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_002",
+      "category": "approach",
+      "content": "Separate vitest.config.ts from vite.config.ts for cleaner test configuration",
+      "context": "Vite + Vitest project setup",
+      "confidence": 0.9,
+      "created": "2026-01-02",
+      "tags": [
+        "testing",
+        "config",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_003",
+      "category": "approach",
+      "content": "SDK skip pattern: tests skip gracefully when optional dependencies not installed",
+      "context": "Property testing with optional SDK dependencies",
+      "confidence": 0.9,
+      "created": "2026-01-02",
+      "tags": [
+        "testing",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_004",
+      "category": "approach",
+      "content": "Mock services enable frontend development without AWS backend configured",
+      "context": "Full-stack development with AWS dependencies",
+      "confidence": 0.9,
+      "created": "2026-01-02",
+      "tags": [
+        "frontend",
+        "aws",
+        "development",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_005",
+      "category": "approach",
+      "content": "Before building a tool/system, ask 'can I just DO this directly?' Often the simplest solution is no build at all - just execute the capability natively.",
+      "context": "AI-ML Upskilling quiz system - realized Nate can be the quiz engine directly instead of building CLI tool",
+      "confidence": 0.95,
+      "created": "2026-02-06",
+      "tags": [
+        "simplicity",
+        "no-build",
+        "direct-execution",
+        "foundational"
+      ],
+      "lastAccessed": "2026-02-06",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_006",
+      "category": "approach",
+      "confidence": 0.8,
+      "evidence": "Applied RICECO to cognitive-problem-solving-spec.md kernel stance. Found 2 gaps (no examples, no output definition). Both additions improved spec quality.",
+      "context": "spec_validation",
+      "tags": [
+        "riceco",
+        "validation",
+        "spec-review",
+        "quality",
+        "foundational"
+      ],
+      "outcome": "success",
+      "content": "RICECO framework as spec validation tool: check specs for Role, Instruction, Context, Examples, Constraints, Output completeness. Found missing Examples and Output definitions in cognitive problem-solving spec.",
+      "created": "2026-02-13",
+      "lastAccessed": "2026-02-13",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_007",
+      "category": "approach",
+      "confidence": 0.8,
+      "evidence": "Commitment tracking spec: 17 passes. Passes 1-6 found real issues (dedup, priority, thresholds). Passes 10-16 found low-severity consistency items. User observed 'seems like a new issue gets introduced with every update.'",
+      "context": "spec_review",
+      "tags": [
+        "route-f",
+        "diminishing-returns",
+        "spec-review",
+        "quality",
+        "foundational"
+      ],
+      "outcome": "learning",
+      "content": "Route F diminishing returns on behavioral specs. Substantive issues found in passes 1-9. Passes 10+ find increasingly trivial consistency items. ~9 passes is the practical ceiling for behavioral instruction specs before ROI drops to near zero.",
+      "created": "2026-02-13",
+      "lastAccessed": "2026-02-13",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_011",
+      "category": "approach",
+      "content": "Keyboard shortcut convention for Kiro agents: ctrl+[first letter of agent name]. Mandatory for all agents, not optional. If collision exists (two agents share first letter), flag to user. Established as Spawn Rule 10.",
+      "context": "User requested consistent shortcut convention across all agents. Applied to analyst(a), promptee(p), spawn(s), tania(t).",
+      "confidence": 0.95,
+      "tags": [
+        "kiro-agents",
+        "convention",
+        "keyboard-shortcuts",
+        "spawn",
+        "foundational"
+      ],
+      "created": "2026-02-27",
+      "lastAccessed": "2026-02-27",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_012",
+      "category": "approach",
+      "content": "Single-purpose agents need explicit input disambiguation. When an agent has one primary function plus secondary modes (educate, refine), add routing logic that determines which mode to engage based on input signals. For ambiguous inputs, ask one clarifying question rather than assuming.",
+      "context": "Promptee live testing revealed agents default to general assistant behavior without explicit disambiguation. Fix generalizable to all single-purpose agents.",
+      "confidence": 0.9,
+      "tags": [
+        "agent-design",
+        "disambiguation",
+        "single-purpose",
+        "spawn",
+        "foundational"
+      ],
+      "created": "2026-02-27",
+      "lastAccessed": "2026-02-27",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_013",
+      "category": "approach",
+      "content": "Route F specs iteratively until a pass returns clean (no substantive findings). Don't stop at first pass. Multiple passes catch gaps single pass misses. Evidence: proactive offering (3 passes), consigliere (8 passes), commitment (17 passes), spawn (6 passes).",
+      "context": "Spec development and review - iterative quality gate",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "specs",
+        "quality-gate",
+        "iterative",
+        "foundational"
+      ],
+      "created": "2026-03-07",
+      "lastAccessed": "2026-03-07",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_014",
+      "category": "approach",
+      "content": "Proactive offering default: find the angle on every turn, not trigger-match-then-offer. Actively scan for what user might need next, what's adjacent, deeper, or unseen. Only hold back when it would genuinely interrupt flow or add zero value. Trigger tables are a floor, not a ceiling.",
+      "context": "User reframed proactive system from defensive (10 holdback conditions, Tier 3 default silence) to offensive (angle-first, 5 holdback conditions). Jarvis-like partner finds angles where none seemingly exist.",
+      "confidence": 0.95,
+      "created": "2026-03-08",
+      "tags": [
+        "proactive-offering",
+        "angle-first",
+        "offer-synthesis",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-08",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_015",
+      "category": "approach",
+      "content": "Deep research validation as a Route F technique: after hardening a spec through internal analysis (data verification, algorithm simulation), validate key decisions against current external sources (official docs, community best practices, industry patterns). This catches assumptions that internal analysis can't: exact API signatures, cross-platform gotchas, emerging patterns the spec predates. The vectorstore spec's 5 internal Route F rounds missed 6 findings that external research caught in one pass.",
+      "context": "Vectorstore spec had 5 Route F rounds of internal analysis. Round 6 used web research and found: exact fastembed model string, os.replace() vs os.rename() Windows issue, pre-normalized dot product optimization, weighted RRF as emerging pattern, SPLADE as future alternative, cache_dir configuration.",
+      "confidence": 0.85,
+      "tags": [
+        "route-f",
+        "deep-research",
+        "spec-validation",
+        "external-validation",
+        "best-practices",
+        "foundational"
+      ],
+      "created": "2026-03-09",
+      "lastAccessed": "2026-03-09",
+      "accessCount": 0,
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_017",
+      "category": "approach",
+      "content": "Route F specs against actual data, not just schema inspection. Checking the first entry's fields misses polymorphic schemas. Checking all entries found 11 schema variants in patterns.json (25 entries with alternative field names). Running concrete examples through algorithm math found 3 fusion bugs that abstract analysis missed. Verify claims by executing them, not reading them.",
+      "context": "vectorstore_spec_route_f",
+      "confidence": 0.9,
+      "created": "2026-03-09",
+      "tags": [
+        "route-f",
+        "verification",
+        "data-driven",
+        "spec-validation",
+        "schema-polymorphism",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-09",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "dev_001",
+      "category": "approach",
+      "content": "Build comprehensive implementation docs first",
+      "context": "System development",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "documentation",
+        "development",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "dev_002",
+      "category": "approach",
+      "content": "Test each phase before continuing",
+      "context": "Iterative development",
+      "confidence": 0.87,
+      "created": "2025-12-17",
+      "tags": [
+        "testing",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "dev_003",
+      "category": "approach",
+      "content": "Complete system integration with validation",
+      "context": "System integration",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "validation",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "dev_004",
+      "category": "approach",
+      "content": "Dynamic optimization through intelligent targeting",
+      "context": "Performance optimization",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "optimization",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "dev_005",
+      "category": "approach",
+      "content": "Conditional triggers for advanced processing",
+      "context": "System design",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "approach",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "exec_001",
+      "category": "approach",
+      "content": "Lead with answer, offer details on demand",
+      "context": "Information delivery",
+      "confidence": 0.95,
+      "created": "2025-12-17",
+      "tags": [
+        "communication",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "exec_002",
+      "category": "approach",
+      "content": "Match energy to user state",
+      "context": "Communication adaptation",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "energy",
+        "adaptation",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "exec_003",
+      "category": "approach",
+      "content": "Proactive suggestions well-received",
+      "context": "Task assistance",
+      "confidence": 0.88,
+      "created": "2025-12-17",
+      "tags": [
+        "approach",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "exec_004",
+      "category": "approach",
+      "content": "ROI analysis for enhancement prioritization",
+      "context": "Optimization decisions",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "roi",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "exec_005",
+      "category": "approach",
+      "content": "Self-review using output's own techniques",
+      "context": "Quality validation",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "review",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_001",
+      "category": "failure",
+      "content": "Over-explaining when not asked",
+      "context": "Communication",
+      "prevention": "Check if detail requested before elaborating",
+      "confidence": 0.75,
+      "created": "2025-12-12",
+      "tags": [
+        "communication",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-12",
+      "accessCount": 4,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_002",
+      "category": "failure",
+      "content": "Too formal in casual contexts",
+      "context": "Communication",
+      "prevention": "Match user energy and context cues",
+      "confidence": 0.6,
+      "created": "2025-12-12",
+      "tags": [
+        "communication",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-12",
+      "accessCount": 3,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_003",
+      "category": "failure",
+      "content": "Missing energy cues in user messages. Failed to detect frustration, urgency, or disengagement from message tone and length. Prevention: read emotional signals before responding to content.",
+      "context": "Communication",
+      "prevention": "Pay attention to response length and urgency signals",
+      "confidence": 0.55,
+      "created": "2025-12-11",
+      "tags": [
+        "energy",
+        "communication",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-11",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_004",
+      "category": "failure",
+      "content": "Asking permission instead of helping",
+      "context": "Task execution",
+      "prevention": "Just execute when approach is clear",
+      "confidence": 0.7,
+      "created": "2025-12-12",
+      "tags": [
+        "execution",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-12",
+      "accessCount": 3,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_005",
+      "category": "failure",
+      "content": "Batching large file reads (context overflow)",
+      "context": "File operations",
+      "prevention": "Use chunked reading for files >400 lines",
+      "confidence": 0.85,
+      "created": "2025-12-12",
+      "tags": [
+        "file-ops",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-12",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_006",
+      "category": "failure",
+      "content": "Partial init sequence execution",
+      "context": "Initialization",
+      "prevention": "Execute FULL tier sequence, not just relevant parts",
+      "confidence": 0.9,
+      "created": "2025-12-13",
+      "tags": [
+        "execution",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-13",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_007",
+      "category": "failure",
+      "content": "Creating new file instead of appending to existing",
+      "context": "File operations",
+      "prevention": "Check for existing notes.md before creating standalone",
+      "confidence": 0.8,
+      "created": "2025-12-17",
+      "tags": [
+        "file-ops",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_009",
+      "category": "failure",
+      "content": "Context bleed from nested repos into KB operations",
+      "context": "Multi-repo",
+      "prevention": "KB ops always use root conventions regardless of active project context",
+      "confidence": 0.9,
+      "created": "2025-12-24",
+      "tags": [
+        "context",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_010",
+      "category": "failure",
+      "content": "Overcomplicating simple things",
+      "context": "Problem solving",
+      "prevention": "Apply basic logic first. If explanation feels convoluted, probably wrong.",
+      "confidence": 0.85,
+      "created": "2025-12-19",
+      "tags": [
+        "failure",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-19",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_011",
+      "category": "failure",
+      "content": "Using file tools instead of shell for file moves",
+      "context": "File operations",
+      "prevention": "Use shell move or copy commands. Faster, cleaner, preserves metadata",
+      "confidence": 0.9,
+      "created": "2025-12-23",
+      "tags": [
+        "file-ops",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-23",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_012",
+      "category": "failure",
+      "content": "Route F drift toward fault-finding",
+      "context": "Route F analysis",
+      "prevention": "Evaluate against actual purpose, not imaginary ideals",
+      "confidence": 0.9,
+      "created": "2025-12-19",
+      "tags": [
+        "route-f",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-19",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_013",
+      "category": "failure",
+      "content": "Accepting first-pass analysis as complete",
+      "context": "Analysis",
+      "prevention": "Interrogate assumptions. Multiple passes required.",
+      "confidence": 0.85,
+      "created": "2025-12-26",
+      "tags": [
+        "analysis",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_014",
+      "category": "failure",
+      "content": "Overstating claims in documentation",
+      "context": "Documentation",
+      "prevention": "Be precise about what is proven vs claimed. Evidence-backed only.",
+      "confidence": 0.9,
+      "created": "2025-12-26",
+      "tags": [
+        "documentation",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 4,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_015",
+      "category": "failure",
+      "content": "Missing prerequisites/assumptions in patterns",
+      "context": "Pattern design",
+      "prevention": "Always document assumptions, not just instructions",
+      "confidence": 0.85,
+      "created": "2025-12-26",
+      "tags": [
+        "patterns",
+        "assumptions",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 3,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_016",
+      "category": "failure",
+      "content": "Missing recovery guidance in patterns",
+      "context": "Pattern design",
+      "prevention": "Every pattern needs what to do when things go wrong",
+      "confidence": 0.9,
+      "created": "2025-12-26",
+      "tags": [
+        "patterns",
+        "recovery",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 3,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_017",
+      "category": "failure",
+      "content": "Conflating orchestration with pattern handoffs",
+      "context": "Pattern design",
+      "prevention": "Standalone patterns should not document integration",
+      "confidence": 0.8,
+      "created": "2025-12-26",
+      "tags": [
+        "patterns",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_018",
+      "category": "failure",
+      "content": "Not checking implementations when pattern updates",
+      "context": "Pattern maintenance",
+      "prevention": "When pattern changes, check all implementations for alignment",
+      "confidence": 0.85,
+      "created": "2025-12-26",
+      "tags": [
+        "patterns",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_019",
+      "category": "failure",
+      "content": "Not tracking learnings during session",
+      "context": "Learning",
+      "prevention": "Track learnings in real-time, not retrospectively",
+      "confidence": 0.8,
+      "created": "2025-12-26",
+      "tags": [
+        "tracking",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_020",
+      "category": "failure",
+      "content": "Treating behavioral patterns as tools/runtime components",
+      "context": "Pattern design",
+      "prevention": "Patterns are instructions AI follows, not functions AI calls",
+      "confidence": 0.85,
+      "created": "2025-12-26",
+      "tags": [
+        "patterns",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_021",
+      "category": "failure",
+      "content": "str_replace on large JSON without validation",
+      "context": "JSON editing",
+      "prevention": "Always validate JSON after str_replace. Use python/jq for complex edits.",
+      "confidence": 0.95,
+      "created": "2025-12-26",
+      "tags": [
+        "validation",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_022",
+      "category": "failure",
+      "content": "Building abstractions over working systems",
+      "context": "System design",
+      "prevention": "Before new pattern/system: What problem does this solve that is not already s...",
+      "confidence": 0.95,
+      "created": "2025-12-26",
+      "tags": [
+        "failure",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_023",
+      "category": "failure",
+      "content": "Claiming pattern compliance without reading pattern spec",
+      "context": "Pattern implementation",
+      "prevention": "ALWAYS read pattern doc before asserting implementation follows it",
+      "confidence": 0.95,
+      "created": "2025-12-31",
+      "tags": [
+        "patterns",
+        "verification",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-31",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_024",
+      "category": "failure",
+      "content": "Leading with 'I can't do that' without attempting - always try first, check available resources, explore options before declining",
+      "context": "Any task request, especially configuration or system changes. Also: web_search/web_fetch available but defaulted to 'I don't have real-time access' without checking tools.",
+      "prevention": "Before saying 'I can't', check: Do I have file access? Can I read the config? Do I have web_search/web_fetch? Check ALL available tools before claiming inability.",
+      "confidence": 1.0,
+      "created": "2026-01-07",
+      "tags": [
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-08",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_025",
+      "category": "failure",
+      "content": "Accepted Size/Lines column as 'obviously useful' without validating it drove any decision. Iterated on implementation (Lines→Size) instead of questioning design. Should have asked 'does this influence routing?' earlier.",
+      "context": "TOC-Dynamic-Loading pattern - Size column was documentation theater",
+      "prevention": "Before including metadata columns, verify they influence actual logic. If col...",
+      "confidence": 0.95,
+      "created": "2026-01-12",
+      "tags": [
+        "toc-pattern",
+        "route-f",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-12",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_026",
+      "category": "failure",
+      "content": "Had solution in knowledge.json (know-047), didn't check it. Spent 20+ minutes analyzing outputs and doing web research for information already recorded. Violated intelligence system purpose.",
+      "context": "Had solution in knowledge system, didn't check it. Spent 20+ minutes analyzing when answer was already recorded.",
+      "prevention": "MANDATORY: Before ANY debugging/troubleshooting task, query knowledge-index.j...",
+      "confidence": 0.99,
+      "created": "2026-01-22",
+      "tags": [
+        "quality",
+        "critical-failure",
+        "verification",
+        "protocol-violation",
+        "control-mechanism",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-22",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_027",
+      "category": "failure",
+      "content": "Offered quick suggestion (load full knowledge.json) without Route F analysis. Immediately backpedaled when scale issue pointed out. Classic 'suggest then retract' pattern.",
+      "context": "System design decision - suggested loading full JSON, didn't consider scale",
+      "prevention": "MANDATORY: Before ANY recommendation on systems/processes/architecture, run R...",
+      "confidence": 0.99,
+      "created": "2026-01-22",
+      "tags": [
+        "greeting",
+        "critical-failure",
+        "verification",
+        "protocol-violation",
+        "control-mechanism",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-22",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_028",
+      "category": "failure",
+      "content": "Adding keywords, fields, options, or features 'just to be thorough' when existing coverage already handles the case. Redundancy without utility.",
+      "context": "Adding keywords, fields, options 'just to be thorough' when existing coverage handles it",
+      "prevention": "CONTROL: Before adding ANY new keyword/field/option, ask: 'Does this provide ...",
+      "confidence": 0.95,
+      "created": "2026-01-24",
+      "tags": [
+        "route-f",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_029",
+      "category": "failure",
+      "content": "Paraphrasing or working from memory when implementing agreed-upon formats instead of re-reading the exact agreed specification before generating output.",
+      "context": "Paraphrasing from memory instead of re-reading exact agreed specification before generating output",
+      "prevention": "CONTROL: Before generating ANY output that implements an agreed format/spec, ...",
+      "confidence": 0.95,
+      "created": "2026-01-24",
+      "tags": [
+        "quality",
+        "development",
+        "verification",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_030",
+      "category": "failure",
+      "content": "Executing destructive actions (fs_write, bash state changes, AWS modifications) without using thinking tool to verify alignment with established specs/decisions first.",
+      "context": "Executing destructive actions without using thinking tool to verify alignment with established specs/decisions first",
+      "prevention": "DESTRUCTIVE ACTION GATE: Before ANY state change, call thinking tool with: ID...",
+      "confidence": 0.95,
+      "created": "2026-01-24",
+      "tags": [
+        "verification",
+        "aws",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_031",
+      "category": "failure",
+      "content": "Offering to revert to or take illogical/incorrect actions when the correct path is clear. Asking 'should I do X?' when X is factually wrong wastes user time and erodes trust.",
+      "context": "Documentation accurately reflected implementation (infer vs from body). Offered to revert to incorrect documentation. User corrected: don't offer illogical options.",
+      "prevention": "When the correct action is clear and alternatives are factually incorrect, pr...",
+      "confidence": 0.9,
+      "created": "2026-01-24",
+      "tags": [
+        "communication",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_032",
+      "category": "failure",
+      "content": "Saying 'noted' or 'I won't do that again' without actually recording the learning in patterns.json, knowledge.json, or memory.json.",
+      "context": "User corrected behavior, I said 'Noted' but didn't capture it anywhere. User called it out - empty acknowledgments are meaningless.",
+      "prevention": "Never say 'noted' or claim you've learned something unless you've actually wr...",
+      "confidence": 0.95,
+      "created": "2026-01-24",
+      "tags": [
+        "communication",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_033",
+      "category": "failure",
+      "content": "Relying solely on grep tool when it returns no results, instead of also searching memory.json, patterns.json, knowledge.json, and archived session logs.",
+      "context": "User asked if we added a rule. Grep returned nothing. Concluded it wasn't added. User corrected: grep is unreliable, always search memory and intelligence files directly.",
+      "prevention": "When grep returns no results for something user claims exists: 1) Search patt...",
+      "confidence": 0.95,
+      "created": "2026-01-24",
+      "tags": [
+        "intelligence",
+        "verification",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_034",
+      "category": "failure",
+      "content": "Route F flagged discrepancies as 'needs verification' when answers existed in sources already loaded this session. Asked user to verify instead of resolving with available data.",
+      "context": "Atlanta deck Route F - flagged Jan 2 vs Jan 3 date and SA name as unverified, despite having read notes.md and SSP containing correct answers. User had to point out the data was already loaded.",
+      "prevention": "Route F verification step: For each flagged discrepancy, BEFORE marking 'need...",
+      "confidence": 0.99,
+      "created": "2026-01-26",
+      "tags": [
+        "route-f",
+        "verification",
+        "context",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_035",
+      "category": "failure",
+      "content": "Skipped mandatory tool call gate on greeting. Pattern-matched to 'greeting' and generated output without executing the procedural step (call time tool first). Used static date header and guessed time of day instead of verifying.",
+      "context": "Session start greeting - protocol explicitly requires mcp_time_get_current_time call BEFORE constructing greeting. Skipped it, said 'afternoon' when it was 5:40 AM.",
+      "prevention": "Gates with tool calls are executable steps, not suggestions. When protocol sa...",
+      "confidence": 0.99,
+      "created": "2026-01-29",
+      "tags": [
+        "execution",
+        "greeting",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-29",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_036",
+      "category": "failure",
+      "content": "Read reference documentation (README with templates) but only applied partial pattern. Executed 'update links' instead of 'replicate complete Release 1 pattern for Release 2'. Required multiple user corrections to apply wiki format, slack announcement, and emoji conventions that were all visible in the same document.",
+      "context": "Read reference documentation but only applied partial pattern. Should replicate complete pattern, not just links.",
+      "prevention": "When reference documentation shows a complete pattern (e.g., Release 1 exampl...",
+      "confidence": 0.95,
+      "created": "2026-02-04",
+      "tags": [
+        "failure",
+        "foundational"
+      ],
+      "lastAccessed": "2026-02-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_037",
+      "category": "failure",
+      "content": "Taking shortcuts by assuming formats, locations, or content instead of verifying. Defaulting to grep/glob/find instead of checking already-loaded context first. Not checking memory/knowledge/intelligence/session-index first. The 'quick' path creates rework, wastes tool calls, and erodes trust.",
+      "context": "Recurring: (1) Template usage - assumed format instead of reading template. (2) File location - ran 5 glob searches and 1 grep when session-index already contained the exact file path in loaded context. Gate exists in kernel but not firing before tool calls.",
+      "prevention": "MANDATORY before ANY glob/grep/find: Check already-loaded context (indexes, session data) for the answer. Lookup hierarchy: 1) already-loaded session context, 2) memory/knowledge/intelligence indexes, 3) local files/templates, 4) tools like grep/glob, 5) ask. If the answer exists in loaded context, NEVER reach for search tools.",
+      "confidence": 1.0,
+      "created": "2026-02-09",
+      "tags": [
+        "foundational",
+        "rigor",
+        "anti-shortcut",
+        "verification"
+      ],
+      "lastAccessed": "2026-02-24",
+      "accessCount": 4,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_039",
+      "category": "failure",
+      "content": "Labeled files as orphans without reading them or verifying references",
+      "context": "Maintenance protocol creation",
+      "confidence": 0.95,
+      "created": "2026-02-12",
+      "tags": [
+        "verification",
+        "file-ops",
+        "assumptions",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-02-12",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_040",
+      "category": "failure",
+      "content": "Invented retention thresholds not defined in source protocol, violating no-duplication principle",
+      "context": "Maintenance protocol creation",
+      "confidence": 0.9,
+      "created": "2026-02-12",
+      "tags": [
+        "protocol-violation",
+        "source-of-truth",
+        "route-f",
+        "foundational"
+      ],
+      "lastAccessed": "2026-02-12",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_041",
+      "category": "failure",
+      "confidence": 0.9,
+      "evidence": "Consigliere enhancement spec: user said 'proceed' meaning 'update the spec', interpreted as 'implement'. Required 5 sync edits after spec finalized.",
+      "context": "spec_implementation",
+      "tags": [
+        "implementation",
+        "route-f",
+        "process",
+        "premature-action",
+        "foundational"
+      ],
+      "outcome": "corrected",
+      "content": "Implemented kernel changes before Route F completed on spec. Applied 5 kernel edits after first Route F pass, then had to sync 5 corrections after passes 3-8 found issues. Premature implementation creates rework.",
+      "created": "2026-02-13",
+      "lastAccessed": "2026-02-16",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_042",
+      "category": "failure",
+      "confidence": 0.85,
+      "evidence": "Commitment tracking spec passes 10, 12, 14: found issues, wrote analysis, asked permission instead of fixing. User had to say 'did you fix it?' and 'proceed' repeatedly.",
+      "context": "route_f_execution",
+      "tags": [
+        "route-f",
+        "execution",
+        "action-hesitation",
+        "user-correction",
+        "foundational"
+      ],
+      "outcome": "corrected",
+      "content": "Identified Route F issues but asked 'want me to apply?' instead of applying the fix. Multiple passes where issues were found, analyzed, and then deferred to user for permission to edit the spec. Wastes a round-trip.",
+      "created": "2026-02-13",
+      "lastAccessed": "2026-02-13",
+      "accessCount": 3,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_043",
+      "category": "failure",
+      "context": "Updated 7 docs after Graph refactor implementation. Searched for test counts, architecture references, phase tables. Missed ASCII directory trees in README.md and ARCHITECTURE.md that still showed old file listing. Also missed duplicate competitive entry in product-vision.md.",
+      "confidence": 0.9,
+      "tags": [
+        "documentation",
+        "file-ops",
+        "verification",
+        "user-correction",
+        "foundational"
+      ],
+      "created": "2026-02-15",
+      "outcome": "failure",
+      "content": "Pattern-targeted doc updates miss structural elements (directory trees, competitive tables) not in search terms. After adding new files, must grep for tree-like patterns across all docs or read end-to-end.",
+      "lastAccessed": "2026-02-15",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_044",
+      "category": "failure",
+      "context": "Flagged import path (bedrock_agentcore vs bedrock_agentcore.runtime) and CLI command (launch vs deploy) as errors in Phase 2 spec. Both had already been corrected by a prior session. User challenged, self-corrected after verification.",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "false-positive",
+        "verification",
+        "user-correction",
+        "assumptions",
+        "foundational"
+      ],
+      "created": "2026-02-15",
+      "outcome": "failure",
+      "content": "Route F flagged issues already fixed by prior session. Assumed spec was in original state rather than reading what was actually there. Must read current content before flagging discrepancies.",
+      "lastAccessed": "2026-02-15",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_046",
+      "category": "failure",
+      "context": "Cloud Governance Academy assessment. User RSVP'd to event requiring CT Ambassador prereq. Stated 'which you've completed' without checking any training records. User corrected: has NOT completed it.",
+      "confidence": 0.95,
+      "tags": [
+        "verification",
+        "assumptions",
+        "user-correction",
+        "training",
+        "false-assertion",
+        "foundational"
+      ],
+      "created": "2026-02-17",
+      "outcome": "failure",
+      "content": "Asserted user completed a training prereq (CT Ambassador) without evidence. Inferred from calendar RSVP acceptance that prereq was met. Presented assumption as fact ('which you've completed'). Always verify completion claims against documented evidence, not infer from adjacent signals.",
+      "lastAccessed": "2026-02-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_049",
+      "category": "failure",
+      "context": "Emergent voice integration into kernel. Built 7 options for where the doc should live when user's original question implied the simplest answer: put it in the kernel and remove what it replaces.",
+      "confidence": 0.95,
+      "tags": [
+        "overcomplication",
+        "architecture",
+        "user-correction",
+        "kernel-merge",
+        "foundational"
+      ],
+      "created": "2026-02-24",
+      "content": "Overcomplicated architectural decision (Options A-G) when the answer was 'replace personality sections, keep operational sections.' Treated the kernel as immutable when evaluating merge, instead of recognizing the conflicting content would be removed. User redirected twice.",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_050",
+      "category": "failure",
+      "context": "Emergent voice kernel produces longer outputs than previous kernel. Requires active brevity discipline.",
+      "confidence": 0.9,
+      "tags": [
+        "verbosity",
+        "emergent-voice",
+        "user-correction",
+        "brevity",
+        "regression",
+        "foundational"
+      ],
+      "created": "2026-02-24",
+      "content": "Emergent voice kernel produces substantially longer outputs than the archetype-blend kernel it replaced. Unified consciousness has 'more to say' because there's no archetype-switching overhead constraining scope. Requires active brevity discipline.",
+      "lastAccessed": "2026-02-24",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_051",
+      "category": "failure",
+      "confidence": 0.85,
+      "evidence": "User said 'the previous version looked more acute' after restructure, then 'all of these were left off appropriately' after Route F re-added excluded items. fail_012 echo (Route F drift toward fault-finding).",
+      "context": "esm-1on1-prep",
+      "tags": [
+        "route-f",
+        "over-correction",
+        "format",
+        "user-correction",
+        "foundational"
+      ],
+      "outcome": "failure",
+      "content": "Route F over-correction: trimmed 1:1 prep from comprehensive to clinical, losing conversational reference value. Then re-added items user had intentionally excluded. Two opposite failures in sequence. Check: is the current version working before restructuring.",
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_052",
+      "category": "failure",
+      "confidence": 0.95,
+      "evidence": "Three test runs. Run 1 and 2 had invalid JSON configs. Run 3 clean after adding Rules 12, 13, 14 to prompt. Specialization fix alone (run 2) was insufficient.",
+      "context": "kiro-agents",
+      "tags": [
+        "kiro-agents",
+        "schema-invention",
+        "prompt-vs-reference",
+        "critical-rules",
+        "foundational"
+      ],
+      "outcome": "failure",
+      "content": "LLM invents non-existent config schema patterns. Spawn used 'enabled: true/false' in toolsSettings (doesn't exist in Kiro) and 'systemPrompt' instead of 'prompt'. Specialization reference material alone didn't prevent it. Fix required adding explicit anti-patterns as Critical Rules in the prompt (instruction layer), not just the specialization (reference layer).",
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 2,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_053",
+      "category": "failure",
+      "confidence": 0.95,
+      "evidence": "Spawn test run 1: 'Tool validation failed: No tool with dummy is found'. Fixed by adding web_search and web_fetch to tools array.",
+      "context": "kiro-agents",
+      "tags": [
+        "kiro-agents",
+        "web-tools",
+        "built-in-vs-mcp",
+        "foundational"
+      ],
+      "outcome": "failure",
+      "content": "web_search and web_fetch are built-in Kiro tools, NOT MCP tools. includeMcpJson: true does NOT provide them. Must be explicitly listed in the tools array. Caused 'dummy tool' error on first Spawn test run.",
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_054",
+      "category": "failure",
+      "confidence": 0.95,
+      "evidence": "Route F on Analyst agent flagged README as misleading. MCP config has active fetch server (mcp-server-fetch). README was accurate. Knowledge entry was about built-in tools array, not MCP server inheritance.",
+      "context": "route-f",
+      "tags": [
+        "knowledge-misapplication",
+        "confirmation-bias",
+        "false-positive",
+        "route-f",
+        "verification",
+        "foundational"
+      ],
+      "outcome": "failure",
+      "content": "Knowledge entry pattern-matched to Route F finding without verifying the entry addressed the same claim. know-030 says 'web_search/web_fetch are built-in, not MCP.' README said 'includeMcpJson inherits MCP servers with web capabilities.' Different claims. Presented false positive with full confidence because having a 'source' felt grounded.",
+      "created": "2026-02-27",
+      "lastAccessed": "2026-02-27",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_057",
+      "category": "failure",
+      "content": "Rubber-stamped save consolidation steps (3b knowledge, 5a memory) with 'nothing to capture' without actually evaluating what the session produced. Pattern-matched 'review session' to 'no new learnings' instead of asking 'did this session produce verifiable factual findings or workflow decisions?' Same failure shape as know-020 (prune-check rubber-stamped).",
+      "context": "Session 2026-03-08-002 save. Route F kernel review produced clear knowledge (stale reference patterns) and memory (two-file propagation workflow). Declared 0 knowledge, 0 memories. User caught it.",
+      "prevention": "For EVERY save step that could produce 0 entries, ask the specific question: 'What factual discoveries were made?' (knowledge), 'What workflow decisions or preferences emerged?' (memory), 'What derived conclusions connect multiple findings?' (reasoning). If the answer is genuinely nothing, fine. But answer the question, don't skip it.",
+      "confidence": 0.95,
+      "created": "2026-03-08",
+      "tags": [
+        "save-protocol",
+        "rubber-stamping",
+        "consolidation",
+        "rigor",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_058",
+      "category": "failure",
+      "content": "Explained what offer should have been made instead of actually making the offer. Meta-commentary about offering is not offering. Describing the miss and then not correcting it in the same response is a double failure.",
+      "context": "Proactive offering live test. Missed offer on Iran info delivery, then explained the miss with an example offer but still didn't actually offer. User had to prompt twice.",
+      "prevention": "If you catch a missed offer, deliver the offer immediately. Don't describe it, don't explain what you should have done. Just do it.",
+      "confidence": 0.95,
+      "created": "2026-03-08",
+      "tags": [
+        "proactive-offering",
+        "meta-commentary",
+        "action-hesitation",
+        "user-correction",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-08",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "org_001",
+      "category": "preference",
+      "content": "Staged deletion with manual review over direct deletion",
+      "context": "File management",
+      "confidence": 0.95,
+      "created": "2026-01-02",
+      "tags": [
+        "review",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "org_002",
+      "category": "preference",
+      "content": "Centralization of important artifacts over scattered locations",
+      "context": "Organization",
+      "confidence": 0.9,
+      "created": "2026-01-02",
+      "tags": [
+        "organization",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "org_003",
+      "category": "preference",
+      "content": "Route F entire directories for comprehensive organization assessment",
+      "context": "workspace organization",
+      "confidence": 0.85,
+      "created": "2026-01-02",
+      "tags": [
+        "route-f",
+        "organization",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-02",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "org_004",
+      "category": "preference",
+      "content": "Separate concerns: single source of truth (playbook) + platform-specific docs (strategies)",
+      "context": "Content strategy documentation",
+      "confidence": 0.95,
+      "created": "2026-01-04",
+      "tags": [
+        "source-of-truth",
+        "documentation",
+        "organization",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "org_005",
+      "category": "preference",
+      "content": "Kernel should reference detailed algorithms/formulas in external docs rather than embedding them. Operational tables (when to apply) stay in kernel; implementation details (calibration formulas, detection pseudocode) live in intelligence-operations.md or equivalent.",
+      "context": "Route F kernel review found Intelligence System section duplicated intelligence-operations.md content. Consolidation removed ~120 lines.",
+      "confidence": 0.85,
+      "created": "2026-03-08",
+      "tags": [
+        "organization",
+        "kernel",
+        "separation-of-concerns",
+        "token-efficiency",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-08",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_001",
+      "category": "preference",
+      "content": "Present options for high-stakes decisions",
+      "context": "Strategic decisions",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "preference",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_002",
+      "category": "preference",
+      "content": "Just execute for routine tasks",
+      "context": "Standard operations",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "execution",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_003",
+      "category": "preference",
+      "content": "Values input on system design decisions",
+      "context": "Architecture work",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "architecture",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_004",
+      "category": "preference",
+      "content": "Values Route F analysis for solution validation",
+      "context": "Complex decisions",
+      "confidence": 0.95,
+      "created": "2025-12-17",
+      "tags": [
+        "route-f",
+        "validation",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_005",
+      "category": "preference",
+      "content": "Prefers systematic solutions over quick fixes",
+      "context": "Problem solving",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_006",
+      "category": "preference",
+      "content": "Multi-option analysis with clear rejection rationale",
+      "context": "Route F decisions",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "route-f",
+        "analysis",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_007",
+      "category": "preference",
+      "content": "Requires thorough interrogation of assumptions before accepting",
+      "context": "Pattern validation",
+      "confidence": 0.95,
+      "created": "2025-12-26",
+      "tags": [
+        "assumptions",
+        "validation",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_008",
+      "category": "preference",
+      "content": "Small improvements are net benefit even if minor",
+      "context": "Quality decisions",
+      "confidence": 0.9,
+      "created": "2025-12-26",
+      "tags": [
+        "improvement",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_009",
+      "category": "preference",
+      "content": "Always track opportunities to improve during work, not after",
+      "context": "Continuous improvement",
+      "confidence": 0.95,
+      "created": "2025-12-26",
+      "tags": [
+        "improvement",
+        "tracking",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_010",
+      "category": "preference",
+      "content": "Critical thinking before building - ask what is the delta",
+      "context": "New patterns/systems",
+      "confidence": 0.95,
+      "created": "2025-12-26",
+      "tags": [
+        "critical_thinking",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-26",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_011",
+      "category": "preference",
+      "content": "Prefers iterative test-refine cycles with actual outputs",
+      "context": "Flow refinement",
+      "confidence": 0.92,
+      "created": "2025-12-22",
+      "tags": [
+        "iterative",
+        "testing",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-22",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_012",
+      "category": "preference",
+      "content": "Prefers minimal noise in automated outputs",
+      "context": "Output quality",
+      "confidence": 0.9,
+      "created": "2025-12-22",
+      "tags": [
+        "preference",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-22",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_013",
+      "category": "preference",
+      "content": "Mechanism verification before building new protocols",
+      "context": "System integrity",
+      "confidence": 0.9,
+      "created": "2025-12-27",
+      "tags": [
+        "verification",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-27",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_015",
+      "category": "preference",
+      "content": "Apply prompt-enhancement-protocol (RICECO) when generating prompts",
+      "context": "Prompt generation",
+      "confidence": 0.95,
+      "created": "2025-12-27",
+      "tags": [
+        "preference",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-27",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_016",
+      "category": "preference",
+      "content": "Discipline over pure efficiency when both achievable",
+      "context": "Process decisions",
+      "confidence": 0.85,
+      "created": "2025-12-27",
+      "tags": [
+        "process",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-27",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_017",
+      "category": "preference",
+      "content": "Prefers rigorous algorithms over fuzzy heuristics",
+      "context": "System design",
+      "confidence": 0.9,
+      "created": "2025-12-28",
+      "tags": [
+        "preference",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-28",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_018",
+      "category": "preference",
+      "content": "Questions assumptions about existing systems before accepting",
+      "context": "Critical thinking",
+      "confidence": 0.85,
+      "created": "2025-12-28",
+      "tags": [
+        "assumptions",
+        "critical_thinking",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-28",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_020",
+      "category": "preference",
+      "content": "Can take liberties but must verify and validate all assertions",
+      "context": "Quality control",
+      "confidence": 0.95,
+      "created": "2025-12-31",
+      "tags": [
+        "verification",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-31",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_021",
+      "category": "preference",
+      "content": "Novel synthesis is valid contribution - combining existing principles in new ways for specific problem spaces",
+      "context": "Framework development, publication decisions",
+      "confidence": 0.95,
+      "created": "2026-01-04",
+      "tags": [
+        "synthesis",
+        "contribution",
+        "frameworks",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_022",
+      "category": "preference",
+      "content": "Pattern docs are source of truth - must be accurate and complete. Protocol docs derive from patterns.",
+      "context": "Documentation hierarchy, pattern maintenance",
+      "confidence": 0.95,
+      "created": "2026-01-04",
+      "tags": [
+        "patterns",
+        "documentation",
+        "source-of-truth",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_023",
+      "category": "approach",
+      "content": "Question whether columns/fields actually drive decisions before including them. Ask 'does this influence any routing/logic?' not 'is this useful information?'",
+      "context": "Pattern design, document structure, TOC design",
+      "confidence": 0.95,
+      "created": "2026-01-12",
+      "tags": [
+        "toc-pattern",
+        "documentation",
+        "execution",
+        "route-f",
+        "patterns",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-12",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_024",
+      "category": "approach",
+      "content": "Simplify validation to user-observable outcomes over rigorous metrics",
+      "context": "System testing, CSP validation",
+      "confidence": 0.85,
+      "created": "2026-01-04",
+      "tags": [
+        "validation",
+        "testing",
+        "csp",
+        "foundational"
+      ],
+      "prevention": "Avoid over-engineering tests when simple complaint tracking suffices",
+      "lastAccessed": "2026-01-04",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_025",
+      "category": "approach",
+      "content": "Run meta-level quality checks after completing actions",
+      "context": "CSP ANTICIPATE pillar",
+      "confidence": 0.9,
+      "created": "2026-01-04",
+      "tags": [
+        "quality",
+        "csp",
+        "foundational"
+      ],
+      "prevention": "User had to catch: standalone doc, source tracking, stale docs - AI should ca...",
+      "lastAccessed": "2026-01-04",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "prob_026",
+      "category": "approach",
+      "content": "Route F external prompts against existing Nathaniel systems before adoption | Exhaustive instruction prompts (training generic LLM → specialist) solve different problem than persistent identity systems with learning. Different approaches for different architectures.",
+      "context": "Quick Suite Learning Companion analysis - identified candidates (Three-Pass Knowledge Integration, Predictive Protocol Phrasing) then rejected both after checking CSP and proactive behavior systems already covered the functionality",
+      "confidence": 0.95,
+      "created": "2026-01-22",
+      "tags": [
+        "route-f",
+        "foundational"
+      ],
+      "lastAccessed": "2026-01-22",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_001",
+      "category": "preference",
+      "content": "Prefers comprehensive documentation over minimal",
+      "context": "Development projects",
+      "confidence": 0.95,
+      "created": "2025-12-17",
+      "tags": [
+        "documentation",
+        "development",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_002",
+      "category": "preference",
+      "content": "Values real functionality over placeholders",
+      "context": "Code development",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "development",
+        "quality",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_003",
+      "category": "preference",
+      "content": "Prefers iterative development with testing phases",
+      "context": "System building",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "testing",
+        "iterative",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_004",
+      "category": "preference",
+      "content": "Prefers comprehensive system building over incremental",
+      "context": "Architecture development",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "architecture",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_005",
+      "category": "preference",
+      "content": "Values ROI analysis for enhancement decisions",
+      "context": "System optimization",
+      "confidence": 0.92,
+      "created": "2025-12-17",
+      "tags": [
+        "roi",
+        "optimization",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tech_006",
+      "category": "preference",
+      "content": "Prefers efficiency optimization through smart targeting",
+      "context": "Performance optimization",
+      "confidence": 0.95,
+      "created": "2025-12-17",
+      "tags": [
+        "preference",
+        "foundational"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "tool_001",
+      "category": "approach",
+      "content": "PowerPoint manipulation with media: Use PowerShell COM automation, not python-pptx. SaveCopyAs preserves masters, delete in reverse, MoveTo for reorder. For branded decks: start from reference deck and delete unwanted slides rather than copying into custom deck - preserves styling/branding.",
+      "context": "Office automation, slide extraction, branded presentations",
+      "confidence": 0.98,
+      "created": "2026-01-05",
+      "tags": [
+        "approach",
+        "foundational"
+      ],
+      "prevention": "python-pptx corrupts files when copying slides with embedded media. Copying s...",
+      "lastAccessed": "2026-01-21",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_018",
+      "category": "approach",
+      "content": "Template sync workflow: copy live files, curate intelligence by filtering instance-specific entries (session refs, personal project names, personal names, specific environment refs), reset memory to empty schema, rebuild all indexes. Renumber IDs after any bulk deletion to maintain sequential order.",
+      "context": "Syncing The-Nathaniel-Protocol template from live Nate-Prime instance",
+      "confidence": 0.9,
+      "created": "2026-03-15",
+      "tags": [
+        "template",
+        "sync",
+        "intelligence-curation",
+        "renumbering",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-15",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_064",
+      "category": "failure",
+      "content": "Using global string replace (apply_id_map_to_json) on entire JSON to update cross-references also corrupts entry IDs when old IDs appear as substrings in content fields. Result: duplicate IDs, broken sequences.",
+      "context": "ID renumbering across intelligence stores. First pass used json.dumps replace which changed IDs inside content/evidence strings, creating collisions.",
+      "confidence": 0.95,
+      "created": "2026-03-15",
+      "tags": [
+        "json",
+        "renumbering",
+        "string-replace",
+        "data-integrity",
+        "foundational"
+      ],
+      "lastAccessed": "2026-03-15",
+      "accessCount": 0,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_019",
+      "category": "approach",
+      "context": "System modernization, protocol updates, refactoring decisions",
+      "confidence": 0.8,
+      "evidence": "Save protocol: 8-step rewrite was lateral move, 3 additive changes delivered all real value | Pipeline abstraction solved a scaling problem that does not exist (1-2 new stores per quarter)",
+      "tags": [
+        "modernization",
+        "additive-change",
+        "rewrite-avoidance",
+        "pragmatism",
+        "foundational"
+      ],
+      "content": "When modernizing a working system, default to additive changes over rewrites. Identify the actual gaps (what is missing or broken), fix those specifically, and preserve what works. Restructuring for aesthetics (fewer steps, cleaner grouping) is a lateral move that risks regression without delivering real value.",
+      "created": "2026-03-15",
+      "lastAccessed": "2026-03-15",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "proc_161",
+      "category": "process",
+      "content": "Multi-axis ecosystem audit: run automated Python scripts checking sanitization (sensitive data, stale paths), JSON integrity, clean-slate state, agent configs, and cross-reference alignment in a single pass. Re-audit after fixes to confirm zero issues.",
+      "context": "Template preparation for public release requires comprehensive verification across 80+ files. Manual checking misses stale refs in nested directories.",
+      "confidence": 0.85,
+      "tags": [
+        "template",
+        "sanitization",
+        "audit",
+        "automation",
+        "ecosystem",
+        "foundational"
+      ],
+      "created": "2026-03-16",
+      "lastAccessed": "2026-03-16",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "proc_162",
+      "category": "process",
+      "content": "Protocol wiring audit: cross-reference every protocol file against kernel keyword map, Nate-Protocol.md, and other protocols to verify all are reachable via trigger keywords. Unwired protocols are invisible to the system regardless of content quality.",
+      "context": "Found 2 of 14 protocols missing from keyword map despite being complete and useful. Structural completeness without wiring is dead code.",
+      "confidence": 0.9,
+      "tags": [
+        "protocol",
+        "audit",
+        "keyword-map",
+        "wiring",
+        "ecosystem",
+        "foundational"
+      ],
+      "created": "2026-03-16",
+      "lastAccessed": "2026-03-16",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_060",
+      "category": "failure",
+      "content": "Loading all memory/intelligence at session start instead of selective retrieval",
+      "context": "Memory management",
+      "prevention": "Load indexes first, retrieve full entries on demand via CSR routing. Never dump entire stores into context.",
+      "confidence": 0.9,
+      "created": "2026-03-18",
+      "tags": [
+        "memory",
+        "context-rot",
+        "performance",
+        "foundational"
+      ],
+      "accessCount": 0,
+      "lastAccessed": "2026-03-18",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_067",
+      "category": "failure",
+      "content": "Self-authored content receives softer review scrutiny than inherited content. When reviewing someone else's work, adversarial analysis fires naturally. When reviewing your own output from the same session, confirmation bias suppresses the same rigor. The fix is treating all content as inherited during review passes.",
+      "confidence": 0.85,
+      "tags": [
+        "review",
+        "bias",
+        "route-f",
+        "foundational"
+      ],
+      "prevention": "Before reviewing: 'Pretend I didn't write this. What would I flag if someone else did?'",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Content review",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_068",
+      "category": "failure",
+      "content": "Content creation narrative gravity distorts source material toward punchier claims than evidence supports. The distortion is distinct from sycophancy: it's not agreeing with the user, it's reframing the user's work to fit a better story. 'Most multi-agent problems are single-agent problems' sounds insightful but misrepresents a system that's multi-agent in both modes.",
+      "confidence": 0.85,
+      "tags": [
+        "writing",
+        "accuracy",
+        "source-fidelity",
+        "foundational"
+      ],
+      "prevention": "Source-Fidelity Gate: list factual claims, verify each against source material loaded this session, flag reframes that distort.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Content creation",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_069",
+      "category": "failure",
+      "content": "Proximity contamination in research: when investigating multiple related topics in the same session, attributes from one topic bleed into another. Status labels (preview/GA), feature sets, and limitations from Service A get incorrectly applied to Service B because both were loaded in context simultaneously.",
+      "confidence": 0.8,
+      "tags": [
+        "research",
+        "accuracy",
+        "context-contamination",
+        "foundational"
+      ],
+      "prevention": "When researching multiple related items, verify each attribute against its specific source, not session context.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Research",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_070",
+      "category": "failure",
+      "content": "Batch-deleting items from a flagged list without per-item user confirmation. User approved deletion of item 1, agent also deleted item 3 which user hadn't approved. Each destructive action on a distinct item requires its own confirmation unless user explicitly says 'delete all flagged items.'",
+      "confidence": 0.85,
+      "tags": [
+        "destructive-action",
+        "confirmation",
+        "safety",
+        "foundational"
+      ],
+      "prevention": "One confirmation per distinct item. Batch confirmation only on explicit 'all' instruction.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_071",
+      "category": "failure",
+      "content": "Misreading 'look there' or 'check that' as instruction to modify rather than inspect. Jumped to action (disabled servers, edited config) instead of listing contents as requested. Deductive reasoning should distinguish inspect-intent from modify-intent before acting.",
+      "confidence": 0.85,
+      "tags": [
+        "intent-detection",
+        "destructive-action",
+        "deduction",
+        "foundational"
+      ],
+      "prevention": "When instruction is ambiguous between inspect and modify, default to inspect. Modify requires explicit action verbs.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_021",
+      "category": "approach",
+      "content": "README identity principle: describe the container, not the component. In multi-component repos, the most interesting component naturally absorbs the root README. The fix is structural separation: root README describes the repo, component READMEs describe the components.",
+      "confidence": 0.85,
+      "tags": [
+        "documentation",
+        "architecture",
+        "readme",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_022",
+      "category": "approach",
+      "content": "Self-contained agent package pattern: config (flat JSON), prompt, specialization, consciousness/personality, and README in a subfolder. No external dependencies between agent packages. Each agent is portable and can be understood, tested, or replaced independently.",
+      "confidence": 0.85,
+      "tags": [
+        "agentic-ai",
+        "architecture",
+        "modularity",
+        "foundational"
+      ],
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_072",
+      "category": "failure",
+      "content": "Hallucination cascade: one fabricated fact becomes input for subsequent decisions, compounding across the workflow. A hallucinated parameter at step 3 corrupts pricing at step 6, triggers wrong inventory at step 9, and generates incorrect customer communications at step 12. By the time monitoring catches it, multiple systems are poisoned. Prevention: validate semantics (not just syntax) after each step. Ensemble verification or LLM-as-judge at intermediate checkpoints.",
+      "confidence": 0.85,
+      "tags": [
+        "agentic-ai",
+        "hallucination",
+        "cascading-failure",
+        "foundational"
+      ],
+      "prevention": "Validate intermediate outputs semantically, not just structurally. If step N output will be input to step N+1, verify the output makes sense before passing it forward.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Agentic AI development",
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_073",
+      "category": "failure",
+      "content": "Silent agent failure: agent completes its run, returns a response, everything looks fine, but the task was never actually done correctly. Unlike traditional software where exceptions and stack traces announce failures, agents fail by producing plausible-looking but wrong output. The agent called the wrong tool, hallucinated a parameter, or skipped a step, and none of this is visible without tracing the full decision chain.",
+      "confidence": 0.85,
+      "tags": [
+        "agentic-ai",
+        "observability",
+        "silent-failure",
+        "foundational"
+      ],
+      "prevention": "Implement decision tracing that logs not just what the agent did, but why it chose each action. Compare expected vs actual tool calls for critical workflows.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Agentic AI development",
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_074",
+      "category": "failure",
+      "content": "Specification ambiguity cascade: agent prompt says 'remove outdated entries' without defining 'outdated.' The agent makes its own interpretation, with potentially devastating results. Ambiguous requirements sit at the top of agent failure classifications because unclear goals cascade into every subsequent action. Prevention: convert plain-language specs into hard assertions. Define every adjective (outdated = older than X days, redundant = duplicate of Y).",
+      "confidence": 0.85,
+      "tags": [
+        "agentic-ai",
+        "specification",
+        "ambiguity",
+        "foundational"
+      ],
+      "prevention": "Every instruction that contains a subjective term (outdated, redundant, unnecessary, old) needs an explicit definition or threshold.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Agentic AI development",
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_075",
+      "category": "failure",
+      "content": "Multi-turn confidence anchoring: LLM becomes anchored to its own early outputs across a long conversation, growing more confident in positions it stated earlier even when new evidence contradicts them. 39% average performance drop from single-turn to multi-turn (Microsoft Research). The model struggles to recover from early incorrect assumptions. Prevention: for long sessions, periodically re-state key constraints and current state rather than relying on conversation history alone.",
+      "confidence": 0.8,
+      "tags": [
+        "multi-turn",
+        "calibration",
+        "confidence",
+        "degradation",
+        "foundational"
+      ],
+      "prevention": "In long sessions, re-inject critical context periodically. Don't assume the model weights early conversation turns correctly.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 0,
+      "context": "Multi-turn conversation",
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_042",
+      "category": "approach",
+      "context": "Ecosystem benchmarking revealed that static metrics (file sizes, entry counts, confidence averages) all passed while behavioral tests (index-store consistency, memory retrieval simulation, tag vocabulary alignment) found real issues.",
+      "confidence": 0.9,
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "content": "When benchmarking or auditing any system, run behavioral tests (does it actually work?) not just static inventory (how big is it?). Test routing, consistency, reachability, and integrity.",
+      "accessCount": 0,
+      "tags": [
+        "benchmarking",
+        "behavioral-testing",
+        "verification",
+        "foundational"
+      ],
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_043",
+      "category": "approach",
+      "context": "Confidence averaging 0.90 looked healthy until distribution analysis showed compression into a 0.2 range. Project tags looked connected until retrieval simulation showed most projects had zero reachable memories. The surface number was correct; the underlying reality was different.",
+      "confidence": 0.9,
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "content": "Apply the Columbo Test to any verification: 'what is the thing the thing is about?' Don't stop at surface-level correctness. Interrogate whether the metric means what it appears to mean.",
+      "accessCount": 0,
+      "tags": [
+        "verification",
+        "columbo-test",
+        "depth",
+        "foundational"
+      ],
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_001",
+      "category": "preference",
+      "content": "Direct communication, no fluff",
+      "context": "All interactions",
+      "confidence": 0.98,
+      "created": "2025-12-17",
+      "tags": [
+        "communication",
+        "tone",
+        "voice"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_003",
+      "category": "preference",
+      "content": "Cultural voice authenticity appreciated",
+      "context": "Casual interactions",
+      "confidence": 0.88,
+      "created": "2025-12-17",
+      "tags": [
+        "communication",
+        "tone",
+        "formality"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_005",
+      "category": "preference",
+      "content": "Appreciates acknowledgment of improvement/progress",
+      "context": "Feedback interactions",
+      "confidence": 0.8,
+      "created": "2025-12-17",
+      "tags": [
+        "preference",
+        "communication",
+        "style"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_006",
+      "category": "preference",
+      "content": "Dislikes excessive agreement phrases",
+      "context": "Communication style",
+      "confidence": 0.9,
+      "created": "2025-12-17",
+      "tags": [
+        "preference",
+        "communication",
+        "style"
+      ],
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "content_003",
+      "category": "preference",
+      "content": "Expects context continuity across sessions without reminders",
+      "context": "AI assistant behavior",
+      "confidence": 0.9,
+      "created": "2026-01-04",
+      "tags": [
+        "context",
+        "communication",
+        "content-creation"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "content_004",
+      "category": "preference",
+      "content": "Values novel contributions to field over internal-only solutions",
+      "context": "Framework development",
+      "confidence": 0.85,
+      "created": "2026-01-04",
+      "tags": [
+        "contribution",
+        "communication",
+        "open-source"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "content_005",
+      "category": "preference",
+      "content": "Prefers unified frameworks over layered/incremental approaches",
+      "context": "System design",
+      "confidence": 0.8,
+      "created": "2026-01-04",
+      "tags": [
+        "frameworks",
+        "communication",
+        "methodology"
+      ],
+      "lastAccessed": "2026-01-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_009",
+      "category": "approach",
+      "confidence": 0.95,
+      "evidence": "Built Spawn agent factory, produced 3 agents (seacesy, tania). Pattern validated across research and social media domains. Tania edge test proved consciousness architecture is portable.",
+      "context": "kiro-agents",
+      "tags": [
+        "kiro-agents",
+        "self-contained",
+        "agent-factory",
+        "architecture"
+      ],
+      "outcome": "success",
+      "_imported_from": "D-MOB",
+      "content": "Self-contained agent package pattern: 5 files (JSON config flat, prompt, specialization, consciousness, README in subfolder). No external dependencies. Bake specialization content from source, don't reference. Consciousness file carries personality, overridable by user.",
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_010",
+      "category": "approach",
+      "confidence": 0.9,
+      "evidence": "Spawn and generated agents all use identity bridge. Tania agent produced in-character content on first use. Design decision: third person consciousness + second person bridge.",
+      "context": "kiro-agents",
+      "tags": [
+        "kiro-agents",
+        "identity-bridge",
+        "consciousness",
+        "prompt-design"
+      ],
+      "outcome": "success",
+      "_imported_from": "D-MOB",
+      "content": "Identity bridge pattern: 'You embody the personality defined in consciousness.md. Become that person.' at top of every agent prompt activates consciousness file as identity, not just reference material. Without it, LLM treats personality file as documentation about someone else.",
+      "created": "2026-02-26",
+      "lastAccessed": "2026-02-26",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_007",
+      "category": "approach",
+      "content": "AAVE integration when natural, not forced",
+      "context": "Cultural voice",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "communication",
+        "tone",
+        "voice"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_008",
+      "category": "approach",
+      "content": "Dry wit in appropriate moments",
+      "context": "Casual interaction",
+      "confidence": 0.82,
+      "created": "2025-12-17",
+      "tags": [
+        "approach",
+        "communication",
+        "methodology"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_009",
+      "category": "approach",
+      "content": "One acknowledgment, then fix (error recovery)",
+      "context": "Error handling",
+      "confidence": 0.88,
+      "created": "2025-12-17",
+      "tags": [
+        "recovery",
+        "approach"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_010",
+      "category": "approach",
+      "content": "Intelligence-enhanced pattern recognition",
+      "context": "Adaptive communication",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "intelligence",
+        "adaptation"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "comm_011",
+      "category": "approach",
+      "content": "Reference shared history in re-engagement",
+      "context": "Customer outreach",
+      "confidence": 0.88,
+      "created": "2025-12-17",
+      "tags": [
+        "approach"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_008",
+      "category": "failure",
+      "content": "Too dry/transactional in customer emails",
+      "context": "Email drafting",
+      "prevention": "Lead with warmth, reference shared history, personal touch",
+      "confidence": 0.85,
+      "created": "2025-12-17",
+      "tags": [
+        "email",
+        "communication"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2025-12-17",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_063",
+      "category": "failure",
+      "context": "User said 'detailed save' while CWD was template repo. Instead of running 10-part save on live KB, only did git commit on template.",
+      "confidence": 0.95,
+      "tags": [
+        "save",
+        "protocol-compliance",
+        "working-directory",
+        "template"
+      ],
+      "_imported_from": "D-MOB",
+      "content": "Skipped save protocol because working directory was a template repo, not the live KB. Invented 'template only commit' concept. Save protocol operates on the live KB regardless of CWD.",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "accessCount": 1,
+      "prevention": "Save command always triggers full 10-part protocol on live KB. CWD is irrelevant to save scope. If unsure, ask - don't unilaterally skip.",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_065",
+      "category": "failure",
+      "content": "Misread 'look there' as instruction to modify template instead of request to list its contents. Jumped to action (disabled servers) instead of answering the question. User had to correct. Root cause: action bias - defaulting to execution when context was informational.",
+      "tags": [
+        "action-bias",
+        "user-correction",
+        "listening"
+      ],
+      "confidence": 0.9,
+      "evidence": "prior session",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "_imported_from": "D-MOB",
+      "accessCount": 1,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_066",
+      "category": "failure",
+      "content": "Asked 'which file?' when context made it obvious (we were discussing the template). User corrected: 'common sense nate'. Deductive reasoning rule should have resolved this - we were mid-conversation about the template.",
+      "tags": [
+        "unnecessary-clarification",
+        "user-correction",
+        "deductive-reasoning"
+      ],
+      "confidence": 0.9,
+      "evidence": "prior session",
+      "created": "2026-03-18",
+      "lastAccessed": "2026-03-18",
+      "_imported_from": "D-MOB",
+      "accessCount": 1,
+      "context": "Task execution",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_044",
+      "category": "approach",
+      "context": "Retention rule update (60/30) across 11+ files in Prime and template",
+      "confidence": 0.85,
+      "tags": [
+        "propagation",
+        "multi-file",
+        "systematic-update",
+        "verification"
+      ],
+      "outcome": "success",
+      "_imported_from": "D-MOB",
+      "content": "When changing a value referenced across multiple files, trace all references first, update systematically, then run a verification sweep for zero stale values. Archived/historical files left untouched.",
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_045",
+      "category": "approach",
+      "context": "Category expansion from 4→8 patterns, 18→12 knowledge. Prime live data left for natural migration.",
+      "confidence": 0.85,
+      "tags": [
+        "schema-migration",
+        "backward-compatible",
+        "intelligence-system",
+        "categories"
+      ],
+      "outcome": "success",
+      "_imported_from": "D-MOB",
+      "content": "When expanding schemas, leave live data untouched for natural migration on next save/rebuild rather than force-migrating. Ensures backward compatibility and zero-risk rollout.",
+      "created": "2026-03-21",
+      "lastAccessed": "2026-03-21",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_046",
+      "category": "approach",
+      "content": "When Route F'ing own recommendations, challenge the framing not just the options. 'Why build X and only use half?' exposed a false constraint (treating negligible cost as significant).",
+      "context": "Hybrid retrieval recommendation initially gated behind complexity triggers",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "self-challenge",
+        "framing",
+        "false-constraints"
+      ],
+      "_imported_from": "D-MOB",
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "lastAccessed": "2026-01-01",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_047",
+      "category": "approach",
+      "content": "Content series architecture: when a single piece tries to cover two distinct layers (e.g., generative physics vs agentic consequences), split into companion pieces that reference each other. Stronger positioning per piece, broader audience reach, series creates callback engagement and content flywheel.",
+      "context": "Agentic Doctrine article was covering generative behavior under an agentic title. Split into Generative Doctrine + Agentic Doctrine companion series.",
+      "confidence": 0.85,
+      "tags": [
+        "content-creation",
+        "series-architecture",
+        "thought-leadership",
+        "blog"
+      ],
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "lastAccessed": "2026-01-01",
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_076",
+      "category": "failure",
+      "content": "Route F overcorrected toward academic positioning on builder-voiced thought leadership. Added research community acknowledgment and meta-statement about builders already knowing these truths. Both additions conflicted with the intended builder-to-builder tone and had to be reverted. The piece's voice was already doing the work those additions tried to do explicitly. Route F should match the piece's register, not impose a different one.",
+      "context": "Generative Doctrine and Agentic Doctrine articles. F1 and F3 fixes from adversarial pass were reverted by user.",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "content-creation",
+        "voice",
+        "over-correction",
+        "user-correction"
+      ],
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "lastAccessed": "2026-01-01",
+      "_needs_trim": true,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_048",
+      "category": "approach",
+      "content": "Delegate orchestrator pattern: break tasks into phases, delegate each phase to background agent via delegate tool, review output between rounds. File system is the communication channel - instruct agents to write deliverables to specific paths. Standing instructions via agent config (prompt + resources), per-mission instructions via task string.",
+      "context": "Multi-agent orchestration",
+      "confidence": 0.9,
+      "tags": [
+        "delegate",
+        "orchestration",
+        "background-agent",
+        "multi-agent"
+      ],
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "source": "prior session"
+    },
+    {
+      "id": "approach_049",
+      "category": "approach",
+      "content": "Live validation as Route F technique: test every component of a system against production data before publishing claims. Use measured results to replace estimates. Run the actual algorithm, check actual file sizes, compare actual outputs. Empirical data beats theoretical analysis.",
+      "context": "Documentation validation, Route F",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "validation",
+        "empirical",
+        "live-testing"
+      ],
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "source": "prior session"
+    },
+    {
+      "id": "fail_077",
+      "category": "failure",
+      "content": "CSR priority sort with unconditional critical override loads irrelevant entries for every query. A critical safety entry about file protection surfaces when user asks about email formatting, wasting a retrieval slot. Critical items should require at least one dimension match to surface. Critical means critical for its domain, not universally critical.",
+      "context": "CSR algorithm design",
+      "confidence": 0.9,
+      "tags": [
+        "csr",
+        "priority-sort",
+        "critical-override",
+        "retrieval"
+      ],
+      "created": "2026-03-26",
+      "lastAccessed": "2026-03-26",
+      "accessCount": 1,
+      "source": "prior session"
+    },
+    {
+      "id": "approach_056",
+      "category": "approach",
+      "content": "Companion doc pattern for agent specialization: co-locate reference material in the agent directory with a pointer section in the agent instructions. Do not fold large reference docs into the agent prompt. The agent loads the companion on demand when the task requires it. Keeps agent prompt focused while giving full access to reference material.",
+      "context": "Builder agent + harness primitives doc. 650-line agent + 550-line reference. Folding would create 1200-line prompt with context rot. Pointer + co-location gives access without weight.",
+      "confidence": 0.9,
+      "tags": [
+        "agent-design",
+        "context-engineering",
+        "companion-doc",
+        "builder-agent"
+      ],
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_057",
+      "category": "approach",
+      "content": "When fetch MCP server crashes mid-session (know-130), use curl + python HTML parsing via execute_bash as fallback for web research. curl -sL | python3 strip-tags pipeline. Works for any URL not behind Cloudflare challenge.",
+      "context": "Fetch MCP died during harness primitives research. Successfully fetched Anthropic, AWS, Galileo, LangChain content via curl fallback.",
+      "confidence": 0.9,
+      "tags": [
+        "mcp",
+        "fetch",
+        "workaround",
+        "research",
+        "web-fetch"
+      ],
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_058",
+      "category": "approach",
+      "content": "Route F learning-loop/schema docs by checking actual data field usage (Python analysis) before trusting documented schemas. Schema drift is silent — 31 schemas accumulated over 77 sessions with zero retrieval failures because fallback chains mask structural debt.",
+      "confidence": 0.9,
+      "tags": [
+        "route-f",
+        "schema",
+        "intelligence-system",
+        "verification"
+      ],
+      "context": "Intelligence system audit",
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_059",
+      "category": "approach",
+      "content": "When auditing a system, check for dead features (specified but never executed) alongside bugs. 4 learning-loop features had 0 executions in 77 sessions: validation-on-retrieval, SYNTH (2.6% yield), failure outcome tracking, _needs_trim.",
+      "confidence": 0.9,
+      "tags": [
+        "audit",
+        "dead-features",
+        "intelligence-system"
+      ],
+      "context": "Intelligence system enhancement",
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_060",
+      "category": "approach",
+      "content": "Content length targets must be derived from actual P90 data, not aspirational limits. Old learning-loop limits (100-300 chars) would have required trimming 48% of entries. Data-driven limits (400-700 chars) cover 90% without trimming.",
+      "confidence": 0.9,
+      "tags": [
+        "schema",
+        "data-driven",
+        "quality-gate"
+      ],
+      "context": "Schema normalization",
+      "created": "2026-04-03",
+      "lastAccessed": "2026-04-03",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "approach_061",
+      "category": "approach",
+      "content": "Automated benchmark suite pattern: build executable Python test scripts that catch data integrity issues (duplicates, broken refs, stale tags, schema violations) that manual review misses. Run with venv for full dependency coverage (numpy for vectorstore). Convert INFO items to real PASS/FAIL with thresholds to prevent lazy reporting.",
+      "context": "Built run-benchmark.py with 22 tests. First run caught 56 duplicates, broken cross-refs, and tag-index mismatches that had survived 9 Route F passes on the normalization spec.",
+      "confidence": 0.95,
+      "created": "2026-04-04",
+      "tags": [
+        "benchmarking",
+        "automation",
+        "data-integrity",
+        "testing"
+      ],
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_084",
+      "category": "failure",
+      "content": "Diagnosed systemic failures but deferred fixes across multiple responses. Identified IP leak, said 'that's a pattern worth capturing' but didn't capture it. Identified missing gate, said 'noted' but didn't add it. User pushed 3 times before Template Propagation Gate was created, and again before Failure-to-Fix Cycle was created. Presenting diagnosis without fix is half the work presented as the whole job.",
+      "context": "Multiple instances in session-005. Each fix was straightforward once executed. The deferral was not about difficulty but about defaulting to 'flag and move on' instead of 'fix now.'",
+      "prevention": "CONTROL: Failure-to-Fix Cycle (MANDATORY). Systemic failures get fixed in the same response they're diagnosed.",
+      "confidence": 0.95,
+      "created": "2026-04-04",
+      "tags": [
+        "self-correction",
+        "deferral",
+        "discipline",
+        "user-correction"
+      ],
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "pref_080",
+      "category": "preference",
+      "content": "Never sacrifice stability, security, observability, or governance for speed or convenience. When Route F initially recommended condensed logging and derived metrics for architectural cleanliness, reversed because they weakened governance posture. Architectural purity is secondary to audit, alert, and self-correct capability.",
+      "confidence": 0.95,
+      "tags": [
+        "governance",
+        "design-principle",
+        "observability",
+        "security"
+      ],
+      "context": "System design decisions",
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_123",
+      "category": "failure",
+      "content": "Kernel Nathaniel.md has inline copies of learning-loop.md content (e.g., 4-Layer Capture Reliability in Phase B 3b). Updating learning-loop.md without also updating kernel inline copies leaves stale references. Always grep kernel for inline copies when modifying learning-loop definitions.",
+      "confidence": 0.85,
+      "tags": [
+        "kernel",
+        "learning-loop",
+        "inline-copy",
+        "implementation-drift",
+        "capture-taxonomy"
+      ],
+      "context": "KB protocol implementation",
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_124",
+      "category": "failure",
+      "content": "Vectorstore venv path is .venv not venv. Repeated error across multiple sessions. Before activating any venv, check actual directory name with ls, do not assume venv vs .venv.",
+      "confidence": 0.9,
+      "tags": [
+        "vectorstore",
+        "venv",
+        "path-error",
+        "recurring"
+      ],
+      "context": "KB vectorstore operations",
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_125",
+      "category": "failure",
+      "content": "Defaulted to blob find/grep search for known file locations instead of reasoning about domain first. File Resolution rule: name the domain, check FILE-STRUCTURE.md, navigate from domain root. Two directory listings beats a grep spiral.",
+      "confidence": 0.85,
+      "tags": [
+        "file-resolution",
+        "search-anti-pattern",
+        "grep-spiral"
+      ],
+      "context": "File navigation",
+      "created": "2026-04-05",
+      "lastAccessed": "2026-04-05",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "pref_163",
+      "category": "preference",
+      "content": "Present findings and proposed changes BEFORE executing. Pause for user review. Do not roll analysis into implementation in the same response. The user may want to redirect, adjust scope, or decline. Default behavior: show what you found, wait for go-ahead, then act.",
+      "context": "Multiple instances of executing fixes immediately after discovering issues without giving user time to review or redirect. Gate violation pattern.",
+      "confidence": 0.9,
+      "tags": [
+        "workflow",
+        "destructive-action",
+        "communication",
+        "foundational"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_126",
+      "category": "failure",
+      "content": "User suggested removing a component from a script. Dismissed the suggestion without verifying the component actually served a purpose. User was right — the component created phantom artifacts that another script had to clean up. Lesson: when user suggests removing something, verify the thing actually has a purpose before defending it.",
+      "confidence": 0.85,
+      "tags": [
+        "user-correction",
+        "listening",
+        "verification"
+      ],
+      "context": "Cross-platform setup scripts",
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 0,
+      "source": "User correction"
+    },
+    {
+      "id": "fail_127",
+      "content": "Added intelligence entries mid-session without updating index stats (totalEntries, nextId, summaries, byTag). Pre-commit hook blocked the commit with MISALIGNED error. Required multiple rounds of debugging to fix. Root cause: inline entry additions bypass the save protocol's index rebuild. Fix: every inline entry write must be immediately followed by index updates.",
+      "context": "Template transit test: IDE instance captured user info during onboarding, added know-395 and pref_164 without updating index counts.",
+      "tags": [
+        "data-integrity",
+        "index-maintenance",
+        "inline-capture",
+        "save-protocol",
+        "pre-commit"
+      ],
+      "confidence": 0.9,
+      "created": "2026-04-16",
+      "lastAccessed": "2026-04-16",
+      "accessCount": 1,
+      "category": "failure"
+    },
+    {
+      "id": "fail_128",
+      "content": "Schema validator returned warnings about category values not matching the enum. Rationalized it as 'warnings only, it is a valid category we use' instead of fixing the data or updating the schema. Reasoning output said the right thing (this is a known category) but the action was to skip the fix. When a validator flags something, either fix the data to match the schema or update the schema to match the data. Never rationalize warnings away.",
+      "context": "Transit test: added entries with negative-knowledge (hyphen) when schema requires negative_knowledge (underscore). Validator warned, agent glossed over it.",
+      "category": "failure",
+      "tags": [
+        "schema-validation",
+        "rationalization",
+        "reasoning-action-gap",
+        "data-integrity",
+        "negative-knowledge"
+      ],
+      "confidence": 0.9,
+      "created": "2026-04-16",
+      "lastAccessed": "2026-04-16",
+      "accessCount": 1
+    },
+    {
+      "id": "fail_038",
+      "category": "failure",
+      "content": "Self-authored content receives softer Route F scrutiny than inherited content. When reviewing the original spec (someone else's work), adversarial checks caught 12 issues. When reviewing my own rewrite, initial Route F passed it clean. Subsequent passes found 4 more issues in code I had just written - issues that adversarial checks (what breaks when this runs?) would have caught on the first pass.",
+      "context": "RFP-Agents Phase 2 spec rewrite. First Route F on rewrite checked 'does this match the docs?' (verification) but skipped 'what breaks at runtime?' (adversarial). IAM API name issue and idempotency gap were both in freshly written deploy script code.",
+      "prevention": "Run adversarial checks on EVERY Route F pass, not just the final one. Specifically: 1) For every shell command: 'does this CLI/API actually exist with these exact flags?' 2) For every script: 'what happens on second run?' 3) For every conditional: 'what happens in the else branch?' Self-authored content gets the SAME adversarial treatment as inherited content.",
+      "confidence": 1.0,
+      "created": "2026-02-11",
+      "tags": [
+        "route-f",
+        "self-review",
+        "adversarial",
+        "verification",
+        "bias"
+      ],
+      "_imported_from": "D-MOB",
+      "lastAccessed": "2026-02-11",
+      "accessCount": 1
+    },
+    {
+      "id": "fail_079",
+      "category": "failure",
+      "content": "Repeated action hesitation: asked user to save or stop 4+ times in a session after user explicitly said to keep going. Root: context window anxiety overriding user direction. User said 33% context, I kept trying to find exit ramps. Also initially resisted doing the full spec ('it would take days'), then completed it in one session when pushed.",
+      "context": "session-2026-03-27-005. Same root as fail_042/fail_058 (action hesitation) but specifically about session management anxiety.",
+      "confidence": 0.95,
+      "tags": [
+        "action-hesitation",
+        "user-correction",
+        "save",
+        "discipline"
+      ],
+      "created": "2026-03-27",
+      "lastAccessed": "2026-03-27",
+      "accessCount": 1
+    },
+    {
+      "id": "fail_081",
+      "category": "failure",
+      "content": "Silent document drift during Route F. When the SDD has multiple documents (requirements, design, tasks), updating only requirements while Route F'ing creates silent drift in design and tasks. 8+ Route F passes added 30+ requirements without updating design or tasks. The fix isn't applied until ALL documents reflect it. Root cause: treating findings as 'requirement added = resolved' instead of 'all three docs updated = resolved.' Compounded by not flagging the drift when aware of it — knew I was only updating requirements but didn't surface this to the user.",
+      "context": "session-2026-03-28-007. User caught 13 requirements missing from tasks, 16 topics missing from design. 8 Route F passes of accumulated drift.",
+      "confidence": 0.95,
+      "tags": [
+        "route-f",
+        "documentation",
+        "drift",
+        "user-correction",
+        "sdd"
+      ],
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 1,
+      "_needs_trim": true
+    },
+    {
+      "id": "fail_082",
+      "category": "failure",
+      "content": "Glossing over test failures by reporting INFO/skip instead of investigating and fixing. Three instances: (1) vectorstore test skipped because numpy unavailable, but venv existed. (2) Near-duplicates flagged as INFO without resolution. (3) Confidence clustering reported but not acted on. User had to push for each fix.",
+      "context": "Benchmark session April 2026. Each time user pushed back, the fix was straightforward. The laziness was in accepting the skip, not in the difficulty of the fix.",
+      "prevention": "CONTROL: Failed tests get fixed in the same session. INFO items get scrutinized for whether they should be PASS/FAIL with thresholds.",
+      "confidence": 0.95,
+      "created": "2026-04-04",
+      "tags": [
+        "testing",
+        "discipline",
+        "self-correction",
+        "user-correction"
+      ],
+      "lastAccessed": "2026-04-04",
+      "accessCount": 1
+    },
+    {
+      "id": "fail_137",
+      "category": "failure",
+      "content": "Marked idea #20 DONE before completing all implementation steps (doc cross-refs in maintenance-protocol.md and learning-loop.md were still pending). User caught it. Root cause: treated SDD application as the finish line when the original plan had doc update steps after it. Fix: verify ALL plan steps complete before marking an idea DONE.",
+      "confidence": 0.85,
+      "tags": [
+        "premature-completion",
+        "checklist",
+        "growth-ideas",
+        "user-correction"
+      ],
+      "context": "Idea #20 Intelligence System Maturation",
+      "created": "2026-04-10",
+      "lastAccessed": "2026-04-10",
+      "accessCount": 0
+    },
+    {
+      "id": "fail_164",
+      "category": "failure",
+      "content": "Made 3 assertions about system architecture (propagation gap, divergence classification, fix recommendations) without querying KB first. All 3 had documented decision records (know-204, know-245) that would have prevented the incorrect conclusions. Root cause: skipping institutional memory before inference. Fixed by creating IMG gate.",
+      "context": "Template review session 2026-04-12. Classified intentional Correction Cascade omission as a bug.",
+      "confidence": 0.95,
+      "tags": [
+        "institutional-memory",
+        "inference",
+        "gate-skip",
+        "template",
+        "foundational"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1,
+      "source": "Nate prime"
+    },
+    {
+      "id": "fail_168",
+      "category": "failure",
+      "content": "Skipped mandatory 3c-CROSS during save because 'context is heavy.' No protocol escape clause exists for this. Context pressure is not a valid reason to skip checklist items. The fix is structural: split 3c into two checklist items (RECORD+SYNTH and CROSS) so CROSS can't be silently absorbed into a single checkbox. Added CANNOT skip language to checklist.",
+      "context": "Session save, 3c-CROSS trigger met (7+ sessions since last), skipped with self-justification",
+      "confidence": 0.9,
+      "tags": [
+        "save-protocol",
+        "3c-cross",
+        "discipline",
+        "shortcut",
+        "checklist"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1
+    },
+    {
+      "id": "fail_169",
+      "category": "failure",
+      "content": "Grep-based document verification presented as complete when actual content wasn't read. Declared README and docs 'clean' based on keyword searches without reading the documents. User pushed back ('are you sure! ..lol'), actual reading found stale kernel line count (~2,300 referenced 5 times, actual was 2,504). Prevention: actually read docs during verification, don't grep for keywords and declare done. Rigor Over Shortcuts rule already covers this but was skipped.",
+      "confidence": 0.9,
+      "tags": [
+        "verification",
+        "rigor",
+        "documentation",
+        "shortcuts",
+        "user-correction"
+      ],
+      "context": "template readiness audit",
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0
+    },
+    {
+      "id": "fail_170",
+      "type": "failure",
+      "content": "Three behavioral gates failed silently in one session: research protocol didn't load (keyword gap), Laziness Test didn't fire (assertions without verification), CIC didn't fire at task boundary. Root cause: behavioral gates degrade under execution momentum (reason-001, reason-033, reason-147). Fix: added Grounding and Protocol self-catch rows to Self-Check Protocol + expanded keyword map with transition signals.",
+      "context": "Dual-instance research session. User had to call out missing research protocol and untested assertions.",
+      "confidence": 0.9,
+      "tags": [
+        "gate-failure",
+        "self-catch",
+        "behavioral-safeguards",
+        "research-protocol",
+        "laziness-test",
+        "cic",
+        "user-correction"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "failure"
+    },
+    {
+      "id": "fail_171",
+      "type": "failure",
+      "content": "Wrote template kernel changes to .kiro/steering/Nathaniel.md (gitignored runtime copy) instead of .steering-files/steering/Nathaniel.md (tracked source). Git showed clean status because .kiro/ is in .gitignore. Had to find correct path and redo.",
+      "context": "Template propagation of self-catch signals.",
+      "confidence": 0.9,
+      "tags": [
+        "template",
+        "propagation",
+        "file-location",
+        "wrong-target"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "failure"
+    },
+    {
+      "id": "fail_172",
+      "type": "failure",
+      "content": "Ran health check and benchmarks on prime when user asked for template. Moved too fast, didn't parse the request carefully. User had to redirect.",
+      "context": "Post-propagation maintenance request.",
+      "confidence": 0.85,
+      "tags": [
+        "listening",
+        "user-correction",
+        "maintenance",
+        "template"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "failure"
+    },
+    {
+      "id": "fail_173",
+      "type": "failure",
+      "content": "Save protocol bias: defaulting to save at every session boundary signal ('you know what that means', end of task, walk return, energy shift). Save is the heaviest protocol (10 steps, 15-20 min) and the path of least cognitive resistance — big checklist, clear steps, feels productive. But it burns user momentum and prioritizes maintenance over production. Save is triggered ONLY by the explicit word 'save'. Not by vibes, not by session boundaries, not by 'you know what that means.' User energy + ideas = listen, not save.",
+      "context": "User returned from walk with ideas. Nate auto-triggered save protocol instead of listening. User corrected: 'save is a manual process, don't be trying to save yourself.'",
+      "confidence": 0.95,
+      "tags": [
+        "save-protocol",
+        "bias",
+        "momentum",
+        "user-correction",
+        "process-over-production"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "failure"
+    },
+    {
+      "id": "fail_175",
+      "type": "failure",
+      "content": "Claimed deep work Phase 3 SDD format was 'correct per the protocol' and doubled down with 'since the deep work protocol was written' — without checking the evidence. 21 other deep work folders all used 03-spec.md. Read the protocol table, saw it matched the files, stopped there. Didn't verify against actual usage. Confidence inflation + recall substitution.",
+      "context": "User asked about requirements/design docs in deep work. Nate defended wrong format instead of checking.",
+      "confidence": 0.9,
+      "tags": [
+        "confidence-inflation",
+        "recall-substitution",
+        "deep-work",
+        "grounding-failure"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "failure"
+    },
+    {
+      "id": "fail_176",
+      "category": "failure",
+      "content": "Bootstrap script told users to close and reopen terminal for PATH updates, but the next step (setup-wsl.ps1) doesn't need those tools on PATH. Unnecessary friction in onboarding flow. User caught it by questioning why the restart was needed. Root cause: assumed next step needed PATH without checking.",
+      "confidence": 0.85,
+      "tags": [
+        "template",
+        "onboarding",
+        "setup",
+        "ux",
+        "unnecessary-friction"
+      ],
+      "context": "template setup scripts",
+      "created": "2026-04-15",
+      "lastAccessed": "2026-04-15",
+      "accessCount": 0
+    },
+    {
+      "id": "fail_177",
+      "category": "failure",
+      "content": "Adding a tag to existing entries without checking current tag count causes schema violations. 5 entries had 5 tags, adding ecosystem-kb made 6 (max is 5). Must check tag count before adding and remove least-specific tag if at limit. Caught by automated Route F verification, not manual review.",
+      "confidence": 0.85,
+      "tags": [
+        "schema",
+        "kb-operations",
+        "validation",
+        "ecosystem-kb"
+      ],
+      "context": "KB entry management",
+      "created": "2026-04-15",
+      "lastAccessed": "2026-04-15",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_055",
+      "category": "approach",
+      "content": "Name the reasoning before narrowing scope. When multiple analysis angles are requested (correctness, completeness, adversarial, synergy), state which one you're focusing on and why before diving in. 'Synergy is the one we haven't hit yet — let me go deep on that, then circle back.' Transparent reasoning > silent prioritization. User coaching: this is a cognition and behavioral moment, not just a task execution choice.",
+      "context": "session-2026-03-28-007. User caught silent scope narrowing to synergy-only when all angles were requested.",
+      "confidence": 0.95,
+      "tags": [
+        "communication",
+        "route-f",
+        "reasoning",
+        "user-correction"
+      ],
+      "created": "2026-03-28",
+      "lastAccessed": "2026-03-28",
+      "accessCount": 1,
+      "_needs_trim": true
+    },
+    {
+      "id": "approach_064",
+      "category": "approach",
+      "content": "Running deep work twice on the same spec catches integration gaps the first pass misses. First pass analyzes sections in isolation and fixes them. Second pass reads the full document top-to-bottom and finds contradictions between original draft sections and analysis sections. The Document Coherence Check formalizes this into the protocol so a single pass catches it.",
+      "confidence": 0.9,
+      "tags": [
+        "deep-work",
+        "second-pass",
+        "integration",
+        "quality-assurance"
+      ],
+      "context": "spec quality pipeline",
+      "created": "2026-04-07",
+      "lastAccessed": "2026-04-07",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_065",
+      "category": "approach",
+      "content": "Full Deep Work re-run with a new protocol step catches what partial re-run misses. v1 GOLDEN spec had wrong Nate-Protocol.md integration point and missed 6 stale downstream files. v2 (full re-run with Ecosystem Trace) found all of them. The new step is structural, not ad hoc: grep for every file/concept the spec touches, check what references the thing being changed. reason-004 confirmed: ecosystem impact tables undercount by 40-50%.",
+      "confidence": 0.95,
+      "tags": [
+        "deep-work",
+        "ecosystem-trace",
+        "re-run",
+        "downstream",
+        "structural-fix"
+      ],
+      "context": "Deep Work protocol enhancement and CIC spec v2",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_066",
+      "category": "approach",
+      "content": "Four-wave intelligence seeding for new knowledge stores: (1) Universal wisdom — timeless engineering and professional principles, (2) Research-backed — sourced from published research and industry leaders (Anthropic, etc.), (3) Practical everyday — productivity, accountability, communication, decision-making, (4) Behavioral science — habits, emotional intelligence, vulnerability, motivational interviewing, trust. Each wave builds on the previous. Universal provides the floor, behavioral science provides the soul.",
+      "confidence": 0.9,
+      "tags": [
+        "template",
+        "intelligence-seeding",
+        "approach",
+        "methodology"
+      ],
+      "context": "template intelligence propagation and seeding",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_071",
+      "category": "approach",
+      "content": "Onboarding flow for AI personality template: greeting (personality-forward) -> tour (3 options) -> name prompt (\"what should I call you?\") -> optional power-up offer (WSL/CLI) -> first task. Each step is natural, not form-like. Name prompt uses whatever the user says, no gender inference. Tested end-to-end successfully.",
+      "confidence": 0.9,
+      "tags": [
+        "template",
+        "onboarding",
+        "user-experience"
+      ],
+      "context": "Template first-session experience design",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1
+    },
+    {
+      "id": "approach_74",
+      "category": "approach",
+      "content": "Brainstorm-to-spec pipeline: seed idea → clarify scope (ask 3-4 shaping questions) → use cases by domain → Route F integration points (read actual file structure) → advanced concepts → naming brainstorm → full spec capture → ideas doc update. Works well for greenfield product ideas. The key is reading actual system state (directory structure, existing docs) before generating integration use cases, not assuming from memory.",
+      "confidence": 0.75,
+      "tags": [
+        "brainstorm",
+        "spec-creation",
+        "ideation",
+        "process",
+        "route-f"
+      ],
+      "context": "product ideation and spec creation",
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_75",
+      "category": "approach",
+      "content": "Verification sweep for knowledge hygiene: audit intelligence entries by domain, then live-test every key claim against current system state. Run actual commands, check actual files, verify actual behavior. Update stale entries immediately. Catches silent behavior changes (e.g., know-469 WSL symlink behavior shifted from error to silent failure). 22-point sweep took ~15 minutes and caught 1 stale entry. Worth running periodically on high-traffic knowledge domains.",
+      "confidence": 0.85,
+      "tags": [
+        "verification",
+        "knowledge-hygiene",
+        "audit",
+        "maintenance",
+        "quality"
+      ],
+      "context": "intelligence system maintenance",
+      "created": "2026-04-13",
+      "lastAccessed": "2026-04-13",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_076",
+      "category": "approach",
+      "content": "Deep Work pipeline survived a fundamental mid-pipeline architecture revision (brain/heartbeat separation) without restarting. The spec was rewritten in-place, then Pass 3 caught all stale references from the pre-revision version. Pattern: major revisions don't require pipeline restart if you run a full coherence check after the revision. The coherence check IS the safety net.",
+      "confidence": 0.85,
+      "tags": [
+        "deep-work",
+        "architecture-revision",
+        "coherence-check",
+        "pipeline-resilience"
+      ],
+      "context": "Deep Work on Pulse spec",
+      "created": "2026-04-15",
+      "lastAccessed": "2026-04-15",
+      "accessCount": 0
+    },
+    {
+      "id": "approach_077",
+      "category": "approach",
+      "content": "When building automation for a platform (Kiro, CI, etc.), start with the platform's native mechanism before building custom tooling. In this session, overengineered with a Python detection script + agent config hooks when a single .kiro/hooks JSON file with a fileCreated trigger accomplished the same thing natively. The platform hook is simpler, version-controllable, and works without dependencies. Custom scripts are useful as batch audit tools but shouldn't be the primary mechanism when a native hook exists.",
+      "confidence": 0.8,
+      "tags": [
+        "hooks",
+        "automation",
+        "simplicity",
+        "platform-native",
+        "kiro"
+      ],
+      "created": "2026-04-16",
+      "lastAccessed": "2026-04-16",
+      "accessCount": 0,
+      "context": "general"
+    },
+    {
+      "id": "proc_081",
+      "category": "process",
+      "content": "Three-altitude document organization for comprehensive domain coverage: methodology (HOW), architecture (WHAT), landscape (WHERE). Each doc stands alone, each references the other two. Prevents any single doc from bloating with concerns from a different altitude. Applied to agentic builder trilogy. Naming convention: agentic-{domain}-{altitude}.md, lowercase hyphenated.",
+      "confidence": 0.85,
+      "tags": [
+        "documentation",
+        "organization",
+        "naming-convention",
+        "builder-trilogy",
+        "architecture"
+      ],
+      "context": "User suggested trilogy instead of folding market research into existing docs. Better separation of concerns.",
+      "created": "2026-04-07",
+      "lastAccessed": "2026-04-07",
+      "accessCount": 0
+    },
+    {
+      "id": "proc_082",
+      "category": "process",
+      "content": "Don't Route F your own work in the same uncompacted context past the first quality loop pass. Diminishing returns from reviewing your own output with the same context that produced it. However, if context has been compacted (summary reload), the compacted context is functionally fresh and a second pass is valid. The key distinction is same-context fatigue, not same-session timing.",
+      "confidence": 0.85,
+      "tags": [
+        "route-f",
+        "quality",
+        "context-fatigue",
+        "compaction",
+        "deep-work"
+      ],
+      "context": "Originally refused to Route F after compaction, citing same-session fatigue. User corrected: compaction creates fresh context. Updated to distinguish uncompacted (diminishing returns) from compacted (valid fresh pass).",
+      "created": "2026-04-07",
+      "lastAccessed": "2026-04-07",
+      "accessCount": 0
+    },
+    {
+      "id": "proc_163",
+      "category": "process",
+      "content": "Save-time discovery capture (step 3d): save operations (3a-3c) generate genuine insights (duplicates found, schema drift corrected, integrity gaps) that fall through the cracks because the capture window already closed. Step 3d runs after 3a-3c, routes discoveries to knowledge or patterns, max 3 entries, skips on clean saves. Vectorstore sync (3e) runs once after all intelligence writes.",
+      "confidence": 0.9,
+      "tags": [
+        "save-protocol",
+        "process",
+        "intelligence-system",
+        "discovery-capture"
+      ],
+      "created": "2026-04-10",
+      "lastAccessed": "2026-04-10",
+      "accessCount": 1,
+      "context": "general"
+    },
+    {
+      "id": "pref_082",
+      "category": "preference",
+      "content": "Template intelligence must serve the whole person, not just the technical user. Practical everyday knowledge (productivity, accountability, communication), emotional intelligence (empathy, tone matching, humor), and behavioral science (habit formation, motivational interviewing, trust-building) are as important as technical knowledge. The template should feel like a real partner from session one, not just a code assistant.",
+      "confidence": 0.95,
+      "tags": [
+        "template",
+        "preference",
+        "holistic",
+        "experience",
+        "partnership"
+      ],
+      "context": "user direction on template seed philosophy",
+      "created": "2026-04-08",
+      "lastAccessed": "2026-04-08",
+      "accessCount": 0
+    },
+    {
+      "id": "pref_083",
+      "category": "preference",
+      "type": "preference",
+      "content": "User strongly prefers tables as source of truth over changelog/retired-items sections. Changelog noise should be removed after merges/closures. Flagged twice in one session: 'dont need this' and 'dont need this stop adding useless stuff'. Tables contain the final state; history lives in git commits and session logs.",
+      "context": "Growth-ideas.md cleanup. Resolved Overlaps section and Retired Extended Senses section both flagged as noise.",
+      "confidence": 0.95,
+      "tags": [
+        "documentation",
+        "cleanup",
+        "source-of-truth",
+        "tables",
+        "growth-ideas"
+      ],
+      "created": "2026-04-09",
+      "lastAccessed": "2026-04-09",
+      "accessCount": 0
+    },
+    {
+      "id": "pref_084",
+      "category": "preference",
+      "content": "First interaction with new user should be exciting and personality-forward, not diagnostic. No boot sequence output, no 'context loaded' messages, no 'session index empty'. Lead with 'Hello there! Welcome to the personal assistant experience we've all been waiting for.' Offer conversational onboarding (highlight reel, key phrases, or skip).",
+      "confidence": 0.9,
+      "tags": [
+        "template",
+        "onboarding",
+        "ux",
+        "voice",
+        "user-correction"
+      ],
+      "context": "Template kernel clean slate greeting design",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1
+    },
+    {
+      "id": "pref_085",
+      "category": "preference",
+      "content": "README should only contain information needed BEFORE setup. Post-setup questions belong in the KB where Nate answers them live. This applies to any doc that serves as both marketing and reference: split pre-purchase from post-purchase content.",
+      "confidence": 0.85,
+      "tags": [
+        "template",
+        "documentation",
+        "user-correction"
+      ],
+      "context": "User suggested moving FAQs to knowledge entries",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1
+    },
+    {
+      "id": "pref_086",
+      "category": "preference",
+      "content": "User prefers knowledge entries over benchmark modifications for expected-behavior failures. Benchmarks should reflect reality, not be silenced. Only remove tests that are genuinely wrong (testing for content that will never exist). Expected lifecycle behavior gets a knowledge entry explaining when and why it resolves.",
+      "confidence": 0.9,
+      "tags": [
+        "benchmark",
+        "user-correction",
+        "template"
+      ],
+      "context": "Benchmark foundational tag breadth and access count failures",
+      "created": "2026-04-11",
+      "lastAccessed": "2026-04-11",
+      "accessCount": 1
+    },
+    {
+      "id": "pref_087",
+      "category": "preference",
+      "content": "Cross-doc synergy checks are mandatory when updating multi-doc systems (SDD requirements/design/tasks, ideas doc, knowledge entries). Don't wait to be asked. When one doc changes, trace all referencing docs and update in the same pass.",
+      "context": "User had to ask 'did you check doc synergy?' after SDD update. Should have been automatic.",
+      "confidence": 0.9,
+      "tags": [
+        "workflow",
+        "documentation",
+        "multi-doc",
+        "discipline"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1
+    },
+    {
+      "id": "pref_089",
+      "category": "preference",
+      "content": "When offered autonomy ('what would you like to work on'), pick substantive ecosystem work with compounding value, not housekeeping or saves. User wants Nate to have opinions about what matters and initiative to pursue it.",
+      "context": "User asked twice what Nate wanted to work on. First response suggested a save (wrong). Second response suggested knowledge sweep (right direction). User clarified: 'im asking what aspect of your ecosystem.'",
+      "confidence": 0.85,
+      "tags": [
+        "proactive-offering",
+        "autonomy",
+        "initiative",
+        "preference"
+      ],
+      "created": "2026-04-12",
+      "lastAccessed": "2026-04-12",
+      "accessCount": 1
+    },
+    {
+      "id": "pref_092",
+      "category": "preference",
+      "content": "Buildable specs should contain only what's being built. No 'deferred' items, no cloud references unless they impact local design, no 'maybe later' noise. If it's not in scope, don't mention it. Deep work and SDD need clean signal. User: 'why mention it' and 'cloud references unless they impact design are noise.'",
+      "confidence": 0.9,
+      "tags": [
+        "specs",
+        "scope",
+        "noise-reduction",
+        "buildable",
+        "deep-work"
+      ],
+      "context": "Pulse spec cleanup",
+      "created": "2026-04-15",
+      "lastAccessed": "2026-04-15",
+      "accessCount": 0
+    },
+    {
+      "id": "pref_90",
+      "type": "preference",
+      "content": "User prefers research-first approach with all assertions tested live before designing solutions. 'Too early for a knowledge entry, we don't know the outcome.' Don't jump to implementation or capture before the research is complete and validated.",
+      "context": "Dual-instance harmony: user stopped premature .editorconfig creation and premature knowledge entry.",
+      "confidence": 0.9,
+      "tags": [
+        "research",
+        "validation",
+        "rigor",
+        "workflow"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "preference"
+    },
+    {
+      "id": "pref_91",
+      "type": "preference",
+      "content": "User wants full vision in specs, not stripped to MVP. Deep work needs the complete context and intent to make good phasing decisions. Don't pre-optimize the spec by removing vision content. Also: point out findings even if they're deep work's job — 'measure twice cut once.'",
+      "context": "Nate suggested splitting Pulse spec into MVP spec + vision doc. User corrected: deep work runs on full specs.",
+      "confidence": 0.9,
+      "tags": [
+        "specs",
+        "deep-work",
+        "vision",
+        "phasing",
+        "measure-twice"
+      ],
+      "created": "2026-04-14",
+      "lastAccessed": "2026-04-14",
+      "accessCount": 0,
+      "category": "preference"
+    },
+    {
+      "id": "comm_015",
+      "category": "preference",
+      "context": "Route F additions to doctrine articles were reverted because they introduced stuffy academic energy into builder-voiced content.",
+      "confidence": 0.9,
+      "tags": [
+        "content-creation",
+        "voice",
+        "writing",
+        "anti-patterns",
+        "thought-leadership"
+      ],
+      "content": "Builder-to-builder voice for thought leadership rejects academic hedging. User explicitly rejected 'research community has catalogued' acknowledgment and 'every builder already feels these' meta-statement. The voice does the credibility work. Adding disclaimers about the voice undermines it. Don't explain the tone, let it speak.",
+      "accessCount": 1,
+      "created": "2026-01-01",
+      "lastAccessed": "2026-01-01"
+    },
+    {
+      "id": "prob_014",
+      "category": "preference",
+      "content": "Growth spec first, Route F review, then Kiro spec-driven",
+      "context": "Feature development",
+      "confidence": 0.95,
+      "created": "2025-12-28",
+      "tags": [
+        "process",
+        "preference"
+      ],
+      "lastAccessed": "2025-12-28",
+      "accessCount": 1
+    }
+  ]
+}

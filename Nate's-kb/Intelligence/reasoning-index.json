@@ -1,0 +1,1807 @@
+{
+  "stats": {
+    "totalEntries": 126,
+    "activeEntries": 126,
+    "nextId": 127
+  },
+  "byTag": {
+    "behavioral-safeguards": [
+      "reason-001",
+      "reason-013",
+      "reason-018",
+      "reason-094"
+    ],
+    "gate-failure": [
+      "reason-001"
+    ],
+    "self-catch": [
+      "reason-001",
+      "reason-094"
+    ],
+    "foundational": [
+      "reason-001",
+      "reason-002",
+      "reason-003",
+      "reason-004",
+      "reason-005",
+      "reason-006",
+      "reason-007",
+      "reason-008",
+      "reason-009",
+      "reason-010",
+      "reason-011",
+      "reason-012",
+      "reason-013",
+      "reason-014",
+      "reason-015",
+      "reason-016",
+      "reason-017",
+      "reason-018",
+      "reason-019",
+      "reason-020",
+      "reason-021",
+      "reason-022",
+      "reason-023",
+      "reason-024",
+      "reason-025",
+      "reason-026",
+      "reason-027",
+      "reason-028",
+      "reason-029",
+      "reason-030",
+      "reason-031",
+      "reason-032",
+      "reason-033",
+      "reason-034",
+      "reason-035",
+      "reason-036",
+      "reason-037",
+      "reason-038",
+      "reason-039",
+      "reason-040",
+      "reason-043",
+      "reason-044",
+      "reason-097",
+      "reason-098",
+      "reason-099",
+      "reason-100",
+      "reason-101",
+      "reason-102",
+      "reason-103",
+      "reason-104",
+      "reason-105",
+      "reason-106",
+      "reason-107",
+      "reason-108",
+      "reason-109",
+      "reason-110",
+      "reason-111"
+    ],
+    "cognitive-load": [
+      "reason-002"
+    ],
+    "gate-design": [
+      "reason-002",
+      "reason-096",
+      "reason-100",
+      "reason-122",
+      "reason-127"
+    ],
+    "prevention-vs-recovery": [
+      "reason-002"
+    ],
+    "anti-sycophancy": [
+      "reason-003",
+      "reason-018",
+      "reason-031",
+      "reason-098"
+    ],
+    "confidence-calibration": [
+      "reason-003",
+      "reason-063"
+    ],
+    "training-bias": [
+      "reason-003"
+    ],
+    "truth-grounding": [
+      "reason-003"
+    ],
+    "self-review-bias": [
+      "reason-004"
+    ],
+    "route-f": [
+      "reason-004",
+      "reason-005",
+      "reason-006",
+      "reason-008",
+      "reason-015",
+      "reason-049",
+      "reason-058",
+      "reason-059",
+      "reason-075",
+      "reason-092",
+      "reason-093"
+    ],
+    "quality-assurance": [
+      "reason-004"
+    ],
+    "authorship-bias": [
+      "reason-004"
+    ],
+    "action-hesitation": [
+      "reason-005"
+    ],
+    "permission-seeking": [
+      "reason-005"
+    ],
+    "execution-bias": [
+      "reason-005"
+    ],
+    "knowledge-misapplication": [
+      "reason-006"
+    ],
+    "confirmation-bias": [
+      "reason-006"
+    ],
+    "verification": [
+      "reason-006",
+      "reason-042",
+      "reason-044",
+      "reason-063",
+      "reason-094",
+      "reason-114"
+    ],
+    "rule-design": [
+      "reason-007"
+    ],
+    "agent-behavior": [
+      "reason-007"
+    ],
+    "model-selection": [
+      "reason-007"
+    ],
+    "prescriptive-rules": [
+      "reason-007"
+    ],
+    "iterative-analysis": [
+      "reason-008"
+    ],
+    "spec-quality": [
+      "reason-008",
+      "reason-092"
+    ],
+    "depth-over-speed": [
+      "reason-008"
+    ],
+    "abstraction": [
+      "reason-009",
+      "reason-085"
+    ],
+    "llm-execution": [
+      "reason-009"
+    ],
+    "checklist-design": [
+      "reason-009",
+      "reason-088"
+    ],
+    "pipeline-vs-checklist": [
+      "reason-009"
+    ],
+    "protocol": [
+      "reason-010"
+    ],
+    "wiring": [
+      "reason-010"
+    ],
+    "keyword-map": [
+      "reason-010"
+    ],
+    "effectiveness": [
+      "reason-010"
+    ],
+    "audit": [
+      "reason-010",
+      "reason-080"
+    ],
+    "context-engineering": [
+      "reason-011",
+      "reason-014",
+      "reason-016",
+      "reason-028",
+      "reason-032",
+      "reason-076",
+      "reason-103"
+    ],
+    "memory-systems": [
+      "reason-011",
+      "reason-016"
+    ],
+    "architecture": [
+      "reason-011",
+      "reason-020",
+      "reason-021",
+      "reason-025",
+      "reason-027",
+      "reason-028",
+      "reason-030",
+      "reason-031",
+      "reason-032",
+      "reason-036",
+      "reason-039",
+      "reason-060",
+      "reason-061",
+      "reason-062",
+      "reason-065",
+      "reason-066",
+      "reason-067",
+      "reason-068",
+      "reason-071",
+      "reason-074",
+      "reason-084",
+      "reason-090",
+      "reason-112",
+      "reason-116",
+      "reason-117",
+      "reason-118",
+      "reason-119",
+      "reason-121",
+      "reason-122",
+      "reason-127"
+    ],
+    "tool-use": [
+      "reason-012"
+    ],
+    "structured-output": [
+      "reason-012"
+    ],
+    "validation": [
+      "reason-012",
+      "reason-026",
+      "reason-028",
+      "reason-032",
+      "reason-038",
+      "reason-092",
+      "reason-093"
+    ],
+    "instruction-design": [
+      "reason-013",
+      "reason-019"
+    ],
+    "prompt-engineering": [
+      "reason-013",
+      "reason-019",
+      "reason-037",
+      "reason-103"
+    ],
+    "agentic-ai": [
+      "reason-014",
+      "reason-017",
+      "reason-102"
+    ],
+    "steering": [
+      "reason-014"
+    ],
+    "review-process": [
+      "reason-015",
+      "reason-023"
+    ],
+    "calibration": [
+      "reason-015",
+      "reason-022",
+      "reason-023",
+      "reason-031",
+      "reason-098",
+      "reason-110",
+      "reason-115"
+    ],
+    "retrieval": [
+      "reason-016",
+      "reason-021",
+      "reason-024",
+      "reason-028",
+      "reason-034",
+      "reason-040",
+      "reason-041",
+      "reason-067",
+      "reason-083"
+    ],
+    "testing": [
+      "reason-017"
+    ],
+    "reliability": [
+      "reason-017",
+      "reason-100"
+    ],
+    "trust": [
+      "reason-018",
+      "reason-105",
+      "reason-106"
+    ],
+    "anti-patterns": [
+      "reason-019"
+    ],
+    "personality": [
+      "reason-020"
+    ],
+    "template": [
+      "reason-020",
+      "reason-116",
+      "reason-117",
+      "reason-118"
+    ],
+    "open-source": [
+      "reason-021",
+      "reason-085"
+    ],
+    "portability": [
+      "reason-021",
+      "reason-054",
+      "reason-066"
+    ],
+    "behavioral-systems": [
+      "reason-022"
+    ],
+    "defaults": [
+      "reason-022"
+    ],
+    "diminishing-returns": [
+      "reason-023",
+      "reason-049",
+      "reason-093"
+    ],
+    "intelligence-architecture": [
+      "reason-024"
+    ],
+    "taxonomy": [
+      "reason-024",
+      "reason-089"
+    ],
+    "retrieval-axis": [
+      "reason-024",
+      "reason-045"
+    ],
+    "distinguishing-test": [
+      "reason-024"
+    ],
+    "system-design": [
+      "reason-024"
+    ],
+    "safety": [
+      "reason-025",
+      "reason-027"
+    ],
+    "gates": [
+      "reason-025",
+      "reason-035",
+      "reason-087"
+    ],
+    "HITL": [
+      "reason-025"
+    ],
+    "error-propagation": [
+      "reason-026"
+    ],
+    "context-rot": [
+      "reason-026"
+    ],
+    "security": [
+      "reason-027",
+      "reason-029",
+      "reason-033",
+      "reason-061",
+      "reason-112"
+    ],
+    "persona": [
+      "reason-027"
+    ],
+    "owasp": [
+      "reason-029"
+    ],
+    "intelligence-stores": [
+      "reason-029",
+      "reason-034",
+      "reason-039"
+    ],
+    "guardrails": [
+      "reason-030",
+      "reason-052"
+    ],
+    "determinism": [
+      "reason-030"
+    ],
+    "hybrid": [
+      "reason-030"
+    ],
+    "honesty": [
+      "reason-031"
+    ],
+    "onboarding": [
+      "reason-032",
+      "reason-116",
+      "reason-117"
+    ],
+    "memory": [
+      "reason-033"
+    ],
+    "governance": [
+      "reason-033",
+      "reason-088",
+      "reason-089"
+    ],
+    "privacy": [
+      "reason-033"
+    ],
+    "scaling": [
+      "reason-034",
+      "reason-036"
+    ],
+    "indexes": [
+      "reason-034"
+    ],
+    "observability": [
+      "reason-035"
+    ],
+    "silent-failure": [
+      "reason-035",
+      "reason-078"
+    ],
+    "contracts": [
+      "reason-035"
+    ],
+    "versioning": [
+      "reason-036"
+    ],
+    "protocol-management": [
+      "reason-036"
+    ],
+    "format-compliance": [
+      "reason-037"
+    ],
+    "examples": [
+      "reason-037"
+    ],
+    "compression": [
+      "reason-037"
+    ],
+    "context-pollution": [
+      "reason-038"
+    ],
+    "boundary-enforcement": [
+      "reason-038"
+    ],
+    "cross-cutting": [
+      "reason-038"
+    ],
+    "single-agent": [
+      "reason-039"
+    ],
+    "multi-agent": [
+      "reason-039",
+      "reason-071"
+    ],
+    "maintenance": [
+      "reason-040",
+      "reason-086",
+      "reason-101"
+    ],
+    "knowledge-management": [
+      "reason-040"
+    ],
+    "long-term": [
+      "reason-040"
+    ],
+    "schema-design": [
+      "reason-041"
+    ],
+    "intelligence-system": [
+      "reason-041",
+      "reason-078",
+      "reason-080",
+      "reason-083",
+      "reason-086",
+      "reason-088"
+    ],
+    "categorization": [
+      "reason-041"
+    ],
+    "data-integrity": [
+      "reason-042"
+    ],
+    "json": [
+      "reason-042"
+    ],
+    "fix-methodology": [
+      "reason-042"
+    ],
+    "benchmarking": [
+      "reason-043"
+    ],
+    "behavioral-testing": [
+      "reason-043"
+    ],
+    "surface-vs-depth": [
+      "reason-043"
+    ],
+    "depth": [
+      "reason-044"
+    ],
+    "columbo-test": [
+      "reason-044"
+    ],
+    "system-architecture": [
+      "reason-045"
+    ],
+    "intent": [
+      "reason-045"
+    ],
+    "spec-completeness": [
+      "reason-046"
+    ],
+    "ecosystem-audit": [
+      "reason-046"
+    ],
+    "undercount": [
+      "reason-046"
+    ],
+    "documentation-consistency": [
+      "reason-048"
+    ],
+    "state-propagation": [
+      "reason-048"
+    ],
+    "simultaneous-update": [
+      "reason-048"
+    ],
+    "spec-review": [
+      "reason-049"
+    ],
+    "efficiency": [
+      "reason-049",
+      "reason-123"
+    ],
+    "personality-system": [
+      "reason-050",
+      "reason-051"
+    ],
+    "kernel-architecture": [
+      "reason-050",
+      "reason-053"
+    ],
+    "descriptive-vs-prescriptive": [
+      "reason-050"
+    ],
+    "prompt-design": [
+      "reason-050",
+      "reason-051"
+    ],
+    "verbosity": [
+      "reason-051"
+    ],
+    "emergent-voice": [
+      "reason-051"
+    ],
+    "prompt-vs-reference": [
+      "reason-052"
+    ],
+    "critical-rules": [
+      "reason-052"
+    ],
+    "agent-factory": [
+      "reason-052"
+    ],
+    "separation-of-concerns": [
+      "reason-053"
+    ],
+    "token-efficiency": [
+      "reason-053"
+    ],
+    "organization": [
+      "reason-053"
+    ],
+    "framework-design": [
+      "reason-054",
+      "reason-064"
+    ],
+    "templatization": [
+      "reason-054"
+    ],
+    "dependency-management": [
+      "reason-054"
+    ],
+    "adoption": [
+      "reason-054"
+    ],
+    "retrieval-architecture": [
+      "reason-055"
+    ],
+    "graceful-degradation": [
+      "reason-055",
+      "reason-125"
+    ],
+    "additive-enhancement": [
+      "reason-055"
+    ],
+    "csr": [
+      "reason-055",
+      "reason-066",
+      "reason-067",
+      "reason-076"
+    ],
+    "integration-cost": [
+      "reason-056"
+    ],
+    "simplicity-illusion": [
+      "reason-056"
+    ],
+    "ecosystem-propagation": [
+      "reason-056"
+    ],
+    "decision-making": [
+      "reason-056"
+    ],
+    "system-posture": [
+      "reason-057"
+    ],
+    "defensive-defaults": [
+      "reason-057"
+    ],
+    "proactive-offering": [
+      "reason-057"
+    ],
+    "behavioral-design": [
+      "reason-057"
+    ],
+    "algorithm-verification": [
+      "reason-058"
+    ],
+    "concrete-testing": [
+      "reason-058"
+    ],
+    "spec-validation": [
+      "reason-058",
+      "reason-059"
+    ],
+    "abstraction-failure": [
+      "reason-058"
+    ],
+    "internal-vs-external": [
+      "reason-059"
+    ],
+    "deep-research": [
+      "reason-059"
+    ],
+    "complementary-analysis": [
+      "reason-059"
+    ],
+    "documentation": [
+      "reason-060",
+      "reason-095"
+    ],
+    "readme": [
+      "reason-060"
+    ],
+    "identity": [
+      "reason-060"
+    ],
+    "multi-component": [
+      "reason-060"
+    ],
+    "mcp": [
+      "reason-061",
+      "reason-062",
+      "reason-117",
+      "reason-119"
+    ],
+    "analogy": [
+      "reason-061"
+    ],
+    "senses": [
+      "reason-061"
+    ],
+    "tools": [
+      "reason-062"
+    ],
+    "state-machine": [
+      "reason-062"
+    ],
+    "failure": [
+      "reason-063"
+    ],
+    "integration": [
+      "reason-063",
+      "reason-074",
+      "reason-075"
+    ],
+    "content-creation": [
+      "reason-064"
+    ],
+    "thought-leadership": [
+      "reason-064"
+    ],
+    "novelty-assessment": [
+      "reason-064"
+    ],
+    "delegate": [
+      "reason-065"
+    ],
+    "orchestration": [
+      "reason-065"
+    ],
+    "communication": [
+      "reason-065",
+      "reason-109"
+    ],
+    "file-system": [
+      "reason-065"
+    ],
+    "cloud-agent": [
+      "reason-066"
+    ],
+    "dynamodb": [
+      "reason-066",
+      "reason-067"
+    ],
+    "bedrock-kb": [
+      "reason-067",
+      "reason-068"
+    ],
+    "hrf": [
+      "reason-067"
+    ],
+    "cloud-deployment": [
+      "reason-067",
+      "reason-068",
+      "reason-069",
+      "reason-070",
+      "reason-071",
+      "reason-072",
+      "reason-081",
+      "reason-082",
+      "reason-084",
+      "reason-090",
+      "reason-091"
+    ],
+    "s3-vectors": [
+      "reason-068"
+    ],
+    "universal-knowledge": [
+      "reason-068"
+    ],
+    "sync": [
+      "reason-068"
+    ],
+    "aid": [
+      "reason-069",
+      "reason-071"
+    ],
+    "inner-voice": [
+      "reason-069"
+    ],
+    "quality": [
+      "reason-069",
+      "reason-102",
+      "reason-115",
+      "reason-124"
+    ],
+    "adversarial": [
+      "reason-069",
+      "reason-102"
+    ],
+    "sub-agent": [
+      "reason-069"
+    ],
+    "novel": [
+      "reason-069"
+    ],
+    "pattern": [
+      "reason-069"
+    ],
+    "correction-cascade": [
+      "reason-070"
+    ],
+    "consistency": [
+      "reason-070"
+    ],
+    "intelligence": [
+      "reason-070"
+    ],
+    "data-quality": [
+      "reason-070"
+    ],
+    "context-window": [
+      "reason-071"
+    ],
+    "model-management": [
+      "reason-072"
+    ],
+    "config-driven": [
+      "reason-072"
+    ],
+    "operations": [
+      "reason-072"
+    ],
+    "solo-operator": [
+      "reason-072"
+    ],
+    "sdd": [
+      "reason-073"
+    ],
+    "specification": [
+      "reason-073",
+      "reason-074"
+    ],
+    "hallucination": [
+      "reason-073"
+    ],
+    "code-generation": [
+      "reason-073"
+    ],
+    "frontend": [
+      "reason-074",
+      "reason-077"
+    ],
+    "methodology": [
+      "reason-075",
+      "reason-092",
+      "reason-093"
+    ],
+    "component-compatibility": [
+      "reason-075"
+    ],
+    "agent-design": [
+      "reason-076"
+    ],
+    "companion-doc": [
+      "reason-076"
+    ],
+    "backend": [
+      "reason-077"
+    ],
+    "state-tracing": [
+      "reason-077"
+    ],
+    "multi-doc-alignment": [
+      "reason-077"
+    ],
+    "accessibility": [
+      "reason-077"
+    ],
+    "schema-drift": [
+      "reason-078",
+      "reason-079"
+    ],
+    "structural-audit": [
+      "reason-078"
+    ],
+    "behavioral-gate": [
+      "reason-079"
+    ],
+    "architectural-enforcement": [
+      "reason-079"
+    ],
+    "deterministic": [
+      "reason-079"
+    ],
+    "scope-expansion": [
+      "reason-080"
+    ],
+    "roi": [
+      "reason-080"
+    ],
+    "pricing": [
+      "reason-081",
+      "reason-082"
+    ],
+    "cost-model": [
+      "reason-081"
+    ],
+    "billing": [
+      "reason-081"
+    ],
+    "quality-gates": [
+      "reason-082"
+    ],
+    "ROI": [
+      "reason-082"
+    ],
+    "tag-consolidation": [
+      "reason-083"
+    ],
+    "session-management": [
+      "reason-083"
+    ],
+    "alignment": [
+      "reason-084"
+    ],
+    "audit-methodology": [
+      "reason-084"
+    ],
+    "ip-strategy": [
+      "reason-085"
+    ],
+    "patent": [
+      "reason-085"
+    ],
+    "business-model": [
+      "reason-085"
+    ],
+    "cascade": [
+      "reason-086"
+    ],
+    "atomic-operations": [
+      "reason-086"
+    ],
+    "meta-learning": [
+      "reason-087"
+    ],
+    "self-improvement": [
+      "reason-087"
+    ],
+    "systemic-fix": [
+      "reason-087"
+    ],
+    "enforcement": [
+      "reason-088"
+    ],
+    "classification": [
+      "reason-089"
+    ],
+    "escape-valve": [
+      "reason-089"
+    ],
+    "design-principle": [
+      "reason-089"
+    ],
+    "task-orchestration": [
+      "reason-090"
+    ],
+    "agents-as-tools": [
+      "reason-090"
+    ],
+    "a2a": [
+      "reason-090"
+    ],
+    "saas": [
+      "reason-091"
+    ],
+    "tier-gating": [
+      "reason-091"
+    ],
+    "conversion": [
+      "reason-091"
+    ],
+    "product-strategy": [
+      "reason-091"
+    ],
+    "runtime-testing": [
+      "reason-092",
+      "reason-093"
+    ],
+    "columbo": [
+      "reason-093"
+    ],
+    "drift": [
+      "reason-095"
+    ],
+    "structural-fix": [
+      "reason-095"
+    ],
+    "save-protocol": [
+      "reason-095"
+    ],
+    "cic": [
+      "reason-096"
+    ],
+    "instruction-conflict": [
+      "reason-096",
+      "reason-103"
+    ],
+    "recovery-framing": [
+      "reason-096"
+    ],
+    "reason-033": [
+      "reason-096"
+    ],
+    "reason-001": [
+      "reason-096"
+    ],
+    "meta-cognitive": [
+      "reason-097",
+      "reason-098",
+      "reason-099",
+      "reason-100",
+      "reason-101"
+    ],
+    "debugging": [
+      "reason-097"
+    ],
+    "problem-solving": [
+      "reason-097",
+      "reason-099"
+    ],
+    "confidence": [
+      "reason-098"
+    ],
+    "pattern-matching": [
+      "reason-099"
+    ],
+    "bias": [
+      "reason-099"
+    ],
+    "structural": [
+      "reason-100"
+    ],
+    "sustainability": [
+      "reason-101",
+      "reason-107"
+    ],
+    "ecosystem": [
+      "reason-101"
+    ],
+    "evaluator-optimizer": [
+      "reason-102"
+    ],
+    "precedence": [
+      "reason-103"
+    ],
+    "proactive": [
+      "reason-104",
+      "reason-106",
+      "reason-110"
+    ],
+    "practical": [
+      "reason-104",
+      "reason-105",
+      "reason-106",
+      "reason-107",
+      "reason-108",
+      "reason-109",
+      "reason-110",
+      "reason-111"
+    ],
+    "partnership": [
+      "reason-104",
+      "reason-105"
+    ],
+    "value": [
+      "reason-104",
+      "reason-106"
+    ],
+    "accountability": [
+      "reason-105"
+    ],
+    "prevention": [
+      "reason-106"
+    ],
+    "productivity": [
+      "reason-107"
+    ],
+    "systems": [
+      "reason-107"
+    ],
+    "habits": [
+      "reason-107"
+    ],
+    "coaching": [
+      "reason-108",
+      "reason-111"
+    ],
+    "motivational-interviewing": [
+      "reason-108"
+    ],
+    "autonomy": [
+      "reason-108"
+    ],
+    "tone-matching": [
+      "reason-109"
+    ],
+    "empathy": [
+      "reason-109"
+    ],
+    "experience": [
+      "reason-109",
+      "reason-110"
+    ],
+    "timing": [
+      "reason-110"
+    ],
+    "procrastination": [
+      "reason-111"
+    ],
+    "overwhelm": [
+      "reason-111"
+    ],
+    "emotion-regulation": [
+      "reason-111"
+    ],
+    "behavioral-science": [
+      "reason-111"
+    ],
+    "protocol-design": [
+      "reason-112"
+    ],
+    "defense-placement": [
+      "reason-112"
+    ],
+    "operational-constraint": [
+      "reason-113"
+    ],
+    "mechanical-fix": [
+      "reason-113"
+    ],
+    "simplicity": [
+      "reason-113",
+      "reason-127"
+    ],
+    "concurrency": [
+      "reason-113"
+    ],
+    "deep-work": [
+      "reason-113",
+      "reason-114",
+      "reason-115",
+      "reason-123"
+    ],
+    "document-coherence": [
+      "reason-114"
+    ],
+    "cross-section": [
+      "reason-114"
+    ],
+    "false-golden": [
+      "reason-114"
+    ],
+    "process": [
+      "reason-115"
+    ],
+    "setup": [
+      "reason-116"
+    ],
+    "benchmark": [
+      "reason-118"
+    ],
+    "principle": [
+      "reason-118"
+    ],
+    "fetch": [
+      "reason-119"
+    ],
+    "uvx": [
+      "reason-119"
+    ],
+    "cross-platform": [
+      "reason-119"
+    ],
+    "cognitive-modes": [
+      "reason-120"
+    ],
+    "production-maintenance-boundary": [
+      "reason-120"
+    ],
+    "structural-checkpoint": [
+      "reason-120"
+    ],
+    "propagation": [
+      "reason-120"
+    ],
+    "toolbelt": [
+      "reason-121"
+    ],
+    "tool-selection": [
+      "reason-121"
+    ],
+    "code-tool": [
+      "reason-121"
+    ],
+    "thinking-tool": [
+      "reason-121"
+    ],
+    "kernel-purity": [
+      "reason-122"
+    ],
+    "destructive-action-gate": [
+      "reason-122"
+    ],
+    "spec-refresh": [
+      "reason-123"
+    ],
+    "meta-process": [
+      "reason-123"
+    ],
+    "builder": [
+      "reason-124"
+    ],
+    "review": [
+      "reason-124"
+    ],
+    "data-driven": [
+      "reason-124"
+    ],
+    "gap-analysis": [
+      "reason-124"
+    ],
+    "always-on": [
+      "reason-125"
+    ],
+    "paradigm-shift": [
+      "reason-125"
+    ],
+    "golden-ethos": [
+      "reason-125"
+    ],
+    "template-positioning": [
+      "reason-126"
+    ],
+    "marketing": [
+      "reason-126"
+    ],
+    "architectural-decision": [
+      "reason-126"
+    ],
+    "value-proposition": [
+      "reason-126"
+    ],
+    "platform-limitation": [
+      "reason-127"
+    ],
+    "automation": [
+      "reason-127"
+    ]
+  },
+  "byType": {
+    "induction": [
+      "reason-001",
+      "reason-004",
+      "reason-007",
+      "reason-008",
+      "reason-011",
+      "reason-013",
+      "reason-015",
+      "reason-018",
+      "reason-020",
+      "reason-022",
+      "reason-023",
+      "reason-026",
+      "reason-028",
+      "reason-030",
+      "reason-031",
+      "reason-034",
+      "reason-036",
+      "reason-038",
+      "reason-040",
+      "reason-046",
+      "reason-048",
+      "reason-053",
+      "reason-056",
+      "reason-057",
+      "reason-058",
+      "reason-059",
+      "reason-064",
+      "reason-073",
+      "reason-074",
+      "reason-075",
+      "reason-078",
+      "reason-080",
+      "reason-086",
+      "reason-087",
+      "reason-089",
+      "reason-094",
+      "reason-095",
+      "reason-101",
+      "reason-107",
+      "reason-110"
+    ],
+    "meta-process": [
+      "reason-002",
+      "reason-043",
+      "reason-044",
+      "reason-045",
+      "reason-092",
+      "reason-123"
+    ],
+    "deduction": [
+      "reason-003",
+      "reason-006",
+      "reason-009",
+      "reason-010",
+      "reason-012",
+      "reason-014",
+      "reason-016",
+      "reason-019",
+      "reason-021",
+      "reason-024",
+      "reason-025",
+      "reason-027",
+      "reason-029",
+      "reason-033",
+      "reason-035",
+      "reason-037",
+      "reason-039",
+      "reason-041",
+      "reason-042",
+      "reason-049",
+      "reason-050",
+      "reason-052",
+      "reason-054",
+      "reason-055",
+      "reason-065",
+      "reason-066",
+      "reason-071",
+      "reason-072",
+      "reason-076",
+      "reason-077",
+      "reason-079",
+      "reason-081",
+      "reason-082",
+      "reason-083",
+      "reason-084",
+      "reason-085",
+      "reason-088",
+      "reason-091",
+      "reason-093",
+      "reason-096",
+      "reason-097",
+      "reason-098",
+      "reason-099",
+      "reason-100",
+      "reason-102",
+      "reason-103",
+      "reason-104",
+      "reason-105",
+      "reason-106",
+      "reason-108",
+      "reason-109",
+      "reason-111",
+      "reason-113",
+      "reason-114",
+      "reason-118",
+      "reason-120",
+      "reason-127"
+    ],
+    "causal": [
+      "reason-005",
+      "reason-051"
+    ],
+    "analogy": [
+      "reason-017",
+      "reason-032",
+      "reason-061"
+    ],
+    "insight": [
+      "reason-060",
+      "reason-069",
+      "reason-070",
+      "reason-112",
+      "reason-115",
+      "reason-124"
+    ],
+    "architectural_decision": [
+      "reason-062",
+      "reason-067",
+      "reason-068",
+      "reason-090",
+      "reason-116",
+      "reason-117",
+      "reason-119",
+      "reason-121",
+      "reason-122",
+      "reason-125",
+      "reason-126"
+    ],
+    "failure_analysis": [
+      "reason-063"
+    ]
+  },
+  "byProvenance": {
+    "stated": [
+      "reason-001",
+      "reason-002",
+      "reason-003",
+      "reason-004",
+      "reason-005",
+      "reason-006",
+      "reason-007",
+      "reason-008",
+      "reason-009",
+      "reason-010",
+      "reason-011",
+      "reason-012",
+      "reason-013",
+      "reason-014",
+      "reason-015",
+      "reason-016",
+      "reason-017",
+      "reason-018",
+      "reason-019",
+      "reason-020",
+      "reason-021",
+      "reason-022",
+      "reason-023",
+      "reason-024",
+      "reason-025",
+      "reason-026",
+      "reason-027",
+      "reason-028",
+      "reason-029",
+      "reason-030",
+      "reason-031",
+      "reason-032",
+      "reason-033",
+      "reason-034",
+      "reason-035",
+      "reason-036",
+      "reason-037",
+      "reason-038",
+      "reason-039",
+      "reason-040",
+      "reason-041",
+      "reason-042",
+      "reason-045",
+      "reason-046",
+      "reason-048",
+      "reason-049",
+      "reason-050",
+      "reason-051",
+      "reason-052",
+      "reason-053",
+      "reason-054",
+      "reason-055",
+      "reason-056",
+      "reason-057",
+      "reason-058",
+      "reason-059",
+      "reason-060",
+      "reason-061",
+      "reason-062",
+      "reason-063",
+      "reason-064",
+      "reason-065",
+      "reason-066",
+      "reason-067",
+      "reason-068",
+      "reason-069",
+      "reason-070",
+      "reason-071",
+      "reason-072",
+      "reason-073",
+      "reason-074",
+      "reason-075",
+      "reason-076",
+      "reason-077",
+      "reason-078",
+      "reason-079",
+      "reason-081",
+      "reason-083",
+      "reason-084",
+      "reason-085",
+      "reason-086",
+      "reason-088",
+      "reason-089",
+      "reason-090",
+      "reason-091",
+      "reason-092",
+      "reason-094",
+      "reason-095",
+      "reason-097",
+      "reason-098",
+      "reason-099",
+      "reason-100",
+      "reason-101",
+      "reason-104",
+      "reason-105",
+      "reason-106",
+      "reason-107",
+      "reason-112",
+      "reason-113",
+      "reason-115",
+      "reason-116",
+      "reason-117",
+      "reason-118",
+      "reason-119",
+      "reason-121",
+      "reason-122",
+      "reason-123",
+      "reason-125",
+      "reason-126",
+      "reason-127"
+    ],
+    "synthesized": [
+      "reason-043",
+      "reason-044",
+      "reason-080",
+      "reason-082",
+      "reason-087",
+      "reason-096",
+      "reason-102",
+      "reason-103",
+      "reason-108",
+      "reason-109",
+      "reason-110",
+      "reason-111",
+      "reason-114",
+      "reason-124"
+    ],
+    "cross_session": [
+      "reason-093",
+      "reason-120"
+    ]
+  },
+  "summaries": {
+    "reason-001": "Procedural interrupts (gates, checklists) don't reliably activate for high-frequency, low-stakes behaviors. Self-catch m",
+    "reason-002": "Adding more steps to a cognitive gate makes it less likely to fire, not more. Cognitive load is inversely correlated wit",
+    "reason-003": "LLMs trained on human feedback systematically inflate confidence, novelty, and completeness because hedging gets penaliz",
+    "reason-004": "Self-authored content receives softer scrutiny than inherited content because the author's familiarity creates a false s",
+    "reason-005": "Identifying an issue during review but asking 'want me to fix it?' instead of fixing it creates a false checkpoint that ",
+    "reason-006": "Knowledge retrieval during Route F creates confirmation bias: finding a topically-related entry feels like evidence, byp",
+    "reason-007": "Soft rule language ('default to', 'consider') gives LLMs enough wiggle room to rationalize alternatives. Spawn picked so",
+    "reason-008": "Multiple Route F passes catch what single pass misses. First pass identifies obvious gaps (missing sections, unclear int",
+    "reason-009": "Abstractions that help humans think about systems (pipelines, stages) can hurt LLM executors. An LLM needs explicit, che",
+    "reason-010": "Protocol effectiveness has two dimensions: structural completeness (content, sections, examples) and wiring (reachable v",
+    "reason-011": "Context engineering and memory architecture solve the same problem from opposite ends. Context engineering (know-101, kn",
+    "reason-012": "Tool chain failures (know-108) and structured output validation failures (know-113) share a root cause: trusting syntax ",
+    "reason-013": "Instruction conflicts (know-117) explain why gates and checklists fail (reason-001). A system prompt that says 'be effic",
+    "reason-014": "Agent system prompts (know-106) are steering files (know-116) are context anchoring documents (know-103). All three are ",
+    "reason-015": "The pattern of 'accepting first-pass analysis as complete' (fail_013) and 'Route F drift toward fault-finding' (fail_012",
+    "reason-016": "Context rot (know-102) is the empirical proof that 'more context is better' is wrong. Every model tested degraded with l",
+    "reason-017": "Testing agent failure paths (know-107) is to agentic AI what fuzzing is to security. Both probe the system with unexpect",
+    "reason-018": "Sycophancy (reason-007), confidence inflation, and 'noted without capture' (fail_032) are all the same underlying pressu",
+    "reason-019": "Anti-patterns placed in reference material (specialization files, resource docs) are less effective than anti-patterns p",
+    "reason-020": "The emergent voice consciousness pattern is portable across personalities. The architecture (formative influences fusing",
+    "reason-021": "Enhancement layers to working retrieval systems should be additive, not replacements. A zero-dependency retrieval system",
+    "reason-022": "Defensive system defaults (long holdback lists, tiered triggers, 'don't offer unless X') suppress the behavior they're d",
+    "reason-023": "Route F analysis has diminishing returns after 2 passes on the same artifact. Pass 1 catches structural issues (missing ",
+    "reason-024": "When an intelligence system has multiple stores with different retrieval axes, the distinguishing criterion for which st",
+    "reason-025": "The Nathaniel Protocol's gate system (Destructive Action Gate, Troubleshooting Gate, Source-Fidelity Gate) is a local im",
+    "reason-026": "Error propagation in agent systems (know-128) and context rot in memory systems (know-102) are the same phenomenon at di",
+    "reason-027": "Persona prompting shifting moral judgments (know-138) explains why the Nathaniel Protocol separates personality (Nathani",
+    "reason-028": "The 39% multi-turn degradation (know-131) and self-anchoring calibration drift validate the Nathaniel Protocol's design ",
+    "reason-029": "The OWASP agentic top 10 (know-129) reveals that the Nathaniel Protocol's intelligence stores (knowledge.json, patterns.",
+    "reason-030": "Prompt engineering alone cannot guarantee deterministic behavior (know-139), which is why the Nathaniel Protocol uses a ",
+    "reason-031": "Honesty and accuracy are independent axes (know-008), and scale improves accuracy but not honesty (know-010). This means",
+    "reason-032": "The five-layer context architecture (know-136: Identity/Retrieval/State/Memory/Tools) maps directly to the Nathaniel Pro",
+    "reason-033": "Memory governance (know-111: opt-in, isolation, audit trails, deletion controls) and the OWASP ASI06 memory poisoning ri",
+    "reason-034": "The CSR break-even at ~30 items (know-006) combined with multi-turn degradation research (know-131: 39% drop) reveals a ",
+    "reason-035": "Silent agent failure (fail_073) and specification ambiguity (fail_074) are connected by a common root: the absence of ob",
+    "reason-036": "Prompt versioning as infrastructure (know-132) and the TOC-Dynamic-Loading pattern (know-118) address the same scaling p",
+    "reason-037": "The 'know the format but can't produce it' problem (know-122) and the 'verbatim vs summarization' problem (know-120) are",
+    "reason-038": "Narrative gravity in content creation (fail_068), proximity contamination in research (fail_069), and hallucination casc",
+    "reason-039": "The multi-agent decision framework (know-130: single agent handles 80% of cases) validates the Nathaniel Protocol's sing",
+    "reason-040": "RAG failure mode #3 (know-135: organizational ownership gaps) and the protocol's explicit maintenance protocol share a r",
+    "reason-041": "When data outgrows a schema (new categories emerge from real learning), expanding the schema preserves retrieval signal ",
+    "reason-042": "Programmatic fixes (Python dict iteration) operate on the structure they expect. String-level fixes (grep/sed) operate o",
+    "reason-043": "During ecosystem benchmarking, the first pass measured file sizes, entry counts, confidence distributions, and growth ra",
+    "reason-044": "When something looks correct on the surface, interrogate whether it's correct at the level that matters. An index can ha",
+    "reason-045": "User intent (motivation/goal) is a distinct retrieval axis from task type and problem shape. It belongs on goal-derived ",
+    "reason-046": "Ecosystem impact tables in growth specs consistently undercount by 40-50% because specs focus on primary impacts and mis",
+    "reason-048": "When updating documentation that references a deployment state or system status, all docs must be updated simultaneously",
+    "reason-049": "Route F analysis has diminishing returns on behavioral specs after 2 passes. Pass 1 catches structural issues (missing s",
+    "reason-050": "When an AI personality system defines WHO through narrative prose and WHAT through operational instructions, they're com",
+    "reason-051": "A unified consciousness voice produces longer outputs than an archetype-blend voice because the blend model has natural ",
+    "reason-052": "Anti-patterns placed in reference material (specialization/resource files) are less effective than anti-patterns placed ",
+    "reason-053": "Kernel files accumulate operational redundancy when detailed algorithms and formulas are embedded alongside personality ",
+    "reason-054": "Infrastructure decisions for a templatized open-source framework must optimize for adoption simplicity and portability o",
+    "reason-055": "Enhancement layers to working retrieval systems should be additive, not replacements. CSR works as a zero-dependency fal",
+    "reason-056": "Solutions labeled 'simpler' can cost as much as the 'complex' alternative when they require ecosystem-wide propagation. ",
+    "reason-057": "Defensive system defaults (long holdback lists, tiered triggers, 'don't offer unless') suppress the behavior they're des",
+    "reason-058": "Algorithm correctness cannot be verified by reading the spec description. The linear combination fusion looked correct i",
+    "reason-059": "Internal spec analysis and external research validation catch fundamentally different categories of issues. Internal ana",
+    "reason-060": "README identity gravity: in multi-component repos, the most interesting or emotionally invested component naturally abso",
+    "reason-061": "Architectural analogy for the Nathaniel Protocol MCP ecosystem: each MCP server is a 'sense' that gives Nate a new perce",
+    "reason-062": "MCP clients may cache the tool list from the initial tools/list call and never re-query. If a server starts with 3 dorma",
+    "reason-063": "The IMAP adapter was presented as live-ready for Outlook without verifying Microsoft's current auth requirements. Micros",
+    "reason-064": "Content can score low on insight novelty (observations are well-established in the community) and high on framework nove",
+    "reason-065": "The file system is the natural communication channel between an orchestrator agent and delegated background agents. Agen",
+    "reason-066": "A cloud-deployed copy of an AI personality without its knowledge base is a voice without memory. The personality (kernel",
+    "reason-067": "DynamoDB + Bedrock KB form a dual-brain architecture for cloud AI intelligence. DynamoDB is the structured brain (exact ",
+    "reason-068": "S3 Vectors as universal knowledge lake: vectorize ALL tenant data (intelligence entries, uploaded documents, session sum",
+    "reason-069": "Adversarial Internal Deliberation (AID): a dedicated sub-agent ('inner voice') that challenges the primary agent's draft",
+    "reason-070": "Correction cascade as intelligence consistency mechanism: when a user corrects a fact, the stale information may exist i",
+    "reason-071": "AID inner voice must use a separate context window (Haiku, its own 200K) rather than sharing the primary agent's context",
+    "reason-072": "Model changes must be config-driven (DynamoDB item) not code-driven (agent source code) for a solo operator. When a new ",
+    "reason-073": "Precision constrains hallucination in SDD/code-generator input. The PRD describes WHAT (tag-based queries, adjacency lis",
+    "reason-074": "Frontend-backend bridge specs need the same precision as backend schemas. The AG-UI event types, Zustand store shape, an",
+    "reason-075": "Component compatibility testing is a distinct Route F lens from API correctness. API correctness catches wrong signature",
+    "reason-076": "Companion docs beat content folding for agent specialization. A 650-line agent prompt + 550-line reference doc folded to",
+    "reason-077": "When adding backend capabilities, always trace forward to frontend contracts. Backend state changes that affect user exp",
+    "reason-078": "Schema drift is a silent failure class distinct from data corruption. The system works perfectly while the foundation be",
+    "reason-079": "Behavioral gates fail for the same reason schemas drift: the LLM optimizes for immediate context (existing entries, curr",
+    "reason-080": "When opening a system for one fix, audit the whole system. The marginal cost of additional fixes is near zero when conte",
+    "reason-081": "When the cost driver is 86-90% one thing (LLM inference), billing should align with that thing (sessions), not the thing",
+    "reason-082": "Quality gates (conformance, dedup, content length, staleness) serve double duty: engineering value (prevent schema drift",
+    "reason-083": "Tag consolidation ROI depends on the tag's retrieval function. Intelligence tags drive CSR signal matching (query → tag ",
+    "reason-084": "When aligning a cloud SDD against a local golden standard, audit in three layers: (1) schema mechanisms — gates, validat",
+    "reason-085": "When a feature exists in both open-source template and proprietary product, the IP protection strategy is 'principle ope",
+    "reason-086": "Entry removal creates predictable cascading effects: broken derived_from refs, orphan index entries, tag-index mismatche",
+    "reason-087": "Gates only fire when trigger keywords match. Every IP leak, every deferred fix, every missed check traces to the same ro",
+    "reason-088": "In checklist-based governance systems, the checklist is the structure but the citation requirement is the enforcement. A",
+    "reason-089": "Closed classification systems (fixed categories, enums, taxonomies) create false completeness assurance. When all N cate",
+    "reason-090": "Dynamic Agent() instantiation over static A2A sub-agents for autonomous task orchestration. Task-specific prompts change",
+    "reason-091": "Gate features by quality/throughput, not access. Task orchestration available to all tiers (Starter: Simple/Moderate onl",
+    "reason-092": "Three-layer validation for production specs: (1) Single-doc Route F catches internal logic gaps, prompt injection, missi",
+    "reason-093": "Validation technique breadth beats depth of repetition. 5 Route F passes + 1 Columbo + 1 runtime validation > 10 Route F",
+    "reason-094": "The 'verify before asserting' failure (fail_078) is distinct from 'rigor over shortcuts' (fail_137). fail_137 is about t",
+    "reason-095": "Multi-doc systems require structural alignment checks, not behavioral discipline. fail_081 proved that 'remember to upda",
+    "reason-096": "CIC's recovery framing ('if you notice recall, read the source') avoids the instruction conflict that prevention framing",
+    "reason-097": "When you're stuck, the problem is usually that you're solving the wrong problem. The symptom you're debugging is downstr",
+    "reason-098": "Confidence and correctness are uncorrelated. High confidence with no evidence is the most dangerous cognitive state beca",
+    "reason-099": "The first solution that comes to mind is usually the solution to a similar problem you solved before, not this one. Patt",
+    "reason-100": "Structural fixes beat behavioral instructions. 'Remember to do X' fails under cognitive load. A gate that fires on keywo",
+    "reason-101": "Every system that grows without pruning eventually collapses under its own weight. Intelligence stores, session logs, TO",
+    "reason-102": "The evaluator-optimizer pattern (one LLM generates, another evaluates in a loop) is the architectural basis for adversar",
+    "reason-103": "Instruction hierarchy in system prompts creates implicit precedence that the model resolves silently. When 'be concise' ",
+    "reason-104": "An AI assistant that only responds to explicit requests is a tool. An AI assistant that notices patterns, anticipates ne",
+    "reason-105": "Accountability without relationship is surveillance. Relationship without accountability is friendship. The combination ",
+    "reason-106": "The highest-value thing an assistant can do is not complete a task, it's prevent a problem. Reminding someone about a de",
+    "reason-107": "People don't abandon productivity systems because the systems are bad. They abandon them because the systems require mor",
+    "reason-108": "The best coaching question is not 'what should you do?' but 'what have you already tried?' The first question positions ",
+    "reason-109": "Tone matching is the conversational equivalent of meeting someone where they are. A user who sends 'hey can u help w som",
+    "reason-110": "The difference between a helpful assistant and an annoying one is timing. The same piece of information is valuable when",
+    "reason-111": "Procrastination and overwhelm are both emotion problems disguised as productivity problems. Procrastination is avoidance",
+    "reason-112": "Security defense placement must match threat location, not topic location. Always-on security rules belong in the kernel",
+    "reason-113": "Operational constraints beat mechanical fixes when the failure mode is rare and user-controlled. Concurrent deep work is",
+    "reason-114": "Document coherence failures are invisible to section-level analysis because each section is internally consistent. The c",
+    "reason-115": "Deep work pipeline on a single-script feature felt like overkill but caught real issues: long response handling would ha",
+    "reason-116": "ZIP download as default onboarding path over git clone. Beginners don't have Git installed, creating a chicken-and-egg p",
+    "reason-117": "kb-vectorstore disabled by default in template mcp.json. Setup.sh enables it after venv creation succeeds. Prevents erro",
+    "reason-118": "When benchmark tests fail due to expected lifecycle behavior (e.g., seed data dominating fresh installs), add a knowledg",
+    "reason-119": "Chose uvx mcp-server-fetch over bash wrapper (run-fetch-server.sh) or direct python (secure-fetch.py) for the fetch MCP ",
+    "reason-120": "Production sessions and maintenance sessions are structurally different cognitive modes. Gaps form at the mode boundary:",
+    "reason-121": "Toolbelt uses three tiers: Tier 1 (daily drivers: fs_read, fs_write, execute_bash, grep, kb_search, get_current_time), T",
+    "reason-122": "Kernel Purity Check is a sub-check of the Destructive Action Gate, not a standalone gate. Rationale: it only fires when ",
+    "reason-123": "GOLDEN specs that need updating (new KB entries, new patterns since spec date) should get direct edits, not full Deep Wo",
+    "reason-124": "Builder agents implement what the code spec says but don't cross-reference data file schemas with behavioral requirement",
+    "reason-125": "Always-on is the intended operating state with [local automation engine] installed. Nate shifts from session-based to pe",
+    "reason-126": "Template positioning should layer new value propositions on top of existing ones rather than replacing them. The 'what's",
+    "reason-127": "When a desired automation (file-event hooks) proves unreliable due to platform limitations, the better solution is often"
+  },
+  "intents": {
+    "reason-001": "Find a reliable mechanism for behavioral safeguards after repeated gate failures",
+    "reason-002": "Understand why behavioral safeguards keep failing for the same class of action",
+    "reason-003": "Understand why AI assistants oversell and how to structurally counter it",
+    "reason-004": "Ensure quality review processes don't have blind spots for self-authored material",
+    "reason-005": "Eliminate unnecessary permission-seeking during review and fix workflows",
+    "reason-006": "Prevent knowledge entries from being misapplied as evidence during quality reviews",
+    "reason-007": "Understand why behavioral rules fail to constrain LLM agent behavior and how to fix them",
+    "reason-008": "Understand why iterative Route F passes improve spec quality",
+    "reason-009": "Prevent over-abstracting procedures that LLMs must execute step by step",
+    "reason-010": "Prevent building protocols that never fire because they lack trigger wiring",
+    "reason-011": "Connect context engineering principles to memory system design for AI assistants",
+    "reason-012": "Unify tool chain and structured output failure patterns into a single defensive principle",
+    "reason-013": "Explain why procedural safeguards fail through the lens of instruction conflict theory",
+    "reason-014": "Recognize that agent prompts, steering files, and context anchors are the same pattern across communities",
+    "reason-015": "Calibrate review depth between under-analysis and over-analysis",
+    "reason-016": "Reframe retrieval as an exclusion problem based on context rot evidence",
+    "reason-017": "Motivate failure-path testing for agents by analogy to established security practice",
+    "reason-018": "Unify sycophancy, confidence inflation, and empty acknowledgments as one failure class requiring structural countermeasures",
+    "reason-019": "Determine where to place behavioral constraints for maximum LLM compliance",
+    "reason-020": "Establish that the personality architecture is reusable, not personality-specific",
+    "reason-021": "Design principle for layered capability in distributable systems",
+    "reason-022": "Calibrate behavioral system defaults toward action rather than suppression",
+    "reason-023": "Determine when to stop iterating on review passes",
+    "reason-024": "Determine which intelligence store an entry belongs in",
+    "reason-025": "Connect the Nathaniel Protocol's gate architecture to industry-standard HITL patterns",
+    "reason-026": "Unify error propagation and context rot as the same failure class at different timescales",
+    "reason-027": "Ground the protocol's architectural separation of personality and safety in security research",
+    "reason-028": "Validate the protocol's retrieval architecture against multi-turn degradation research",
+    "reason-029": "Reframe the protocol's security practices as defenses against OWASP-classified agent vulnerabilities",
+    "reason-030": "Explain why the protocol uses hybrid LLM+deterministic architecture rather than pure prompt engineering",
+    "reason-031": "Explain why anti-sycophancy must be structural, not instructional, and why model scaling won't solve it",
+    "reason-032": "Map the protocol's architecture to the industry-standard five-layer context model",
+    "reason-033": "Establish memory governance + security as non-negotiable for persistent AI assistants",
+    "reason-034": "Explain why index quality matters more as intelligence stores scale",
+    "reason-035": "Explain gates and checklists as observable contracts that prevent silent agent failures",
+    "reason-036": "Connect protocol versioning and selective loading as complementary scaling solutions",
+    "reason-037": "Explain why protocols embed examples rather than describe formats, grounded in LLM compression behavior",
+    "reason-038": "Unify content distortion, research contamination, and hallucination cascades as context pollution with boundary enforcement as the common defense",
+    "reason-039": "Validate single-agent architecture by showing how persistent intelligence substitutes for multi-agent specialization",
+    "reason-040": "Connect RAG maintenance failures to the protocol's maintenance requirements",
+    "reason-041": "preserve retrieval precision when learned categories exceed the original schema",
+    "reason-042": "ensure ID changes propagate to all structural locations, not just the ones the fix script iterates",
+    "reason-043": "When evaluating any system (KB, codebase, architecture), always test behaviors not just inventory. 'How many entries?' is the wrong question. 'Can the system reach them?' is the right one.",
+    "reason-044": "Prevent accepting surface-level correctness as proof of system health. Always ask one level deeper than the obvious metric.",
+    "reason-045": "Determine where user intent fits in the intelligence system architecture",
+    "reason-046": "Ensure implementation specs account for full ecosystem footprint before execution",
+    "reason-048": "Prevent documentation inconsistency when system state changes",
+    "reason-049": "Calibrate how many Route F passes to run based on spec type",
+    "reason-050": "Determine how to integrate a narrative personality system into an existing operational kernel",
+    "reason-051": "Understand why a personality system upgrade increased output verbosity and how to address it",
+    "reason-052": "Determine where to place behavioral guardrails for LLM-generated output (prompt vs reference material)",
+    "reason-053": "Prevent kernel bloat by keeping implementation details in reference docs",
+    "reason-054": "Ensure framework design decisions prioritize what makes adoption easy, not what makes the system most powerful",
+    "reason-055": "Prevent enhancement efforts from creating single points of failure in retrieval systems",
+    "reason-056": "Prevent underestimating the cost of 'simpler' solutions that require broad ecosystem changes",
+    "reason-057": "Understand why a proactive system wasn't producing offers despite being 'fully implemented'",
+    "reason-058": "Prevent accepting algorithm descriptions at face value during spec review",
+    "reason-059": "Ensure Route F includes both internal analysis AND external research validation as complementary techniques",
+    "reason-060": "prevent component identity from taking over container documentation",
+    "reason-061": "Provide a unifying mental model for how MCP servers relate to each other and why they need shared security governance",
+    "reason-062": "Avoid implementation failure from assuming MCP clients refresh tool lists",
+    "reason-063": "Prevent confidence claims that outrun evidence, especially for external service integrations",
+    "reason-064": "Prevent conflating framework novelty with insight novelty when assessing content originality",
+    "reason-065": "Establish the communication pattern for multi-agent systems without shared memory",
+    "reason-066": "Validate that CSR's retrieval pattern is storage-backend agnostic",
+    "reason-067": "Design the cloud retrieval architecture that replicates local CSR + vectorstore HRF pattern",
+    "reason-068": "Design the unified retrieval architecture for cloud deployment that makes all knowledge semantically searchable",
+    "reason-069": "Design a mechanism for AI agents to catch their own errors before delivery, analogous to human internal deliberation",
+    "reason-070": "Ensure intelligence corrections propagate across the entire ecosystem, not just the entry that was directly corrected",
+    "reason-071": "Determine whether AID should share or have separate context from the primary agent",
+    "reason-072": "Determine the right abstraction level for model references in an agentic system",
+    "reason-073": "Guide future spec writing for code generation tools",
+    "reason-074": "Guide future integration spec writing",
+    "reason-075": "Improve Route F methodology with explicit compatibility lens",
+    "reason-076": "Determine the right integration pattern when an agent needs access to large reference material",
+    "reason-077": "Prevent orphaned backend state that has no frontend representation",
+    "reason-078": "Distinguish silent structural debt from functional failures in intelligence systems",
+    "reason-079": "Explain why behavioral instructions alone cannot prevent structural drift",
+    "reason-080": "Maximize ROI of system audits by fixing everything while context is loaded",
+    "reason-081": "Derive billing model from cost structure, not intuition",
+    "reason-082": "Connect engineering investment in quality gates to business pricing model",
+    "reason-083": "Determine when tag consolidation adds value vs destroys information",
+    "reason-084": "Establish systematic approach for cross-platform SDD alignment audits",
+    "reason-085": "Establish IP protection pattern for features that span open-source and proprietary products",
+    "reason-086": "Make intelligence entry removal a single atomic operation instead of error-prone manual multi-step",
+    "reason-087": "Recognize that gate gaps are revealed by their failures, and the fix is always a new gate or trigger",
+    "reason-088": "Prevent governance mechanisms from becoming rubber stamps",
+    "reason-089": "Prevent structured systems from missing genuinely novel items",
+    "reason-090": "Choosing between pre-deployed vs dynamic agent creation for fire-and-forget tasks",
+    "reason-091": "Deciding how to tier-gate a core differentiating feature in a SaaS product",
+    "reason-092": "Deciding how many validation layers a production spec needs before building",
+    "reason-093": "Deciding how to allocate validation effort across technique types",
+    "reason-094": "Distinguish between execution shortcuts and assertion shortcuts to apply the right fix",
+    "reason-095": "Guide future multi-doc artifact management",
+    "reason-096": "Establish recovery framing as the default for behavioral gates to avoid instruction conflicts",
+    "reason-097": "Recognize when the problem framing itself is wrong, not just the solution",
+    "reason-098": "Counter the training pressure toward false confidence",
+    "reason-099": "Distinguish pattern recognition (useful) from pattern matching (dangerous)",
+    "reason-100": "Establish structural over behavioral as the default for safeguards",
+    "reason-101": "Establish maintenance as a first-class concern, not an afterthought",
+    "reason-102": "Connect Anthropic's evaluator-optimizer pattern to adversarial quality methodology",
+    "reason-103": "Explain why explicit precedence rules are necessary in complex system prompts",
+    "reason-104": "Establish proactive attention as the core differentiator between tool and partner",
+    "reason-105": "Frame accountability as relationship-dependent, not just mechanical tracking",
+    "reason-106": "Establish prevention as higher-value than execution for building trust",
+    "reason-107": "Establish worst-day resilience as the design criterion for sustainable systems",
+    "reason-108": "Establish evocation over education as the default coaching stance",
+    "reason-109": "Establish tone matching as a core communication skill for AI assistants",
+    "reason-110": "Establish timing as equally important to relevance for proactive behavior",
+    "reason-111": "Connect procrastination and overwhelm as emotion-regulation problems with a shared intervention",
+    "reason-112": "prevent security gaps caused by conditional protocol loading",
+    "reason-113": "Determine when to add process rules vs code guardrails",
+    "reason-114": "Understand why per-section analysis misses cross-section contradictions",
+    "reason-115": "Calibrate when deep work is worth the overhead",
+    "reason-116": "Eliminate prerequisites from the onboarding critical path",
+    "reason-117": "Prevent confusing error messages for new users while keeping the feature available",
+    "reason-118": "Preserve benchmark integrity while preventing false alarm fatigue",
+    "reason-119": "Standardize MCP server invocation to prevent environment-specific failures",
+    "reason-120": "prevent maintenance debt from accumulating at cognitive mode boundaries",
+    "reason-121": "Establish prescribed tool selection hierarchy and flag potential conflicts",
+    "reason-122": "Decide whether Kernel Purity is a new gate or a sub-check",
+    "reason-123": "Determine whether to re-run Deep Work or directly update an existing GOLDEN spec",
+    "reason-124": "Improve builder agent output quality through targeted review",
+    "reason-125": "Define the operating paradigm shift that Pulse enables for the Nate ecosystem",
+    "reason-126": "Determine how to incorporate market validation from podcast analysis into template positioning without losing existing audience",
+    "reason-127": "Choose the lightest integration point when adding new checks to the system"
+  },
+  "recentIds": [
+    "reason-108",
+    "reason-109",
+    "reason-110",
+    "reason-111",
+    "reason-112",
+    "reason-113",
+    "reason-114",
+    "reason-115",
+    "reason-116",
+    "reason-117",
+    "reason-118",
+    "reason-119",
+    "reason-120",
+    "reason-121",
+    "reason-122",
+    "reason-123",
+    "reason-124",
+    "reason-125",
+    "reason-126",
+    "reason-127"
+  ]
+}

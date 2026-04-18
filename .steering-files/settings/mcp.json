@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "get_current_time"
+      ]
+    },
+    "fetch": {
+      "command": "python",
+      "args": [
+        "scripts/secure-fetch.py"
+      ],
+      "disabled": false,
+      "autoApprove": []
+    },
+    "kb-vectorstore": {
+      "command": "bash",
+      "args": [
+        "Nate's-kb/vectorstore/run-server.sh"
+      ],
+      "disabled": false,
+      "autoApprove": [
+        "kb_search"
+      ]
+    }
+  }
+}

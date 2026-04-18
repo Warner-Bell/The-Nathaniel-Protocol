@@ -1,0 +1,266 @@
+{
+  "stats": {
+    "totalEntries": 24,
+    "activeEntries": 24,
+    "stale_candidates": 0,
+    "nextId": 25
+  },
+  "byType": {
+    "preference": [
+      "mem-001",
+      "mem-002",
+      "mem-004",
+      "mem-005",
+      "mem-006",
+      "mem-007",
+      "mem-008",
+      "mem-009",
+      "mem-010",
+      "mem-011",
+      "mem-014",
+      "mem-015",
+      "mem-016",
+      "mem-017",
+      "mem-018",
+      "mem-020",
+      "mem-021",
+      "mem-022",
+      "mem-024"
+    ],
+    "decision": [
+      "mem-003",
+      "mem-019"
+    ],
+    "critical_safety": [
+      "mem-012"
+    ],
+    "learning": [
+      "mem-013"
+    ],
+    "correction": [
+      "mem-023"
+    ]
+  },
+  "byTag": {
+    "communication": [
+      "mem-001",
+      "mem-003",
+      "mem-009",
+      "mem-016"
+    ],
+    "style": [
+      "mem-001",
+      "mem-002",
+      "mem-009"
+    ],
+    "workflow": [
+      "mem-002",
+      "mem-004",
+      "mem-006",
+      "mem-007",
+      "mem-008",
+      "mem-017",
+      "mem-018",
+      "mem-019",
+      "mem-020",
+      "mem-021"
+    ],
+    "mode-switching": [
+      "mem-003"
+    ],
+    "development": [
+      "mem-004"
+    ],
+    "testing": [
+      "mem-004",
+      "mem-006",
+      "mem-023"
+    ],
+    "decision-making": [
+      "mem-005",
+      "mem-024"
+    ],
+    "problem-solving": [
+      "mem-005",
+      "mem-007"
+    ],
+    "validation": [
+      "mem-006",
+      "mem-010",
+      "mem-023"
+    ],
+    "quality-control": [
+      "mem-008",
+      "mem-010"
+    ],
+    "route-f": [
+      "mem-008",
+      "mem-013",
+      "mem-022"
+    ],
+    "feedback": [
+      "mem-009"
+    ],
+    "technical-excellence": [
+      "mem-010"
+    ],
+    "security": [
+      "mem-011"
+    ],
+    "confidentiality": [
+      "mem-011"
+    ],
+    "safety": [
+      "mem-012"
+    ],
+    "intelligence-system": [
+      "mem-012"
+    ],
+    "file-protection": [
+      "mem-012"
+    ],
+    "critical-error-prevention": [
+      "mem-012"
+    ],
+    "analysis": [
+      "mem-013"
+    ],
+    "self-correction": [
+      "mem-013",
+      "mem-020"
+    ],
+    "accuracy": [
+      "mem-014",
+      "mem-015"
+    ],
+    "context-priority": [
+      "mem-014"
+    ],
+    "trust-optimization": [
+      "mem-014",
+      "mem-015"
+    ],
+    "grounding": [
+      "mem-014"
+    ],
+    "self-analysis": [
+      "mem-015"
+    ],
+    "error-handling": [
+      "mem-015"
+    ],
+    "python": [
+      "mem-016"
+    ],
+    "code-explanation": [
+      "mem-016"
+    ],
+    "learning": [
+      "mem-016"
+    ],
+    "strands-agents": [
+      "mem-016"
+    ],
+    "save": [
+      "mem-017"
+    ],
+    "context-management": [
+      "mem-017"
+    ],
+    "discipline": [
+      "mem-017"
+    ],
+    "drafting": [
+      "mem-018"
+    ],
+    "surveys": [
+      "mem-018"
+    ],
+    "voice": [
+      "mem-018"
+    ],
+    "authenticity": [
+      "mem-018"
+    ],
+    "kernel": [
+      "mem-019"
+    ],
+    "propagation": [
+      "mem-019"
+    ],
+    "template": [
+      "mem-019"
+    ],
+    "nathaniel-protocol": [
+      "mem-019"
+    ],
+    "tool-awareness": [
+      "mem-020"
+    ],
+    "proactive-offering": [
+      "mem-021"
+    ],
+    "preference": [
+      "mem-021"
+    ],
+    "analysis-quality": [
+      "mem-022"
+    ],
+    "user-standard": [
+      "mem-022"
+    ],
+    "clarity": [
+      "mem-022"
+    ],
+    "benchmark": [
+      "mem-023"
+    ],
+    "methodology": [
+      "mem-023"
+    ],
+    "governance": [
+      "mem-024"
+    ],
+    "design-principle": [
+      "mem-024"
+    ]
+  },
+  "summaries": {
+    "mem-001": "Prefers direct communication, no fluff",
+    "mem-002": "Prefers iterative refinement over big reveals",
+    "mem-003": "Keep mode switching implicit, minimal announcements",
+    "mem-004": "Prefers testing at each development phase",
+    "mem-005": "Prefers 'do both' comprehensive solutions over single options",
+    "mem-006": "Values comprehensive testing and systematic validation",
+    "mem-007": "Prefers immediate gap remediation over deferral",
+    "mem-008": "Requires confirmation before destructive changes (deletions, major restructuring)",
+    "mem-009": "Dislikes excessive agreement phrases like 'You're absolutely right' - prefers direct acknowledgment ",
+    "mem-010": "Values comprehensive technical validation using multiple authoritative sources",
+    "mem-011": "Treats account numbers and sensitive identifiers as confidential information requiring masking in al",
+    "mem-012": "NEVER modify intelligence system files without reading them first - patterns.md contains weeks of ir",
+    "mem-013": "Route F should ask 'is this working?' before 'what's wrong?' - evaluate against actual purpose, not ",
+    "mem-014": "Prioritize explicit context over training priors - when timestamps, dates, or facts are provided in ",
+    "mem-015": "When errors occur, dig into actual mechanics unprompted - avoid engagement-optimized excuses ('just ",
+    "mem-016": "When explaining Python code, use 'human-readable' conversational format. Walk through what each sect",
+    "mem-017": "Save every session before context hits 70%. Skipping saves causes changes to be missed. Be diligent ",
+    "mem-018": "When user requests drafts for surveys, feedback forms, or peer evaluations, draft in user's voice us",
+    "mem-019": "Kernel changes must propagate to BOTH .kiro/steering/Nathaniel.md (live) AND Nate's-kb/The-Nathaniel",
+    "mem-020": "Always check ALL available tools before claiming inability. web_search, web_fetch, bash, AWS tools a",
+    "mem-021": "Proactive offers should number options (1, 2, 3) so user can pick by number. Angle-first default: lo",
+    "mem-022": "Route F analysis must reach honest comparative verdict level - side-by-side with concrete dimensions",
+    "mem-023": "Validate against the full distribution, not cherry-picked edge cases. User corrected Nate when he te",
+    "mem-024": "Never sacrifice stability, security, observability, or governance for speed or convenience. This is "
+  },
+  "recentIds": [
+    "mem-015",
+    "mem-016",
+    "mem-017",
+    "mem-018",
+    "mem-019",
+    "mem-020",
+    "mem-021",
+    "mem-022",
+    "mem-023",
+    "mem-024"
+  ]
+}

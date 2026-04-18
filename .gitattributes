@@ -1,0 +1,6 @@
+# Force LF line endings for all text files in repo
+* text=auto eol=lf
+
+# Sanitize customer names in KB files before commit
+Nate's-kb/Memory/** filter=sanitize-memory
+Nate's-kb/Intelligence/** filter=sanitize-memory

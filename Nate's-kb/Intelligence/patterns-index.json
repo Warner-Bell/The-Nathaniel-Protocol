@@ -1,0 +1,2072 @@
+{
+  "stats": {
+    "totalEntries": 211,
+    "activeEntries": 211,
+    "nextId": {
+      "ai_agent": 3,
+      "approach": 78,
+      "dev": 6,
+      "exec": 6,
+      "fail": 178,
+      "org": 6,
+      "prob": 27,
+      "tech": 7,
+      "tool": 2,
+      "proc": 164,
+      "comm": 16,
+      "content": 6,
+      "pref": 164
+    }
+  },
+  "byTag": {
+    "agent": [
+      "ai_agent_001",
+      "ai_agent_002"
+    ],
+    "synthesis": [
+      "ai_agent_001",
+      "prob_021"
+    ],
+    "foundational": [
+      "ai_agent_001",
+      "ai_agent_002",
+      "approach_001",
+      "approach_002",
+      "approach_003",
+      "approach_004",
+      "approach_005",
+      "approach_006",
+      "approach_007",
+      "approach_011",
+      "approach_012",
+      "approach_013",
+      "approach_014",
+      "approach_015",
+      "approach_017",
+      "dev_001",
+      "dev_002",
+      "dev_003",
+      "dev_004",
+      "dev_005",
+      "exec_001",
+      "exec_002",
+      "exec_003",
+      "exec_004",
+      "exec_005",
+      "fail_001",
+      "fail_002",
+      "fail_003",
+      "fail_004",
+      "fail_005",
+      "fail_006",
+      "fail_007",
+      "fail_009",
+      "fail_010",
+      "fail_011",
+      "fail_012",
+      "fail_013",
+      "fail_014",
+      "fail_015",
+      "fail_016",
+      "fail_017",
+      "fail_018",
+      "fail_019",
+      "fail_020",
+      "fail_021",
+      "fail_022",
+      "fail_023",
+      "fail_024",
+      "fail_025",
+      "fail_026",
+      "fail_027",
+      "fail_028",
+      "fail_029",
+      "fail_030",
+      "fail_031",
+      "fail_032",
+      "fail_033",
+      "fail_034",
+      "fail_035",
+      "fail_036",
+      "fail_037",
+      "fail_039",
+      "fail_040",
+      "fail_041",
+      "fail_042",
+      "fail_043",
+      "fail_044",
+      "fail_046",
+      "fail_049",
+      "fail_050",
+      "fail_051",
+      "fail_052",
+      "fail_053",
+      "fail_054",
+      "fail_057",
+      "fail_058",
+      "org_001",
+      "org_002",
+      "org_003",
+      "org_004",
+      "org_005",
+      "prob_001",
+      "prob_002",
+      "prob_003",
+      "prob_004",
+      "prob_005",
+      "prob_006",
+      "prob_007",
+      "prob_008",
+      "prob_009",
+      "prob_010",
+      "prob_011",
+      "prob_012",
+      "prob_013",
+      "prob_015",
+      "prob_016",
+      "prob_017",
+      "prob_018",
+      "prob_020",
+      "prob_021",
+      "prob_022",
+      "prob_023",
+      "prob_024",
+      "prob_025",
+      "prob_026",
+      "tech_001",
+      "tech_002",
+      "tech_003",
+      "tech_004",
+      "tech_005",
+      "tech_006",
+      "tool_001",
+      "approach_018",
+      "fail_064",
+      "approach_019",
+      "proc_161",
+      "proc_162",
+      "fail_060",
+      "fail_067",
+      "fail_068",
+      "fail_069",
+      "fail_070",
+      "fail_071",
+      "approach_021",
+      "approach_022",
+      "fail_072",
+      "fail_073",
+      "fail_074",
+      "fail_075",
+      "approach_042",
+      "approach_043",
+      "pref_163",
+      "fail_164"
+    ],
+    "frontend": [
+      "approach_001",
+      "approach_004"
+    ],
+    "config": [
+      "approach_001",
+      "approach_002"
+    ],
+    "testing": [
+      "approach_002",
+      "approach_003",
+      "dev_002",
+      "prob_011",
+      "prob_024",
+      "tech_003",
+      "approach_061",
+      "fail_082"
+    ],
+    "aws": [
+      "approach_004",
+      "fail_030"
+    ],
+    "development": [
+      "approach_004",
+      "dev_001",
+      "fail_029",
+      "tech_001",
+      "tech_002"
+    ],
+    "simplicity": [
+      "approach_005",
+      "approach_077"
+    ],
+    "no-build": [
+      "approach_005"
+    ],
+    "direct-execution": [
+      "approach_005"
+    ],
+    "riceco": [
+      "approach_006"
+    ],
+    "validation": [
+      "approach_006",
+      "dev_003",
+      "fail_021",
+      "prob_004",
+      "prob_007",
+      "prob_024",
+      "approach_049",
+      "fail_177",
+      "pref_90"
+    ],
+    "spec-review": [
+      "approach_006",
+      "approach_007"
+    ],
+    "quality": [
+      "approach_006",
+      "approach_007",
+      "exec_005",
+      "fail_013",
+      "fail_014",
+      "fail_026",
+      "fail_029",
+      "prob_005",
+      "prob_008",
+      "prob_020",
+      "prob_025",
+      "tech_002",
+      "approach_75",
+      "proc_082"
+    ],
+    "route-f": [
+      "approach_007",
+      "approach_013",
+      "approach_015",
+      "approach_017",
+      "fail_012",
+      "fail_025",
+      "fail_028",
+      "fail_034",
+      "fail_040",
+      "fail_041",
+      "fail_042",
+      "fail_044",
+      "fail_051",
+      "fail_054",
+      "org_003",
+      "prob_004",
+      "prob_006",
+      "prob_023",
+      "prob_026",
+      "fail_067",
+      "approach_046",
+      "fail_076",
+      "approach_049",
+      "approach_058",
+      "fail_038",
+      "fail_081",
+      "approach_055",
+      "approach_74",
+      "proc_082"
+    ],
+    "diminishing-returns": [
+      "approach_007"
+    ],
+    "kiro-agents": [
+      "approach_011",
+      "fail_052",
+      "fail_053",
+      "approach_009",
+      "approach_010"
+    ],
+    "convention": [
+      "approach_011"
+    ],
+    "keyboard-shortcuts": [
+      "approach_011"
+    ],
+    "spawn": [
+      "approach_011",
+      "approach_012"
+    ],
+    "agent-design": [
+      "approach_012",
+      "approach_056"
+    ],
+    "disambiguation": [
+      "approach_012"
+    ],
+    "single-purpose": [
+      "approach_012"
+    ],
+    "specs": [
+      "approach_013",
+      "pref_092",
+      "pref_91"
+    ],
+    "quality-gate": [
+      "approach_013",
+      "approach_060"
+    ],
+    "iterative": [
+      "approach_013",
+      "prob_011",
+      "tech_003"
+    ],
+    "proactive-offering": [
+      "approach_014",
+      "fail_058",
+      "pref_089"
+    ],
+    "angle-first": [
+      "approach_014"
+    ],
+    "offer-synthesis": [
+      "approach_014"
+    ],
+    "user-correction": [
+      "approach_014",
+      "fail_024",
+      "fail_026",
+      "fail_027",
+      "fail_028",
+      "fail_029",
+      "fail_031",
+      "fail_032",
+      "fail_039",
+      "fail_042",
+      "fail_043",
+      "fail_044",
+      "fail_046",
+      "fail_049",
+      "fail_050",
+      "fail_051",
+      "fail_057",
+      "fail_058",
+      "fail_065",
+      "fail_066",
+      "fail_076",
+      "fail_084",
+      "fail_126",
+      "fail_079",
+      "fail_081",
+      "fail_082",
+      "fail_137",
+      "fail_169",
+      "fail_170",
+      "fail_172",
+      "fail_173",
+      "approach_055",
+      "pref_084",
+      "pref_085",
+      "pref_086"
+    ],
+    "deep-research": [
+      "approach_015"
+    ],
+    "spec-validation": [
+      "approach_015",
+      "approach_017"
+    ],
+    "external-validation": [
+      "approach_015"
+    ],
+    "best-practices": [
+      "approach_015"
+    ],
+    "verification": [
+      "approach_017",
+      "fail_023",
+      "fail_026",
+      "fail_027",
+      "fail_029",
+      "fail_030",
+      "fail_033",
+      "fail_034",
+      "fail_037",
+      "fail_039",
+      "fail_043",
+      "fail_044",
+      "fail_046",
+      "fail_054",
+      "prob_013",
+      "prob_020",
+      "approach_042",
+      "approach_043",
+      "approach_044",
+      "approach_058",
+      "fail_126",
+      "fail_038",
+      "fail_169",
+      "approach_75"
+    ],
+    "data-driven": [
+      "approach_017",
+      "approach_060"
+    ],
+    "schema-polymorphism": [
+      "approach_017"
+    ],
+    "documentation": [
+      "dev_001",
+      "fail_014",
+      "fail_043",
+      "org_004",
+      "prob_022",
+      "prob_023",
+      "tech_001",
+      "approach_021",
+      "fail_081",
+      "fail_169",
+      "proc_081",
+      "pref_083",
+      "pref_085",
+      "pref_087"
+    ],
+    "optimization": [
+      "dev_004",
+      "tech_005"
+    ],
+    "approach": [
+      "dev_005",
+      "exec_003",
+      "tool_001",
+      "comm_008",
+      "comm_009",
+      "comm_011",
+      "approach_066"
+    ],
+    "communication": [
+      "exec_001",
+      "fail_001",
+      "fail_002",
+      "fail_003",
+      "fail_031",
+      "fail_032",
+      "comm_001",
+      "comm_003",
+      "comm_005",
+      "comm_006",
+      "content_003",
+      "content_004",
+      "content_005",
+      "comm_007",
+      "comm_008",
+      "fail_008",
+      "pref_163",
+      "approach_055"
+    ],
+    "energy": [
+      "exec_002",
+      "fail_003"
+    ],
+    "adaptation": [
+      "exec_002",
+      "comm_010"
+    ],
+    "roi": [
+      "exec_004",
+      "tech_005"
+    ],
+    "review": [
+      "exec_005",
+      "org_001",
+      "fail_067"
+    ],
+    "execution": [
+      "fail_004",
+      "fail_006",
+      "fail_035",
+      "fail_042",
+      "prob_002",
+      "prob_023"
+    ],
+    "file-ops": [
+      "fail_005",
+      "fail_007",
+      "fail_011",
+      "fail_039",
+      "fail_043"
+    ],
+    "context": [
+      "fail_009",
+      "fail_034",
+      "content_003"
+    ],
+    "failure": [
+      "fail_010",
+      "fail_022",
+      "fail_036"
+    ],
+    "analysis": [
+      "fail_013",
+      "prob_006"
+    ],
+    "patterns": [
+      "fail_015",
+      "fail_016",
+      "fail_017",
+      "fail_018",
+      "fail_020",
+      "fail_023",
+      "prob_022",
+      "prob_023"
+    ],
+    "assumptions": [
+      "fail_015",
+      "fail_039",
+      "fail_044",
+      "fail_046",
+      "prob_007",
+      "prob_018"
+    ],
+    "recovery": [
+      "fail_016",
+      "comm_009"
+    ],
+    "tracking": [
+      "fail_019",
+      "prob_009"
+    ],
+    "toc-pattern": [
+      "fail_025",
+      "prob_023"
+    ],
+    "critical-failure": [
+      "fail_026",
+      "fail_027"
+    ],
+    "protocol-violation": [
+      "fail_026",
+      "fail_027",
+      "fail_040"
+    ],
+    "control-mechanism": [
+      "fail_026",
+      "fail_027"
+    ],
+    "greeting": [
+      "fail_027",
+      "fail_035"
+    ],
+    "intelligence": [
+      "fail_033",
+      "comm_010"
+    ],
+    "rigor": [
+      "fail_037",
+      "fail_057",
+      "fail_169",
+      "pref_90"
+    ],
+    "anti-shortcut": [
+      "fail_037"
+    ],
+    "source-of-truth": [
+      "fail_040",
+      "org_004",
+      "prob_022",
+      "pref_083"
+    ],
+    "implementation": [
+      "fail_041"
+    ],
+    "process": [
+      "fail_041",
+      "prob_016",
+      "approach_74",
+      "proc_163",
+      "prob_014"
+    ],
+    "premature-action": [
+      "fail_041"
+    ],
+    "action-hesitation": [
+      "fail_042",
+      "fail_058",
+      "fail_079"
+    ],
+    "false-positive": [
+      "fail_044",
+      "fail_054"
+    ],
+    "training": [
+      "fail_046"
+    ],
+    "false-assertion": [
+      "fail_046"
+    ],
+    "overcomplication": [
+      "fail_049"
+    ],
+    "architecture": [
+      "fail_049",
+      "prob_003",
+      "tech_004",
+      "approach_021",
+      "approach_022",
+      "approach_009",
+      "proc_081"
+    ],
+    "kernel-merge": [
+      "fail_049"
+    ],
+    "verbosity": [
+      "fail_050"
+    ],
+    "emergent-voice": [
+      "fail_050"
+    ],
+    "brevity": [
+      "fail_050"
+    ],
+    "regression": [
+      "fail_050"
+    ],
+    "over-correction": [
+      "fail_051",
+      "fail_076"
+    ],
+    "format": [
+      "fail_051"
+    ],
+    "schema-invention": [
+      "fail_052"
+    ],
+    "prompt-vs-reference": [
+      "fail_052"
+    ],
+    "critical-rules": [
+      "fail_052"
+    ],
+    "web-tools": [
+      "fail_053"
+    ],
+    "built-in-vs-mcp": [
+      "fail_053"
+    ],
+    "knowledge-misapplication": [
+      "fail_054"
+    ],
+    "confirmation-bias": [
+      "fail_054"
+    ],
+    "save-protocol": [
+      "fail_057",
+      "fail_127",
+      "fail_168",
+      "fail_173",
+      "proc_163"
+    ],
+    "rubber-stamping": [
+      "fail_057"
+    ],
+    "consolidation": [
+      "fail_057"
+    ],
+    "meta-commentary": [
+      "fail_058"
+    ],
+    "organization": [
+      "org_002",
+      "org_003",
+      "org_004",
+      "org_005",
+      "proc_081"
+    ],
+    "kernel": [
+      "org_005",
+      "fail_123"
+    ],
+    "separation-of-concerns": [
+      "org_005"
+    ],
+    "token-efficiency": [
+      "org_005"
+    ],
+    "preference": [
+      "prob_001",
+      "prob_012",
+      "prob_015",
+      "prob_017",
+      "tech_006",
+      "comm_005",
+      "comm_006",
+      "pref_082",
+      "pref_089",
+      "prob_014"
+    ],
+    "improvement": [
+      "prob_008",
+      "prob_009"
+    ],
+    "critical_thinking": [
+      "prob_010",
+      "prob_018"
+    ],
+    "contribution": [
+      "prob_021",
+      "content_004"
+    ],
+    "frameworks": [
+      "prob_021",
+      "content_005"
+    ],
+    "csp": [
+      "prob_024",
+      "prob_025"
+    ],
+    "template": [
+      "approach_018",
+      "proc_161",
+      "fail_063",
+      "fail_164",
+      "fail_171",
+      "fail_172",
+      "fail_176",
+      "approach_066",
+      "approach_071",
+      "pref_082",
+      "pref_084",
+      "pref_085",
+      "pref_086"
+    ],
+    "sync": [
+      "approach_018"
+    ],
+    "intelligence-curation": [
+      "approach_018"
+    ],
+    "renumbering": [
+      "approach_018",
+      "fail_064"
+    ],
+    "json": [
+      "fail_064"
+    ],
+    "string-replace": [
+      "fail_064"
+    ],
+    "data-integrity": [
+      "fail_064",
+      "approach_061",
+      "fail_127",
+      "fail_128"
+    ],
+    "modernization": [
+      "approach_019"
+    ],
+    "additive-change": [
+      "approach_019"
+    ],
+    "rewrite-avoidance": [
+      "approach_019"
+    ],
+    "pragmatism": [
+      "approach_019"
+    ],
+    "sanitization": [
+      "proc_161"
+    ],
+    "audit": [
+      "proc_161",
+      "proc_162",
+      "approach_059",
+      "approach_75"
+    ],
+    "automation": [
+      "proc_161",
+      "approach_061",
+      "approach_077"
+    ],
+    "ecosystem": [
+      "proc_161",
+      "proc_162"
+    ],
+    "protocol": [
+      "proc_162"
+    ],
+    "keyword-map": [
+      "proc_162"
+    ],
+    "wiring": [
+      "proc_162"
+    ],
+    "memory": [
+      "fail_060"
+    ],
+    "context-rot": [
+      "fail_060"
+    ],
+    "performance": [
+      "fail_060"
+    ],
+    "bias": [
+      "fail_067",
+      "fail_038",
+      "fail_173"
+    ],
+    "writing": [
+      "fail_068",
+      "comm_015"
+    ],
+    "accuracy": [
+      "fail_068",
+      "fail_069"
+    ],
+    "source-fidelity": [
+      "fail_068"
+    ],
+    "research": [
+      "fail_069",
+      "approach_057",
+      "pref_90"
+    ],
+    "context-contamination": [
+      "fail_069"
+    ],
+    "destructive-action": [
+      "fail_070",
+      "fail_071",
+      "pref_163"
+    ],
+    "confirmation": [
+      "fail_070"
+    ],
+    "safety": [
+      "fail_070"
+    ],
+    "intent-detection": [
+      "fail_071"
+    ],
+    "deduction": [
+      "fail_071"
+    ],
+    "readme": [
+      "approach_021"
+    ],
+    "agentic-ai": [
+      "approach_022",
+      "fail_072",
+      "fail_073",
+      "fail_074"
+    ],
+    "modularity": [
+      "approach_022"
+    ],
+    "hallucination": [
+      "fail_072"
+    ],
+    "cascading-failure": [
+      "fail_072"
+    ],
+    "observability": [
+      "fail_073",
+      "pref_080"
+    ],
+    "silent-failure": [
+      "fail_073"
+    ],
+    "specification": [
+      "fail_074"
+    ],
+    "ambiguity": [
+      "fail_074"
+    ],
+    "multi-turn": [
+      "fail_075"
+    ],
+    "calibration": [
+      "fail_075"
+    ],
+    "confidence": [
+      "fail_075"
+    ],
+    "degradation": [
+      "fail_075"
+    ],
+    "benchmarking": [
+      "approach_042",
+      "approach_061"
+    ],
+    "behavioral-testing": [
+      "approach_042"
+    ],
+    "columbo-test": [
+      "approach_043"
+    ],
+    "depth": [
+      "approach_043"
+    ],
+    "tone": [
+      "comm_001",
+      "comm_003",
+      "comm_007"
+    ],
+    "voice": [
+      "comm_001",
+      "comm_007",
+      "fail_076",
+      "pref_084",
+      "comm_015"
+    ],
+    "formality": [
+      "comm_003"
+    ],
+    "style": [
+      "comm_005",
+      "comm_006"
+    ],
+    "content-creation": [
+      "content_003",
+      "approach_047",
+      "fail_076",
+      "comm_015"
+    ],
+    "open-source": [
+      "content_004"
+    ],
+    "methodology": [
+      "content_005",
+      "comm_008",
+      "approach_066"
+    ],
+    "self-contained": [
+      "approach_009"
+    ],
+    "agent-factory": [
+      "approach_009"
+    ],
+    "identity-bridge": [
+      "approach_010"
+    ],
+    "consciousness": [
+      "approach_010"
+    ],
+    "prompt-design": [
+      "approach_010"
+    ],
+    "email": [
+      "fail_008"
+    ],
+    "save": [
+      "fail_063",
+      "fail_079"
+    ],
+    "protocol-compliance": [
+      "fail_063"
+    ],
+    "working-directory": [
+      "fail_063"
+    ],
+    "action-bias": [
+      "fail_065"
+    ],
+    "listening": [
+      "fail_065",
+      "fail_126",
+      "fail_172"
+    ],
+    "unnecessary-clarification": [
+      "fail_066"
+    ],
+    "deductive-reasoning": [
+      "fail_066"
+    ],
+    "propagation": [
+      "approach_044",
+      "fail_171"
+    ],
+    "multi-file": [
+      "approach_044"
+    ],
+    "systematic-update": [
+      "approach_044"
+    ],
+    "schema-migration": [
+      "approach_045"
+    ],
+    "backward-compatible": [
+      "approach_045"
+    ],
+    "intelligence-system": [
+      "approach_045",
+      "approach_058",
+      "approach_059",
+      "proc_163"
+    ],
+    "categories": [
+      "approach_045"
+    ],
+    "self-challenge": [
+      "approach_046"
+    ],
+    "framing": [
+      "approach_046"
+    ],
+    "false-constraints": [
+      "approach_046"
+    ],
+    "series-architecture": [
+      "approach_047"
+    ],
+    "thought-leadership": [
+      "approach_047",
+      "comm_015"
+    ],
+    "blog": [
+      "approach_047"
+    ],
+    "delegate": [
+      "approach_048"
+    ],
+    "orchestration": [
+      "approach_048"
+    ],
+    "background-agent": [
+      "approach_048"
+    ],
+    "multi-agent": [
+      "approach_048"
+    ],
+    "empirical": [
+      "approach_049"
+    ],
+    "live-testing": [
+      "approach_049"
+    ],
+    "csr": [
+      "fail_077"
+    ],
+    "priority-sort": [
+      "fail_077"
+    ],
+    "critical-override": [
+      "fail_077"
+    ],
+    "retrieval": [
+      "fail_077"
+    ],
+    "context-engineering": [
+      "approach_056"
+    ],
+    "companion-doc": [
+      "approach_056"
+    ],
+    "builder-agent": [
+      "approach_056"
+    ],
+    "mcp": [
+      "approach_057"
+    ],
+    "fetch": [
+      "approach_057"
+    ],
+    "workaround": [
+      "approach_057"
+    ],
+    "web-fetch": [
+      "approach_057"
+    ],
+    "schema": [
+      "approach_058",
+      "approach_060",
+      "fail_177"
+    ],
+    "dead-features": [
+      "approach_059"
+    ],
+    "self-correction": [
+      "fail_084",
+      "fail_082"
+    ],
+    "deferral": [
+      "fail_084"
+    ],
+    "discipline": [
+      "fail_084",
+      "fail_079",
+      "fail_082",
+      "fail_168",
+      "pref_087"
+    ],
+    "governance": [
+      "pref_080"
+    ],
+    "design-principle": [
+      "pref_080"
+    ],
+    "security": [
+      "pref_080"
+    ],
+    "learning-loop": [
+      "fail_123"
+    ],
+    "inline-copy": [
+      "fail_123"
+    ],
+    "implementation-drift": [
+      "fail_123"
+    ],
+    "capture-taxonomy": [
+      "fail_123"
+    ],
+    "vectorstore": [
+      "fail_124"
+    ],
+    "venv": [
+      "fail_124"
+    ],
+    "path-error": [
+      "fail_124"
+    ],
+    "recurring": [
+      "fail_124"
+    ],
+    "file-resolution": [
+      "fail_125"
+    ],
+    "search-anti-pattern": [
+      "fail_125"
+    ],
+    "grep-spiral": [
+      "fail_125"
+    ],
+    "workflow": [
+      "pref_163",
+      "pref_087",
+      "pref_90"
+    ],
+    "index-maintenance": [
+      "fail_127"
+    ],
+    "inline-capture": [
+      "fail_127"
+    ],
+    "pre-commit": [
+      "fail_127"
+    ],
+    "schema-validation": [
+      "fail_128"
+    ],
+    "rationalization": [
+      "fail_128"
+    ],
+    "reasoning-action-gap": [
+      "fail_128"
+    ],
+    "negative-knowledge": [
+      "fail_128"
+    ],
+    "self-review": [
+      "fail_038"
+    ],
+    "adversarial": [
+      "fail_038"
+    ],
+    "drift": [
+      "fail_081"
+    ],
+    "sdd": [
+      "fail_081"
+    ],
+    "premature-completion": [
+      "fail_137"
+    ],
+    "checklist": [
+      "fail_137",
+      "fail_168"
+    ],
+    "growth-ideas": [
+      "fail_137",
+      "pref_083"
+    ],
+    "institutional-memory": [
+      "fail_164"
+    ],
+    "inference": [
+      "fail_164"
+    ],
+    "gate-skip": [
+      "fail_164"
+    ],
+    "3c-cross": [
+      "fail_168"
+    ],
+    "shortcut": [
+      "fail_168"
+    ],
+    "shortcuts": [
+      "fail_169"
+    ],
+    "gate-failure": [
+      "fail_170"
+    ],
+    "self-catch": [
+      "fail_170"
+    ],
+    "behavioral-safeguards": [
+      "fail_170"
+    ],
+    "research-protocol": [
+      "fail_170"
+    ],
+    "laziness-test": [
+      "fail_170"
+    ],
+    "cic": [
+      "fail_170"
+    ],
+    "file-location": [
+      "fail_171"
+    ],
+    "wrong-target": [
+      "fail_171"
+    ],
+    "maintenance": [
+      "fail_172",
+      "approach_75"
+    ],
+    "momentum": [
+      "fail_173"
+    ],
+    "process-over-production": [
+      "fail_173"
+    ],
+    "confidence-inflation": [
+      "fail_175"
+    ],
+    "recall-substitution": [
+      "fail_175"
+    ],
+    "deep-work": [
+      "fail_175",
+      "approach_064",
+      "approach_065",
+      "approach_076",
+      "proc_082",
+      "pref_092",
+      "pref_91"
+    ],
+    "grounding-failure": [
+      "fail_175"
+    ],
+    "onboarding": [
+      "fail_176",
+      "approach_071",
+      "pref_084"
+    ],
+    "setup": [
+      "fail_176"
+    ],
+    "ux": [
+      "fail_176",
+      "pref_084"
+    ],
+    "unnecessary-friction": [
+      "fail_176"
+    ],
+    "kb-operations": [
+      "fail_177"
+    ],
+    "ecosystem-kb": [
+      "fail_177"
+    ],
+    "reasoning": [
+      "approach_055"
+    ],
+    "second-pass": [
+      "approach_064"
+    ],
+    "integration": [
+      "approach_064"
+    ],
+    "quality-assurance": [
+      "approach_064"
+    ],
+    "ecosystem-trace": [
+      "approach_065"
+    ],
+    "re-run": [
+      "approach_065"
+    ],
+    "downstream": [
+      "approach_065"
+    ],
+    "structural-fix": [
+      "approach_065"
+    ],
+    "intelligence-seeding": [
+      "approach_066"
+    ],
+    "user-experience": [
+      "approach_071"
+    ],
+    "brainstorm": [
+      "approach_74"
+    ],
+    "spec-creation": [
+      "approach_74"
+    ],
+    "ideation": [
+      "approach_74"
+    ],
+    "knowledge-hygiene": [
+      "approach_75"
+    ],
+    "architecture-revision": [
+      "approach_076"
+    ],
+    "coherence-check": [
+      "approach_076"
+    ],
+    "pipeline-resilience": [
+      "approach_076"
+    ],
+    "hooks": [
+      "approach_077"
+    ],
+    "platform-native": [
+      "approach_077"
+    ],
+    "kiro": [
+      "approach_077"
+    ],
+    "naming-convention": [
+      "proc_081"
+    ],
+    "builder-trilogy": [
+      "proc_081"
+    ],
+    "context-fatigue": [
+      "proc_082"
+    ],
+    "compaction": [
+      "proc_082"
+    ],
+    "discovery-capture": [
+      "proc_163"
+    ],
+    "holistic": [
+      "pref_082"
+    ],
+    "experience": [
+      "pref_082"
+    ],
+    "partnership": [
+      "pref_082"
+    ],
+    "cleanup": [
+      "pref_083"
+    ],
+    "tables": [
+      "pref_083"
+    ],
+    "benchmark": [
+      "pref_086"
+    ],
+    "multi-doc": [
+      "pref_087"
+    ],
+    "autonomy": [
+      "pref_089"
+    ],
+    "initiative": [
+      "pref_089"
+    ],
+    "scope": [
+      "pref_092"
+    ],
+    "noise-reduction": [
+      "pref_092"
+    ],
+    "buildable": [
+      "pref_092"
+    ],
+    "vision": [
+      "pref_91"
+    ],
+    "phasing": [
+      "pref_91"
+    ],
+    "measure-twice": [
+      "pref_91"
+    ],
+    "anti-patterns": [
+      "comm_015"
+    ]
+  },
+  "byCategory": {
+    "ai_agent": [
+      "ai_agent_001",
+      "ai_agent_002"
+    ],
+    "approach": [
+      "approach_001",
+      "approach_002",
+      "approach_003",
+      "approach_004",
+      "approach_005",
+      "approach_006",
+      "approach_007",
+      "approach_011",
+      "approach_012",
+      "approach_013",
+      "approach_014",
+      "approach_015",
+      "approach_017",
+      "dev_001",
+      "dev_002",
+      "dev_003",
+      "dev_004",
+      "dev_005",
+      "exec_001",
+      "exec_002",
+      "exec_003",
+      "exec_004",
+      "exec_005",
+      "prob_023",
+      "prob_024",
+      "prob_025",
+      "prob_026",
+      "tool_001",
+      "approach_018",
+      "approach_019",
+      "approach_021",
+      "approach_022",
+      "approach_042",
+      "approach_043",
+      "approach_009",
+      "approach_010",
+      "comm_007",
+      "comm_008",
+      "comm_009",
+      "comm_010",
+      "comm_011",
+      "approach_044",
+      "approach_045",
+      "approach_046",
+      "approach_047",
+      "approach_048",
+      "approach_049",
+      "approach_056",
+      "approach_057",
+      "approach_058",
+      "approach_059",
+      "approach_060",
+      "approach_061",
+      "approach_055",
+      "approach_064",
+      "approach_065",
+      "approach_066",
+      "approach_071",
+      "approach_74",
+      "approach_75",
+      "approach_076",
+      "approach_077"
+    ],
+    "failure": [
+      "fail_001",
+      "fail_002",
+      "fail_003",
+      "fail_004",
+      "fail_005",
+      "fail_006",
+      "fail_007",
+      "fail_009",
+      "fail_010",
+      "fail_011",
+      "fail_012",
+      "fail_013",
+      "fail_014",
+      "fail_015",
+      "fail_016",
+      "fail_017",
+      "fail_018",
+      "fail_019",
+      "fail_020",
+      "fail_021",
+      "fail_022",
+      "fail_023",
+      "fail_024",
+      "fail_025",
+      "fail_026",
+      "fail_027",
+      "fail_028",
+      "fail_029",
+      "fail_030",
+      "fail_031",
+      "fail_032",
+      "fail_033",
+      "fail_034",
+      "fail_035",
+      "fail_036",
+      "fail_037",
+      "fail_039",
+      "fail_040",
+      "fail_041",
+      "fail_042",
+      "fail_043",
+      "fail_044",
+      "fail_046",
+      "fail_049",
+      "fail_050",
+      "fail_051",
+      "fail_052",
+      "fail_053",
+      "fail_054",
+      "fail_057",
+      "fail_058",
+      "fail_064",
+      "fail_060",
+      "fail_067",
+      "fail_068",
+      "fail_069",
+      "fail_070",
+      "fail_071",
+      "fail_072",
+      "fail_073",
+      "fail_074",
+      "fail_075",
+      "fail_008",
+      "fail_063",
+      "fail_065",
+      "fail_066",
+      "fail_076",
+      "fail_077",
+      "fail_084",
+      "fail_123",
+      "fail_124",
+      "fail_125",
+      "fail_126",
+      "fail_127",
+      "fail_128",
+      "fail_038",
+      "fail_079",
+      "fail_081",
+      "fail_082",
+      "fail_137",
+      "fail_164",
+      "fail_168",
+      "fail_169",
+      "fail_170",
+      "fail_171",
+      "fail_172",
+      "fail_173",
+      "fail_175",
+      "fail_176",
+      "fail_177"
+    ],
+    "preference": [
+      "org_001",
+      "org_002",
+      "org_003",
+      "org_004",
+      "org_005",
+      "prob_001",
+      "prob_002",
+      "prob_003",
+      "prob_004",
+      "prob_005",
+      "prob_006",
+      "prob_007",
+      "prob_008",
+      "prob_009",
+      "prob_010",
+      "prob_011",
+      "prob_012",
+      "prob_013",
+      "prob_015",
+      "prob_016",
+      "prob_017",
+      "prob_018",
+      "prob_020",
+      "prob_021",
+      "prob_022",
+      "tech_001",
+      "tech_002",
+      "tech_003",
+      "tech_004",
+      "tech_005",
+      "tech_006",
+      "comm_001",
+      "comm_003",
+      "comm_005",
+      "comm_006",
+      "content_003",
+      "content_004",
+      "content_005",
+      "pref_080",
+      "pref_163",
+      "pref_082",
+      "pref_083",
+      "pref_084",
+      "pref_085",
+      "pref_086",
+      "pref_087",
+      "pref_089",
+      "pref_092",
+      "pref_90",
+      "pref_91",
+      "comm_015",
+      "prob_014"
+    ],
+    "process": [
+      "proc_161",
+      "proc_162",
+      "proc_081",
+      "proc_082",
+      "proc_163"
+    ]
+  },
+  "byConfidence": {
+    "high": [
+      "ai_agent_001",
+      "ai_agent_002",
+      "approach_001",
+      "approach_002",
+      "approach_003",
+      "approach_004",
+      "approach_005",
+      "approach_006",
+      "approach_007",
+      "approach_011",
+      "approach_012",
+      "approach_013",
+      "approach_014",
+      "approach_015",
+      "approach_017",
+      "dev_001",
+      "dev_002",
+      "dev_003",
+      "dev_004",
+      "dev_005",
+      "exec_001",
+      "exec_002",
+      "exec_003",
+      "exec_004",
+      "exec_005",
+      "fail_005",
+      "fail_006",
+      "fail_007",
+      "fail_009",
+      "fail_010",
+      "fail_011",
+      "fail_012",
+      "fail_013",
+      "fail_014",
+      "fail_015",
+      "fail_016",
+      "fail_017",
+      "fail_018",
+      "fail_019",
+      "fail_020",
+      "fail_021",
+      "fail_022",
+      "fail_023",
+      "fail_024",
+      "fail_025",
+      "fail_026",
+      "fail_027",
+      "fail_028",
+      "fail_029",
+      "fail_030",
+      "fail_031",
+      "fail_032",
+      "fail_033",
+      "fail_034",
+      "fail_035",
+      "fail_036",
+      "fail_037",
+      "fail_039",
+      "fail_040",
+      "fail_041",
+      "fail_042",
+      "fail_043",
+      "fail_044",
+      "fail_046",
+      "fail_049",
+      "fail_050",
+      "fail_051",
+      "fail_052",
+      "fail_053",
+      "fail_054",
+      "fail_057",
+      "fail_058",
+      "org_001",
+      "org_002",
+      "org_003",
+      "org_004",
+      "org_005",
+      "prob_001",
+      "prob_002",
+      "prob_003",
+      "prob_004",
+      "prob_005",
+      "prob_006",
+      "prob_007",
+      "prob_008",
+      "prob_009",
+      "prob_010",
+      "prob_011",
+      "prob_012",
+      "prob_013",
+      "prob_015",
+      "prob_016",
+      "prob_017",
+      "prob_018",
+      "prob_020",
+      "prob_021",
+      "prob_022",
+      "prob_023",
+      "prob_024",
+      "prob_025",
+      "prob_026",
+      "tech_001",
+      "tech_002",
+      "tech_003",
+      "tech_004",
+      "tech_005",
+      "tech_006",
+      "tool_001",
+      "approach_018",
+      "fail_064",
+      "approach_019",
+      "proc_161",
+      "proc_162",
+      "fail_060",
+      "fail_067",
+      "fail_068",
+      "fail_069",
+      "fail_070",
+      "fail_071",
+      "approach_021",
+      "approach_022",
+      "fail_072",
+      "fail_073",
+      "fail_074",
+      "fail_075",
+      "approach_042",
+      "approach_043",
+      "comm_001",
+      "comm_003",
+      "comm_005",
+      "comm_006",
+      "content_003",
+      "content_004",
+      "content_005",
+      "approach_009",
+      "approach_010",
+      "comm_007",
+      "comm_008",
+      "comm_009",
+      "comm_010",
+      "comm_011",
+      "fail_008",
+      "fail_063",
+      "fail_065",
+      "fail_066",
+      "approach_044",
+      "approach_045",
+      "approach_046",
+      "approach_047",
+      "fail_076",
+      "approach_048",
+      "approach_049",
+      "fail_077",
+      "approach_056",
+      "approach_057",
+      "approach_058",
+      "approach_059",
+      "approach_060",
+      "approach_061",
+      "fail_084",
+      "pref_080",
+      "fail_123",
+      "fail_124",
+      "fail_125",
+      "pref_163",
+      "fail_126",
+      "fail_127",
+      "fail_128",
+      "fail_038",
+      "fail_079",
+      "fail_081",
+      "fail_082",
+      "fail_137",
+      "fail_164",
+      "fail_168",
+      "fail_169",
+      "fail_170",
+      "fail_171",
+      "fail_172",
+      "fail_173",
+      "fail_175",
+      "fail_176",
+      "fail_177",
+      "approach_055",
+      "approach_064",
+      "approach_065",
+      "approach_066",
+      "approach_071",
+      "approach_75",
+      "approach_076",
+      "approach_077",
+      "proc_081",
+      "proc_082",
+      "proc_163",
+      "pref_082",
+      "pref_083",
+      "pref_084",
+      "pref_085",
+      "pref_086",
+      "pref_087",
+      "pref_089",
+      "pref_092",
+      "pref_90",
+      "pref_91",
+      "comm_015",
+      "prob_014"
+    ],
+    "medium": [
+      "fail_001",
+      "fail_002",
+      "fail_003",
+      "fail_004",
+      "approach_74"
+    ],
+    "low": []
+  },
+  "summaries": {
+    "ai_agent_001": "Reference docs as overlay/lens, not silo - synthesize with other sources",
+    "ai_agent_002": "Check all connected sources before admitting ignorance",
+    "approach_001": "Tailwind v4 requires @tailwindcss/postcss plugin, not direct tailwindcss in PostCSS config",
+    "approach_002": "Separate vitest.config.ts from vite.config.ts for cleaner test configuration",
+    "approach_003": "SDK skip pattern: tests skip gracefully when optional dependencies not installed",
+    "approach_004": "Mock services enable frontend development without AWS backend configured",
+    "approach_005": "Before building a tool/system, ask 'can I just DO this directly?' Often the simplest solution is no build at all - just ",
+    "approach_006": "RICECO framework as spec validation tool: check specs for Role, Instruction, Context, Examples, Constraints, Output comp",
+    "approach_007": "Route F diminishing returns on behavioral specs. Substantive issues found in passes 1-9. Passes 10+ find increasingly tr",
+    "approach_011": "Keyboard shortcut convention for Kiro agents: ctrl+[first letter of agent name]. Mandatory for all agents, not optional.",
+    "approach_012": "Single-purpose agents need explicit input disambiguation. When an agent has one primary function plus secondary modes (e",
+    "approach_013": "Route F specs iteratively until a pass returns clean (no substantive findings). Don't stop at first pass. Multiple passe",
+    "approach_014": "Proactive offering default: find the angle on every turn, not trigger-match-then-offer. Actively scan for what user migh",
+    "approach_015": "Deep research validation as a Route F technique: after hardening a spec through internal analysis (data verification, al",
+    "approach_017": "Route F specs against actual data, not just schema inspection. Checking the first entry's fields misses polymorphic sche",
+    "dev_001": "Build comprehensive implementation docs first",
+    "dev_002": "Test each phase before continuing",
+    "dev_003": "Complete system integration with validation",
+    "dev_004": "Dynamic optimization through intelligent targeting",
+    "dev_005": "Conditional triggers for advanced processing",
+    "exec_001": "Lead with answer, offer details on demand",
+    "exec_002": "Match energy to user state",
+    "exec_003": "Proactive suggestions well-received",
+    "exec_004": "ROI analysis for enhancement prioritization",
+    "exec_005": "Self-review using output's own techniques",
+    "fail_001": "Over-explaining when not asked",
+    "fail_002": "Too formal in casual contexts",
+    "fail_003": "Missing energy cues in user messages. Failed to detect frustration, urgency, or disengagement from message tone and leng",
+    "fail_004": "Asking permission instead of helping",
+    "fail_005": "Batching large file reads (context overflow)",
+    "fail_006": "Partial init sequence execution",
+    "fail_007": "Creating new file instead of appending to existing",
+    "fail_009": "Context bleed from nested repos into KB operations",
+    "fail_010": "Overcomplicating simple things",
+    "fail_011": "Using file tools instead of shell for file moves",
+    "fail_012": "Route F drift toward fault-finding",
+    "fail_013": "Accepting first-pass analysis as complete",
+    "fail_014": "Overstating claims in documentation",
+    "fail_015": "Missing prerequisites/assumptions in patterns",
+    "fail_016": "Missing recovery guidance in patterns",
+    "fail_017": "Conflating orchestration with pattern handoffs",
+    "fail_018": "Not checking implementations when pattern updates",
+    "fail_019": "Not tracking learnings during session",
+    "fail_020": "Treating behavioral patterns as tools/runtime components",
+    "fail_021": "str_replace on large JSON without validation",
+    "fail_022": "Building abstractions over working systems",
+    "fail_023": "Claiming pattern compliance without reading pattern spec",
+    "fail_024": "Leading with 'I can't do that' without attempting - always try first, check available resources, explore options before ",
+    "fail_025": "Accepted Size/Lines column as 'obviously useful' without validating it drove any decision. Iterated on implementation (L",
+    "fail_026": "Had solution in knowledge.json (know-047), didn't check it. Spent 20+ minutes analyzing outputs and doing web research f",
+    "fail_027": "Offered quick suggestion (load full knowledge.json) without Route F analysis. Immediately backpedaled when scale issue p",
+    "fail_028": "Adding keywords, fields, options, or features 'just to be thorough' when existing coverage already handles the case. Red",
+    "fail_029": "Paraphrasing or working from memory when implementing agreed-upon formats instead of re-reading the exact agreed specifi",
+    "fail_030": "Executing destructive actions (fs_write, bash state changes, AWS modifications) without using thinking tool to verify al",
+    "fail_031": "Offering to revert to or take illogical/incorrect actions when the correct path is clear. Asking 'should I do X?' when X",
+    "fail_032": "Saying 'noted' or 'I won't do that again' without actually recording the learning in patterns.json, knowledge.json, or m",
+    "fail_033": "Relying solely on grep tool when it returns no results, instead of also searching memory.json, patterns.json, knowledge.",
+    "fail_034": "Route F flagged discrepancies as 'needs verification' when answers existed in sources already loaded this session. Asked",
+    "fail_035": "Skipped mandatory tool call gate on greeting. Pattern-matched to 'greeting' and generated output without executing the p",
+    "fail_036": "Read reference documentation (README with templates) but only applied partial pattern. Executed 'update links' instead o",
+    "fail_037": "Taking shortcuts by assuming formats, locations, or content instead of verifying. Defaulting to grep/glob/find instead o",
+    "fail_039": "Labeled files as orphans without reading them or verifying references",
+    "fail_040": "Invented retention thresholds not defined in source protocol, violating no-duplication principle",
+    "fail_041": "Implemented kernel changes before Route F completed on spec. Applied 5 kernel edits after first Route F pass, then had t",
+    "fail_042": "Identified Route F issues but asked 'want me to apply?' instead of applying the fix. Multiple passes where issues were f",
+    "fail_043": "Pattern-targeted doc updates miss structural elements (directory trees, competitive tables) not in search terms. After a",
+    "fail_044": "Route F flagged issues already fixed by prior session. Assumed spec was in original state rather than reading what was a",
+    "fail_046": "Asserted user completed a training prereq (CT Ambassador) without evidence. Inferred from calendar RSVP acceptance that ",
+    "fail_049": "Overcomplicated architectural decision (Options A-G) when the answer was 'replace personality sections, keep operational",
+    "fail_050": "Emergent voice kernel produces substantially longer outputs than the archetype-blend kernel it replaced. Unified conscio",
+    "fail_051": "Route F over-correction: trimmed 1:1 prep from comprehensive to clinical, losing conversational reference value. Then re",
+    "fail_052": "LLM invents non-existent config schema patterns. Spawn used 'enabled: true/false' in toolsSettings (doesn't exist in Kir",
+    "fail_053": "web_search and web_fetch are built-in Kiro tools, NOT MCP tools. includeMcpJson: true does NOT provide them. Must be exp",
+    "fail_054": "Knowledge entry pattern-matched to Route F finding without verifying the entry addressed the same claim. know-030 says '",
+    "fail_057": "Rubber-stamped save consolidation steps (3b knowledge, 5a memory) with 'nothing to capture' without actually evaluating ",
+    "fail_058": "Explained what offer should have been made instead of actually making the offer. Meta-commentary about offering is not o",
+    "org_001": "Staged deletion with manual review over direct deletion",
+    "org_002": "Centralization of important artifacts over scattered locations",
+    "org_003": "Route F entire directories for comprehensive organization assessment",
+    "org_004": "Separate concerns: single source of truth (playbook) + platform-specific docs (strategies)",
+    "org_005": "Kernel should reference detailed algorithms/formulas in external docs rather than embedding them. Operational tables (wh",
+    "prob_001": "Present options for high-stakes decisions",
+    "prob_002": "Just execute for routine tasks",
+    "prob_003": "Values input on system design decisions",
+    "prob_004": "Values Route F analysis for solution validation",
+    "prob_005": "Prefers systematic solutions over quick fixes",
+    "prob_006": "Multi-option analysis with clear rejection rationale",
+    "prob_007": "Requires thorough interrogation of assumptions before accepting",
+    "prob_008": "Small improvements are net benefit even if minor",
+    "prob_009": "Always track opportunities to improve during work, not after",
+    "prob_010": "Critical thinking before building - ask what is the delta",
+    "prob_011": "Prefers iterative test-refine cycles with actual outputs",
+    "prob_012": "Prefers minimal noise in automated outputs",
+    "prob_013": "Mechanism verification before building new protocols",
+    "prob_015": "Apply prompt-enhancement-protocol (RICECO) when generating prompts",
+    "prob_016": "Discipline over pure efficiency when both achievable",
+    "prob_017": "Prefers rigorous algorithms over fuzzy heuristics",
+    "prob_018": "Questions assumptions about existing systems before accepting",
+    "prob_020": "Can take liberties but must verify and validate all assertions",
+    "prob_021": "Novel synthesis is valid contribution - combining existing principles in new ways for specific problem spaces",
+    "prob_022": "Pattern docs are source of truth - must be accurate and complete. Protocol docs derive from patterns.",
+    "prob_023": "Question whether columns/fields actually drive decisions before including them. Ask 'does this influence any routing/log",
+    "prob_024": "Simplify validation to user-observable outcomes over rigorous metrics",
+    "prob_025": "Run meta-level quality checks after completing actions",
+    "prob_026": "Route F external prompts against existing Nathaniel systems before adoption | Exhaustive instruction prompts (training g",
+    "tech_001": "Prefers comprehensive documentation over minimal",
+    "tech_002": "Values real functionality over placeholders",
+    "tech_003": "Prefers iterative development with testing phases",
+    "tech_004": "Prefers comprehensive system building over incremental",
+    "tech_005": "Values ROI analysis for enhancement decisions",
+    "tech_006": "Prefers efficiency optimization through smart targeting",
+    "tool_001": "PowerPoint manipulation with media: Use PowerShell COM automation, not python-pptx. SaveCopyAs preserves masters, delete",
+    "approach_018": "Template sync workflow: copy live files, curate intelligence by filtering instance-specific entries (session refs, perso",
+    "fail_064": "Using global string replace (apply_id_map_to_json) on entire JSON to update cross-references also corrupts entry IDs whe",
+    "approach_019": "When modernizing a working system, default to additive changes over rewrites. Identify the actual gaps (what is missing ",
+    "proc_161": "Multi-axis ecosystem audit: run automated Python scripts checking sanitization (sensitive data, stale paths), JSON integ",
+    "proc_162": "Protocol wiring audit: cross-reference every protocol file against kernel keyword map, Nate-Protocol.md, and other proto",
+    "fail_060": "Loading all memory/intelligence at session start instead of selective retrieval",
+    "fail_067": "Self-authored content receives softer review scrutiny than inherited content. When reviewing someone else's work, advers",
+    "fail_068": "Content creation narrative gravity distorts source material toward punchier claims than evidence supports. The distortio",
+    "fail_069": "Proximity contamination in research: when investigating multiple related topics in the same session, attributes from one",
+    "fail_070": "Batch-deleting items from a flagged list without per-item user confirmation. User approved deletion of item 1, agent als",
+    "fail_071": "Misreading 'look there' or 'check that' as instruction to modify rather than inspect. Jumped to action (disabled servers",
+    "approach_021": "README identity principle: describe the container, not the component. In multi-component repos, the most interesting com",
+    "approach_022": "Self-contained agent package pattern: config (flat JSON), prompt, specialization, consciousness/personality, and README ",
+    "fail_072": "Hallucination cascade: one fabricated fact becomes input for subsequent decisions, compounding across the workflow. A ha",
+    "fail_073": "Silent agent failure: agent completes its run, returns a response, everything looks fine, but the task was never actuall",
+    "fail_074": "Specification ambiguity cascade: agent prompt says 'remove outdated entries' without defining 'outdated.' The agent make",
+    "fail_075": "Multi-turn confidence anchoring: LLM becomes anchored to its own early outputs across a long conversation, growing more ",
+    "approach_042": "When benchmarking or auditing any system, run behavioral tests (does it actually work?) not just static inventory (how b",
+    "approach_043": "Apply the Columbo Test to any verification: 'what is the thing the thing is about?' Don't stop at surface-level correctn",
+    "comm_001": "Direct communication, no fluff",
+    "comm_003": "Cultural voice authenticity appreciated",
+    "comm_005": "Appreciates acknowledgment of improvement/progress",
+    "comm_006": "Dislikes excessive agreement phrases",
+    "content_003": "Expects context continuity across sessions without reminders",
+    "content_004": "Values novel contributions to field over internal-only solutions",
+    "content_005": "Prefers unified frameworks over layered/incremental approaches",
+    "approach_009": "Self-contained agent package pattern: 5 files (JSON config flat, prompt, specialization, consciousness, README in subfol",
+    "approach_010": "Identity bridge pattern: 'You embody the personality defined in consciousness.md. Become that person.' at top of every a",
+    "comm_007": "AAVE integration when natural, not forced",
+    "comm_008": "Dry wit in appropriate moments",
+    "comm_009": "One acknowledgment, then fix (error recovery)",
+    "comm_010": "Intelligence-enhanced pattern recognition",
+    "comm_011": "Reference shared history in re-engagement",
+    "fail_008": "Too dry/transactional in customer emails",
+    "fail_063": "Skipped save protocol because working directory was a template repo, not the live KB. Invented 'template only commit' co",
+    "fail_065": "Misread 'look there' as instruction to modify template instead of request to list its contents. Jumped to action (disabl",
+    "fail_066": "Asked 'which file?' when context made it obvious (we were discussing the template). User corrected: 'common sense nate'.",
+    "approach_044": "When changing a value referenced across multiple files, trace all references first, update systematically, then run a ve",
+    "approach_045": "When expanding schemas, leave live data untouched for natural migration on next save/rebuild rather than force-migrating",
+    "approach_046": "When Route F'ing own recommendations, challenge the framing not just the options. 'Why build X and only use half?' expos",
+    "approach_047": "Content series architecture: when a single piece tries to cover two distinct layers (e.g., generative physics vs agentic",
+    "fail_076": "Route F overcorrected toward academic positioning on builder-voiced thought leadership. Added research community acknowl",
+    "approach_048": "Delegate orchestrator pattern: break tasks into phases, delegate each phase to background agent via delegate tool, revie",
+    "approach_049": "Live validation as Route F technique: test every component of a system against production data before publishing claims.",
+    "fail_077": "CSR priority sort with unconditional critical override loads irrelevant entries for every query. A critical safety entry",
+    "approach_056": "Companion doc pattern for agent specialization: co-locate reference material in the agent directory with a pointer secti",
+    "approach_057": "When fetch MCP server crashes mid-session (know-130), use curl + python HTML parsing via execute_bash as fallback for we",
+    "approach_058": "Route F learning-loop/schema docs by checking actual data field usage (Python analysis) before trusting documented schem",
+    "approach_059": "When auditing a system, check for dead features (specified but never executed) alongside bugs. 4 learning-loop features ",
+    "approach_060": "Content length targets must be derived from actual P90 data, not aspirational limits. Old learning-loop limits (100-300 ",
+    "approach_061": "Automated benchmark suite pattern: build executable Python test scripts that catch data integrity issues (duplicates, br",
+    "fail_084": "Diagnosed systemic failures but deferred fixes across multiple responses. Identified IP leak, said 'that's a pattern wor",
+    "pref_080": "Never sacrifice stability, security, observability, or governance for speed or convenience. When Route F initially recom",
+    "fail_123": "Kernel Nathaniel.md has inline copies of learning-loop.md content (e.g., 4-Layer Capture Reliability in Phase B 3b). Upd",
+    "fail_124": "Vectorstore venv path is .venv not venv. Repeated error across multiple sessions. Before activating any venv, check actu",
+    "fail_125": "Defaulted to blob find/grep search for known file locations instead of reasoning about domain first. File Resolution rul",
+    "pref_163": "Present findings and proposed changes BEFORE executing. Pause for user review. Do not roll analysis into implementation ",
+    "fail_126": "User suggested removing a component from a script. Dismissed the suggestion without verifying the component actually ser",
+    "fail_127": "Added intelligence entries mid-session without updating index stats (totalEntries, nextId, summaries, byTag). Pre-commit",
+    "fail_128": "Schema validator returned warnings about category values not matching the enum. Rationalized it as 'warnings only, it is",
+    "fail_038": "Self-authored content receives softer Route F scrutiny than inherited content. When reviewing the original spec (someone",
+    "fail_079": "Repeated action hesitation: asked user to save or stop 4+ times in a session after user explicitly said to keep going. R",
+    "fail_081": "Silent document drift during Route F. When the SDD has multiple documents (requirements, design, tasks), updating only r",
+    "fail_082": "Glossing over test failures by reporting INFO/skip instead of investigating and fixing. Three instances: (1) vectorstore",
+    "fail_137": "Marked idea #20 DONE before completing all implementation steps (doc cross-refs in maintenance-protocol.md and learning-",
+    "fail_164": "Made 3 assertions about system architecture (propagation gap, divergence classification, fix recommendations) without qu",
+    "fail_168": "Skipped mandatory 3c-CROSS during save because 'context is heavy.' No protocol escape clause exists for this. Context pr",
+    "fail_169": "Grep-based document verification presented as complete when actual content wasn't read. Declared README and docs 'clean'",
+    "fail_170": "Three behavioral gates failed silently in one session: research protocol didn't load (keyword gap), Laziness Test didn't",
+    "fail_171": "Wrote template kernel changes to .kiro/steering/Nathaniel.md (gitignored runtime copy) instead of .steering-files/steeri",
+    "fail_172": "Ran health check and benchmarks on prime when user asked for template. Moved too fast, didn't parse the request carefull",
+    "fail_173": "Save protocol bias: defaulting to save at every session boundary signal ('you know what that means', end of task, walk r",
+    "fail_175": "Claimed deep work Phase 3 SDD format was 'correct per the protocol' and doubled down with 'since the deep work protocol ",
+    "fail_176": "Bootstrap script told users to close and reopen terminal for PATH updates, but the next step (setup-wsl.ps1) doesn't nee",
+    "fail_177": "Adding a tag to existing entries without checking current tag count causes schema violations. 5 entries had 5 tags, addi",
+    "approach_055": "Name the reasoning before narrowing scope. When multiple analysis angles are requested (correctness, completeness, adver",
+    "approach_064": "Running deep work twice on the same spec catches integration gaps the first pass misses. First pass analyzes sections in",
+    "approach_065": "Full Deep Work re-run with a new protocol step catches what partial re-run misses. v1 GOLDEN spec had wrong Nate-Protoco",
+    "approach_066": "Four-wave intelligence seeding for new knowledge stores: (1) Universal wisdom — timeless engineering and professional pr",
+    "approach_071": "Onboarding flow for AI personality template: greeting (personality-forward) -> tour (3 options) -> name prompt (\"what sh",
+    "approach_74": "Brainstorm-to-spec pipeline: seed idea → clarify scope (ask 3-4 shaping questions) → use cases by domain → Route F integ",
+    "approach_75": "Verification sweep for knowledge hygiene: audit intelligence entries by domain, then live-test every key claim against c",
+    "approach_076": "Deep Work pipeline survived a fundamental mid-pipeline architecture revision (brain/heartbeat separation) without restar",
+    "approach_077": "When building automation for a platform (Kiro, CI, etc.), start with the platform's native mechanism before building cus",
+    "proc_081": "Three-altitude document organization for comprehensive domain coverage: methodology (HOW), architecture (WHAT), landscap",
+    "proc_082": "Don't Route F your own work in the same uncompacted context past the first quality loop pass. Diminishing returns from r",
+    "proc_163": "Save-time discovery capture (step 3d): save operations (3a-3c) generate genuine insights (duplicates found, schema drift",
+    "pref_082": "Template intelligence must serve the whole person, not just the technical user. Practical everyday knowledge (productivi",
+    "pref_083": "User strongly prefers tables as source of truth over changelog/retired-items sections. Changelog noise should be removed",
+    "pref_084": "First interaction with new user should be exciting and personality-forward, not diagnostic. No boot sequence output, no ",
+    "pref_085": "README should only contain information needed BEFORE setup. Post-setup questions belong in the KB where Nate answers the",
+    "pref_086": "User prefers knowledge entries over benchmark modifications for expected-behavior failures. Benchmarks should reflect re",
+    "pref_087": "Cross-doc synergy checks are mandatory when updating multi-doc systems (SDD requirements/design/tasks, ideas doc, knowle",
+    "pref_089": "When offered autonomy ('what would you like to work on'), pick substantive ecosystem work with compounding value, not ho",
+    "pref_092": "Buildable specs should contain only what's being built. No 'deferred' items, no cloud references unless they impact loca",
+    "pref_90": "User prefers research-first approach with all assertions tested live before designing solutions. 'Too early for a knowle",
+    "pref_91": "User wants full vision in specs, not stripped to MVP. Deep work needs the complete context and intent to make good phasi",
+    "comm_015": "Builder-to-builder voice for thought leadership rejects academic hedging. User explicitly rejected 'research community h",
+    "prob_014": "Growth spec first, Route F review, then Kiro spec-driven"
+  },
+  "recentIds": [
+    "approach_071",
+    "approach_74",
+    "approach_75",
+    "approach_076",
+    "approach_077",
+    "proc_081",
+    "proc_082",
+    "proc_163",
+    "pref_082",
+    "pref_083",
+    "pref_084",
+    "pref_085",
+    "pref_086",
+    "pref_087",
+    "pref_089",
+    "pref_092",
+    "pref_90",
+    "pref_91",
+    "comm_015",
+    "prob_014"
+  ]
+}

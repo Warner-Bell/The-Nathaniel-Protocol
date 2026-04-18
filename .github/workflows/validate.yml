@@ -1,0 +1,42 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate JSON files
+        run: |
+          echo "Validating JSON integrity..."
+          failed=0
+          for f in $(find . -name "*.json" -not -path "./.git/*"); do
+            if ! python3 -m json.tool "$f" > /dev/null 2>&1; then
+              echo "✗ $f"
+              failed=1
+            else
+              echo "✓ $f"
+            fi
+          done
+          exit $failed
+
+      - name: Validate setup script
+        run: |
+          chmod +x scripts/setup.sh
+          ./scripts/setup.sh --dry-run
+
+      - name: Run vectorstore tests
+        run: |
+          pip install fastembed numpy pytest hypothesis
+          cd Nate\'s-kb/vectorstore
+          python3 -m pytest tests/ -v

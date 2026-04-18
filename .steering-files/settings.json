@@ -1,0 +1,22 @@
+{
+  "kiroAgent.trustedCommands": [
+    "python3 *",
+    "python *",
+    "git *",
+    "cat *",
+    "ls *",
+    "grep *",
+    "head *",
+    "tail *",
+    "wc *",
+    "find *",
+    "cd *",
+    "source *"
+  ],
+  "kiroAgent.commandDenylist": [
+    "rm -rf /",
+    "sudo rm",
+    "chmod 777",
+    "git push --force"
+  ]
+}

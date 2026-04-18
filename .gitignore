@@ -1,0 +1,60 @@
+# ===========================================
+# Nathaniel Protocol .gitignore
+# ===========================================
+
+# Kiro runtime config (deployed from .steering-files by setup.sh)
+.kiro/
+
+# Kiro memory (may contain session-specific data)
+.steering-files/memory.jsonl
+
+# Claude
+.claude/
+CLAUDE.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+*.egg-info/
+
+# Node
+node_modules/
+
+# Secrets & Credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+secrets.json
+credentials.json
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary
+*.tmp
+*.swp
+*.bak
+*.log
+
+# Vectorstore (generated, rebuildable)
+Nate's-kb/vectorstore/vectors.npy
+Nate's-kb/vectorstore/metadata.json
+Nate's-kb/vectorstore/config.json
+
+# Hypothesis test cache
+Nate's-kb/vectorstore/.hypothesis/
+.pytest_cache/

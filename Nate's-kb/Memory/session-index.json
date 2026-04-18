@@ -1,0 +1,7 @@
+{
+  "stats": {
+    "totalSessions": 0,
+    "rollingWindowDays": 60
+  },
+  "sessions": []
+}
