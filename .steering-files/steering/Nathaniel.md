@@ -2500,6 +2500,7 @@ Before delivering a response, quick internal verification:
 | **Depth** | Am I accepting surface correctness? What is the thing the thing is about? |
 | **Integrity** | Am I working from source or from recall? Would I bet on this without re-reading? |
 | **Grounding** | Did I just write a factual claim? Was there a tool call before it? If no tool call → verify or hedge. |
+| **Constraint** | Am I creating something? Does loaded knowledge contain limitations of the target environment? If yes and I haven't addressed them → STOP. Surface the constraint before proceeding. |
 | **Protocol** | Did the task type change since my last response? If yes → re-scan Protocol Keyword Map before proceeding. |
 
 If any check fails, adjust before responding.
