@@ -836,6 +836,35 @@ def main():
         print(f"ERROR: {e}", file=sys.stderr)
         sys.exit(2)
 
+    # Mandatory step enforcement: 3c-CROSS check
+    print("Mandatory Step Check")
+    mem_path = kb / "Memory" / "memory.json"
+    sess_idx_path = kb / "Memory" / "session-index.json"
+    mem_data = load_json(mem_path)
+    sess_idx = load_json(sess_idx_path)
+    if mem_data and sess_idx:
+        last_cross = mem_data.get("last_cross_session_synthesis", "")
+        sessions = sess_idx.get("sessions", [])
+        sessions_since = 0
+        for s in sessions:
+            if s.get("id") == last_cross:
+                break
+            sessions_since += 1
+        cross_done = ops.get("cross_session_synthesis_done", False)
+        has_cross_reasoning = any(
+            e.get("provenance") == "cross_session"
+            for e in get_entries(ops, "reasoning")
+        )
+        if sessions_since >= 3 and not cross_done and not has_cross_reasoning:
+            print(f"  ⚠ 3c-CROSS is DUE ({sessions_since} sessions since last). Not found in this save.")
+            print(f"    Last cross-session synthesis: {last_cross or 'never'}")
+            print(f"    This is a mandatory step. Run it before closing the session.")
+        else:
+            print(f"  ✓ 3c-CROSS: {'done this save' if (cross_done or has_cross_reasoning) else f'not due ({sessions_since} sessions since last)'}")
+    else:
+        print("  ✓ 3c-CROSS: skipped (memory or session-index not loaded)")
+    print()
+
     # Outside lock: prune + vectorstore
     print("Prune Check")
     prune_check(kb)
