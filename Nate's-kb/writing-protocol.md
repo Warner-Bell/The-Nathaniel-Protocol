@@ -1,6 +1,6 @@
 # Writing Protocol
 
-**Keywords**: write, writing, document, memo, report, email, update, brief, summary, draft, edit, review-doc, 6-pager, narrative, notes, thread, slack, letter, correspondence, communication, message, compose
+**Keywords**: write, writing, document, memo, report, email, update, brief, draft, edit, review-doc, 6-pager, narrative, thread, slack, letter, correspondence, communication, message, compose
 **Purpose**: Writing standards for all written deliverables
 **Last Updated**: 2025-12-25
 **Version**: 2.0 (TOC-Dynamic-Loading enabled)

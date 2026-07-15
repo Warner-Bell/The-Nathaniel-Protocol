@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "KB Consultation Gate",
+  "description": "Per-turn reminder to consult institutional memory before asserting facts about this system",
+  "version": "2",
+  "when": {
+    "type": "promptSubmit"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "BEFORE responding: Does your response contain a conclusion, assertion, or recommendation about this system, its files, its history, or its decisions? If YES — did you query KB (kb_search, index lookup, or file read) FIRST? If no query preceded your conclusion, STOP and query now. Recall is not evidence. This applies to every turn, not just session start."
+  }
+}
