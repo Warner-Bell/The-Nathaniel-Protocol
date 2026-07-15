@@ -13,6 +13,21 @@
     "file://./analyst/consciousness.md",
     "file://./analyst/specialization.md"
   ],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "python3 scripts/gen-file-structure.py",
+        "description": "Refresh the steering repo map (FILE-STRUCTURE.md) at session start"
+      }
+    ],
+    "postToolUse": [
+      {
+        "matcher": "fs_write",
+        "command": "python3 scripts/gen-file-structure.py",
+        "description": "Regenerate FILE-STRUCTURE.md after every file write so the steering map stays current"
+      }
+    ]
+  },
   "includeMcpJson": true,
   "model": "claude-opus-4.6",
   "keyboardShortcut": "ctrl+a",

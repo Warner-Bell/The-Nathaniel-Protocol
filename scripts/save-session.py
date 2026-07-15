@@ -605,99 +605,28 @@ def update_cross_references(kb, new_reasoning):
 
 
 def file_structure_check(kb):
-    """Detect new/deleted/moved files via git and scan stores for stale path references."""
+    """Regenerate FILE-STRUCTURE.md via the canonical generator script.
+    
+    Replaces the old git-based detection approach. The generator is cwd-independent
+    and always produces a current map of the repo.
+    """
     repo_root = kb.parent
-    alerts = []
-
-    # Get git status for new/deleted/renamed files
+    generator = repo_root / "scripts" / "gen-file-structure.py"
+    
+    if not generator.exists():
+        return ["  Skip: scripts/gen-file-structure.py not found"]
+    
     try:
         result = subprocess.run(
-            ["git", "status", "--short"], capture_output=True, text=True, cwd=repo_root
+            ["python3", str(generator)],
+            capture_output=True, text=True, cwd=repo_root
         )
-        if result.returncode != 0:
-            print("  Skip: git status failed")
-            return alerts
-    except FileNotFoundError:
-        print("  Skip: git not found")
-        return alerts
-
-    deleted_paths = []
-    renamed_paths = []  # (old, new) tuples
-    new_paths = []
-
-    for line in result.stdout.strip().splitlines():
-        if len(line) < 3:
-            continue
-        # Git status format: XY PATH or XY -> PATH for renames
-        # Split on first whitespace after status columns
-        parts = line.lstrip().split(None, 1)
-        if len(parts) < 2:
-            continue
-        status = parts[0]
-        path = parts[1].strip()
-        # Skip temp files, build artifacts, ops files
-        if any(path.startswith(p) for p in ("node_modules/", ".aws-sam/", "__pycache__/")):
-            continue
-        if path.startswith("_save_ops") or path.endswith(".pyc"):
-            continue
-
-        if "D" in status and "?" not in status:
-            deleted_paths.append(path)
-        elif "R" in status:
-            if " -> " in path:
-                old, new = path.split(" -> ", 1)
-                renamed_paths.append((old.strip(), new.strip()))
-        elif status in ("A", "?", "??"):
-            new_paths.append(path)
-
-    # Scan stores for references to deleted/renamed-from paths
-    stale_refs = []
-    check_paths = deleted_paths + [old for old, _ in renamed_paths]
-
-    if check_paths:
-        for store_name in ("knowledge", "reasoning"):
-            store_path = kb / "Intelligence" / f"{store_name}.json"
-            if not store_path.exists():
-                continue
-            try:
-                data = json.loads(store_path.read_text(encoding="utf-8"))
-            except (json.JSONDecodeError, OSError):
-                continue
-            entries = data.get("entries", [])
-            for entry in entries:
-                content = entry.get("content", "") + " " + entry.get("source", "")
-                for cp in check_paths:
-                    if cp in content:
-                        stale_refs.append({"entry": entry["id"], "store": store_name, "path": cp})
-
-    # Build output
-    if new_paths:
-        alerts.append(f"  New files ({len(new_paths)}):")
-        for p in new_paths[:10]:
-            alerts.append(f"    + {p}")
-        if len(new_paths) > 10:
-            alerts.append(f"    ... and {len(new_paths) - 10} more")
-
-    if deleted_paths:
-        alerts.append(f"  Deleted files ({len(deleted_paths)}):")
-        for p in deleted_paths[:10]:
-            alerts.append(f"    - {p}")
-
-    if renamed_paths:
-        alerts.append(f"  Renamed files ({len(renamed_paths)}):")
-        for old, new in renamed_paths[:10]:
-            alerts.append(f"    {old} → {new}")
-
-    if stale_refs:
-        alerts.append(f"  ⚠ STALE REFERENCES ({len(stale_refs)}):")
-        for ref in stale_refs:
-            alerts.append(f"    {ref['entry']} ({ref['store']}): references \"{ref['path']}\"")
-
-    if alerts:
-        alerts.insert(0, "  Action needed: review FILE-STRUCTURE.md" +
-                      (f", fix {len(stale_refs)} stale reference(s)" if stale_refs else ""))
-
-    return alerts
+        if result.returncode == 0:
+            return []  # Success — no alerts needed
+        else:
+            return [f"  ⚠ Generator failed: {result.stderr.strip()}"]
+    except Exception as e:
+        return [f"  ⚠ Generator error: {e}"]
 
 
 def prune_check(kb):
@@ -882,7 +811,7 @@ def main():
         for line in fs_alerts:
             print(line)
     else:
-        print("  No new/deleted/moved files detected")
+        print("  ✓ FILE-STRUCTURE.md regenerated")
     print()
 
     # Summary
