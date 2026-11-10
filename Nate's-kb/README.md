@@ -8,9 +8,11 @@
 
 | Layer | Location | What It Does |
 |-------|----------|-------------|
-| **Kernel** | `.steering-files/steering/Nathaniel.md` | Personality, gates, session protocols, external content security (always-loaded system prompt) |
+| **Kernel** | `.steering-files/steering/` | Four always-loaded files: `Nathaniel.md` (identity, voice, sessions, self-checks), `ecosystem-operation.md` (gates, keyword map, external content security, KB map), `PRIME-DIRECTIVES.md` (compliance rules), `source-authority-gate.md` |
 | **Decision Engine** | `Nate-Protocol.md` | Routes A-F, trigger maps, precedence rules |
-| **Protocols** | `*.md` (13 files) | Domain-specific behavior (development, writing, research, etc.) |
+| **Protocols** | `*.md` (15 files) | Domain-specific behavior (development, writing, research, etc.) |
+| **Credential cards** | `credential-registry.json` | Index of every credential the install uses. Metadata only; values live in git-ignored `.secrets/` folders. Resolved by `scripts/cred.py` |
+| **Correction loop** | `Intelligence/corrections.jsonl`, `Intelligence/correction-loop.json` | Ledger of user corrections and the mode (`log` stages rule edits, `enforce` applies them) |
 | **Intelligence** | `Intelligence/` | Three learning layers: patterns, knowledge, reasoning |
 | **Memory** | `Memory/` | Session logs, entity memory, project tracking |
 | **Vectorstore** | `vectorstore/` | Hybrid semantic + keyword search over the KB (venv is local to vectorstore/, see vectorstore/SETUP.md) |
@@ -52,23 +54,25 @@ See `Memory/README.md` for retention rules and CSR details.
 
 ## Protocols
 
-13 domain protocols that activate via keyword triggers in the kernel:
+15 domain protocols that activate via keyword triggers in the kernel (Protocol Keyword Map in `ecosystem-operation.md`). The skill router (`scripts/skill-router/routes.json`) mirrors the same set:
 
 | Protocol | Triggers |
 |----------|----------|
 | `development-protocol.md` | build, code, implement, deploy, test, refactor |
 | `writing-protocol.md` | write, draft, document, article, blog |
+| `anti-slop-protocol.md` | anti-slop, fact-check, audit this doc, check for confabulation |
 | `research-protocol.md` | research, investigate, explore, compare |
 | `planning-protocol.md` | plan, roadmap, breakdown, estimate |
 | `memory-protocol.md` | memory, save, session, remember |
 | `maintenance-protocol.md` | maintenance, cleanup, health, integrity |
-| `problem-solving-protocol.md` | diagnose, root cause, decompose, trace |
+| `problem-solving-protocol.md` | diagnose, root cause, decompose, trace, hypothesis, reproduction |
+| `empirical-feasibility-protocol.md` | can it, will it work, is it possible, feasible, prove it |
 | `prompt-enhancement-protocol.md` | prompt, enhance, improve prompt |
 | `executive-communication-protocol.md` | executive, stakeholder, leadership |
 | `summarization-protocol.md` | summarize, summary, condense, tldr |
 | `proactive-offering-protocol.md` | proactive, offer, suggest, anticipate |
 | `customization-protocol.md` | customize, personalize, setup assistant |
-| `security-protocol.md` | (loaded by git hardening gate + section 7 cross-refs kernel external content rules) |
+| `security-protocol.md` | security, credentials, secrets, PII, hardening (also loaded by the git hardening gate; section 2 is the credential card procedure) |
 
 ---
 
@@ -98,7 +102,7 @@ See `Memory/README.md` for retention rules and CSR details.
 
 The context window is the scarcest resource. Every token loaded is a token unavailable for reasoning. These habits keep usage lean:
 
-**Trust the routing.** Don't ask Nate to "load everything" or "read all my files." The system loads five lightweight indexes at startup (~500 tokens each) and fetches full entries only when signals match. At scale, this saves 96% of tokens vs. loading everything. Let CSR do its job.
+**Trust the routing.** Don't ask Nate to "load everything" or "read all my files." At startup the system loads the memory index, each intelligence index's head (stats, counts, newest ids) and the reasoning reuse signals through `scripts/index-query.py`, then fetches full entries only when signals match. At scale, this saves 96% of tokens vs. loading everything. Let CSR do its job.
 
 **Save frequently on long sessions.** Context accumulates. Saving mid-session captures learnings and lets you start a fresh context without losing progress. The session log preserves continuity.
 
@@ -165,8 +169,9 @@ See `customization-protocol.md` for the full guide.
 ## Adding Your Own Protocols
 
 1. Create `[domain]-protocol.md` in this directory
-2. Add trigger keywords to the Protocol Keyword Map in the kernel (`.steering-files/steering/Nathaniel.md`)
-3. The assistant will auto-load your protocol when those keywords appear
+2. Add trigger keywords to the Protocol Keyword Map in the kernel (`.steering-files/steering/ecosystem-operation.md`)
+3. Add the same protocol to `scripts/skill-router/routes.json` and run `python3 scripts/skill-router/routes_check.py` (it fails until the kernel map and routes agree)
+4. The assistant will auto-load your protocol when those keywords appear
 
 Protocols activate like tools: keyword triggers fire domain-specific behavior without loading everything. The map is cheap, the territory is expensive.
 

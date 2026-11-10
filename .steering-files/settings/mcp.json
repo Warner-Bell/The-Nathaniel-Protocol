@@ -11,8 +11,9 @@
       ]
     },
     "fetch": {
-      "command": "python",
+      "command": "bash",
       "args": [
+        "scripts/run-python.sh",
         "scripts/secure-fetch.py"
       ],
       "disabled": false,

@@ -81,8 +81,22 @@ Write items routed from taxonomy sweep to knowledge. The sweep (Phase A) is the 
 ### 4. Report
 
 ```
-Knowledge: X new, Y access-tracked.
+Knowledge: X new, Y access-tracked. Doc-to-KB: N new docs checked.
 ```
+
+### 5. Doc-to-KB Sync Check (if .md files created this session)
+
+If any .md files were created in the repo this session, check whether they have KB coverage.
+
+1. For each .md file created this session:
+2. Search knowledge.json for entries whose source or content references the file path.
+3. If zero entries reference the doc, flag it as uncovered.
+4. For uncovered docs: read the content, generate knowledge entry candidates per Knowledge Entry Schema.
+5. Present candidates in the taxonomy sweep output. Write during the normal 3b write phase.
+
+Skip if no .md files were created this session.
+
+For a full-sweep audit across all protocol docs, run: `python3 scripts/doc-kb-sync.py --scope protocols`
 
 Part 3b references shared Quality Gates and Index Rebuild approach. Not duplicated.
 

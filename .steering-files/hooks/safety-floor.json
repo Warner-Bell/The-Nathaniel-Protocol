@@ -1,0 +1,148 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "denylist execute_bash",
+      "trigger": "PreToolUse",
+      "description": "Deterministic floor: hard-blocks secret-path access, credential echo, metadata-endpoint calls, rm -rf on protected roots, and self-edits of gate wiring. Kill switch NATE_DENYLIST=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/denylist.py",
+        "timeout": 10
+      },
+      "matcher": "execute_bash"
+    },
+    {
+      "name": "denylist read",
+      "trigger": "PreToolUse",
+      "description": "Deterministic floor: hard-blocks secret-path access, credential echo, metadata-endpoint calls, rm -rf on protected roots, and self-edits of gate wiring. Kill switch NATE_DENYLIST=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/denylist.py",
+        "timeout": 10
+      },
+      "matcher": "read"
+    },
+    {
+      "name": "denylist write",
+      "trigger": "PreToolUse",
+      "description": "Deterministic floor: hard-blocks secret-path access, credential echo, metadata-endpoint calls, rm -rf on protected roots, and self-edits of gate wiring. Kill switch NATE_DENYLIST=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/denylist.py",
+        "timeout": 10
+      },
+      "matcher": "write"
+    },
+    {
+      "name": "denylist use_aws",
+      "trigger": "PreToolUse",
+      "description": "Deterministic floor: hard-blocks secret-path access, credential echo, metadata-endpoint calls, rm -rf on protected roots, and self-edits of gate wiring. Kill switch NATE_DENYLIST=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/denylist.py",
+        "timeout": 10
+      },
+      "matcher": "use_aws"
+    },
+    {
+      "name": "source authority execute_bash",
+      "trigger": "PreToolUse",
+      "description": "Source Authority Gate floor: records reads of a live contract (GraphQL introspection, information_schema, live DB query) and blocks a write that adds or changes a model create/update call unless such a read happened recently. Kill switch NATE_SAG=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/source-authority.py",
+        "timeout": 10
+      },
+      "matcher": "execute_bash"
+    },
+    {
+      "name": "source authority use_aws",
+      "trigger": "PreToolUse",
+      "description": "Source Authority Gate floor: records reads of a live contract (GraphQL introspection, information_schema, live DB query) and blocks a write that adds or changes a model create/update call unless such a read happened recently. Kill switch NATE_SAG=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/source-authority.py",
+        "timeout": 10
+      },
+      "matcher": "use_aws"
+    },
+    {
+      "name": "source authority write",
+      "trigger": "PreToolUse",
+      "description": "Source Authority Gate floor: records reads of a live contract (GraphQL introspection, information_schema, live DB query) and blocks a write that adds or changes a model create/update call unless such a read happened recently. Kill switch NATE_SAG=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/source-authority.py",
+        "timeout": 10
+      },
+      "matcher": "write"
+    },
+    {
+      "name": "preflight glob",
+      "trigger": "PreToolUse",
+      "description": "Cognitive Pre-Flight floor: flags (log mode) or blocks (enforce) a search for a file whose location is already documented. Mode NATE_PREFLIGHT=log|enforce|off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/preflight.py",
+        "timeout": 10
+      },
+      "matcher": "glob"
+    },
+    {
+      "name": "preflight grep",
+      "trigger": "PreToolUse",
+      "description": "Cognitive Pre-Flight floor: flags (log mode) or blocks (enforce) a search for a file whose location is already documented. Mode NATE_PREFLIGHT=log|enforce|off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/preflight.py",
+        "timeout": 10
+      },
+      "matcher": "grep"
+    },
+    {
+      "name": "preflight execute_bash",
+      "trigger": "PreToolUse",
+      "description": "Cognitive Pre-Flight floor: flags (log mode) or blocks (enforce) a search for a file whose location is already documented. Mode NATE_PREFLIGHT=log|enforce|off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/preflight.py",
+        "timeout": 10
+      },
+      "matcher": "execute_bash"
+    },
+    {
+      "name": "audit execute_bash",
+      "trigger": "PostToolUse",
+      "description": "Append a tamper-evident (HMAC-chained) audit record for state-changing tool calls. Off with NATE_AUDIT=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/audit_log.py",
+        "timeout": 10
+      },
+      "matcher": "execute_bash"
+    },
+    {
+      "name": "audit write",
+      "trigger": "PostToolUse",
+      "description": "Append a tamper-evident (HMAC-chained) audit record for state-changing tool calls. Off with NATE_AUDIT=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/audit_log.py",
+        "timeout": 10
+      },
+      "matcher": "write"
+    },
+    {
+      "name": "audit use_aws",
+      "trigger": "PostToolUse",
+      "description": "Append a tamper-evident (HMAC-chained) audit record for state-changing tool calls. Off with NATE_AUDIT=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/audit_log.py",
+        "timeout": 10
+      },
+      "matcher": "use_aws"
+    }
+  ]
+}

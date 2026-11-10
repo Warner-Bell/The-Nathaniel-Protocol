@@ -8,7 +8,10 @@ from hypothesis import strategies as st
 
 from concat import concatenate_entry, content_hash, _resolve, FALLBACK_PRIMARY, FALLBACK_CONTEXT
 
-non_empty_text = st.text(min_size=1, max_size=200).filter(lambda s: s.strip())
+# Field text never contains the " | " delimiter here: this property is about how concat joins
+# fields, and a "|" inside a field value would make the delimiter check meaningless.
+no_pipe = st.characters(codec="utf-8", exclude_characters="|")
+non_empty_text = st.text(alphabet=no_pipe, min_size=1, max_size=200).filter(lambda s: s.strip())
 stores = st.sampled_from(["patterns", "knowledge", "reasoning", "memory"])
 
 
@@ -23,7 +26,7 @@ def entry_strategy():
         "detail": non_empty_text,
         "reuse_signal": non_empty_text,
         "intent": non_empty_text,
-        "tags": st.lists(st.text(min_size=1, max_size=30), max_size=10),
+        "tags": st.lists(st.text(alphabet=no_pipe, min_size=1, max_size=30), max_size=10),
     })
 
 

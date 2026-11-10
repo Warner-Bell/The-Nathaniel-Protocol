@@ -123,6 +123,108 @@ class TestNeedsReview(TestBase):
         self.assertTrue(any(r["type"] == "near_duplicate" for r in review))
 
 
+class TestSessionIndexIntegrity(TestBase):
+    """Detection guards for the two silent update_session_index() defect classes.
+
+    Two earlier fixes both closed with "STILL OPEN: maintenance.py has zero
+    session-index coverage, so blank fingerprints and stats drift remain undetectable
+    by the prescribed health check." That gap is why a blank fingerprint hid for 25
+    days and a stats counter drifted by 10 across 6+ saves. These lock the detector.
+    """
+
+    def _write_index(self, sessions, stats=None):
+        path = self.kb / "Memory" / "session-index.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        idx = {"sessions": sessions}
+        if stats is not None:
+            idx["stats"] = stats
+        path.write_text(json.dumps(idx))
+        return path
+
+    def _good(self, sid="session-2026-01-01-001"):
+        return {"id": sid, "date": "2026-01-01", "tags": ["x"],
+                "summary": "did a thing", "outcome": "success"}
+
+    def _blank(self, sid="session-2026-01-02-001"):
+        return {"id": sid, "date": "2026-01-02", "tags": [], "summary": "",
+                "outcome": "success"}
+
+    def _log(self, sid="session-2026-01-01-001", archived=False):
+        d = self.kb / "Memory" / ("archive" if archived else "")
+        d.mkdir(parents=True, exist_ok=True)
+        (d / f"{sid}.md").write_text("# log\n")
+
+    def test_clean_index_reports_nothing(self):
+        self._write_index([self._good()], stats={"totalSessions": 1})
+        self._log()
+        fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual(fixed, [])
+        self.assertEqual(review, [])
+
+    def test_detects_blank_fingerprint(self):
+        self._write_index([self._good(), self._blank()], stats={"totalSessions": 2})
+        _fixed, review = maint.check_session_index(self.kb, fix=False)
+        blanks = [r for r in review if r["type"] == "blank_fingerprint"]
+        self.assertEqual(len(blanks), 1)
+        self.assertEqual(blanks[0]["id"], "session-2026-01-02-001")
+
+    def test_blank_fingerprint_is_never_auto_fixed(self):
+        """The content is unrecoverable from the index; only the log has it."""
+        self._write_index([self._blank()], stats={"totalSessions": 1})
+        fixed, review = maint.check_session_index(self.kb, fix=True)
+        self.assertFalse([f for f in fixed if f["type"] == "blank_fingerprint"])
+        self.assertTrue([r for r in review if r["type"] == "blank_fingerprint"])
+
+    def test_detects_stats_drift(self):
+        self._write_index([self._good(), self._blank()], stats={"totalSessions": 99})
+        fixed, _review = maint.check_session_index(self.kb, fix=False)
+        drift = [f for f in fixed if f["type"] == "stats_drift"]
+        self.assertEqual(len(drift), 1)
+        self.assertIn("99", drift[0]["detail"])
+        self.assertIn("2", drift[0]["detail"])
+
+    def test_stats_drift_is_repaired_in_fix_mode(self):
+        path = self._write_index([self._good(), self._blank()], stats={"totalSessions": 99})
+        maint.check_session_index(self.kb, fix=True)
+        idx = json.loads(path.read_text())
+        self.assertEqual(idx["stats"]["totalSessions"], 2)
+        # And the repair must actually hold on a re-check.
+        fixed, _ = maint.check_session_index(self.kb, fix=False)
+        self.assertFalse([f for f in fixed if f["type"] == "stats_drift"])
+
+    def test_missing_stats_block_counts_as_drift(self):
+        """An absent stats.totalSessions is the same failure as a wrong one."""
+        self._write_index([self._good()])
+        fixed, _ = maint.check_session_index(self.kb, fix=False)
+        self.assertTrue([f for f in fixed if f["type"] == "stats_drift"])
+
+    def test_detects_populated_row_with_no_log(self):
+        """Candidate 2026-10-20: a fingerprint can survive while the narrative is gone."""
+        self._write_index([self._good()], stats={"totalSessions": 1})
+        _fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual([r["type"] for r in review], ["session_log_missing"])
+
+    def test_archived_log_counts(self):
+        self._write_index([self._good()], stats={"totalSessions": 1})
+        self._log(archived=True)
+        _fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual(review, [])
+
+    def test_reconstructed_row_not_reflagged(self):
+        row = dict(self._good(), tags=["reconstructed"])
+        self._write_index([row], stats={"totalSessions": 1})
+        _fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual(review, [])
+
+    def test_blank_row_reported_once_not_twice(self):
+        self._write_index([self._blank()], stats={"totalSessions": 1})
+        _fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual([r["type"] for r in review], ["blank_fingerprint"])
+
+    def test_absent_index_is_not_an_error(self):
+        fixed, review = maint.check_session_index(self.kb, fix=False)
+        self.assertEqual((fixed, review), ([], []))
+
 class TestCrossRefCheck(TestBase):
     def test_orphaned_cross_ref(self):
         self.write_json(self.kb / "Intelligence" / "cross-references.json", {
@@ -132,6 +234,47 @@ class TestCrossRefCheck(TestBase):
         })
         orphaned = maint.check_cross_references(self.kb)
         self.assertTrue(any("know-999" in o["detail"] for o in orphaned))
+
+    def _xref_sources(self, *sources):
+        self.write_json(self.kb / "Intelligence" / "cross-references.json", {
+            "_meta": {"last_updated": "2026-01-01"},
+            "references": {s: {"referenced_by": [], "related_to": []} for s in sources},
+            "stats": {}
+        })
+
+    def test_bare_filename_is_provenance_not_orphan(self):
+        """Candidate 2026-10-21: `build-tenancy.py` has no `/` but is still a file."""
+        self._xref_sources("build-tenancy.py", "14-tenancy-buildout-sop.md", "notes.md#anchor")
+        self.assertEqual(maint.check_cross_references(self.kb), [])
+
+    def test_existing_provenance_shapes_still_skipped(self):
+        self._xref_sources("docs/a.md", "session-2026-01-01-001", "BL-001", "statute 705/4")
+        self.assertEqual(maint.check_cross_references(self.kb), [])
+
+    def test_dotless_entry_id_still_checked(self):
+        self._xref_sources("proc_999")
+        orphaned = maint.check_cross_references(self.kb)
+        self.assertTrue(any("proc_999" in o["detail"] for o in orphaned))
+
+
+class TestSaveSessionGuards(TestBase):
+    def test_bare_filename_derived_from_warns_not_errors(self):
+        entry = {"id": "reason-1", "type": "inference", "derived_from": ["build-tenancy.py", "docs/x.md"]}
+        errs = save_mod.validate_entry(entry, "reasoning", "reasoning[0]")
+        bare = [e for e in errs if "bare filename" in e]
+        self.assertEqual(len(bare), 1)
+        self.assertIn("warning", bare[0].lower())
+
+    def test_fingerprint_check_reads_disk(self):
+        path = self.kb / "Memory" / "session-index.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps({"sessions": [
+            {"id": "session-a", "tags": [], "summary": ""},
+            {"id": "session-b", "tags": ["x"], "summary": ""},
+        ]}))
+        self.assertFalse(save_mod._session_fingerprint_populated(self.kb, "session-a"))
+        self.assertTrue(save_mod._session_fingerprint_populated(self.kb, "session-b"))
+        self.assertFalse(save_mod._session_fingerprint_populated(self.kb, "session-missing"))
 
 
 if __name__ == "__main__":

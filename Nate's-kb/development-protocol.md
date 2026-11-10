@@ -2,8 +2,8 @@
 
 **Keywords**: build, develop, code, implement, deploy, debug, refactor, test, architecture, api, database, fix-bug
 **Purpose**: Structured workflow, standards, and directives for all phases of software development
-**Last Updated**: 2026-03-28
-**Version**: 3.0 (TOC-Dynamic-Loading enabled)
+**Last Updated**: 2026-11-10
+**Version**: 3.1 (Adaptive Scoping + scope.md Status block, append-only history docs, three Quality Gate items)
 
 ---
 
@@ -13,7 +13,7 @@
 
 | Keywords | Anchor | Lines | Description |
 |----------|--------|-------|-------------|
-| plan, setup, docs, requirements, design-doc | #directive-1 | ~200 | Project planning and documentation |
+| plan, setup, docs, requirements, design-doc, scope, spec, brownfield | #directive-1 | ~225 | Project planning and documentation |
 | code, build, implement, test, deploy, api, database, refactor, git, commit, backend, orm, serverless, edge | #directive-2 | ~990 | Cloud engineering and development |
 | bug, error, fix, troubleshoot, debug, broken, issue | #directive-3 | ~380 | Systematic troubleshooting |
 | ui, ux, design, frontend, css, responsive, accessibility | #directive-4 | ~700 | UI/UX design and optimization |
@@ -64,6 +64,7 @@
    - Git & version control (Conventional Commits)
    - Security (env vars, headers, CSP/HSTS)
    - Package management (pnpm) and monorepo (Turborepo)
+   - **Code Visibility (anti-dark code): comprehension gates, module manifests, self-describing systems**
 
 3. [**Directive 3: Systematic Troubleshooting**](#-directive-3--systematic-troubleshooting--problem-resolution)
    - 6-step troubleshooting workflow
@@ -98,7 +99,34 @@ This Prime Directive serves as your comprehensive guide for:
 <!-- #directive-1 -->
 ## ⚙️ Directive 1 — Project Planning & Documentation
 
-Your first job is to create all planning and supporting documentation for the project. Use Markdown, store everything in the `Docs/` directory, and follow the structure and scope outlined below.
+Your first job is to create the planning and supporting documentation the work actually needs. Use Markdown and store it in the `Docs/` directory (a project that carries several specs keeps each in `Docs/specs/<spec-name>/`). Run Adaptive Scoping first, then follow the structure and scope outlined below.
+
+### 🎚 Adaptive Scoping (Run First)
+
+The process scales to the work. Classify before creating any document, and record the decision.
+
+**Step 0: Workspace detection**
+- Greenfield (no existing code): go to Step 1.
+- Brownfield: before planning, read what governs the change: entry points, module layout, dependencies, and existing specs. List what you read in `scope.md`. This is the planning-time form of the Pre-Development Compatibility Check and the kernel Accounting self-check.
+
+**Step 1: Classify the work type** (if unsure between two types, pick the heavier one)
+
+| Type | Signals | Documents | Gates |
+|------|---------|-----------|-------|
+| bugfix | Isolated defect, known scope | tasks.md (failing test first) | Quality Gates only |
+| refactor | No behavior change | short design.md + tasks.md | Tests that prove behavior is unchanged |
+| infra | IaC, deploy, networking | design.md + tasks.md | High-risk review pass |
+| poc | Feasibility question | scope.md stating the claim and the test that would disprove it | `empirical-feasibility-protocol.md` |
+| feature | New user-facing capability | requirements.md + design.md + tasks.md | User approval after requirements |
+| product | New system, multiple components | Full Phase 1-4 set | Approval after requirements and after design; per-unit loop |
+
+Supporting docs (Schemas, API, Backend, Frontend, Techstack) are created only for `product`, or when the design calls for them. Marketing_Plan only when there is a go-to-market.
+
+**Step 2: Record the scope** in `scope.md` beside the spec documents: work type, documents to create, documents skipped and why, gates that apply. A document skipped with no recorded reason counts as a skipped step.
+
+**Status block:** `scope.md` ends with a `## Status` section listing the current stage, the stages completed, and the next action. Update it at every stage boundary, in the same turn the stage finishes. A fresh session resumes from this block, not from chat history.
+
+**Per-unit loop (product type):** split the work into units in tasks.md. For each unit, finish design, code, and verification before starting the next.
 
 ### 📋 Documentation Standards
 
@@ -290,7 +318,7 @@ Your first job is to create all planning and supporting documentation for the pr
 
 ### 🔁 Completion Flow
 
-Once all Phase 1-3 files are created and confirmed:
+Once every document listed in `scope.md` is created and confirmed:
 1. Review all documents for consistency
 2. Verify all cross-references are accurate
 3. Ensure Techstack.md reflects all decisions
@@ -334,6 +362,7 @@ Note: When reviewing project data to complete a request you can only consume 500
 
 ### 🧠 Context & Continuity
 **Before Starting Any Task:**
+- If resuming work, read the `## Status` block in the spec's `scope.md` first
 - Review this Prime Directive
 - Review the last 3-5 task responses or decisions
 - Read relevant documentation from `/Docs` directory
@@ -837,6 +866,45 @@ export async function createUser(formData: FormData) {
 
 ---
 
+## 🔬 Two-Axis Code Review
+
+*Folded from the `code-review` sourced skill, 2026-09-10. The protocol had quality standards
+and verification but no review structure, and specifically nothing that kept "does it follow
+our rules" separate from "does it do what was asked".*
+
+Review a diff against a fixed point along **two independent axes**:
+
+- **Standards**: does the code conform to this repo's documented conventions?
+- **Spec**: does the code do what the originating issue, spec or request actually asked for?
+
+**Run them as parallel sub-agents** so neither pollutes the other's context, then aggregate.
+Present findings under separate `## Standards` and `## Spec` headings.
+
+**Do NOT merge or rerank across axes.** This is the whole point of the separation: a change
+can pass one axis and fail the other, and a single blended list hides that. Clean code that
+solves the wrong problem passes Standards and fails Spec. Correct behaviour written badly does
+the inverse. End with a per-axis summary naming the worst issue *within each axis*, and do not
+pick a single overall winner.
+
+### Smell baseline (Standards axis)
+
+On top of whatever the repo documents, the Standards axis always carries a fixed baseline of
+Fowler code smells (*Refactoring*, ch. 3), so the axis still has teeth when a repo documents
+nothing. Two rules bind it:
+
+1. **The repo overrides.** A documented repo standard always wins. Where it endorses something
+   the baseline would flag, suppress the smell.
+2. **Always a judgement call.** Each smell is a labelled heuristic ("possible Feature Envy"),
+   never a hard violation. Documented-standard breaches can be hard findings; baseline smells
+   cannot.
+
+**Skip anything tooling already enforces.** Biome, the type checker and the test suite do not
+need a human-readable restatement of their own output.
+
+Applies to branch review, PR review, work-in-progress diffs, and "review since X" requests.
+
+---
+
 ## 🔍 Code Analysis & Verification
 
 ### Dependency Verification Process
@@ -1272,6 +1340,8 @@ In addition to env var and input validation security, configure these HTTP heade
    - Updated regularly to support long-term project memory
    - Include: questions asked, decisions made, rationale
 
+**Append-only:** Changelog.md and CHATLOG.md are history. Add new entries with an append or a targeted insert. Never rewrite the whole file, because a full rewrite can silently drop or duplicate past entries.
+
 ---
 
 ## ✅ Output Expectations
@@ -1308,6 +1378,9 @@ All work must be:
 - [ ] Documentation updated
 - [ ] No known bugs or issues
 - [ ] User has approved if needed
+- [ ] tasks.md checkboxes updated in the same turn the work was finished
+- [ ] High-Risk/Critical work (Comprehension Gate tiers): a review pass looked for ways the change defeats its own tests before asking for approval
+- [ ] Compliance summary: security-protocol, WCAG (if UI), any client or platform compliance constraints. Each marked compliant / non-compliant / N/A with a reason. Non-compliant blocks the task.
 
 ---
 
@@ -1378,6 +1451,95 @@ BREAKING CHANGE: minimum Node version now 22
 ```
 
 Examples: `feat/user-auth`, `fix/login-redirect`, `chore/update-deps`
+
+## 🔦 Code Visibility (Anti-Dark Code)
+
+**Cross-cutting quality discipline. Applies to ALL code, with rigor scaled by risk.**
+
+Dark code is code running in production that nobody can fully explain. Not buggy code, not tech debt. Code that was never understood by anyone because AI generated it, it passed checks, and shipped. The comprehension step didn't happen.
+
+Two forces compound this: AI writes code you didn't bang out with your fingers (structural), and AI enables speed that pressures you to ship fast (velocity). Together, comprehension decouples from authorship unless you take deliberate measures.
+
+**What doesn't work**: Observability alone (measures what dark code breaks, doesn't create understanding). Agentic pipelines alone (adds layers to troubleshoot, dark code still underneath). YOLO acceptance (requires Factory.ai-level discipline most teams lack).
+
+### The Three Layers
+
+**Layer 1: Force Understanding Before Code Exists (Spec-Driven)**
+Write a clear spec before generating code. The spec becomes the eval. If you can write a clear spec, that IS the test the agent keeps trying to pass.
+
+Minimum viable spec: outcomes, scope boundaries, constraints, prior decisions, task breakdown, verification criteria.
+
+We already do this: Kiro specs (requirements.md, design.md, tasks.md), Deep Work pipeline, Route F before action.
+
+**Layer 2: Make Systems Self-Describing (Context Engineering)**
+
+Three sub-layers:
+
+| Sub-Layer | Answers | What It Means |
+|-----------|---------|---------------|
+| Structural Context | WHERE | Every module has a manifest: what it does, what it depends on, what depends on it |
+| Semantic Context | WHAT | Interfaces carry behavioral contracts: failure modes, retry semantics, performance expectations |
+| Comprehension Gate | CATCHES THE REST | Senior-engineer questions made legible before code ships |
+
+**Layer 3: Comprehension as Culture**
+Dark code is an organizational choice. Distributed authorship (you + AI + agents) is a strength, but requires accountability. Nobody owns the "sustained total package" without deliberate ownership structures.
+
+### Comprehension Gate (MANDATORY for AI-Generated Code)
+
+Before any AI-generated code ships, answer three questions:
+
+| Question | Tests | If You Can't Answer |
+|----------|-------|-------------------|
+| What does this code do? | Functional understanding | Code is dark. Read it until you can explain it. |
+| Why does it do it this way? | Design rationale | You'll make wrong changes later. Understand the trade-off. |
+| What happens when it fails? | Failure mode awareness | You can't debug what you can't predict. |
+
+**Who enforces this**: When Nate generates code, Nate applies the gate. Explain what the code does, why it's designed this way, and what failure modes exist, either inline in comments or in the response. The user should never receive AI-generated code without comprehension context. When the user writes code with AI assistance, the gate is a self-check before committing.
+
+**Risk-Tiered Rigor:**
+
+| Risk Level | Trigger | Gate |
+|------------|---------|------|
+| Trivial | Config changes, formatting, simple CRUD | Automated review only (3-question gate not required) |
+| Standard | Feature code, business logic | Self-attestation: answer the 3 questions before shipping |
+| High-Risk | Auth, payments, data mutations, security | Human review + comprehension questions documented |
+| Critical | Infrastructure, deployment, multi-system integration | Pair review + Architecture Decision Record |
+
+**Risk classification heuristic**: If the code touches money, identity, or data integrity, it's High-Risk minimum. If it touches infrastructure or crosses system boundaries, it's Critical.
+
+**Verification note**: At Standard tier, comprehension is self-attested. At High-Risk and above, verify that the explanation matches actual code behavior, not just intent. The most dangerous dark code is code with a confident but wrong explanation.
+
+### Module Manifests
+
+For code projects, key directories should contain a lightweight `MANIFEST.md`:
+
+```markdown
+# [Module Name]
+
+**Purpose**: One sentence.
+**Depends on**: List of modules/services this consumes.
+**Depended on by**: List of modules/services that consume this.
+**Key interfaces**: List with behavioral contracts (failure modes, retry semantics).
+**Owner**: Who understands this code.
+**Last comprehension review**: Date.
+```
+
+Not every directory needs one. Target: entry points, shared libraries, infrastructure modules, and any module with 3+ dependents.
+
+### Integration with Existing Gates
+
+Code Visibility doesn't replace existing gates. It adds a comprehension dimension:
+
+| Existing Gate | Code Visibility Addition |
+|---------------|------------------------|
+| Pre-Development Compatibility Check | Add: "Can I explain what the existing code does before modifying it?" |
+| Route F (adversarial analysis) | Already covers design rationale. Add: "Would a new team member understand this?" |
+| Destructive Action Gate | Add: "Do I understand the blast radius of this change?" |
+| Testing | Tests verify behavior. Comprehension gate verifies understanding. Both required. |
+
+### Flywheel
+
+Comprehension gates create a feedback loop: questions asked during review surface gaps that feed back into better specs, better evals, and better code. The more you ask "why does it do it this way?", the more your specs pre-answer that question.
 
 ---
 
@@ -2318,6 +2480,7 @@ Before requesting review:
 ## 📊 Quick Reference Summary
 
 ### Directive 1: Documentation Checklist
+- [ ] scope.md - Work type, docs created and skipped (with reasons), gates, Status block
 - [ ] requirements.md - What to build
 - [ ] design.md - How to build it
 - [ ] tasks.md - Implementation roadmap
@@ -2426,7 +2589,7 @@ Before requesting review:
 ## 🚀 Getting Started
 
 ### For New Projects
-1. Start with **Directive 1** - Create all documentation
+1. Start with **Directive 1** - Run Adaptive Scoping, then create the documents the scope calls for
 2. Review and get user approval
 3. Move to **Directive 2** - Begin development
 4. Use **Directive 3** when issues arise
@@ -2459,6 +2622,7 @@ Before requesting review:
 - v1.0 - Initial comprehensive directive
 - v2.0 - TOC-Dynamic-Loading, expanded all directives
 - v3.0 - Modernized toolchain (Vite 6, Biome, TS 6, React 19, React Compiler), WCAG 2.2 AA, modern CSS (container queries, :has(), nesting, View Transitions, subgrid, @scope, @layer), Zustand + TanStack Query state management, Vitest testing stack, backend/API layer (Server Actions, Hono, tRPC), ORM (Drizzle/Prisma), ES2026 Temporal API, Node.js 22 LTS, security headers, pnpm + Turborepo, framework decision tree (Next.js 16 / TanStack Start / Vite SPA)
+- v3.1 - Adaptive Scoping (workspace detection, work-type classification, recorded scope with skipped-doc reasons, per-unit loop) and the scope.md Status block for resumption; Changelog/CHATLOG append-only; Quality Gates add same-turn checkbox updates, high-risk review pass, compliance summary
 
 ---
 

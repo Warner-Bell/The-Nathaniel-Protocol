@@ -237,8 +237,14 @@ class TestOOB(TestBase):
         long_content = "x" * 1000
         errors = save_mod.validate_ops({
             "session_id": "session-2026-04-16-001",
+            # 'source' is a HARD requirement for knowledge entries (save-session.py
+            # line ~269). It is present here so this test measures what it claims to
+            # measure: that an over-length content field is a SOFT limit. Without it
+            # the assertion below failed on an unrelated hard error, which is the
+            # writer-vs-checker drift class showing up as a stale test.
             "new_knowledge": [{"id": "know-1", "category": "technical",
-                               "content": long_content, "confidence": 0.8, "tags": ["t"]}]
+                               "content": long_content, "confidence": 0.8,
+                               "tags": ["t"], "source": "session-2026-04-16-001"}]
         })
         warnings = [e for e in errors if "warning" in e.lower()]
         hard = [e for e in errors if "warning" not in e.lower()]
@@ -472,6 +478,68 @@ class TestKnow001(TestBase):
         mem = self.read_json(self.kb / "Memory" / "memory.json")
         self.assertEqual(mem["commitments"][0]["status"], "resolved")
         self.assertIn("resolved_date", mem["commitments"][0])
+
+    def test_memory_commitments_resolve_without_id(self):
+        """An id-less commitment resolves by exact text on what/deliverable/commitment.
+
+        Real commitments in memory.json predate the id convention and carry no 'id'
+        (pat-366 schema drift: the text lives under 'what', 'deliverable' OR
+        'commitment' depending on which session wrote it). Matching on id alone made
+        those permanently unresolvable through the sanctioned path, which forced a
+        prohibited hand edit of memory.json. Found while closing a
+        real commitment.
+        """
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        mem["commitments"] = [
+            {"what": "update the live listing", "status": "open"},
+            {"deliverable": "ship the parser", "status": "open"},
+            {"commitment": "run the payment E2E", "status": "open"},
+        ]
+        self.write_json(self.kb / "Memory" / "memory.json", mem)
+
+        ops = {"session_id": "session-2026-04-16-001",
+               "resolved_commitments": ["update the live listing",
+                                        "ship the parser",
+                                        "run the payment E2E"]}
+        save_mod.update_memory(self.kb, ops)
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        for c in mem["commitments"]:
+            self.assertEqual(c["status"], "resolved")
+            self.assertIn("resolved_date", c)
+
+    def test_memory_commitments_resolve_ambiguous_refused(self):
+        """A token matching more than one commitment resolves NEITHER.
+
+        Silently resolving several commitments off one ambiguous token is the same
+        class of quiet data damage as the earlier memory loss. Refuse and report instead.
+        """
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        mem["commitments"] = [
+            {"what": "same text", "status": "open"},
+            {"what": "same text", "status": "open"},
+        ]
+        self.write_json(self.kb / "Memory" / "memory.json", mem)
+
+        ops = {"session_id": "session-2026-04-16-001",
+               "resolved_commitments": ["same text"]}
+        save_mod.update_memory(self.kb, ops)
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        for c in mem["commitments"]:
+            self.assertEqual(c["status"], "open",
+                             "ambiguous token must not resolve any commitment")
+
+    def test_memory_commitments_resolve_no_substring_match(self):
+        """Matching is EXACT, never substring — a prefix must not resolve the item."""
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        mem["commitments"] = [{"what": "update the live listing deposit terms",
+                               "status": "open"}]
+        self.write_json(self.kb / "Memory" / "memory.json", mem)
+
+        ops = {"session_id": "session-2026-04-16-001",
+               "resolved_commitments": ["update the live listing"]}
+        save_mod.update_memory(self.kb, ops)
+        mem = self.read_json(self.kb / "Memory" / "memory.json")
+        self.assertEqual(mem["commitments"][0]["status"], "open")
 
 
 if __name__ == "__main__":

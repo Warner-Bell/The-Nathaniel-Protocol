@@ -51,5 +51,5 @@ Three depth tiers: Quick Scan (surface-level, 2-3 sources), Standard (findings +
 
 - Update `specialization.md` if research methodology or output format standards change
 - Update `consciousness.md` if personality/voice evolves
-- Model set to `claude-opus-4.6` for deep reasoning. Adjust if cost is a concern
+- No model pin: the agent uses your Kiro default. To pin one for deeper reasoning, pick a name from `kiro-cli chat --list-models` (pinned models get retired, and a dead pin makes the agent fail)
 - `includeMcpJson: true` means workspace MCP servers (web search, fetch) are inherited automatically

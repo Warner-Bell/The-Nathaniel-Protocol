@@ -83,6 +83,30 @@ Record the change in the propagation tracking document. Classify for template pr
 
 ---
 
+## Enforcement Placement: Which Rung Carries Which Behavior
+
+Step 3 designs a hybrid across layers. This table constrains that design by naming, per behavior class, which rung can actually carry it, so a design does not put its load-bearing layer somewhere the mechanism cannot support it. Each row is a judgment drawn from published research on how prompts, hooks, and code gates change model behavior; treat each as a hypothesis to test in your own setup.
+
+**The central asymmetry.** The prompt rung is an additive instrument. Loading a concept into the model's reasoning works, and works so easily that a bare mention of it nearly saturates the effect. Removing a concept does not work: the best available phrasing reduces its presence without reaching the baseline that simply never naming it achieves, and a direct prohibition leaves the concept present at roughly the rate a bare mention would. Any requirement of the form "never do X" therefore asks the prompt rung to perform the one operation it is measured to perform worst, while performing the additive operation as a side effect.
+
+| Behavior class | Rung that works | Rung that fails |
+|---|---|---|
+| Load a concept or frame into reasoning | Prompt, a mention suffices | None needed |
+| Get a property's label into reasoning | Prompt, phrased as a question that cannot be answered without naming the property | Directive phrasing, predicted weaker |
+| Suppress a named concept | None reliably | Prompt, both prohibition and irrelevance forms |
+| Prevent counterexample priming | Hard constraint, remove the pattern from every always-loaded file | Prompt prohibition, which is itself a mention of the pattern |
+| Hold a frame across a topic switch | Hook, re-inject at the switch | Prompt, contents are evicted on category change |
+| Carry an intermediate across a token boundary | Code gate, require the write | Prompt, no mechanism exists |
+| Guarantee a step executes | Code gate | Prompt |
+| Enforce output format and style | Counterexample removal plus post-hoc code check | Prompt, the behavior is token selection and sits outside the reasoning workspace |
+| Surface a silent assessment the model reached but did not report | Harness sequencing, a required named classification before dispatch | Prompt request without sequencing |
+
+**Implication for Step 3.** Classify the failure class as additive or subtractive before designing the hybrid. If it is subtractive, the three-layer design cannot rest on the prompt layer no matter how the instruction is worded, and the load-bearing layer belongs at hook or higher from the start. The personality and Self-Check layers still add value as recovery framing, but they are not the mechanism.
+
+**Caveat carried from the source.** The research supplies no predictive criterion for whether an arbitrary behavior routes through the reasoning workspace or through automatic processing. Every row above rests on a judgment about which side a behavior falls on, and the output-format row is the one most likely to be wrong in a way that matters.
+
+---
+
 ## Key Insight
 
 The reason single-instruction fixes fail for behavioral problems: **LLMs don't have persistent memory of instructions — they have statistical tendencies shaped by training.** An instruction competes with training pressure every token. A hybrid fix creates three independent enforcement paths, so even if one degrades, the other two hold.

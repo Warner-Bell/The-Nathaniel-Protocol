@@ -8,6 +8,7 @@ Supports structured filters for maintenance queries and pure filter mode.
 import argparse
 import json
 import os
+import re
 import sys
 import warnings
 from datetime import datetime, timedelta
@@ -34,6 +35,25 @@ INDEX_PATHS = {
 
 SYNONYM_PATH = os.path.join(KB_ROOT, "Intelligence", "synonym-map.json")
 SAVED_QUERIES_PATH = os.path.join(VS_DIR, "saved-queries.json")
+
+# Keeps technical identifiers intact (str_replace, node.js, c#, save-session)
+# while dropping sentence punctuation that used to stay glued to query terms.
+TOKEN_RE = re.compile(r"[a-z0-9][a-z0-9_.#+-]*")
+
+# Function words carry no retrieval signal but score identically to real terms
+# under rank-based fusion, so they must not reach the candidate scorer.
+STOPWORDS = frozenset("""
+a an the and or but if then than that this these those there here
+is are was were be been being am do does did doing done
+i me my we us our you your he him his she her it its they them their
+of in on at to from by for with about into over under again
+what when where which who whom whose why how whether
+can could will would shall should may might must
+not no nor only own same so too very just
+have has had having get gets got
+as up down out off across per via
+happens happen say says said tell tells told
+""".split())
 
 
 # --- Distillation Levels ---
@@ -161,15 +181,23 @@ def _load_json(path):
 
 
 def _load_synonyms():
+    """Return {term: [synonyms]} from synonym-map.json `synonyms` groups.
+
+    Each group is its KEY plus its listed terms. The key used to be dropped, so a
+    group's headline word ("memory", "save", "kernel") never expanded, and a term
+    listed in two groups kept only the last group. Now every term maps to the union
+    of all its groups, minus itself.
+    """
     data = _load_json(SYNONYM_PATH)
     if not data:
         return {}
-    syn_map = {}
-    for group in data.get("synonyms", {}).values():
-        terms = group if isinstance(group, list) else []
+    merged = {}
+    for key, group in data.get("synonyms", {}).items():
+        terms = [key] + (group if isinstance(group, list) else [])
+        terms = {str(t).lower() for t in terms if str(t).strip()}
         for t in terms:
-            syn_map[t.lower()] = [x.lower() for x in terms if x.lower() != t.lower()]
-    return syn_map
+            merged.setdefault(t, set()).update(terms - {t})
+    return {t: sorted(v) for t, v in merged.items()}
 
 
 def _check_consistency():
@@ -199,11 +227,79 @@ def _check_consistency():
         return None
 
 
+def _config_model_name(default="sentence-transformers/all-MiniLM-L6-v2"):
+    """Resolve the embedding model from config.json.
+
+    This was hardcoded here AND in kb_vectorize.py AND in kb_sync.py, while config.json
+    carried a decorative `model_name` that nothing read. A swap in one place would have
+    silently desynced query-time embedding from index-time embedding: no error, no warning,
+    corrupted similarity. Single source of truth now.
+    """
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return json.load(f).get("model_name") or default
+    except (OSError, json.JSONDecodeError, TypeError):
+        return default
+
+
+def _config_max_tokens(default=256):
+    """Tokenizer truncation ceiling, from config.json."""
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return int(json.load(f).get("max_tokens") or default)
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return default
+
+
+def _apply_max_tokens(model):
+    """Raise the tokenizer truncation ceiling on a fastembed model, in place.
+
+    fastembed pins max_length=128 for all-MiniLM-L6-v2 even though the model card
+    advertises 256, and it SILENTLY IGNORES a max_length constructor kwarg (verified
+    2026-08-05: identical vectors, cosine 1.000000). The only effective route is the
+    inner tokenizer. At 128, 1,137 of 2,359 entries (48.2%) were truncated before
+    embedding, with no warning and no record.
+
+    Index-time and sync-time must pass through here so a re-embedded entry cannot
+    silently diverge from the full build.
+    """
+    want = _config_max_tokens()
+    try:
+        tok = model.model.tokenizer
+        # Truncation AND padding must move together. fastembed pads to a fixed length and
+        # builds input_ids with np.array(); raising truncation alone makes long docs 256
+        # tokens while short docs still pad to 128, so the batch is ragged and numpy
+        # raises "inhomogeneous shape" inside onnx_embed. A single-document test cannot
+        # surface this because one document is never ragged.
+        if (tok.truncation or {}).get("max_length") != want:
+            tok.enable_truncation(max_length=want)
+        if (tok.padding or {}).get("length") != want:
+            tok.enable_padding(length=want)
+    except Exception as e:
+        import warnings
+        warnings.warn(f"could not raise tokenizer max_length to {want}: {e}")
+    return model
+
+
+def _check_query_dim(query_vec, vectors):
+    """Guard (#4): fail fast with a clear message on a query/index embedding-dim mismatch
+    instead of numpy's opaque matmul gufunc error. Occurs when the embedding model changes
+    dimension between index build and query time. _check_consistency catches stored-vs-metadata
+    and model-version drift but not the live query dim; this closes that gap. Raises ValueError.
+    """
+    if getattr(vectors, "ndim", 0) == 2 and query_vec.shape[0] != vectors.shape[1]:
+        raise ValueError(
+            f"embedding dim mismatch: query {query_vec.shape[0]} vs index {vectors.shape[1]} "
+            "(embedding model changed since index build; rebuild the vectorstore)"
+        )
+
+
 def _semantic_search(query, vectors, meta, top_n):
     """Embed query, dot product against pre-normalized vectors."""
     from fastembed import TextEmbedding
-    model = TextEmbedding(model_name="sentence-transformers/all-MiniLM-L6-v2")
+    model = _apply_max_tokens(TextEmbedding(model_name=_config_model_name()))
     query_vec = np.array(list(model.embed([query]))[0], dtype=np.float32)
+    _check_query_dim(query_vec, vectors)  # (#4) clear error before the opaque matmul failure
     scores = vectors @ query_vec
     top_idx = np.argsort(scores)[::-1][:top_n]
     results = []
@@ -214,9 +310,25 @@ def _semantic_search(query, vectors, meta, top_n):
 
 
 def _keyword_search(query, top_n):
-    """Tag + summary match with synonym expansion."""
+    """Tag + summary match with synonym expansion.
+
+    Tokenization strips punctuation and drops stopwords. Naive .split() left
+    trailing punctuation attached ("save?" never matched the tag "save") and let
+    function words earn full keyword rank ("say" in "when I say save" matched an
+    unrelated entry about saying no, which then tied the real answer on RRF score
+    because RRF scores rank, not match strength).
+
+    Tags match on exact token equality after splitting the tag on separators, so
+    "save" matches the tag "save-protocol" without "sav" matching anything.
+    Summaries match on word boundary rather than bare substring.
+    """
     syn_map = _load_synonyms()
-    tokens = query.lower().split()
+    raw = TOKEN_RE.findall(query.lower())
+    tokens = [t for t in raw if t not in STOPWORDS and len(t) > 1]
+    if not tokens:
+        # Query was nothing but stopwords/punctuation; fall back to raw tokens
+        # rather than returning everything or nothing.
+        tokens = raw
     expanded = set(tokens)
     for t in tokens:
         expanded.update(syn_map.get(t, []))
@@ -230,9 +342,10 @@ def _keyword_search(query, top_n):
         if not data:
             continue
         by_tag = data.get("byTag", {})
+        tag_tokens = {tag: set(TOKEN_RE.findall(tag.lower())) for tag in by_tag}
         for term in expanded:
             for tag, ids in by_tag.items():
-                if term in tag.lower():
+                if term in tag_tokens[tag]:
                     for eid in ids:
                         key = (eid, store_name)
                         candidates[key] = candidates.get(key, 0) + 1.0 / total_terms
@@ -241,9 +354,9 @@ def _keyword_search(query, top_n):
         for eid, summary in summaries.items():
             if not isinstance(summary, str):
                 continue
-            summary_lower = summary.lower()
+            summary_tokens = set(TOKEN_RE.findall(summary.lower()))
             for term in expanded:
-                if term in summary_lower:
+                if term in summary_tokens:
                     key = (eid, store_name)
                     candidates[key] = candidates.get(key, 0) + 0.5 / total_terms
 
@@ -251,13 +364,16 @@ def _keyword_search(query, top_n):
     mem_data = _load_json(STORE_PATHS.get("memory", ""))
     if mem_data:
         for mid, m in mem_data.get("memories", {}).items():
-            tags = [t.lower() for t in m.get("tags", []) if isinstance(t, str)]
-            content = (m.get("content", "") or "").lower()
+            tag_toks = set()
+            for t in m.get("tags", []):
+                if isinstance(t, str):
+                    tag_toks.update(TOKEN_RE.findall(t.lower()))
+            content_toks = set(TOKEN_RE.findall((m.get("content", "") or "").lower()))
             for term in expanded:
-                if any(term in tag for tag in tags):
+                if term in tag_toks:
                     key = (mid, "memory")
                     candidates[key] = candidates.get(key, 0) + 1.0 / total_terms
-                if term in content:
+                if term in content_toks:
                     key = (mid, "memory")
                     candidates[key] = candidates.get(key, 0) + 0.5 / total_terms
 
@@ -265,21 +381,36 @@ def _keyword_search(query, top_n):
     return [{"id": k[0], "store": k[1], "score": v, "rank": i + 1} for i, (k, v) in enumerate(ranked)]
 
 
-def _rrf_fuse(semantic_results, keyword_results, k, weights, score_floor, store_filter):
-    """RRF fusion: score = sum(weight_i / (k + rank_i)) per path."""
+def _rrf_fuse(semantic_results, keyword_results, k, weights, score_floor, store_filter,
+              min_semantic_score=0.0):
+    """RRF fusion: score = sum(weight_i / (k + rank_i)) per path.
+
+    min_semantic_score drops candidates whose ONLY evidence is a weak semantic
+    match. A keyword hit is independent evidence, so anything with a keyword rank
+    survives regardless of cosine. This is the real relevance gate: score_floor
+    operates on RRF output, which is rank-derived and bounded by
+    sum(weights)/(k+1), so no achievable RRF score can ever fall below a
+    meaningful floor. Cosine similarity is unbounded by rank and can.
+    """
     w_sem = weights.get("semantic", 1.0)
     w_key = weights.get("keyword", 1.0)
+
+    keyword_uids = {(r["id"], r["store"]) for r in keyword_results}
 
     scores = {}
     sem_ranks = {}
     key_ranks = {}
+    sem_scores = {}
 
     for r in semantic_results:
         uid = (r["id"], r["store"])
         if store_filter and r["store"] != store_filter:
             continue
+        if r["score"] < min_semantic_score and uid not in keyword_uids:
+            continue
         scores[uid] = scores.get(uid, 0) + w_sem / (k + r["rank"])
         sem_ranks[uid] = r["rank"]
+        sem_scores[uid] = r["score"]
 
     for r in keyword_results:
         uid = (r["id"], r["store"])
@@ -300,40 +431,60 @@ def _rrf_fuse(semantic_results, keyword_results, k, weights, score_floor, store_
             "score": round(s, 6),
             "semantic_rank": sem_ranks.get(uid),
             "keyword_rank": key_ranks.get(uid),
+            # Raw cosine similarity from the semantic path, unbounded by RRF.
+            # RRF scores are rank-derived and capped at sum(weights)/(k+1), which
+            # makes them useless for relevance thresholding. Callers that need to
+            # judge "is this actually related?" must use this instead.
+            "semantic_score": round(sem_scores[uid], 6) if uid in sem_scores else None,
         }
         for uid, s in ranked
     ]
 
 
-def _populate_content(results, top_k):
-    """Load source JSON and populate content + level fields."""
-    results = results[:top_k]
+def _populate_content(results, top_k, include_superseded=False):
+    """Load source JSON and populate content + level fields.
+
+    Superseded entries are skipped by default. A superseded entry is a claim that
+    a later entry corrected; leaving it in the result set means the stale claim
+    competes with its own correction for the same top-K slots, and confidence is
+    no tiebreaker because stale entries frequently outrank corrections. Filtering
+    happens here rather than before truncation so a skipped entry gives up its
+    slot to the next candidate instead of shrinking the result set.
+    """
     if not results:
         return results
 
     store_data = {}
+    populated = []
+
     for r in results:
+        if len(populated) >= top_k:
+            break
         sn = r["store"]
         if sn not in store_data:
             store_data[sn] = _load_json(STORE_PATHS.get(sn, ""))
-
-    for r in results:
-        data = store_data.get(r["store"])
+        data = store_data.get(sn)
         if not data:
             r["content"] = ""
             r["level"] = 1
+            populated.append(r)
             continue
-        if r["store"] == "memory":
+        if sn == "memory":
             entry = data.get("memories", {}).get(r["id"], {})
         else:
             entry = next((e for e in data.get("entries", []) if e.get("id") == r["id"]), {})
-        r["content"] = concatenate_entry(entry, r["store"])
+        if entry.get("superseded_by") and not include_superseded:
+            continue
+        r["content"] = concatenate_entry(entry, sn)
         r["level"] = distillation_level(entry)
+        if entry.get("superseded_by"):
+            r["superseded_by"] = entry["superseded_by"]
+        populated.append(r)
 
-    return results
+    return populated
 
 
-def search(query=None, top_k=5, store=None, filters=None):
+def search(query=None, top_k=5, store=None, filters=None, include_superseded=False):
     """Hybrid search with optional structured filters.
 
     Args:
@@ -348,6 +499,8 @@ def search(query=None, top_k=5, store=None, filters=None):
     # Pure filter mode: no query, just filters
     if (not query or not query.strip()) and filters:
         entries = _load_all_entries(store)
+        if not include_superseded:
+            entries = [e for e in entries if not e.get("superseded_by")]
         filtered = apply_filters(entries, filters)
         filtered.sort(key=lambda e: e.get("confidence", 0), reverse=True)
         results = []
@@ -372,6 +525,7 @@ def search(query=None, top_k=5, store=None, filters=None):
     k = 60
     weights = {"semantic": 1.0, "keyword": 1.0}
     score_floor = 0.005
+    min_semantic_score = 0.36
 
     conf_path = os.path.join(VS_DIR, "config.json")
     conf = _load_json(conf_path)
@@ -379,6 +533,7 @@ def search(query=None, top_k=5, store=None, filters=None):
         k = conf.get("rrf_k", k)
         weights = conf.get("rrf_weights", weights)
         score_floor = conf.get("score_floor", score_floor)
+        min_semantic_score = conf.get("min_semantic_score", min_semantic_score)
 
     top_n = top_k * 3
 
@@ -392,8 +547,9 @@ def search(query=None, top_k=5, store=None, filters=None):
     if not semantic_results and not keyword_results:
         return []
 
-    fused = _rrf_fuse(semantic_results, keyword_results, k, weights, score_floor, store)
-    results = _populate_content(fused, top_k)
+    fused = _rrf_fuse(semantic_results, keyword_results, k, weights, score_floor, store,
+                      min_semantic_score)
+    results = _populate_content(fused, top_k, include_superseded)
 
     # Apply post-search filters if provided
     if filters:
@@ -437,6 +593,8 @@ if __name__ == "__main__":
     parser.add_argument("--level", type=int, choices=[1, 2, 3, 4], default=None, help="Distillation level")
     parser.add_argument("--format", choices=["json", "table", "ids"], default="json", dest="output_format")
     parser.add_argument("--saved", default=None, help="Run a named saved query")
+    parser.add_argument("--include-superseded", action="store_true",
+                        help="Include entries retired by a later correction (historical recall)")
     args = parser.parse_args()
 
     # Build filters from args + saved query
@@ -471,7 +629,8 @@ if __name__ == "__main__":
     if args.level is not None:
         filters["level"] = args.level
 
-    results = search(args.query or None, top_k=args.top_k, store=args.store, filters=filters or None)
+    results = search(args.query or None, top_k=args.top_k, store=args.store,
+                     filters=filters or None, include_superseded=args.include_superseded)
 
     if args.output_format == "table":
         print(_format_table(results))

@@ -56,6 +56,12 @@ def kb_search(query: str = "", top_k: int = 5, store: str | None = None,
         filters["level"] = level
 
     results = search(query or None, top_k=top_k, store=store or None, filters=filters or None)
+    # Log search hits for access tracking (flushed to stores during kb_sync)
+    try:
+        from access_tracking import log_hits
+        log_hits(results)
+    except Exception:
+        pass  # Never block search on tracking failure
     return json.dumps(results, indent=2)
 
 

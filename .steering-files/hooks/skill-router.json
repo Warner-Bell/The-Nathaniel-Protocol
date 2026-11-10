@@ -1,0 +1,48 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "skill router prompt",
+      "trigger": "UserPromptSubmit",
+      "description": "Skill router: nudges a request, or a raw discovery reach, toward the skill or protocol that already covers it. Default mode log (records would-nudges, never blocks); NATE_SKILL_ROUTER=enforce blocks the raw reach, =off disables.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/skill_router_hook.py",
+        "timeout": 10
+      }
+    },
+    {
+      "name": "skill router grep",
+      "trigger": "PreToolUse",
+      "description": "Skill router: nudges a request, or a raw discovery reach, toward the skill or protocol that already covers it. Default mode log (records would-nudges, never blocks); NATE_SKILL_ROUTER=enforce blocks the raw reach, =off disables.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/skill_router_hook.py",
+        "timeout": 10
+      },
+      "matcher": "grep"
+    },
+    {
+      "name": "skill router glob",
+      "trigger": "PreToolUse",
+      "description": "Skill router: nudges a request, or a raw discovery reach, toward the skill or protocol that already covers it. Default mode log (records would-nudges, never blocks); NATE_SKILL_ROUTER=enforce blocks the raw reach, =off disables.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/skill_router_hook.py",
+        "timeout": 10
+      },
+      "matcher": "glob"
+    },
+    {
+      "name": "skill router read",
+      "trigger": "PreToolUse",
+      "description": "Skill router: nudges a request, or a raw discovery reach, toward the skill or protocol that already covers it. Default mode log (records would-nudges, never blocks); NATE_SKILL_ROUTER=enforce blocks the raw reach, =off disables.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/skill_router_hook.py",
+        "timeout": 10
+      },
+      "matcher": "read"
+    }
+  ]
+}

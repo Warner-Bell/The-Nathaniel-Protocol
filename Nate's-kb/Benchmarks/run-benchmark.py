@@ -4,9 +4,13 @@ Run from Nate's-kb/ directory.
 Tests CSR routing, integrity, retrieval quality, and system health.
 """
 
-import json, os, time, sys
+import json, os, re, time, sys
 from pathlib import Path
 from collections import Counter
+
+# All paths below are relative to Nate's-kb/. Resolve it from this file so the documented
+# invocation from the repo root (python3 Nate's-kb/Benchmarks/run-benchmark.py) works too.
+os.chdir(Path(__file__).resolve().parent.parent)
 
 RESULTS = []
 WARNINGS = []
@@ -36,6 +40,15 @@ patterns = load_json("Intelligence/patterns.json")
 knowledge = load_json("Intelligence/knowledge.json")
 reasoning = load_json("Intelligence/reasoning.json")
 memory = load_json("Memory/memory.json")
+# The kernel is split across always-loaded steering files: gates, IMG, the Protocol
+# Keyword Map and the KB Location Map live in ecosystem-operation.md. Kernel tests read
+# the set as one text so a section move between files doesn't read as MISSING. The Save
+# Command lives in memory-protocol.md (the kernel keeps a must-read stub).
+KERNEL_FILES = ["../.kiro/steering/ecosystem-operation.md", "../.kiro/steering/Nathaniel.md",
+                "../.kiro/steering/PRIME-DIRECTIVES.md", "memory-protocol.md"]
+def read_kernel():
+    return "\n".join(open(k, 'r', encoding='utf-8').read() for k in KERNEL_FILES if os.path.exists(k))
+
 pi = load_json("Intelligence/patterns-index.json")
 ki = load_json("Intelligence/knowledge-index.json")
 ri = load_json("Intelligence/reasoning-index.json")
@@ -172,24 +185,68 @@ for store_name in ["knowledge", "patterns"]:
          len(unreachable) == 0,
          f"{len(store_ids)} entries, {len(unreachable)} unreachable, {len(shallow)} shallow (<2 tags)")
 
+# ── Provenance reference classification ──────────────────────────
+# derived_from and cross-reference source keys legitimately hold three shapes:
+#   1. intelligence entry IDs (know-123, fail_045, reason-200)  -> MUST resolve
+#   2. session refs (session-YYYY-MM-DD-NNN)                  -> not store entries
+#   3. repo file paths (scripts/save-session.py, docs/x.md#anchor) -> not store entries
+# Only shape 1 can be "broken". Flagging 2 and 3 produced 108 false positives on
+# cross-references and 9 on derived_from. This mirrors the INTEL_ID rule already
+# documented in scripts/maintenance.py, and repeats an earlier lesson: a
+# too-narrow valid-source set makes the benchmark report bugs that aren't there.
+INTEL_ID_RE = re.compile(r"^(know-|fail_|pref_|tech_|approach_|reason-|diagnostics_|org_|prob_|proc_|comm_|content_|pat-|ai_agent_)\d")
+
+
+def is_intel_ref(ref):
+    """True if this ref claims to be an intelligence entry ID."""
+    return bool(INTEL_ID_RE.match(str(ref)))
+
+
+REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+
+
+def repo_path_exists(ref):
+    """Resolve a repo-relative provenance path from the REPO ROOT, not cwd.
+
+    The suite runs with cwd=Nate's-kb, so 'scripts/save-session.py' was being
+    checked at Nate's-kb/scripts/... and reported missing though it exists.
+    """
+    bare = str(ref).split("#")[0]
+    return os.path.exists(os.path.join(REPO_ROOT, bare))
+
 # ══════════════════════════════════════════════
 # TEST 6: Cross-Reference Integrity
 # ══════════════════════════════════════════════
 print("\n═══ TEST 6: Cross-Reference Integrity ═══")
 try:
     xref = load_json("Intelligence/cross-references.json")
-    all_source_ids = {e["id"] for e in pat_entries} | {e["id"] for e in know_entries}
+    # Reasoning can derive from reasoning, so reasoning ids are valid cross-ref sources too
+    # (maintenance.py check_missing_cross_refs adds them).
+    all_source_ids = {e["id"] for e in pat_entries} | {e["id"] for e in know_entries} | {e["id"] for e in reas_entries}
     all_reas_ids = {e["id"] for e in reas_entries}
     broken = 0
     total_refs = 0
+    stale_paths = []
     for source_id, refs in xref.items():
-        if source_id not in all_source_ids:
-            broken += 1
+        if source_id.startswith("_"):
+            continue  # metadata key, not a reference
+        if is_intel_ref(source_id):
+            if source_id not in all_source_ids:
+                broken += 1
+        elif not source_id.startswith("session-") and not repo_path_exists(source_id):
+            stale_paths.append(source_id)
         for r_id in refs.get("referenced_by", []):
             total_refs += 1
             if r_id not in all_reas_ids:
                 broken += 1
     test("Cross-references", broken == 0, f"{total_refs} refs, {broken} broken")
+    # Stale file-path provenance is a real signal but not a reference-integrity
+    # failure: the entry is fine, the file moved. Report separately.
+    test("Cross-ref path provenance", len(stale_paths) == 0,
+         f"{len(stale_paths)} source paths no longer on disk",
+         info_only=(len(stale_paths) > 0))
+    for sp in stale_paths[:5]:
+        warn(f"  cross-ref source path gone: {sp}")
 except Exception as e:
     test("Cross-references", False, f"Error: {e}")
 
@@ -223,10 +280,9 @@ for proto_file, keyword in protocols:
 print("\n═══ TEST 8: Gate Coverage ═══")
 gates = ["Troubleshooting Gate", "Removal Cascade", "Destructive Action Gate",
          "Source-Fidelity Gate", "Template Propagation Gate", "File Resolution", "Recommendation Gate"]
-kernel_path = "../.kiro/steering/Nathaniel.md"
+kernel_path = KERNEL_FILES[1]
 if os.path.exists(kernel_path):
-    with open(kernel_path, 'r', encoding='utf-8') as f:
-        kernel = f.read()
+    kernel = read_kernel()
     for gate in gates:
         found = gate in kernel
         test(f"Gate: {gate}", found, "found" if found else "MISSING")
@@ -377,6 +433,46 @@ test("Token economics", ratio <= 60,
 metric("token_idx_total", idx_total)
 metric("token_content_total", content_total)
 metric("token_ratio_pct", ratio)
+
+# ── Cold-start context budget ────────────────────────────────────
+# The ratio test above measures CSR efficiency (index vs full store), which is a
+# different question from "what does a cold session actually pay to boot?".
+# Nothing measured the latter, so the session index grew to 327KB unnoticed while
+# the reported figure stayed flat because session-index was never in the sum.
+# This tracks the real Session Start Gate load set.
+# The Session Start Gate loads memory-index whole but only the HEAD of the
+# patterns/knowledge/reasoning indexes plus every reasoning reuse signal
+# (scripts/index-query.py); the full indexes are storage, queried on demand. Measure the
+# real load set; full_index_tok is tracked, not budgeted, so index growth stays visible.
+import subprocess
+mem_tok = os.path.getsize("Memory/memory-index.json") // 4 if os.path.exists("Memory/memory-index.json") else 0
+head_proc = subprocess.run([sys.executable, "../scripts/index-query.py", '{"action":"head"}'],
+                           capture_output=True, text=True)
+head_ok = head_proc.returncode == 0 and head_proc.stdout.strip().startswith("{")
+head_tok = len(head_proc.stdout) // 4 if head_ok else 0
+sig_proc = subprocess.run([sys.executable, "../scripts/index-query.py", '{"action":"signals"}'],
+                          capture_output=True, text=True)
+sig_ok = sig_proc.returncode == 0 and sig_proc.stdout.startswith("# reasoning reuse signals")
+sig_tok = len(sig_proc.stdout) // 4 if sig_ok else 0
+full_index_tok = sum(os.path.getsize(f"Intelligence/{n}-index.json") // 4
+                     for n in ("patterns", "knowledge", "reasoning")
+                     if os.path.exists(f"Intelligence/{n}-index.json"))
+session_idx_path = "Memory/session-index.json"
+session_idx_tok = os.path.getsize(session_idx_path) // 4 if os.path.exists(session_idx_path) else 0
+startup_total = mem_tok + head_tok + sig_tok
+print(f"  Cold-start load set: ~{startup_total:,} tokens (memory-index ~{mem_tok:,} + index head ~{head_tok:,} + reasoning signals ~{sig_tok:,})")
+print(f"  Full indexes:        ~{full_index_tok:,} tokens (STORAGE, queried via index-query.py)")
+print(f"  session-index.json:  ~{session_idx_tok:,} tokens (STORAGE, queried via session-cache)")
+test("Index head query works", head_ok, "ok" if head_ok else (head_proc.stderr or head_proc.stdout)[-200:])
+test("Reasoning signals query works", sig_ok, "ok" if sig_ok else (sig_proc.stderr or sig_proc.stdout)[-200:])
+# 40k is a growth tripwire: reasoning signals grow with every reasoning entry.
+test("Cold-start context budget", head_ok and sig_ok and startup_total <= 40000,
+     f"~{startup_total:,} tokens loaded at session start (budget 40,000)")
+metric("startup_context_tokens", startup_total)
+metric("full_index_tokens_not_loaded", full_index_tok)
+metric("reasoning_signals_tokens", sig_tok)
+metric("session_index_tokens_not_loaded", session_idx_tok)
+
 metric("csr_reduction_pct", reduction)
 
 # ══════════════════════════════════════════════
@@ -448,12 +544,21 @@ for store_name in ["patterns", "knowledge"]:
 print("\n═══ TEST 18: Derived-From Integrity ═══")
 all_live = {e["id"] for e in pat_entries} | {e["id"] for e in know_entries} | {e["id"] for e in reas_entries}
 broken_refs = []
+stale_derived = []
 for e in reas_entries:
     for src in e.get("derived_from", []):
-        if src not in all_live and not src.startswith("session-"):
-            broken_refs.append((e["id"], src))
+        if is_intel_ref(src):
+            if src not in all_live:
+                broken_refs.append((e["id"], src))
+        elif not str(src).startswith("session-") and not repo_path_exists(src):
+            stale_derived.append((e["id"], src))
 test("Derived-from refs", len(broken_refs) == 0,
-     f"{len(broken_refs)} broken refs (excluding session refs)")
+     f"{len(broken_refs)} broken entry-ID refs (session/file-path refs are valid provenance)")
+test("Derived-from path provenance", len(stale_derived) == 0,
+     f"{len(stale_derived)} derived_from paths no longer on disk",
+     info_only=(len(stale_derived) > 0))
+for sd in stale_derived[:5]:
+    warn(f"  {sd[0]} -> {sd[1]} (path gone)")
 for br in broken_refs[:5]:
     warn(f"  {br[0]} -> {br[1]} (not found)")
 
@@ -532,10 +637,9 @@ for store_name in ["patterns", "knowledge", "reasoning"]:
 # TEST 23: Failure-to-Fix Cycle Coverage
 # ══════════════════════════════════════════════
 print("\n═══ TEST 23: Failure-to-Fix Cycle Coverage ═══")
-kernel_path = "../.kiro/steering/Nathaniel.md"
+kernel_path = KERNEL_FILES[1]
 if os.path.exists(kernel_path):
-    with open(kernel_path, 'r', encoding='utf-8') as f:
-        kernel = f.read()
+    kernel = read_kernel()
     test("Failure-to-Fix: exists in kernel",
          "Failure-to-Fix Cycle" in kernel and "MANDATORY" in kernel[kernel.index("Failure-to-Fix"):kernel.index("Failure-to-Fix")+500],
          "found" if "Failure-to-Fix Cycle" in kernel else "MISSING")
@@ -552,10 +656,9 @@ else:
 # TEST 24: Kernel Coherence
 # ══════════════════════════════════════════════
 print("\n═══ TEST 24: Kernel Coherence ═══")
-kernel_path = "../.kiro/steering/Nathaniel.md"
+kernel_path = KERNEL_FILES[1]
 if os.path.exists(kernel_path):
-    with open(kernel_path, 'r', encoding='utf-8') as f:
-        kernel = f.read()
+    kernel = read_kernel()
 
     # 24a: Keyword map protocols exist on disk
     import re
@@ -586,10 +689,15 @@ if os.path.exists(kernel_path):
          "found + mandatory" if has_img and has_img_mandatory else "MISSING or not mandatory")
 
     # 24d: Save protocol steps sequential (1-10)
+    # Steps 3 and 5 are legitimately lettered sub-steps in the kernel checklist
+    # (3a/3b/3c/3c-CROSS/3d, 5a..5e) because each represents a distinct save
+    # operation; match any step-N or step-Na/Nb-style checklist line.
     save_steps_found = []
+    checklist_start = kernel.index("SAVE CHECKLIST")
+    checklist_block = kernel[checklist_start:checklist_start + 2000]
     for i in range(1, 11):
-        # Look for step numbers in save checklist
-        if f"[ ] {i}." in kernel or f"[x] {i}." in kernel or f"{i}. " in kernel[kernel.index("SAVE CHECKLIST"):kernel.index("SAVE CHECKLIST")+2000]:
+        patterns = [f"[ ] {i}.", f"[x] {i}."] + [f"[ ] {i}{c}." for c in "abcdef"] + [f"[x] {i}{c}." for c in "abcdef"]
+        if any(p in checklist_block for p in patterns) or f"{i}. " in checklist_block:
             save_steps_found.append(i)
     test("Kernel coherence: save protocol steps 1-10 present",
          len(save_steps_found) >= 9,

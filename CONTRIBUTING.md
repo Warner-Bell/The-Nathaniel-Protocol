@@ -34,8 +34,9 @@ Thanks for your interest in contributing. Whether it's a bug fix, a new protocol
 The ecosystem is designed to be extensible. To add a domain protocol:
 
 1. Create `Nate's-kb/[domain]-protocol.md` following the structure of existing protocols
-2. Add trigger keywords to the Protocol Keyword Map in the kernel (`.steering-files/steering/Nathaniel.md`)
-3. Test that the protocol activates on the expected keywords
+2. Add trigger keywords to the Protocol Keyword Map in the kernel (`.steering-files/steering/ecosystem-operation.md`)
+3. Add the protocol to `scripts/skill-router/routes.json` and run `python3 scripts/skill-router/routes_check.py`
+4. Test that the protocol activates on the expected keywords
 
 ### New Patterns
 
@@ -58,13 +59,16 @@ The template ships with a curated baseline of patterns, knowledge, and reasoning
 
 Scripts, setup flow, documentation, agent configs: all fair game. If it's broken or could be better, fix it.
 
+Before opening a PR that touches `scripts/`, run the suites CI runs: `python3 scripts/hooks/test-*.py` (each file), `python3 scripts/test-index-query.py`, `python3 scripts/test-session-cache-fts.py`, `python3 scripts/skill-router/routes_check.py`, and `python3 Nate's-kb/Benchmarks/run-benchmark.py`.
+
 ## What Not to Change
 
 The following are core architecture and should not be modified in PRs without discussion:
 
 - **Consciousness architecture** (super-objective, irreducible self, paradoxes, shadow)
 - **Decision routing** (Routes A-F structure)
-- **Gate system** (six mandatory gates)
+- **Gate system** (the mandatory gates in `ecosystem-operation.md` and the hook floor in `scripts/hooks/`)
+- **PRIME-DIRECTIVES Rules** (grow only through the correction loop and `scripts/correction-ledger.py`)
 - **Core patterns** (CSR, HRF, Protocol-as-MCP, TOC-Dynamic-Loading)
 - **Save protocol** (atomic checklist)
 - **Intelligence system** (learning loop, cross-references, index structure)

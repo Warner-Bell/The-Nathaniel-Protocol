@@ -40,3 +40,17 @@ jobs:
           pip install fastembed numpy pytest hypothesis
           cd Nate\'s-kb/vectorstore
           python3 -m pytest tests/ -v
+
+      - name: Run hook and script suites
+        run: |
+          set -e
+          for t in scripts/hooks/test-*.py scripts/test-index-query.py scripts/test-session-cache-fts.py; do
+            echo "== $t"
+            python3 "$t"
+          done
+          python3 scripts/skill-router/routes_check.py
+          python3 scripts/cred.py audit
+
+      - name: Run script tests
+        run: |
+          python3 -m pytest tests/ -q

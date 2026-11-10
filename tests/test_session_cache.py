@@ -20,12 +20,12 @@ SAMPLE_INDEX = {
     "sessions": [
         {"id": "s-001", "date": "2026-04-16", "tags": ["golden-seed", "template"],
          "summary": "Built GOLDEN seed corpus", "outcome": "success", "outcome_note": "783 entries"},
-        {"id": "s-002", "date": "2026-04-15", "tags": ["my-project", "deep-work"],
-         "summary": "Deep work on project spec", "outcome": "success", "outcome_note": "Spec complete"},
+        {"id": "s-002", "date": "2026-04-15", "tags": ["cloud-nate", "deep-work"],
+         "summary": "Cloud Nate deep work session", "outcome": "success", "outcome_note": "Spec complete"},
         {"id": "s-003", "date": "2026-04-14", "tags": ["transit-test", "bug-fix"],
          "summary": "Transit test with bug fixes", "outcome": "partial", "outcome_note": "E2E pending"},
-        {"id": "s-004", "date": "2026-04-13", "tags": ["my-project", "route-f"],
-         "summary": "Route F on project spec", "outcome": "success", "outcome_note": "Fixed"},
+        {"id": "s-004", "date": "2026-04-13", "tags": ["cloud-nate", "route-f"],
+         "summary": "Route F on Cloud Nate spec", "outcome": "success", "outcome_note": "Fixed"},
         {"id": "s-005", "date": "2026-04-12", "tags": ["template", "review"],
          "summary": "Template final review and cleanup", "outcome": "blocked", "outcome_note": "Permissions"},
     ],
@@ -74,7 +74,7 @@ def test_stats_output(env):
 def test_query_by_tag(env):
     sc.rebuild()
     conn, has_fts5, _ = sc.ensure_cache()
-    results = sc.query(conn, has_fts5, {"tags": ["my-project"]})
+    results = sc.query(conn, has_fts5, {"tags": ["cloud-nate"]})
     conn.close()
     assert len(results) == 2
     ids = {r["id"] for r in results}
@@ -120,12 +120,12 @@ def test_query_by_outcome(env):
 def test_combined_filters(env):
     sc.rebuild()
     conn, has_fts5, _ = sc.ensure_cache()
-    results = sc.query(conn, has_fts5, {"tags": ["my-project"], "outcome": "success"})
+    results = sc.query(conn, has_fts5, {"tags": ["cloud-nate"], "outcome": "success"})
     conn.close()
     assert len(results) == 2
     for r in results:
         assert r["outcome"] == "success"
-        assert "my-project" in r["tags"]
+        assert "cloud-nate" in r["tags"]
 
 
 def test_limit(env):

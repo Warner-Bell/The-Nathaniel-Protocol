@@ -3,7 +3,8 @@
 
 Writes .kiro/steering/FILE-STRUCTURE.md (steering => always loaded into context).
 Single source of truth, called by:
-  - Kiro agent JSON hooks: postToolUse(fs_write) + agentSpawn (auto-update on file actions / session start)
+  - Kiro CLI v3 workspace hooks in .kiro/hooks/file-structure.json: SessionStart + PostToolUse(write)
+    (applies to every agent; deployed from .steering-files/hooks/ by setup.sh)
   - scripts/save-session.py (save step 5d)
   - manual runs: python3 scripts/gen-file-structure.py
 
@@ -17,7 +18,12 @@ from datetime import date
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-OUT = REPO_ROOT / ".steering-files" / "steering" / "FILE-STRUCTURE.md"
+# Kiro loads steering from .kiro/steering/, so that is where the live map must be written.
+# setup.sh copies .steering-files/ to .kiro/ skip-existing, so writing only the .steering-files
+# copy left the loaded map frozen at first install. Before setup has run (.kiro/steering absent),
+# fall back to the .steering-files source copy.
+_LIVE = REPO_ROOT / ".kiro" / "steering"
+OUT = (_LIVE if _LIVE.is_dir() else REPO_ROOT / ".steering-files" / "steering") / "FILE-STRUCTURE.md"
 EXCLUDE = {'.git', 'node_modules', '__pycache__', 'cdk.out', '.venv', '.aws-sam',
            '.hypothesis', '.pytest_cache', '*.egg-info'}
 

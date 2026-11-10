@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "correction loop",
+      "trigger": "UserPromptSubmit",
+      "description": "Detects a user correction in the prompt, appends it to Nate's-kb/Intelligence/corrections.jsonl, and cues the correction-capture skill. Never blocks. Mode in Nate's-kb/Intelligence/correction-loop.json (log stages directive edits, enforce applies them). Kill switch NATE_CORRECTION_LOOP=off.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/hooks/correction_hook.py",
+        "timeout": 10
+      }
+    }
+  ]
+}

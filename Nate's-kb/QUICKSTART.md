@@ -100,7 +100,9 @@
 
 | What | Where |
 |------|-------|
-| Personality Kernel | `.kiro/steering/Nathaniel.md` |
+| Personality Kernel | `.kiro/steering/` (`Nathaniel.md`, `ecosystem-operation.md`, `PRIME-DIRECTIVES.md`, `source-authority-gate.md`) |
+| Hooks | `.kiro/hooks/*.json` (safety floor, correction loop, skill router, repo map) |
+| Skills | `.kiro/skills/` |
 | Decision Engine | `Nate's-kb/Nate-Protocol.md` |
 | Memory | `Nate's-kb/Memory/memory.json` |
 | Session Logs | `Nate's-kb/Memory/session-*.md` |
@@ -108,6 +110,8 @@
 | Knowledge | `Nate's-kb/Intelligence/knowledge.json` |
 | Reasoning | `Nate's-kb/Intelligence/reasoning.json` |
 | Protocols | `Nate's-kb/*.md` |
+| Credential cards | `Nate's-kb/credential-registry.json` (`python3 scripts/cred.py list`) |
+| Correction ledger | `Nate's-kb/Intelligence/corrections.jsonl` |
 | Workspace Guide | `POCKET-HQ.md` |
 
 ---

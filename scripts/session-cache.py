@@ -5,7 +5,7 @@ Enables sub-millisecond session queries by tag, date, keyword, and outcome
 without loading the full session-index.json into LLM context.
 
 Usage:
-    python3 scripts/session-cache.py '{"action": "query", "tags": ["deep-work"]}'
+    python3 scripts/session-cache.py '{"action": "query", "tags": ["cloud-nate"]}'
     python3 scripts/session-cache.py '{"action": "query", "date_from": "2026-04-01"}'
     python3 scripts/session-cache.py '{"action": "query", "keyword": "transit test"}'
     python3 scripts/session-cache.py '{"action": "query", "outcome": "blocked"}'
@@ -17,6 +17,7 @@ Exit codes: 0=success, 1=rebuilt transparently, 2=fatal error
 
 import json
 import os
+import re
 import sqlite3
 import sys
 import time
@@ -138,6 +139,26 @@ def ensure_cache():
     return conn, has_fts5, was_rebuilt
 
 
+_FTS_STOP = {"and", "or", "not", "near", "the", "a", "an", "of", "to", "in", "is", "it"}
+
+
+def _sanitize_fts5_query(text):
+    """Turn arbitrary user text into a safe FTS5 MATCH expression (#3).
+
+    Raw text passed to MATCH lets user input act as FTS5 operators (AND/OR/NEAR/*/^ ...),
+    which raises OperationalError and drops the query to a literal LIKE that silently loses
+    multi-term recall. Here each word token is extracted (punctuation/operators dropped),
+    lowercased, stopword-filtered, wrapped as a quoted string literal, and OR-joined.
+    Operators can no longer be injected and recall is preserved. Returns None when the text
+    has no word tokens, in which case the caller falls back to LIKE.
+    """
+    tokens = re.findall(r"\w+", text.lower())
+    if not tokens:
+        return None
+    kept = [t for t in tokens if t not in _FTS_STOP] or tokens  # all-stopwords -> keep raw
+    return " OR ".join(f'"{t}"' for t in kept)
+
+
 def query(conn, has_fts5, params):
     """Execute query with combined filters."""
     conditions = []
@@ -175,16 +196,30 @@ def query(conn, has_fts5, params):
     keyword = params.get("keyword")
     fts_session_ids = None
     if keyword and keyword.strip():
-        if has_fts5:
+        fts_match = _sanitize_fts5_query(keyword) if has_fts5 else None
+        if fts_match:
             try:
                 fts_rows = conn.execute(
                     "SELECT id FROM sessions_fts WHERE sessions_fts MATCH ?",
-                    (keyword,)).fetchall()
+                    (fts_match,)).fetchall()
                 fts_session_ids = {r[0] for r in fts_rows}
+                # Push the match set into SQL as a pre-LIMIT condition. Applying it after
+                # the LIMIT (the original behaviour) filters only the newest N rows, so a
+                # keyword whose matches are older than those N rows returns zero. Found
+                # 2026-09-13: every keyword returned 0 hits at limit 3 because the newest
+                # 3 rows were that day's sessions. `1=0` guards the empty-set case, since
+                # `id IN ()` is not valid SQL.
+                if fts_session_ids:
+                    placeholders = ",".join("?" * len(fts_session_ids))
+                    conditions.append(f"id IN ({placeholders})")
+                    query_params.extend(sorted(fts_session_ids))
+                else:
+                    conditions.append("1=0")
             except sqlite3.OperationalError:
                 conditions.append("summary LIKE ? COLLATE NOCASE")
                 query_params.append(f"%{keyword}%")
         else:
+            # no FTS5 available, or keyword had no word tokens -> literal substring fallback
             conditions.append("summary LIKE ? COLLATE NOCASE")
             query_params.append(f"%{keyword}%")
 
@@ -192,16 +227,20 @@ def query(conn, has_fts5, params):
     sql = "SELECT * FROM sessions"
     if conditions:
         sql += " WHERE " + " AND ".join(conditions)
-    sql += " ORDER BY date DESC"
+    # Tie-break on id DESC: session ids are zero-padded (session-YYYY-MM-DD-NNN), so
+    # lexicographic DESC == chronological DESC within a date. Without this, a day with
+    # multiple sessions returns them in rowid (insertion) order, so a `limit 3` continuity
+    # read surfaces the day's OLDEST sessions. Found 2026-09-13: the Session Start Gate
+    # read 001/002/003 while 004-010 existed, leaving cold-start continuity 7 sessions stale.
+    sql += " ORDER BY date DESC, id DESC"
 
     limit = params.get("limit", 10)
     sql += f" LIMIT {int(limit)}"
 
     rows = conn.execute(sql, query_params).fetchall()
 
-    # Apply FTS5 filter if we got ID matches
-    if fts_session_ids is not None:
-        rows = [r for r in rows if r["id"] in fts_session_ids]
+    # (The keyword/FTS match set is now applied as a pre-LIMIT SQL condition above,
+    # so no post-fetch filtering is needed or correct here.)
 
     results = []
     for r in rows:

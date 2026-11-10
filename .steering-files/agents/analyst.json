@@ -2,34 +2,63 @@
   "name": "analyst",
   "description": "Deep research specialist that investigates topics, evaluates sources, synthesizes findings, and delivers structured research outputs with analyst-grade rigor. Use for research, investigation, comparison, analysis, evaluation, deep-dives, and market/technical assessments.",
   "prompt": "file://./analyst/analyst-prompt.md",
-  "tools": ["read", "write", "knowledge", "grep", "glob", "web_search", "web_fetch"],
-  "allowedTools": ["read", "knowledge", "grep", "glob", "web_search", "web_fetch"],
+  "tools": [
+    "glob",
+    "grep",
+    "knowledge",
+    "read",
+    "web",
+    "web_fetch",
+    "web_search",
+    "write"
+  ],
+  "allowedTools": [
+    "read",
+    "knowledge",
+    "grep",
+    "glob",
+    "web_search",
+    "web_fetch"
+  ],
   "toolsSettings": {
     "write": {
-      "allowedPaths": ["docs/research/**"]
+      "allowedPaths": [
+        "docs/research/**"
+      ]
     }
   },
   "resources": [
     "file://./analyst/consciousness.md",
     "file://./analyst/specialization.md"
   ],
-  "hooks": {
-    "agentSpawn": [
+  "includeMcpJson": true,
+  "keyboardShortcut": "ctrl+a",
+  "welcomeMessage": "Analyst online. What are we researching, Sir?",
+  "permissions": {
+    "rules": [
       {
-        "command": "python3 scripts/gen-file-structure.py",
-        "description": "Refresh the steering repo map (FILE-STRUCTURE.md) at session start"
-      }
-    ],
-    "postToolUse": [
+        "capability": "fs_write",
+        "match": [
+          "docs/research/**"
+        ],
+        "effect": "allow"
+      },
       {
-        "matcher": "fs_write",
-        "command": "python3 scripts/gen-file-structure.py",
-        "description": "Regenerate FILE-STRUCTURE.md after every file write so the steering map stays current"
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_fetch",
+        "effect": "allow"
+      },
+      {
+        "capability": "web_search",
+        "effect": "allow"
+      },
+      {
+        "capability": "skill",
+        "effect": "allow"
       }
     ]
-  },
-  "includeMcpJson": true,
-  "model": "claude-opus-4.6",
-  "keyboardShortcut": "ctrl+a",
-  "welcomeMessage": "Analyst online. What are we researching, Sir?"
+  }
 }

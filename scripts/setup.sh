@@ -9,6 +9,8 @@
 #   --skip-vectorstore   Skip venv creation and vectorstore deps
 #   --skip-kiro-config   Don't copy .steering-files to .kiro
 #   --dry-run            Show what would happen without doing it
+#   --upgrade            Existing install: back up .kiro/ and CLAUDE.md, then overwrite them
+#                        from .steering-files/ (normal runs never overwrite your copies)
 #
 # ============================================================
 
@@ -27,6 +29,7 @@ STEPS_TOTAL=8
 DRY_RUN=false
 SKIP_VECTORSTORE=false
 SKIP_KIRO_CONFIG=false
+UPGRADE=false
 
 # --- Parse args ---
 for arg in "$@"; do
@@ -34,6 +37,7 @@ for arg in "$@"; do
         --skip-vectorstore) SKIP_VECTORSTORE=true ;;
         --skip-kiro-config) SKIP_KIRO_CONFIG=true ;;
         --dry-run) DRY_RUN=true ;;
+        --upgrade) UPGRADE=true ;;
         *) echo "Unknown option: $arg"; exit 1 ;;
     esac
 done
@@ -171,7 +175,15 @@ fi
 step 4 "Kiro CLI"
 
 if command -v kiro-cli &> /dev/null; then
-    pass "Kiro CLI found: $(kiro-cli --version 2>&1 | head -1)"
+    KIRO_VER="$(kiro-cli --version 2>&1 | head -1)"
+    pass "Kiro CLI found: $KIRO_VER"
+    # The template targets Kiro CLI v3 (standalone .kiro/hooks/*.json, agent permissions blocks).
+    KIRO_MAJOR="$(echo "$KIRO_VER" | grep -oE '[0-9]+' | head -1)"
+    if [ -n "$KIRO_MAJOR" ] && [ "$KIRO_MAJOR" -lt 3 ]; then
+        warn "Kiro CLI $KIRO_VER is older than 3.0. Hooks in .kiro/hooks/*.json need v3."
+        info "Update: curl -fsSL https://cli.kiro.dev/install | bash"
+        info "Note: v3 sessions cannot be resumed in v2. Back up ~/.kiro/sessions/ before switching back and forth."
+    fi
 else
     warn "Kiro CLI not found"
     info "Install: curl -fsSL https://cli.kiro.dev/install | bash"
@@ -199,15 +211,21 @@ if $SKIP_KIRO_CONFIG; then
 else
     if [ -d ".steering-files" ]; then
         if ! $DRY_RUN; then
+            if $UPGRADE && [ -d ".kiro" ]; then
+                KIRO_BACKUP=".kiro.backup-$(date +%Y%m%d-%H%M%S)"
+                cp -a .kiro "$KIRO_BACKUP"
+                pass "Upgrade: existing .kiro/ backed up to $KIRO_BACKUP"
+            fi
             mkdir -p .kiro
-            # Copy each subdirectory, preserving existing content
-            for dir in agents settings steering specs; do
+            # Copy each subdirectory. Normal runs skip existing files to preserve user
+            # customizations; --upgrade overwrites them (after the backup above).
+            for dir in agents hooks settings skills steering specs; do
                 if [ -d ".steering-files/$dir" ]; then
                     mkdir -p ".kiro/$dir"
                     # Copy files, skip existing to preserve user customizations
                     find ".steering-files/$dir" -type f | while read src; do
                         dest=".kiro/${src#.steering-files/}"
-                        if [ ! -f "$dest" ] || [ "$(basename "$src")" = "mcp.json" ]; then
+                        if $UPGRADE || [ ! -f "$dest" ] || [ "$(basename "$src")" = "mcp.json" ]; then
                             mkdir -p "$(dirname "$dest")"
                             cp "$src" "$dest"
                         fi
@@ -219,6 +237,17 @@ else
                 cp ".steering-files/settings.json" ".kiro/settings.json"
             fi
             pass "Kiro config deployed to .kiro/"
+            # Build the live repo map Kiro loads (.kiro/steering/FILE-STRUCTURE.md). The copied
+            # one is a snapshot of the template repo, not of this install.
+            if command -v python3 &> /dev/null && [ -f scripts/gen-file-structure.py ]; then
+                python3 scripts/gen-file-structure.py > /dev/null 2>&1 && pass "Repo map generated (.kiro/steering/FILE-STRUCTURE.md)" \
+                    || warn "Repo map generation failed; run: python3 scripts/gen-file-structure.py"
+            fi
+            # Agent configs you already had are kept as-is (skip-existing above). On Kiro CLI v3,
+            # convert any older ones to the universal format both engines load (backs up *.json.bak).
+            if command -v kiro-cli &> /dev/null; then
+                info "If you kept agent configs from an older install, run: kiro-cli agent upgrade .kiro/agents"
+            fi
         else
             info "(dry run) Would copy .steering-files/* to .kiro/"
         fi
@@ -227,10 +256,15 @@ else
     fi
 fi
 
-# Claude Code support: copy CLAUDE.md if not present
+# Claude Code support: build CLAUDE.md if not present (or rebuild it on --upgrade)
+if $UPGRADE && [ -f "CLAUDE.md" ] && ! $DRY_RUN; then
+    mv CLAUDE.md "CLAUDE.md.backup-$(date +%Y%m%d-%H%M%S)"
+fi
 if [ ! -f "CLAUDE.md" ] && [ -f ".steering-files/steering/Nathaniel.md" ]; then
     if ! $DRY_RUN; then
-        cp .steering-files/steering/Nathaniel.md CLAUDE.md
+        # The kernel is three steering files plus the Source Authority Gate; Claude Code reads one file, so concatenate them.
+        cat .steering-files/steering/Nathaniel.md .steering-files/steering/ecosystem-operation.md \
+            .steering-files/steering/PRIME-DIRECTIVES.md .steering-files/steering/source-authority-gate.md > CLAUDE.md
         pass "Claude Code config deployed (CLAUDE.md)"
     else
         info "(dry run) Would copy CLAUDE.md"

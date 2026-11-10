@@ -1,0 +1,4 @@
+{
+  "mode": "log",
+  "_doc": "Correction loop mode. log = hook ledgers + cues, skill STAGES PRIME-DIRECTIVES.md edits for user apply. enforce = edits apply immediately. off = kill switch. Env NATE_CORRECTION_LOOP overrides. See scripts/hooks/correction_hook.py."
+}

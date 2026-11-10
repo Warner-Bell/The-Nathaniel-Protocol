@@ -42,6 +42,8 @@ Intelligence/
 | `patterns.json` | Behavioral patterns with confidence scores |
 | `knowledge.json` | Factual knowledge entries |
 | `reasoning.json` | Derived conclusions, connections, analogies |
+| `corrections.jsonl` | Correction loop ledger: one line per hook event, diagnosis, or amendment (append-only) |
+| `correction-loop.json` | Correction loop mode: `log` (stage rule edits for your approval), `enforce`, `off` |
 
 ### Indexes (CSR Pattern)
 | File | Dimensions |
@@ -109,7 +111,9 @@ Store mutations are handled by deterministic Python scripts, not LLM inline edit
 | `scripts/save-session.py` | All save-time store writes (patterns, knowledge, reasoning, memory, indexes) |
 | `scripts/cascade-correction.py` | Scan/apply fact corrections across all stores |
 | `scripts/removal-cascade.py` | Cascade deletion with tag merge, cross-ref cleanup |
-| `scripts/maintenance.py` | Health checks (6 auto-fixes) + review items |
+| `scripts/maintenance.py` | Health checks, safe auto-fixes, review items (including the credential registry audit) |
+| `scripts/index-query.py` | Read-side: index head, reasoning signals, tag/keyword/id lookups without loading whole indexes |
+| `scripts/correction-ledger.py` | Sole writer for correction diagnoses and the PRIME-DIRECTIVES.md Rules section |
 | `scripts/reseed.py` | Validate and rebuild all indexes from stores |
 
 Why scripts: LLM inline JSON edits suffer from omission under load, recall substitution, and format drift (see Section 0 knowledge entries). Scripts execute outside the LLM decision loop and cannot be skipped.

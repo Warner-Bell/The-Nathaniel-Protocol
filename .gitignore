@@ -4,6 +4,7 @@
 
 # Kiro runtime config (deployed from .steering-files by setup.sh)
 .kiro/
+.kiro.backup-*/
 
 # Kiro memory (may contain session-specific data)
 .steering-files/memory.jsonl
@@ -11,6 +12,7 @@
 # Claude
 .claude/
 CLAUDE.md
+CLAUDE.md.backup-*
 
 # Python
 __pycache__/
@@ -32,6 +34,14 @@ node_modules/
 *.cert
 secrets.json
 credentials.json
+# Credential stores: any directory named .secrets, at any depth (see security-protocol.md section 2).
+# The card registry (Nate's-kb/credential-registry.json) is metadata only and stays tracked.
+.secrets/
+*.json.lock
+Nate's-kb/credential-registry.json.lock
+
+# Hook runtime ledgers (regenerated locally)
+scripts/hooks/skill-router-events.jsonl
 
 # IDE & Editor
 .vscode/
@@ -58,3 +68,4 @@ Nate's-kb/vectorstore/config.json
 # Hypothesis test cache
 Nate's-kb/vectorstore/.hypothesis/
 .pytest_cache/
+Nate's-kb/vectorstore/.access_hits.json

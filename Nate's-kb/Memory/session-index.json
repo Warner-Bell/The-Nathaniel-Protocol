@@ -1,4 +1,54 @@
 {
+  "_meta": {
+    "description": "Session index using CSR pattern - lightweight fingerprints for efficient session awareness",
+    "pattern": "Context Signal Routing (CSR)",
+    "usage": "Load this index always. Load full session-*.md only when signals match.",
+    "schema": {
+      "outcome_values": [
+        "success",
+        "partial",
+        "blocked",
+        "pending"
+      ],
+      "outcome_note": "Brief explanation of outcome - what worked, what didn't, why",
+      "pending": "written by save-session.py when a session is registered with no tags and no summary yet"
+    }
+  },
+  "_schema": {
+    "version": "2.0",
+    "writer": "scripts/save-session.py update_session_index() (the authority; update this block if that function changes)",
+    "fields": {
+      "id": {
+        "purpose": "routing",
+        "required": true,
+        "format": "session-YYYY-MM-DD-NNN"
+      },
+      "date": {
+        "purpose": "routing",
+        "required": true,
+        "format": "YYYY-MM-DD"
+      },
+      "tags": {
+        "purpose": "routing",
+        "type": "list"
+      },
+      "summary": {
+        "purpose": "awareness"
+      },
+      "outcome": {
+        "purpose": "routing",
+        "enum": [
+          "success",
+          "partial",
+          "blocked",
+          "pending"
+        ]
+      },
+      "outcome_note": {
+        "purpose": "awareness"
+      }
+    }
+  },
   "stats": {
     "totalSessions": 0,
     "rollingWindowDays": 60

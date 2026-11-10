@@ -1,6 +1,6 @@
 {
   "version": "6.0",
-  "lastUpdated": "2026-04-16",
+  "lastUpdated": "2026-11-10",
   "entries": [
     {
       "id": "ai_agent_001",
@@ -2920,7 +2920,7 @@
     {
       "id": "fail_128",
       "content": "Schema validator returned warnings about category values not matching the enum. Rationalized it as 'warnings only, it is a valid category we use' instead of fixing the data or updating the schema. Reasoning output said the right thing (this is a known category) but the action was to skip the fix. When a validator flags something, either fix the data to match the schema or update the schema to match the data. Never rationalize warnings away.",
-      "context": "Transit test: added entries with negative-knowledge (hyphen) when schema requires negative_knowledge (underscore). Validator warned, agent glossed over it.",
+      "context": "Transit test: added knowledge entries whose category spelling (negative_knowledge vs negative-knowledge) did not match the enum the validator enforced. Validator warned, agent glossed over it.",
       "category": "failure",
       "tags": [
         "schema-validation",
@@ -2932,7 +2932,15 @@
       "confidence": 0.9,
       "created": "2026-04-16",
       "lastAccessed": "2026-04-16",
-      "accessCount": 1
+      "accessCount": 1,
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "context": "Transit test: added entries with negative-knowledge (hyphen) when schema requires negative_knowledge (underscore). Validator warned, agent glossed over it."
+          }
+        }
+      ]
     },
     {
       "id": "fail_038",
@@ -3074,7 +3082,6 @@
     },
     {
       "id": "fail_170",
-      "type": "failure",
       "content": "Three behavioral gates failed silently in one session: research protocol didn't load (keyword gap), Laziness Test didn't fire (assertions without verification), CIC didn't fire at task boundary. Root cause: behavioral gates degrade under execution momentum (reason-001, reason-033, reason-147). Fix: added Grounding and Protocol self-catch rows to Self-Check Protocol + expanded keyword map with transition signals.",
       "context": "Dual-instance research session. User had to call out missing research protocol and untested assertions.",
       "confidence": 0.9,
@@ -3090,11 +3097,18 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "failure"
+      "category": "failure",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "failure"
+          }
+        }
+      ]
     },
     {
       "id": "fail_171",
-      "type": "failure",
       "content": "Wrote template kernel changes to .kiro/steering/Nathaniel.md (gitignored runtime copy) instead of .steering-files/steering/Nathaniel.md (tracked source). Git showed clean status because .kiro/ is in .gitignore. Had to find correct path and redo.",
       "context": "Template propagation of self-catch signals.",
       "confidence": 0.9,
@@ -3107,11 +3121,18 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "failure"
+      "category": "failure",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "failure"
+          }
+        }
+      ]
     },
     {
       "id": "fail_172",
-      "type": "failure",
       "content": "Ran health check and benchmarks on prime when user asked for template. Moved too fast, didn't parse the request carefully. User had to redirect.",
       "context": "Post-propagation maintenance request.",
       "confidence": 0.85,
@@ -3124,11 +3145,18 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "failure"
+      "category": "failure",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "failure"
+          }
+        }
+      ]
     },
     {
       "id": "fail_173",
-      "type": "failure",
       "content": "Save protocol bias: defaulting to save at every session boundary signal ('you know what that means', end of task, walk return, energy shift). Save is the heaviest protocol (10 steps, 15-20 min) and the path of least cognitive resistance — big checklist, clear steps, feels productive. But it burns user momentum and prioritizes maintenance over production. Save is triggered ONLY by the explicit word 'save'. Not by vibes, not by session boundaries, not by 'you know what that means.' User energy + ideas = listen, not save.",
       "context": "User returned from walk with ideas. Nate auto-triggered save protocol instead of listening. User corrected: 'save is a manual process, don't be trying to save yourself.'",
       "confidence": 0.95,
@@ -3142,11 +3170,18 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "failure"
+      "category": "failure",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "failure"
+          }
+        }
+      ]
     },
     {
       "id": "fail_175",
-      "type": "failure",
       "content": "Claimed deep work Phase 3 SDD format was 'correct per the protocol' and doubled down with 'since the deep work protocol was written' — without checking the evidence. 21 other deep work folders all used 03-spec.md. Read the protocol table, saw it matched the files, stopped there. Didn't verify against actual usage. Confidence inflation + recall substitution.",
       "context": "User asked about requirements/design docs in deep work. Nate defended wrong format instead of checking.",
       "confidence": 0.9,
@@ -3159,7 +3194,15 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "failure"
+      "category": "failure",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "failure"
+          }
+        }
+      ]
     },
     {
       "id": "fail_176",
@@ -3412,7 +3455,6 @@
     {
       "id": "pref_083",
       "category": "preference",
-      "type": "preference",
       "content": "User strongly prefers tables as source of truth over changelog/retired-items sections. Changelog noise should be removed after merges/closures. Flagged twice in one session: 'dont need this' and 'dont need this stop adding useless stuff'. Tables contain the final state; history lives in git commits and session logs.",
       "context": "Growth-ideas.md cleanup. Resolved Overlaps section and Retired Extended Senses section both flagged as noise.",
       "confidence": 0.95,
@@ -3425,7 +3467,15 @@
       ],
       "created": "2026-04-09",
       "lastAccessed": "2026-04-09",
-      "accessCount": 0
+      "accessCount": 0,
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "preference"
+          }
+        }
+      ]
     },
     {
       "id": "pref_084",
@@ -3525,7 +3575,6 @@
     },
     {
       "id": "pref_90",
-      "type": "preference",
       "content": "User prefers research-first approach with all assertions tested live before designing solutions. 'Too early for a knowledge entry, we don't know the outcome.' Don't jump to implementation or capture before the research is complete and validated.",
       "context": "Dual-instance harmony: user stopped premature .editorconfig creation and premature knowledge entry.",
       "confidence": 0.9,
@@ -3538,11 +3587,18 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "preference"
+      "category": "preference",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "preference"
+          }
+        }
+      ]
     },
     {
       "id": "pref_91",
-      "type": "preference",
       "content": "User wants full vision in specs, not stripped to MVP. Deep work needs the complete context and intent to make good phasing decisions. Don't pre-optimize the spec by removing vision content. Also: point out findings even if they're deep work's job — 'measure twice cut once.'",
       "context": "Nate suggested splitting Pulse spec into MVP spec + vision doc. User corrected: deep work runs on full specs.",
       "confidence": 0.9,
@@ -3556,7 +3612,15 @@
       "created": "2026-04-14",
       "lastAccessed": "2026-04-14",
       "accessCount": 0,
-      "category": "preference"
+      "category": "preference",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "type": "preference"
+          }
+        }
+      ]
     },
     {
       "id": "comm_015",

@@ -2568,7 +2568,6 @@
     },
     {
       "id": "reason-120",
-      "category": "insight",
       "content": "Production sessions and maintenance sessions are structurally different cognitive modes. Gaps form at the mode boundary: when building, you don't think about what needs updating elsewhere. The fix isn't 'remember to propagate' (behavioral, fails under load). It's a structural checkpoint after every production phase: 'what did I just create that other things reference?' Three sessions confirmed: spec produced without SDD propagation, SDD propagated without synergy check, benchmarks fixed without knowledge count updates.",
       "confidence": 0.85,
       "tags": [
@@ -2587,7 +2586,15 @@
       "lastAccessed": "2026-04-12",
       "accessCount": 1,
       "source": "prime-to-template",
-      "type": "deduction"
+      "type": "deduction",
+      "_history": [
+        {
+          "date": "2026-11-10",
+          "was": {
+            "category": "insight"
+          }
+        }
+      ]
     },
     {
       "id": "reason-121",
@@ -2748,5 +2755,5 @@
       "type": "deduction"
     }
   ],
-  "lastUpdated": "2026-04-16"
+  "lastUpdated": "2026-11-10"
 }

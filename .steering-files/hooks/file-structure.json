@@ -1,0 +1,26 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Repo map refresh at session start",
+      "trigger": "SessionStart",
+      "description": "Regenerate the steering repo map (.kiro/steering/FILE-STRUCTURE.md) so every agent starts with a current map.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/gen-file-structure.py",
+        "timeout": 10
+      }
+    },
+    {
+      "name": "Repo map refresh after writes",
+      "trigger": "PostToolUse",
+      "matcher": "write",
+      "description": "Regenerate FILE-STRUCTURE.md after any file write so the steering map stays current.",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/gen-file-structure.py",
+        "timeout": 10
+      }
+    }
+  ]
+}

@@ -25,7 +25,65 @@ STORES = {
     "memory": os.path.join(KB_ROOT, "Memory", "memory.json"),
 }
 
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+
+
+def _config_model_name(default="sentence-transformers/all-MiniLM-L6-v2"):
+    """Resolve the embedding model from config.json.
+
+    The model name used to be hardcoded here AND in the two sibling scripts. config.json
+    carried a decorative `model_name` that nothing read, so a swap in one place would
+    silently desync query-time embedding from index-time embedding with no error and
+    corrupt retrieval. Single source of truth now.
+    """
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return json.load(f).get("model_name") or default
+    except (OSError, json.JSONDecodeError, TypeError):
+        return default
+
+
+
+
+def _config_max_tokens(default=256):
+    """Tokenizer truncation ceiling, from config.json."""
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return int(json.load(f).get("max_tokens") or default)
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return default
+
+
+def _apply_max_tokens(model):
+    """Raise the tokenizer truncation ceiling on a fastembed model, in place.
+
+    fastembed pins max_length=128 for all-MiniLM-L6-v2 even though the model card
+    advertises 256, and it SILENTLY IGNORES a max_length constructor kwarg (verified
+    2026-08-05: identical vectors, cosine 1.000000). The only effective route is the
+    inner tokenizer. At 128, 1,137 of 2,359 entries (48.2%) were truncated before
+    embedding, with no warning and no record.
+
+    Index-time and sync-time must pass through here so a re-embedded entry cannot
+    silently diverge from the full build.
+    """
+    want = _config_max_tokens()
+    try:
+        tok = model.model.tokenizer
+        # Truncation AND padding must move together. fastembed pads to a fixed length and
+        # builds input_ids with np.array(); raising truncation alone makes long docs 256
+        # tokens while short docs still pad to 128, so the batch is ragged and numpy
+        # raises "inhomogeneous shape" inside onnx_embed. A single-document test cannot
+        # surface this because one document is never ragged.
+        if (tok.truncation or {}).get("max_length") != want:
+            tok.enable_truncation(max_length=want)
+        if (tok.padding or {}).get("length") != want:
+            tok.enable_padding(length=want)
+    except Exception as e:
+        import warnings
+        warnings.warn(f"could not raise tokenizer max_length to {want}: {e}")
+    return model
+
+
+MODEL_NAME = _config_model_name()
 
 
 def _load_json(path):
@@ -91,15 +149,28 @@ def sync():
 
     if not added and not updated and not removed:
         elapsed = time.time() - start
+        # Still flush access hits even when vectors unchanged
+        access_result = {"flushed": 0}
+        try:
+            import importlib.util
+            at_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "access_tracking.py")
+            spec = importlib.util.spec_from_file_location("access_tracking", at_path)
+            at_mod = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(at_mod)
+            access_result = at_mod.flush_hits()
+            if access_result["flushed"] > 0:
+                print(f"Access tracking: flushed {access_result['flushed']} hits to stores")
+        except Exception as e:
+            print(f"Access tracking flush failed (non-blocking): {e}", file=sys.stderr)
         print(f"Synced: 0 added, 0 updated, 0 removed, {len(unchanged)} unchanged, {elapsed:.1f}s")
-        return {"added": 0, "updated": 0, "removed": 0, "unchanged": len(unchanged), "elapsed": elapsed}
+        return {"added": 0, "updated": 0, "removed": 0, "unchanged": len(unchanged), "access_flushed": access_result["flushed"], "elapsed": elapsed}
 
     # Re-embed changed/new entries
     to_embed = list(added | updated)
     new_vectors = {}
     if to_embed:
         from fastembed import TextEmbedding
-        model = TextEmbedding(model_name=MODEL_NAME)
+        model = _apply_max_tokens(TextEmbedding(model_name=MODEL_NAME))
         texts = [current[eid][1] for eid in to_embed]
         embedded = list(model.embed(texts))
         for eid, vec in zip(to_embed, embedded):
@@ -152,7 +223,22 @@ def sync():
 
     elapsed = time.time() - start
     print(f"Synced: {len(added)} added, {len(updated)} updated, {len(removed)} removed, {len(unchanged)} unchanged, {elapsed:.1f}s")
-    return {"added": len(added), "updated": len(updated), "removed": len(removed), "unchanged": len(unchanged), "elapsed": elapsed}
+
+    # Flush accumulated access tracking hits to source stores
+    access_result = {"flushed": 0}
+    try:
+        import importlib.util
+        at_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "access_tracking.py")
+        spec = importlib.util.spec_from_file_location("access_tracking", at_path)
+        at_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(at_mod)
+        access_result = at_mod.flush_hits()
+        if access_result["flushed"] > 0:
+            print(f"Access tracking: flushed {access_result['flushed']} hits to stores")
+    except Exception as e:
+        print(f"Access tracking flush failed (non-blocking): {e}", file=sys.stderr)
+
+    return {"added": len(added), "updated": len(updated), "removed": len(removed), "unchanged": len(unchanged), "access_flushed": access_result["flushed"], "elapsed": elapsed}
 
 
 if __name__ == "__main__":

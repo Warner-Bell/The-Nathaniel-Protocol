@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Email send gate (user approval)",
+      "trigger": "PreToolUse",
+      "description": "Asks the user before any email send, reply, or forward from any email MCP server. Drafts and reads pass. Does nothing when no email MCP is configured.",
+      "matcher": "tool_call|email",
+      "action": {
+        "type": "command",
+        "command": "python3 scripts/email-send-gate.py",
+        "timeout": 10
+      }
+    }
+  ]
+}

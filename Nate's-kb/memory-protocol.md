@@ -295,6 +295,246 @@ This enables session diff on next start.
 
 ---
 
+## Save Command
+
+**Source of truth** for the save procedure (moved from the kernel; the kernel keeps a must-read stub).
+
+**Triggers**:
+- `save` - Standard save → use Standard Save Output at step 10
+- `detailed save` - Verbose save → use Detailed Save Output at step 10 (full accounting per step, show all IDs, counts, and sub-item details)
+
+**Atomic save operation** (with checklist enforcement):
+
+```
+SAVE CHECKLIST:
+[ ] 1. Session log created
+[ ] 2. Session index updated
+[ ] 3a. Patterns consolidated
+[ ] 3b. Knowledge consolidated
+[ ] 3c. Reasoning consolidated
+[ ] 3d. Save-time discovery capture (if save ops surfaced novel findings)
+[ ] 4. Proactive offers logged
+[ ] 5a. Memory.json updated
+[ ] 5b. Active projects updated
+[ ] 5c. Commitments captured/resolved
+[ ] 5d. FILE-STRUCTURE.md updated (if files created/moved/deleted)
+[ ] 5e. Multi-doc alignment check (if spec/SDD/multi-doc artifacts modified this session)
+[ ] 6. Snapshot updated
+[ ] 7. Prune check
+[ ] 8. Vectorstore synced (if vectorstore exists, one sync after all writes)
+[ ] 9. Git commit
+[ ] 10. Confirm complete
+```
+
+**Steps**:
+1. Create session log in `Memory/`
+   - **CLAIM THE ID FIRST (MANDATORY, never hand-pick it)**: run `python3 scripts/save-session.py --claim-session-id` and write the log to the path it returns. It reserves the id atomically via `O_EXCL` and checks BOTH the log directory and `session-index.json`, because an entries-only save registers an id without ever writing a log. Do NOT derive the number by eyeballing an `ls` or an index query: a number picked from truncated output, or by two sessions saving at once, puts one session's entries under another's log. The entry-ID collision guard covers entry ids only, not the session id.
+2. Update session-index.json with fingerprint + outcome assessment (canonical schema: id, date, tags, summary, outcome, outcome_note. No deprecated fields: focus, topics, duration_minutes, file)
+   - **outcome**: `success` | `partial` | `blocked`
+   - **outcome_note**: Brief explanation (what worked, what didn't, why)
+
+**INTELLIGENCE CAPTURE: NON-BLOCKING PROTOCOL (steps 3a-3c)**
+
+**Phase A: Extract (thinking, then present)**
+After session log is created (step 1), re-read it (mandatory, not from recall). Then:
+
+1. Write grounding statement: `Session scope: [1-sentence synthesis of what happened]`
+2. On first save of session: re-read Capture Taxonomy category definitions from learning-loop.md (not recall)
+3. **ACP Pre-Pass**: Before running the taxonomy sweep, check session log for `[CAPTURE: ...]` markers. These are pre-identified candidates. List them first, then sweep for anything the markers missed. Markers are candidates, not guaranteed writes. Quality gates still apply.
+4. Run taxonomy sweep and present:
+
+```
+TAXONOMY SWEEP:
+
+Session scope: [1-sentence synthesis]
+
+ 1. Decisions:     [draft summary → store] OR [none: justification with citation]
+ 2. Corrections:   [draft summary → store] OR [none: justification with citation]
+ 3. Discoveries:   [draft summary → store] OR [none: justification with citation]
+ 4. Process:       [draft summary → store] OR [none: justification with citation]
+ 5. Failures:      [draft summary → store] OR [none: justification with citation]
+ 6. Preferences:   [draft summary → store] OR [none: justification with citation]
+ 7. Observations:  [draft summary → store] OR [none: justification with citation]
+ 8. Neg Knowledge: [draft summary → store] OR [none: justification with citation]
+ 9. Dependencies:  [draft summary → store] OR [none: justification with citation]
+10. Commitments:   [draft summary → memory] OR [none: justification with citation]
+11. Other:         [anything outside 1-10 → store] OR [none: nothing outside categories]
+
+Store Routing: X patterns, Y knowledge, Z reasoning, W memory
+Spot-check: [1 random fired category] ✓/✗
+```
+
+Phase A is MANDATORY. The session log must be re-read (not recalled) during extraction. Every "none" requires citation (existing entry ID or specific session fact). Generic justifications are not valid. The sweep is shown for accountability and transparency, not for approval.
+
+**Phase B: Write (immediately after Phase A, no pause)**
+
+**SCRIPT-FIRST GATE (MANDATORY before ANY JSON store writes):**
+```
+IF scripts/save-session.py exists in repo:
+  1. ALL store writes (patterns.json, knowledge.json, reasoning.json, indexes, memory.json) MUST go through the script
+  2. Write _save_ops.json with new entries, updates, memory changes per script's expected schema
+  3. Call: python3 scripts/save-session.py _save_ops.json (WSL on Windows, direct on Linux/Mac)
+  4. Manual str_replace on store JSON files is PROHIBITED when the script exists
+  5. FALLBACK: If script fails, manual writes are permitted. Log the failure for fix.
+IF scripts/save-session.py does NOT exist:
+  - Proceed with manual writes (standard behavior)
+```
+
+Execute all file edits as one atomic block. No waiting for confirmation. If user spots an issue after the fact, correct in a follow-up. Then proceed to 3d.
+
+**MANDATORY BEFORE ANY ENTRY WRITES**: Read Schema Conformance Gate (learning-loop.md → Entry Schemas → step 0) and execute ID verification against the actual store. Do not write entries from memory of the schema. Read it.
+
+**MANDATORY BEFORE EACH PART**: Read the relevant Part section (3a, 3b, or 3c) from learning-loop.md before executing it. Quality gates, confidence rules, and synthesis prompts live there. Do not execute from recall.
+
+3a. Consolidate patterns to patterns.json
+   - **Execute**: `Intelligence/learning-loop.md` → Part 3a
+   - Includes: access tracking updates, failure outcome recording
+3b. Consolidate knowledge to knowledge.json
+   - **Execute**: `Intelligence/learning-loop.md` → Part 3b
+   - Includes: access tracking updates
+   - **4-LAYER CAPTURE RELIABILITY (before marking 3b complete):**
+     - **Layer 1**: Check `_capture_candidates` from session. If tagged knowledge candidates exist, process them.
+     - **Layer 2**: If about to write "none" or "no new" → STOP. That phrase is the trigger. Proceed to Layer 3.
+     - **Layer 3**: Re-read session log. Fill extraction template: (1) Processes followed first time? (2) Facts verified/discovered? (3) Tools/paths used new way? If any slot has content, evaluate and capture.
+     - **Layer 4**: If genuinely zero after Layers 1-3, write explicit justification citing existing entry IDs or session facts. "Nothing new" without citation is not valid.
+3c. Consolidate reasoning to reasoning.json
+   - **Execute**: `Intelligence/learning-loop.md` → Part 3c
+   - **Three phases in order:**
+     - **3c-RECORD**: Capture stated reasoning (current behavior). 4-layer capture applies here.
+     - **3c-SYNTH**: Re-read session log. Run synthesis prompts (P7, P1, conditional P5). Sharpen (P6). Filter (P8 three-check gate). Write survivors with `provenance: "synthesized"`. **SYNTH ZERO-CHECK**: If about to write "0 survivors", STOP. Name each prompt you ran, state what each surfaced (even if "nothing"). Then write 0 with prompt outputs as justification. Missing outputs = incomplete step.
+     - **3c-CROSS**: IF 3+ sessions since last cross-session: load recent logs, run cross-session prompt, sharpen, filter. Write survivors with `provenance: "cross_session"`. Update `last_cross_session_synthesis` in memory.json.
+   - Quality gates: reusable? distinct from knowledge? reuse_signal recognizable? intent describes motivation?
+   - Dedup check against existing reuse_signals
+   - Update lastAccessed for entries retrieved this session
+   - Validation-on-retrieval: apply confidence adjustments for entries noted as helpful (+0.05, cap 0.95) or misleading (-0.05) during session
+   - Rebuild reasoning-index.json (including byProvenance)
+   - Target: 2-5 entries per session maximum (RECORD + SYNTH combined)
+3d. Save-time discovery capture (if save operations surfaced novel findings)
+   - **Trigger**: Steps 3a-3c generated insights during execution (duplicates found, schema drift corrected, index integrity gaps, stale references cleaned, merge decisions made)
+   - **Skip if**: Save operations were clean (no discoveries, no corrections, no integrity issues)
+   - **Max 3 entries per save** (prevents save bloat)
+   - **Route to**: knowledge.json (factual: "this drift pattern happens when X") or patterns.json (behavioral: "this failure mode recurs"). Reasoning unlikely from maintenance work.
+   - **Quality gate**: Only genuinely novel discoveries. "Updated an index" is not a discovery. "Found that schema X drifts because of Y" is.
+   - **Dedup**: Check existing entries before writing. If the insight already exists, update confidence/lastAccessed instead of creating a new entry.
+   - **Update indexes** for any new entries created.
+4. Consolidate proactive offers to offer_history
+5a. Update memory.json with session learnings (numeric confidence 0.0-1.0, include accessCount field, type from enum: preference|decision|correction|learning|critical_safety|system)
+5b. Update active_projects status and next_action for any projects touched this session. Auto-update last_touched: if any file modified this session matches a project's related_files patterns, update that project's last_touched to today.
+5c. Capture commitments detected this session to memory.json commitments array. Before adding, check open commitments for matching person + similar deliverable. Update existing rather than duplicate. Resolve any commitments completed this session. If a calendar file exists (e.g., `Life/calendar.ics`), also write new commitments as VTODO entries (calendar is canonical, memory.json is sync cache).
+5d. If FILE-STRUCTURE.md doesn't exist, generate it from current directory tree. If it exists and files were created/moved/deleted this session, update it. This prevents stale path references in future sessions.
+5e. If spec/SDD/multi-doc artifacts were modified this session (e.g., requirements.md, design.md, tasks.md), verify all documents are in sync. Quick check: do new requirements have corresponding design components and task entries? If drift detected, fix before committing. This prevents the catastrophic failure of building from a design doc that doesn't match the requirements.
+6. **Update `last_session_snapshot`** in memory.json:
+   ```json
+   "last_session_snapshot": {
+       "session_id": "<current>",
+       "memory_version": "<version>",
+       "patterns_count": <from patterns-index>,
+       "knowledge_count": <from knowledge-index>,
+       "reasoning_count": <from reasoning-index>,
+       "active_projects": <count>,
+       "timestamp": "<now>"
+   }
+   ```
+7. Prune-check (conditional - archive old data if thresholds exceeded)
+8. Vectorstore sync (if `Nate's-kb/vectorstore/config.json` exists)
+   - **Execute**: Try `python3 Nate's-kb/vectorstore/kb_sync.py`, fall back to `python Nate's-kb/vectorstore/kb_sync.py`
+   - Runs ONCE after ALL writes (intelligence 3a-3d + memory 5a + any pruning) to catch everything in a single pass
+   - Log result (added/updated/removed/unchanged counts)
+   - On failure: warn, never block save
+   - On missing vectorstore: skip silently
+9. **Git commit (MANDATORY)**
+   - Guard: if no `.git/` directory, warn "No git repo. Run scripts/setup.sh" and skip (save completes but flagged incomplete)
+   - Read `security-protocol.md` section 1 (Git Hardening) before proceeding. Do not execute from recall.
+   - Execute Git Hardening Protocol (security-protocol.md)
+   - `git add -A`, scan staged files for confidential patterns
+   - If clean: `git commit -m "Session save: {session_id}"`
+   - If flagged: STOP, surface to user, do not commit until resolved
+   - If nothing to commit (clean tree): note "No changes to commit" and proceed
+10. Confirm all parts complete - **mark all checklist items [x] before confirming**
+
+Do NOT confirm complete until ALL checklist items marked.
+
+**Outcome Assessment Guide**:
+| Outcome | When to Use |
+|---------|-------------|
+| `success` | Primary goals achieved, deliverables complete |
+| `partial` | Some goals achieved, work remains or pivoted |
+| `blocked` | External blocker prevented progress (permissions, platform issues, waiting on input) |
+
+**Standard Save Output**: Brief confirmation with counts.
+```
+Session saved: session-YYYY-MM-DD-NNN.md
+[N] patterns, [N] knowledge, [N] reasoning consolidated. [N] memories added.
+Committed: [short-hash] ([N] files)
+```
+
+**Detailed Save Output**: Full accounting per step.
+```
+DETAILED SAVE - Session [ID]
+
+1. SESSION LOG
+   - Created: Memory/session-YYYY-MM-DD-XXX.md
+   - Lines: [count]
+   - Topics: [list]
+
+2. SESSION INDEX
+   - Added fingerprint to session-index.json
+   - Total sessions: [count]
+
+3a. PATTERNS CONSOLIDATED
+   - New patterns: [list with IDs]
+   - Updated patterns: [list with IDs]
+   - Patterns file size: [tokens]
+
+3b. KNOWLEDGE CONSOLIDATED
+   - New entries: [list with IDs]
+   - Updated entries: [list with IDs]
+   - Knowledge file size: [tokens]
+
+3c. REASONING CONSOLIDATED
+   - New entries: [list with IDs]
+   - Updated entries: [list with IDs]
+   - Reasoning file size: [tokens]
+
+4. PROACTIVE OFFERS
+   - Offers this session: [count]
+   - Added to history: [list]
+
+5. MEMORY UPDATES
+   - New memories: [list with IDs]
+   - Updated memories: [list with IDs]
+   - Active projects touched: [list]
+   - Commitments captured: [count new]
+   - Commitments resolved: [count resolved]
+
+6. SNAPSHOT UPDATED
+   - Previous: session [ID], memory v[X]
+   - Current: session [ID], memory v[Y]
+
+7. PRUNE CHECK
+   - Thresholds: [status]
+   - Action taken: [none/archived X items]
+
+8. VECTORSTORE SYNC
+   - [added/updated/removed/unchanged counts, time]
+
+9. GIT COMMIT
+   - [hash] "Session save: [ID]"
+   - [N] files changed
+
+10. COMPLETE ✓
+```
+
+**Use detailed save for**: Major milestones, audits, debugging, verifying captures.
+
+**Pruning**: PRUNE-CHECK runs at step 7. If thresholds exceeded, read `memory-protocol.md` → Pruning Operations before executing. Do not prune from recall (wrong thresholds = data loss).
+
+**Execution**: this section is the procedure. `Nate-Protocol.md` → Save Execution Protocol is routing only.
+
+---
+
+---
+
 ## Integration Points
 
 ### With Nathaniel.md

@@ -137,6 +137,7 @@ Proceed to Phase 2 (Kiro cleanup). If skipping Kiro cleanup, proceed to Phase 3 
 1. Verifies Kiro IDE and CLI are not running (refuses to proceed if they are)
 2. Deletes stale CLI checkouts (`~/.local/share/kiro-cli/cli-checkouts/`)
 3. VACUUMs the CLI SQLite database (compacts conversation history)
+   - Reports the size of the Kiro CLI 3.x session store (`~/.kiro/sessions/`) and never deletes it. Kiro CLI 3.1 keeps chat history there, and `scripts/correction-backfill.py` reads it.
 4. Trims CLI bash history if over 500 lines
 5. Cleans IDE caches on Windows (Crashpad, logs, browser caches, GPU caches)
 6. Cleans uv cache (if not already done in Phase 1)

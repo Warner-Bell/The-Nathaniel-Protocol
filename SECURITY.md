@@ -22,9 +22,18 @@ The framework was designed with a minimal attack surface. Here's how it compares
 
 There is no server, no gateway, no daemon, no port binding. The MCP server (kb_server.py) communicates via stdio with the local Kiro process that spawned it. Nothing is discoverable by network scanners. Nothing is exposed to the internet.
 
-### No Credential Storage
+### No Credential Values in the Framework
 
-The framework stores zero credentials. No API keys, no OAuth tokens, no bot tokens. The AI platform you connect to (Kiro, Claude Desktop, Cursor) handles its own authentication independently. The Nathaniel Protocol never sees or touches those credentials.
+The framework ships zero credentials, and the AI platform you connect to (Kiro, Claude Desktop, Cursor) handles its own authentication independently.
+
+When your own scripts need a key, the **credential card system** keeps the value out of the conversation:
+
+- Values live in folders named `.secrets/` (git-ignored, and the denylist hook blocks the agent from reading them).
+- `Nate's-kb/credential-registry.json` holds one **card** per credential: what it is, which file holds it, the key *name*, scope, and when it was last proven working. Never the value.
+- Scripts resolve a value by card id (`scripts/cred.py` / `cred.js`) inside their own process. `cred.py exec` hands it to a child process as an environment variable. No `cred.py` command prints a value.
+- `cred.py audit` (also run by `maintenance.py`) flags credential files with no card, cards whose file vanished, and scripts that hardcode a store path.
+
+Procedure: `Nate's-kb/security-protocol.md` section 2.
 
 ### No Third-Party Code Execution
 
@@ -45,6 +54,14 @@ There is no skill marketplace, no plugin registry, no package manager for extens
 
 **Schema tools (development, on-demand):**
 - `scripts/normalize-schemas.py`, `validate-schemas.py` (JSON validation, local only)
+
+**Kiro hooks (run by Kiro CLI 3.x on tool calls and prompts, local only, each with a test suite):**
+- `scripts/hooks/denylist.py`, `source-authority.py`, `preflight.py`, `audit_log.py` + `audit_common.py`, `gate_grant.py` (deterministic safety floor)
+- `scripts/hooks/correction_hook.py` (correction loop), `skill_router_hook.py` + `scripts/skill-router/` (skill router)
+- `scripts/email-send-gate.py` (asks before any email send, reply or forward; inert without an email MCP)
+
+**Credential resolver (on-demand):**
+- `scripts/cred.py`, `cred.js` (reads card metadata and, inside the calling process only, the value a script asked for)
 
 ### No Autonomous External Actions
 
@@ -81,7 +98,9 @@ The biggest risk isn't in the template. It's in your instance:
 | `harden-repo.sh` | Pre-push scan for confidential patterns in staged files |
 | `security-protocol.md` | Governs the assistant's behavior around git operations and data handling |
 | `CRITICAL-FILE-PROTECTION.md` | Documents which files are sensitive and how to handle them |
-| Kernel behavioral rules | Always-on external content security: injection detection, context compartmentalization, save hygiene (in Nathaniel.md) |
+| Kernel behavioral rules | Always-on external content security: injection detection, context compartmentalization, save hygiene (in `ecosystem-operation.md`) |
+| Deterministic hook floor | `scripts/hooks/denylist.py` blocks reads of `.secrets/` paths, credential echo, cloud metadata endpoints, `rm -rf` on protected roots, and agent edits to the hook wiring, whatever the model decides. HMAC-chained audit log of state-changing calls. Kiro CLI 3.x only |
+| Credential cards | Scripts resolve secrets by card id; values never enter chat, logs, or the KB (`scripts/cred.py`) |
 | Fetch security proxy | URL filtering at JSON-RPC level: blocks private IPs, metadata, shorteners, dangerous ports (`scripts/secure-fetch.py`) |
 
 ## Reporting Issues
@@ -93,4 +112,4 @@ If you find a bug in the git filters, setup script, or any component that could 
 
 ## Supported Versions
 
-Only the latest release on the `main` branch is actively maintained.
+Only the latest release on the `main` branch is actively maintained (currently 4.0.x, see [CHANGELOG.md](CHANGELOG.md)).

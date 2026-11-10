@@ -1,0 +1,185 @@
+{
+  "_comment": "Protocol keyword map for the matcher's protocol side. CURATED (not verbatim) from the Protocol Keyword Map (.kiro/steering/ecosystem-operation.md): noisy single tokens (save, git, memory, session, morning, review, offer, diagnose, cache, ...) are dropped or replaced with phrases so protocol precision holds. Which protocols exist is guarded against kernel drift by routes_check.py (wired into scripts/hooks/test-skill-router.py); the keyword sets are intentional hand-tuning, do NOT auto-regenerate them from the kernel. Multi-word entries match as substrings on the normalized signal; single words as tokens. Skills are NOT here \u2014 they are parsed live from .kiro/skills/**/SKILL.md frontmatter (single source of truth).",
+  "protocols": {
+    "development-protocol": [
+      "build",
+      "code",
+      "implement",
+      "deploy",
+      "test",
+      "refactor",
+      "ui",
+      "ux",
+      "bug",
+      "fix",
+      "set up",
+      "integrate",
+      "migrate",
+      "api",
+      "architecture",
+      "database",
+      "debug",
+      "develop"
+    ],
+    "writing-protocol": [
+      "write",
+      "draft",
+      "document",
+      "article",
+      "blog",
+      "write it up",
+      "compose",
+      "edit",
+      "email",
+      "letter",
+      "memo",
+      "report",
+      "correspondence",
+      "brief",
+      "narrative",
+      "message",
+      "thread",
+      "writing"
+    ],
+    "summarization-protocol": [
+      "summarize",
+      "summary",
+      "condense",
+      "tldr",
+      "interview",
+      "meeting",
+      "minutes",
+      "notes",
+      "presentation",
+      "recap",
+      "transcript",
+      "webinar"
+    ],
+    "research-protocol": [
+      "research",
+      "investigate",
+      "explore",
+      "compare",
+      "look into",
+      "figure out",
+      "dig into",
+      "find out",
+      "learn about",
+      "analyze",
+      "assess",
+      "deep-dive",
+      "evaluate",
+      "study"
+    ],
+    "planning-protocol": [
+      "plan",
+      "roadmap",
+      "breakdown",
+      "estimate",
+      "spec",
+      "requirements",
+      "scope",
+      "dependency",
+      "milestone",
+      "prioritize",
+      "timeline"
+    ],
+    "prompt-enhancement-protocol": [
+      "improve prompt",
+      "system prompt",
+      "enhance prompt",
+      "refine prompt",
+      "prompt enhancement"
+    ],
+    "executive-communication-protocol": [
+      "executive",
+      "stakeholder",
+      "leadership",
+      "c-suite"
+    ],
+    "memory-protocol": [
+      "save the session",
+      "save session",
+      "remember this",
+      "memory entry"
+    ],
+    "maintenance-protocol": [
+      "maintenance",
+      "cleanup",
+      "health check",
+      "prune",
+      "housekeeping"
+    ],
+    "security-protocol": [
+      "security",
+      "secure",
+      "harden",
+      "credentials",
+      "secrets",
+      "pii",
+      "confidential",
+      "git security",
+      "hardening"
+    ],
+    "proactive-offering-protocol": [
+      "proactive",
+      "anticipate",
+      "calibration"
+    ],
+    "problem-solving-protocol": [
+      "root cause",
+      "decompose",
+      "systematic",
+      "analyze problem",
+      "trace the"
+    ],
+    "empirical-feasibility-protocol": [
+      "can it",
+      "will it work",
+      "is it possible",
+      "feasible",
+      "does it support",
+      "can we use",
+      "prove it",
+      "verify capability",
+      "will this run",
+      "can this handle"
+    ],
+    "customization-protocol": [
+      "customize",
+      "personalize",
+      "setup assistant",
+      "configure personality"
+    ],
+    "behavioral-control-pipeline": [
+      "behavioral control",
+      "behavior fix",
+      "govern behavior",
+      "structural fix",
+      "llm behavior"
+    ],
+    "system-maintenance": [
+      "kiro cleanup",
+      "disk space",
+      "system maintenance",
+      "uv cache",
+      "wsl compact"
+    ],
+    "anti-slop-protocol": [
+      "anti-slop",
+      "slop check",
+      "check for slop",
+      "fact-check",
+      "fact check this",
+      "audit this doc",
+      "doc audit",
+      "integrity audit",
+      "check for confabulation",
+      "verify this document",
+      "is this accurate"
+    ]
+  },
+  "required_reads": {
+    "_comment": "Records the agent has repeatedly failed to read before acting. Map a route name to a list of repo-relative files; the userPromptSubmit nudge names them when that route fires. Empty by default; add entries from your own correction history."
+  }
+}

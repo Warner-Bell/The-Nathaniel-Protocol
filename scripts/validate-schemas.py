@@ -18,10 +18,14 @@ KB_DIR = sys.argv[1] if len(sys.argv) > 1 and not sys.argv[1].startswith("--") e
 # --- Schema Definitions ---
 
 PATTERN_REQUIRED = {"id": str, "category": str, "content": str, "confidence": (int, float),
-                    "tags": list, "context": str, "created": str, "lastAccessed": str, "accessCount": (int, float)}
-PATTERN_OPTIONAL = {"prevention": str, "outcome": str, "evidence": str, "source": str,
+                    "tags": list, "created": str, "lastAccessed": str, "accessCount": (int, float)}
+PATTERN_OPTIONAL = {"context": str, "prevention": str, "outcome": str, "evidence": str, "source": str,
                     "_imported_from": str, "_stale_candidate": bool, "_needs_trim": bool,
-                    "_needs_review": bool, "_history": list}
+                    "_needs_review": bool, "_history": list,
+                    "superseded_by": str, "superseded_on": str,
+                    # declared 2026-11-10: real data with a writer or reader, not drift
+                    "provenance": str, "validationNote": str, "evidence_type": str,
+                    "kernel_referenced": bool}
 PATTERN_CATEGORIES = {"preference", "approach", "failure", "process", "procedure", "ai_agent"}
 PATTERN_LEGACY_CATEGORIES = {"communication", "development", "technical", "tool", "problem_solving",
                              "organization", "presentation", "executive", "content_creation"}
@@ -31,18 +35,22 @@ KNOWLEDGE_REQUIRED = {"id": str, "category": str, "content": str, "confidence": 
                       "tags": list, "source": str, "created": str, "lastAccessed": str, "accessCount": (int, float)}
 KNOWLEDGE_OPTIONAL = {"context": str, "validated": bool, "validationNote": str, "sourceUrl": str,
                       "detail": str, "_imported_from": str, "_stale_candidate": bool,
-                      "_needs_trim": bool, "_needs_review": bool, "_history": list}
+                      "_needs_trim": bool, "_needs_review": bool, "_history": list,
+                      "superseded_by": str, "superseded_on": str,
+                      "provenance": str, "evidence_type": str}
 KNOWLEDGE_CATEGORIES = {"technical", "process", "error_solution", "best_practice", "tool_quirk",
                         "reference", "domain_expertise", "architecture", "research", "security",
-                        "tool_behavior", "aws_gotcha", "system", "negative_knowledge", "strategic",
-                        "faq", "cross_platform", "system_prompt_engineering", "writing"}
+                        "tool_behavior", "aws_gotcha", "system", "personal", "financial",
+                        "discovery", "negative-knowledge"}
 KNOWLEDGE_CONTENT_LIMIT = 600
 
 REASONING_REQUIRED = {"id": str, "type": str, "content": str, "intent": str, "reuse_signal": str,
                       "confidence": (int, float), "tags": list, "derived_from": list,
                       "provenance": str, "created": str, "lastAccessed": str, "accessCount": (int, float)}
 REASONING_OPTIONAL = {"_imported_from": str, "_stale_candidate": bool, "_needs_trim": bool,
-                      "_needs_review": bool, "_history": list}
+                      "_needs_review": bool, "_history": list,
+                      "superseded_by": str, "superseded_on": str, "context": str,
+                      "source": str}
 REASONING_TYPES = {"deduction", "induction", "analogy", "causal", "meta-process",
                    "insight", "architectural_decision", "failure_analysis"}
 REASONING_PROVENANCES = {"stated", "synthesized", "cross_session"}

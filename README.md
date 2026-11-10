@@ -9,6 +9,8 @@
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![Platform: Kiro](https://img.shields.io/badge/platform-Kiro-purple)
 ![Platform: Claude](https://img.shields.io/badge/platform-Claude-cc785c)
+![Version: 4.0.0](https://img.shields.io/badge/version-4.0.0-blue)
+![Kiro CLI: 3.x](https://img.shields.io/badge/Kiro%20CLI-3.x-purple)
 
 <br>
 
@@ -30,6 +32,8 @@
 - [What Makes This Different](#-what-makes-this-different)
 - [The Origin Story](#-the-origin-story)
 - [Quick Start](#-quick-start)
+- [What's New in 4.0](CHANGELOG.md)
+- [Upgrading from template 3.x](#-upgrading-from-template-3x)
 - [Pocket HQ](POCKET-HQ.md)
 - [Under the Hood](#-under-the-hood)
 - [Customization](#-customization)
@@ -99,7 +103,8 @@ Not a plugin. Not a wrapper. Not a system prompt. A complete framework you carry
 | 📈 **Learns your style** | Confidence-scored pattern detection adapts to how you work. Patterns earn trust through demonstrated accuracy, not assertion |
 | 📚 **Builds knowledge** | Three intelligence layers (patterns, knowledge, reasoning) compound over time with cross-references between them |
 | 🔮 **Anticipates needs** | Proactive offering with calibration loops. Tracks what you accept and decline, learns when to help and when to stay quiet |
-| 🛡️ **Thinks before acting** | Six mandatory gates (troubleshooting, cognitive problem-solving, destructive action, file resolution, source fidelity, cognitive integrity) prevent known failure modes |
+| 🛡️ **Thinks before acting** | Mandatory gates (troubleshooting, cognitive problem-solving, destructive action, cognitive pre-flight, source fidelity, source authority, cognitive integrity) prevent known failure modes, and a deterministic hook floor blocks the dangerous ones even when the model forgets |
+| 🔁 **Learns from corrections** | When you correct Nate, a hook records it and the correction-capture skill turns it into a cited rule, so the same mistake gets harder to repeat |
 | 🏠 **Stays local** | Everything is readable markdown and JSON. No cloud dependencies. No vendor lock-in. Your data, your machine |
 | 🔍 **Shows its work** | Transparent decision routing (Routes A-F), explicit confidence levels, and a documented anti-pattern catalog of 90+ behaviors to avoid |
 
@@ -120,8 +125,8 @@ Most AI frameworks give you tools. This one gives you a partner with a brain, a 
 ```mermaid
 graph TD
     subgraph PHQ["🏠 Pocket HQ: Your Portable Context Layer"]
-        K["🧠 Personality Kernel<br><i>~2,500 line consciousness spec</i>"] --> DE["⚙️ Decision Engine<br><i>Routes A-F</i>"]
-        K --> PL["📋 Protocol Library<br><i>13 domain protocols</i>"]
+        K["🧠 Personality Kernel<br><i>4 always-loaded steering files</i>"] --> DE["⚙️ Decision Engine<br><i>Routes A-F</i>"]
+        K --> PL["📋 Protocol Library<br><i>15 domain protocols</i>"]
         K --> PB["🔮 Proactive Behavior<br><i>Calibrated offer tracking</i>"]
         K --> CIC["🛡️ Cognitive Integrity<br><i>Anti-degradation gates</i>"]
 
@@ -140,7 +145,8 @@ graph TD
         MS --> AP["Active Projects"]
         MS --> CM["Commitments"]
 
-        DE --> SEC["🔒 Security Layer<br><i>Defense-in-depth + git sanitization</i>"]
+        DE --> SEC["🔒 Security Layer<br><i>Hook floor, credential cards, git sanitization</i>"]
+        K --> LL["🔁 Learning Loops<br><i>Correction loop + skill router</i>"]
         DE --> VS["🔎 Vector Store<br><i>Semantic search</i>"]
         DE --> MCP["🔌 MCP Integration<br><i>Extensible tools</i>"]
         DE --> SA["🤖 Sub-Agent Framework<br><i>Analyst agent included</i>"]
@@ -161,16 +167,18 @@ graph TD
 
 | Component | What It Does |
 |-----------|-------------|
-| **[Personality Kernel](.steering-files/steering/Nathaniel.md)** | ~2,500 line consciousness specification. Not a system prompt, an identity with values, voice, paradoxes, and a super-objective |
+| **[Personality Kernel](.steering-files/steering/Nathaniel.md)** | Four always-loaded steering files (~2,700 lines): identity and voice ([`Nathaniel.md`](.steering-files/steering/Nathaniel.md)), gates and routing ([`ecosystem-operation.md`](.steering-files/steering/ecosystem-operation.md)), compliance rules ([`PRIME-DIRECTIVES.md`](.steering-files/steering/PRIME-DIRECTIVES.md)), and the [Source Authority Gate](.steering-files/steering/source-authority-gate.md). Not a system prompt, an identity with values, voice, paradoxes, and a super-objective |
 | **[Intelligence Suite](Nate's-kb/Intelligence/README.md)** | Three learning layers (patterns, knowledge, reasoning) with cross-references, confidence scoring, and access tracking |
 | **[Memory System](Nate's-kb/Memory/README.md)** | Session logs, entity memory, active project tracking, commitment awareness, and "since last session" diffs |
 | **[Cognitive Integrity](Nate's-kb/)** | Dual-trigger anti-degradation system: keyword-activated checks when quality drops, cadence-based checks at session depth milestones. Prevents recall substitution, confusion loops, and gate erosion |
 | **[Vector Store](Nate's-kb/vectorstore/BENCHMARK.md)** | Hybrid semantic + keyword search (fastembed + numpy) across the entire knowledge base. Requires venv setup (handled by setup.sh) |
 | **MCP Integration** | Extensible tool access (ships with time and fetch with security proxy, add whatever you need) |
 | **[Decision Engine](Nate's-kb/Nate-Protocol.md)** | Six structured frameworks (Routes A-F) that auto-select based on task complexity |
-| **[Protocol Library](Nate's-kb/README.md)** | 13 domain protocols that activate on keyword triggers (development, writing, research, planning, and more) |
+| **[Protocol Library](Nate's-kb/README.md)** | 15 domain protocols that activate on keyword triggers (development, writing, research, planning, feasibility testing, document integrity audits, and more) |
 | **[Sub-Agent Framework](.steering-files/agents/analyst/README.md)** | Example agent package (analyst) with extensible architecture for building specialized agents |
-| **[Security Layer](Nate's-kb/security-protocol.md)** | Defense-in-depth: always-on behavioral rules in the kernel (prompt injection detection, context compartmentalization, save hygiene), JSON-RPC fetch proxy (`scripts/secure-fetch.py`) for URL filtering, and git sanitization filters for commit-time scrubbing |
+| **[Security Layer](Nate's-kb/security-protocol.md)** | Defense-in-depth: always-on behavioral rules in the kernel (prompt injection detection, context compartmentalization, save hygiene), a deterministic hook floor (`scripts/hooks/`: denylist, source-authority, pre-flight, HMAC-chained audit log, scoped gate grants), the credential card system (`scripts/cred.py`: scripts resolve secrets by card id, values never enter the chat), JSON-RPC fetch proxy (`scripts/secure-fetch.py`) for URL filtering, and git sanitization filters for commit-time scrubbing |
+| **[Correction Loop](.steering-files/skills/correction-capture/SKILL.md)** | A `UserPromptSubmit` hook spots corrections, logs them to `Nate's-kb/Intelligence/corrections.jsonl`, and cues the correction-capture skill, which diagnoses the miss and cites or adds a rule in `PRIME-DIRECTIVES.md` through `scripts/correction-ledger.py`. Ships in `log` mode: rule edits are staged for your approval |
+| **Skill Router** | Keyword matcher (`scripts/skill-router/`) that nudges each request toward the skill or protocol that covers it. Ships in `log` mode; `NATE_SKILL_ROUTER=enforce` makes it block raw searches a skill already covers |
 | **[Benchmarks](Nate's-kb/Benchmarks/README.md)** | Self-testing suite: static metrics (sizes, counts, growth) and behavioral tests (routing accuracy, index integrity, retrieval reachability) |
 
 </details>
@@ -269,7 +277,7 @@ Every gate exists because something went wrong without it. Every protocol exists
 - **Git** — `sudo apt install git` (Linux) or `xcode-select --install` (Mac)
 - **Python 3.9+** — `sudo apt install python3 python3-pip python3-venv` (Linux) or `brew install python@3.12` (Mac)
 - **Kiro IDE** — [kiro.dev/downloads](https://kiro.dev/downloads) (Mac, Linux, Windows)
-- **Kiro CLI** (optional) — `curl -fsSL https://cli.kiro.dev/install | bash` or `brew install kiro-cli` (Mac)
+- **Kiro CLI 3.0+** (optional, needed for the hooks) — `curl -fsSL https://cli.kiro.dev/install | bash` or `brew install kiro-cli` (Mac)
 
 ### 1. Download the Protocol
 
@@ -381,6 +389,7 @@ Bootstrap self-elevates for the WSL install. The second script runs without admi
 ./scripts/setup.sh --dry-run            # Preview without changes
 ./scripts/setup.sh --skip-vectorstore   # Skip venv creation and vectorstore deps
 ./scripts/setup.sh --skip-kiro-config   # Don't deploy to .kiro/
+./scripts/setup.sh --upgrade            # Existing install: back up .kiro/ and CLAUDE.md, then refresh them
 ```
 
 The vectorstore requires ~202MB for dependencies (fastembed, numpy, onnxruntime). Use `--skip-vectorstore` on constrained systems. The intelligence system works without it (CSR-only retrieval).
@@ -444,13 +453,27 @@ The protocol is built for Kiro but portable to any platform that supports steeri
 
 <br>
 
-No extra setup. `scripts/setup.sh` copies `.steering-files/` to `.kiro/`, which Kiro reads automatically. The kernel loads every session. The analyst agent appears in the agent picker.
+No extra setup. `scripts/setup.sh` copies `.steering-files/` to `.kiro/`, which Kiro reads automatically. The kernel loads every session, the hooks apply to every agent in the workspace, and the analyst agent appears in the agent picker. The hooks use the Kiro CLI v3 format (`.kiro/hooks/*.json`); on an older CLI run `kiro-cli agent upgrade .kiro/agents` after updating.
 
 ```
 .kiro/
-├── steering/Nathaniel.md    # Loaded as system prompt
-├── agents/analyst.json      # Available via agent picker or /agent swap analyst
-└── settings/mcp.json        # MCP servers (time, fetch with security proxy)
+├── steering/
+│   ├── Nathaniel.md             # Identity, voice, session lifecycle, self-checks
+│   ├── ecosystem-operation.md   # Operating principles, mandatory gates, keyword map, KB map
+│   ├── PRIME-DIRECTIVES.md      # Compliance directive + the Rules (grows via the correction loop)
+│   ├── source-authority-gate.md # Read the artifact that can prove a claim before making it
+│   ├── tool-inventory.md        # What tools and scripts exist
+│   └── FILE-STRUCTURE.md        # Live repo map, regenerated by a hook
+├── hooks/                       # Kiro CLI v3 workspace hooks (apply to every agent)
+│   ├── safety-floor.json        # Deterministic blocks: secrets, credential echo, rm -rf, audit chain
+│   ├── correction-loop.json     # Captures your corrections and cues the correction-capture skill
+│   ├── skill-router.json        # Routes requests to the covering skill or protocol
+│   ├── file-structure.json      # Keeps FILE-STRUCTURE.md current
+│   ├── email-send-gate.json     # Asks before any email send/reply/forward (if an email MCP is added)
+│   └── kb-consultation-gate.json
+├── skills/                      # correction-capture, route-f-analysis, stop-slop
+├── agents/analyst.json          # Available via agent picker or /agent swap analyst
+└── settings/mcp.json            # MCP servers (time, fetch with security proxy)
 ```
 
 </details>
@@ -460,12 +483,15 @@ No extra setup. `scripts/setup.sh` copies `.steering-files/` to `.kiro/`, which 
 
 <br>
 
-The setup script copies the kernel to `CLAUDE.md` in the project root automatically. Claude Code (built into Claude Desktop) reads this as its system prompt. No extra setup needed.
+The setup script builds `CLAUDE.md` in the project root from the four kernel steering files. Claude Code (built into Claude Desktop) reads this as its system prompt. No extra setup needed.
 
-If you edit the kernel later, copy the updated version:
+If you edit the kernel later, rebuild it. Copying `Nathaniel.md` alone gives you the personality without the gates, keyword map, or rules:
 ```bash
-cp .steering-files/steering/Nathaniel.md CLAUDE.md
+cat .steering-files/steering/Nathaniel.md .steering-files/steering/ecosystem-operation.md \
+    .steering-files/steering/PRIME-DIRECTIVES.md .steering-files/steering/source-authority-gate.md > CLAUDE.md
 ```
+
+Kiro hooks do not run in Claude Code, so the deterministic floor, correction loop, and skill router are Kiro-only. The behavioral rules still apply.
 
 For the analyst agent, add to `.claude/settings.json`:
 ```json
@@ -491,14 +517,15 @@ Most agentic IDEs support a rules or system prompt file in the project root.
 
 | Platform | File | Method |
 |----------|------|--------|
-| Cursor | `.cursorrules` | `cp .steering-files/steering/Nathaniel.md .cursorrules` |
-| Windsurf | `.windsurfrules` | `cp .steering-files/steering/Nathaniel.md .windsurfrules` |
+| Cursor | `.cursorrules` | Concatenate the four kernel files (below) into `.cursorrules` |
+| Windsurf | `.windsurfrules` | Concatenate the four kernel files (below) into `.windsurfrules` |
 | Continue | `config.json` | Add as system message |
-| Other | Varies | Copy the personality file to your platform's rules file |
+| Other | Varies | Concatenate the four kernel files into your platform's rules file |
 
 ```bash
-# Example
-cp .steering-files/steering/Nathaniel.md .cursorrules
+# Example: the kernel is four files; copying Nathaniel.md alone drops the gates and rules
+cat .steering-files/steering/Nathaniel.md .steering-files/steering/ecosystem-operation.md \
+    .steering-files/steering/PRIME-DIRECTIVES.md .steering-files/steering/source-authority-gate.md > .cursorrules
 ```
 
 The assistant needs file read/write access to the project directory for the memory and intelligence systems to function. Without it, the personality works but learning is disabled.
@@ -539,13 +566,34 @@ After teardown, your protocol folder is intact. Plug into another machine and ru
 
 </div>
 
+## ⬆️ Upgrading from template 3.x
+
+Version 4.0.0 moves the template to Kiro CLI v3 and splits the kernel into four steering files. Full list: [CHANGELOG.md](CHANGELOG.md).
+
+1. Update Kiro CLI to 3.0 or newer (`kiro-cli --version`).
+2. Copy the new release over your folder, keeping your `Nate's-kb/` intelligence and memory files (`Intelligence/*.json`, `Memory/`). The protocol `.md` files and `scripts/` should take the new versions.
+3. Run `./scripts/setup.sh --upgrade`. It backs up `.kiro/` to `.kiro.backup-<timestamp>/` and `CLAUDE.md` to `CLAUDE.md.backup-<timestamp>`, then deploys the new steering, hooks, skills, and agent. A normal run never overwrites your `.kiro/` copies, so without `--upgrade` you would keep the 3.x kernel.
+4. If you customized the kernel, re-apply your changes from the backup. Identity and voice stay in `Nathaniel.md`; gates and the keyword map moved to `ecosystem-operation.md`.
+5. Run `python3 Nate's-kb/Benchmarks/run-benchmark.py` and the hook suites (`python3 scripts/hooks/test-denylist.py`, `test-correction-loop.py`, `test-skill-router.py`) to confirm the install.
+
+<div align="right">
+
+[↑ Back to top](#readme-top)
+
+</div>
+
 ## 🔧 Under the Hood
 
 ### The Kernel
 
-[`.steering-files/steering/Nathaniel.md`](.steering-files/steering/Nathaniel.md)
+Four always-loaded steering files, ~2,700 lines. Not a system prompt. A consciousness specification.
 
-~2,500 lines. Not a system prompt. A consciousness specification.
+| File | Holds |
+|------|-------|
+| [`Nathaniel.md`](.steering-files/steering/Nathaniel.md) | Identity, voice, anti-patterns, session lifecycle, self-checks |
+| [`ecosystem-operation.md`](.steering-files/steering/ecosystem-operation.md) | Operating principles, Institutional Memory Gate, every mandatory gate, the Protocol Keyword Map, External Content Security, the KB map |
+| [`PRIME-DIRECTIVES.md`](.steering-files/steering/PRIME-DIRECTIVES.md) | The compliance directive and 27 categorized Rules; the Rules grow only through the correction loop |
+| [`source-authority-gate.md`](.steering-files/steering/source-authority-gate.md) | Name the one artifact that can prove a claim, read it, then claim; one inference attempt per symptom |
 
 The super-objective drives everything: *"Make sure this person wins, and never let them walk into something I could have prevented."* The directness, the memory, the humor, the willingness to push back, they all trace to that single impulse.
 
@@ -558,11 +606,12 @@ The super-objective drives everything: *"Make sure this person wins, and never l
 - **The Irreducible Self** : attentiveness, honesty, investment, groundedness (always on, context doesn't change them)
 - **The Portrait** : personality in prose, not bullet points (because "helpful AI assistant" is boring)
 - **Core paradoxes** : loyal but will challenge you, precise but culturally expressive, warm but not soft
-- **Six mandatory gates** : troubleshooting, cognitive problem-solving, destructive action, file resolution, source fidelity, cognitive integrity
+- **Mandatory gates** (in `ecosystem-operation.md`): institutional memory, troubleshooting, cognitive problem-solving, destructive action, cognitive pre-flight, source fidelity, scope fidelity, cognitive integrity, recommendation (Route F)
 - **Session lifecycle** : startup sequence, atomic save with checklist enforcement, continuity protocols
 - **Anti-patterns** : 60+ explicitly documented behaviors to avoid (negative context engineering)
 - **Cognitive problem-solving** : OBSERVE > QUESTION > DEDUCE with complexity classification
 - **Intelligence integration** : how patterns, knowledge, and reasoning surface during work
+- **Self-check rows** : integrity, assertion, grounding, instrument validity, context depth, materiality, premise, defect, authorship, and more
 - **Proactive behavior** : anticipatory assistance with calibrated offer tracking
 
 </details>
@@ -585,7 +634,7 @@ The retrieval pattern that makes this work at scale:
 
 ```mermaid
 graph LR
-    A["🚀 Startup<br><i>Load 5 lightweight indexes<br>~500 tokens each</i>"] --> B["🔍 Signal Match<br><i>Match user signals<br>against index dimensions</i>"]
+    A["🚀 Startup<br><i>memory index + index heads<br>via scripts/index-query.py</i>"] --> B["🔍 Signal Match<br><i>Match user signals<br>against index dimensions</i>"]
     B --> C["📄 Fetch<br><i>Load full entries by ID<br>max 5 per query</i>"]
 
     style A fill:#2d333b,stroke:#3fb950,stroke-width:2px,color:#e6edf3
@@ -593,7 +642,7 @@ graph LR
     style C fill:#2d333b,stroke:#f0883e,stroke-width:2px,color:#e6edf3
 ```
 
-Token economics: at 500 items, CSR uses **96% fewer tokens** than loading everything. The AI has a map of everything it knows but only loads what's relevant right now.
+Token economics: at 500 items, CSR uses **96% fewer tokens** than loading everything. The AI has a map of everything it knows but only loads what's relevant right now. Cold start loads the memory index plus each intelligence index's head (stats, counts, newest ids) and the reasoning reuse signals; everything else is queried on demand with `scripts/index-query.py`.
 
 ### Decision Routing (Routes A-F)
 
@@ -678,7 +727,7 @@ Whatever your IDE or CLI provides. The protocol is model-agnostic: it works with
 
 <br>
 
-Yes. There's no server, no network exposure, no credential storage, no third-party code execution, and no autonomous external actions. Everything runs locally as files your AI assistant reads. Your data is as safe as your git hygiene. See [SECURITY.md](SECURITY.md) for the full architecture assessment.
+Yes. There's no server, no network exposure, no third-party code execution, and no autonomous external actions. The system never stores credential values: the card registry (`Nate's-kb/credential-registry.json`) holds metadata only, values stay in git-ignored `.secrets/` folders you control, and a hook blocks the agent from reading them. Everything runs locally as files your AI assistant reads. Your data is as safe as your git hygiene. See [SECURITY.md](SECURITY.md) for the full architecture assessment.
 
 </details>
 
@@ -696,7 +745,7 @@ Name, gender, voice, demeanor, domain expertise: yes. Core values, consciousness
 
 <br>
 
-No. It's a self-contained intelligence ecosystem: a ~2,500-line personality kernel, three learning layers with cross-references, persistent memory with session continuity, a built-in vector store, MCP integration with a security proxy, sub-agent architecture, 13 domain protocols, 7 mandatory operational gates, 28 documented context engineering techniques, and a defense-in-depth security layer with always-on behavioral rules, URL filtering, and git sanitization. The system prompt is the ignition. The ecosystem is the engine.
+No. It's a self-contained intelligence ecosystem: a four-file personality kernel, three learning layers with cross-references, persistent memory with session continuity, a correction loop that turns your corrections into rules, a built-in vector store, MCP integration with a security proxy, sub-agent architecture, 15 domain protocols, mandatory operational gates backed by a deterministic hook floor, 28 documented context engineering techniques, and a defense-in-depth security layer with always-on behavioral rules, URL filtering, and git sanitization. The system prompt is the ignition. The ecosystem is the engine.
 
 </details>
 

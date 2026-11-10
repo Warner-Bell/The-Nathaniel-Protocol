@@ -28,7 +28,65 @@ STORES = {
     "memory": os.path.join(KB_ROOT, "Memory", "memory.json"),
 }
 
-MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
+
+
+def _config_model_name(default="sentence-transformers/all-MiniLM-L6-v2"):
+    """Resolve the embedding model from config.json.
+
+    The model name used to be hardcoded here AND in the two sibling scripts. config.json
+    carried a decorative `model_name` that nothing read, so a swap in one place would
+    silently desync query-time embedding from index-time embedding with no error and
+    corrupt retrieval. Single source of truth now.
+    """
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return json.load(f).get("model_name") or default
+    except (OSError, json.JSONDecodeError, TypeError):
+        return default
+
+
+
+
+def _config_max_tokens(default=256):
+    """Tokenizer truncation ceiling, from config.json."""
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            return int(json.load(f).get("max_tokens") or default)
+    except (OSError, json.JSONDecodeError, TypeError, ValueError):
+        return default
+
+
+def _apply_max_tokens(model):
+    """Raise the tokenizer truncation ceiling on a fastembed model, in place.
+
+    fastembed pins max_length=128 for all-MiniLM-L6-v2 even though the model card
+    advertises 256, and it SILENTLY IGNORES a max_length constructor kwarg (verified
+    2026-08-05: identical vectors, cosine 1.000000). The only effective route is the
+    inner tokenizer. At 128, 1,137 of 2,359 entries (48.2%) were truncated before
+    embedding, with no warning and no record.
+
+    Index-time and sync-time must pass through here so a re-embedded entry cannot
+    silently diverge from the full build.
+    """
+    want = _config_max_tokens()
+    try:
+        tok = model.model.tokenizer
+        # Truncation AND padding must move together. fastembed pads to a fixed length and
+        # builds input_ids with np.array(); raising truncation alone makes long docs 256
+        # tokens while short docs still pad to 128, so the batch is ragged and numpy
+        # raises "inhomogeneous shape" inside onnx_embed. A single-document test cannot
+        # surface this because one document is never ragged.
+        if (tok.truncation or {}).get("max_length") != want:
+            tok.enable_truncation(max_length=want)
+        if (tok.padding or {}).get("length") != want:
+            tok.enable_padding(length=want)
+    except Exception as e:
+        import warnings
+        warnings.warn(f"could not raise tokenizer max_length to {want}: {e}")
+    return model
+
+
+MODEL_NAME = _config_model_name()
 DIMENSIONS = 384
 
 
@@ -79,7 +137,7 @@ def build():
         sys.exit(1)
 
     # Embed
-    model = TextEmbedding(model_name=MODEL_NAME)
+    model = _apply_max_tokens(TextEmbedding(model_name=MODEL_NAME))
     vectors = np.array(list(model.embed(texts)), dtype=np.float32)
 
     # Write artifacts
@@ -97,7 +155,7 @@ def build():
             model_version = "unknown"
 
     metadata = {
-        "model": "all-MiniLM-L6-v2",
+        "model": MODEL_NAME.split("/")[-1],
         "model_version": model_version,
         "dimensions": DIMENSIONS,
         "built": now,
@@ -108,7 +166,21 @@ def build():
     with open(os.path.join(VS_DIR, "metadata.json"), "w") as f:
         json.dump(metadata, f, indent=2)
 
-    config = {
+    # Preserve curated config keys this builder does not own.
+    #
+    # This block used to construct config.json from scratch on every build, which silently
+    # ERASED `min_semantic_score` and `_min_semantic_score_calibration`. Those are measured
+    # values (calibrated against the 30-query pipeline suite), not build artifacts. The loss
+    # was invisible because kb_query.py's fallback default happened to equal the calibrated
+    # figure, so behavior survived by coincidence while the provenance was destroyed. Any
+    # recalibration would have been wiped by the next rebuild.
+    try:
+        with open(os.path.join(VS_DIR, "config.json")) as f:
+            config = json.load(f)
+    except (OSError, json.JSONDecodeError):
+        config = {}
+
+    config.update({
         "model_name": MODEL_NAME,
         "model_version": model_version,
         "dimensions": DIMENSIONS,
@@ -116,14 +188,24 @@ def build():
         "rrf_k": 60,
         "rrf_weights": {"semantic": 1.0, "keyword": 1.0},
         "score_floor": 0.005,
-        "created": now,
+        "created": config.get("created", now),
+        "last_built": now,
         "stores": {
             "patterns": "Intelligence/patterns.json",
             "knowledge": "Intelligence/knowledge.json",
             "reasoning": "Intelligence/reasoning.json",
             "memory": "Memory/memory.json",
         },
-    }
+    })
+    if "min_semantic_score" not in config:
+        # Never leave the semantic gate undeclared; kb_query would fall back to its literal.
+        config["min_semantic_score"] = 0.36
+    if "max_tokens" not in config:
+        # Declare the truncation ceiling the build actually used (_apply_max_tokens), so
+        # query and sync embed with the same limit and tests/test_truncation.py can check it.
+        # fastembed pins all-MiniLM-L6-v2 at 128 tokens and ignores a max_length kwarg;
+        # raising this value requires a full re-vectorize.
+        config["max_tokens"] = _config_max_tokens()
     with open(os.path.join(VS_DIR, "config.json"), "w") as f:
         json.dump(config, f, indent=2)
 

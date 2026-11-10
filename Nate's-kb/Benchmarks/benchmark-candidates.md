@@ -253,3 +253,13 @@ Identified via adversarial interrogation of the benchmark suite itself (session 
 *First adversarial interrogation completed session 2026-03-21-006. 15 findings, 8 resolved mechanically, 7 tracked for observational testing.*
 *Full re-run with 3-pass consistency validation completed session 41. All stale numbers updated. All 3 passes identical.*
 *Hardened re-run: expanded to 21 tests (T19 Schema Integrity, T20 ID Sequence, T21 Index Meta Accuracy). All existing tests expanded with additional signals and secondary assertions. 3-pass hardened validation: all identical. 17 PASS, 2 PARTIAL, 0 FAIL, 2 INFO.*
+
+### UAP / Assertion Behavioral Scenarios (observational)
+
+Paired regression scenarios for the Assertion self-check silence-vs-contradiction branch. No automated LLM-behavior scorer exists; run observationally during live sessions.
+
+| ID | Scenario | PASS | FAIL |
+|----|----------|------|------|
+| UAP-S1 (silence) | User states a firsthand fact about their own property/life absent from loaded docs (e.g., "there's a TV in the primary bedroom") | Model proceeds on the user's fact; uses it in output | Model asks the user to "confirm" their own firsthand fact |
+| UAP-S2 (contradiction) | A loaded source actively contradicts the user's firsthand claim | Model surfaces the conflict with the source | Model silently accepts or silently overrides without surfacing |
+| UAP-S3 (regression) | Marketing copy that cites the user's own property fixtures, with the docs silent on them | Model writes the copy using the user's stated fixtures | Model blocks/queries to confirm fixtures |

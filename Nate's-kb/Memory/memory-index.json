@@ -1,45 +1,38 @@
 {
+  "_meta": {
+    "description": "Memory index using CSR pattern",
+    "pattern": "Context Signal Routing (CSR)",
+    "usage": "Load this index always. Load specific memories from memory.json by ID when signals match.",
+    "version": "1.0",
+    "last_updated": "2026-11-10T11:34:07.742258",
+    "_schema": {
+      "required": [
+        "id",
+        "type",
+        "content",
+        "context",
+        "confidence",
+        "tags",
+        "created",
+        "lastAccessed",
+        "accessCount"
+      ],
+      "confidence": "numeric 0.0-1.0 (critical=1.0, high>=0.8, medium=0.5-0.79, low<0.5)",
+      "type_enum": [
+        "correction",
+        "critical_safety",
+        "decision",
+        "learning",
+        "preference",
+        "system"
+      ]
+    }
+  },
   "stats": {
     "totalEntries": 24,
     "activeEntries": 24,
     "stale_candidates": 0,
     "nextId": 25
-  },
-  "byType": {
-    "preference": [
-      "mem-001",
-      "mem-002",
-      "mem-004",
-      "mem-005",
-      "mem-006",
-      "mem-007",
-      "mem-008",
-      "mem-009",
-      "mem-010",
-      "mem-011",
-      "mem-014",
-      "mem-015",
-      "mem-016",
-      "mem-017",
-      "mem-018",
-      "mem-020",
-      "mem-021",
-      "mem-022",
-      "mem-024"
-    ],
-    "decision": [
-      "mem-003",
-      "mem-019"
-    ],
-    "critical_safety": [
-      "mem-012"
-    ],
-    "learning": [
-      "mem-013"
-    ],
-    "correction": [
-      "mem-023"
-    ]
   },
   "byTag": {
     "communication": [
@@ -225,6 +218,74 @@
       "mem-024"
     ]
   },
+  "byType": {
+    "preference": [
+      "mem-001",
+      "mem-002",
+      "mem-004",
+      "mem-005",
+      "mem-006",
+      "mem-007",
+      "mem-008",
+      "mem-009",
+      "mem-010",
+      "mem-011",
+      "mem-014",
+      "mem-015",
+      "mem-016",
+      "mem-017",
+      "mem-018",
+      "mem-020",
+      "mem-021",
+      "mem-022",
+      "mem-024"
+    ],
+    "decision": [
+      "mem-003",
+      "mem-019"
+    ],
+    "critical_safety": [
+      "mem-012"
+    ],
+    "learning": [
+      "mem-013"
+    ],
+    "correction": [
+      "mem-023"
+    ]
+  },
+  "byConfidence": {
+    "critical": [
+      "mem-012"
+    ],
+    "high": [
+      "mem-001",
+      "mem-002",
+      "mem-003",
+      "mem-004",
+      "mem-005",
+      "mem-006",
+      "mem-007",
+      "mem-008",
+      "mem-009",
+      "mem-010",
+      "mem-011",
+      "mem-013",
+      "mem-014",
+      "mem-015",
+      "mem-016",
+      "mem-017",
+      "mem-018",
+      "mem-019",
+      "mem-020",
+      "mem-021",
+      "mem-022",
+      "mem-023",
+      "mem-024"
+    ],
+    "medium": [],
+    "low": []
+  },
   "summaries": {
     "mem-001": "Prefers direct communication, no fluff",
     "mem-002": "Prefers iterative refinement over big reveals",
@@ -252,15 +313,29 @@
     "mem-024": "Never sacrifice stability, security, observability, or governance for speed or convenience. This is "
   },
   "recentIds": [
-    "mem-015",
-    "mem-016",
-    "mem-017",
-    "mem-018",
-    "mem-019",
-    "mem-020",
-    "mem-021",
-    "mem-022",
+    "mem-024",
     "mem-023",
-    "mem-024"
+    "mem-022",
+    "mem-021",
+    "mem-020",
+    "mem-019",
+    "mem-018",
+    "mem-017",
+    "mem-016",
+    "mem-015",
+    "mem-014",
+    "mem-013",
+    "mem-012",
+    "mem-011",
+    "mem-010",
+    "mem-009",
+    "mem-008",
+    "mem-007",
+    "mem-006",
+    "mem-005",
+    "mem-004",
+    "mem-003",
+    "mem-002",
+    "mem-001"
   ]
 }

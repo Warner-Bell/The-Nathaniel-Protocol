@@ -149,8 +149,8 @@ INTEGRITY:
   Vectorstore: [OK|ISSUES|MISSING] - [detail if issues]
 
 GROWTH:
-  memory.json:       [X]/2,000 lines [OK|OVER]
-  patterns.json:     [X]/200 entries [OK|OVER]
+  memory.json:       [X]/2,500 lines [OK|OVER]
+  patterns.json:     [X]/300 entries [OK|OVER]
   knowledge.json:    [X] entries (monitor)
   reasoning.json:    [X] entries (monitor)
   session-archive:   [X]/200 entries [OK|OVER]
@@ -348,6 +348,11 @@ Wired in `Nathaniel.md` Proactive Action Types table (always-loaded context):
 [ ] Schema conformance spot-check: run validate-schemas.py (scripts/validate-schemas.py).
     If errors found, run normalize-schemas.py. If only warnings, classify manually.
 
+[ ] Memory drift: run `python3 scripts/reconcile-memory.py` (report only). Exact-duplicate
+    project clusters merge with `--apply` on user go; fuzzy pairs are review-only; close
+    stale commitments one at a time with `scripts/commitments.py close <id> --note ...`,
+    never in bulk ("work shipped" is not "commitment fulfilled").
+
 [ ] Confidence decay + staleness review (combined single pass):
     Entries with accessCount == 0 and created > 180 days:
     - Reduce confidence by 0.05 (floor: 0.7 for knowledge, 0.5 for patterns/reasoning)
@@ -405,7 +410,7 @@ Note: This is a behavioral guideline, not an automated trigger. Relies on patter
 
 | File | Section |
 |------|---------|
-| `Nathaniel.md` | Protocol Keyword Map |
+| `ecosystem-operation.md` | Protocol Keyword Map |
 | `memory-protocol.md` | Pruning Operations (cross-reference) |
 | `README.md` | Task Protocols table |
 | `FILE-STRUCTURE.md` | Root Protocols list |

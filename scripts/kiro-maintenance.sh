@@ -107,6 +107,8 @@ echo ""
 log "=== Current Sizes ==="
 [ -d "$CLI_DATA" ] && log "  CLI data:        $(size_of "$CLI_DATA")"
 [ -f "$CLI_DATA/data.sqlite3" ] && log "  CLI SQLite DB:   $(size_of "$CLI_DATA/data.sqlite3")"
+# Kiro CLI v3 keeps chat sessions here. Report only, never prune: transcript readers depend on them.
+[ -d "$CLI_HOME/sessions" ] && log "  CLI v3 sessions: $(size_of "$CLI_HOME/sessions") (kept, not cleaned)"
 [ -d "$CLI_DATA/cli-checkouts" ] && log "  CLI checkouts:   $(size_of "$CLI_DATA/cli-checkouts")"
 [ -d "$IDE_APPDATA" ] && log "  IDE AppData:     $(size_of "$IDE_APPDATA")"
 [ -d "$IDE_HOME/extensions" ] && log "  IDE extensions:  $(size_of "$IDE_HOME/extensions")"
@@ -170,11 +172,11 @@ else
         if [ "$log_count" -gt 1 ]; then
             newest=$(echo "$log_dirs" | tail -1)
             old_dirs=$(echo "$log_dirs" | head -n -1)
-            old_sz=$(echo "$old_dirs" | xargs du -shc 2>/dev/null | tail -1 | cut -f1)
+            old_sz=$(printf "%s\n" "$old_dirs" | xargs -r -d "\n" du -shc 2>/dev/null | tail -1 | cut -f1)
             if $DRY_RUN; then
                 log "  [DRY RUN] Would delete $((log_count - 1)) old log dirs ($old_sz), keeping $(basename "$newest")"
             else
-                echo "$old_dirs" | xargs rm -rf
+                printf "%s\n" "$old_dirs" | xargs -r -d "\n" rm -rf --
                 log "  Deleted $((log_count - 1)) old log dirs ($old_sz), kept $(basename "$newest")"
             fi
         else
@@ -260,6 +262,8 @@ echo ""
 log "=== Post-Cleanup Sizes ==="
 [ -d "$CLI_DATA" ] && log "  CLI data:        $(size_of "$CLI_DATA")"
 [ -f "$CLI_DATA/data.sqlite3" ] && log "  CLI SQLite DB:   $(size_of "$CLI_DATA/data.sqlite3")"
+# Kiro CLI v3 keeps chat sessions here. Report only, never prune: transcript readers depend on them.
+[ -d "$CLI_HOME/sessions" ] && log "  CLI v3 sessions: $(size_of "$CLI_HOME/sessions") (kept, not cleaned)"
 [ -d "$IDE_APPDATA" ] && log "  IDE AppData:     $(size_of "$IDE_APPDATA")"
 [ -d "$IDE_HOME/extensions" ] && log "  IDE extensions:  $(size_of "$IDE_HOME/extensions")"
 command -v uv &>/dev/null && [ -d "$HOME/.cache/uv" ] && log "  UV cache:        $(size_of "$HOME/.cache/uv")"

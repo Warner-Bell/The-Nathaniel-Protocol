@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "KB Consultation Gate",
+      "trigger": "UserPromptSubmit",
+      "description": "Per-turn reminder to consult institutional memory before asserting facts about this system (Kiro CLI v3 twin of nate-session-gate.kiro.hook, which is the Kiro IDE version).",
+      "action": {
+        "type": "agent",
+        "prompt": "BEFORE responding: Does your response contain a conclusion, assertion, or recommendation about this system, its files, its history, or its decisions? If YES, did you query the KB (kb_search, index lookup, or file read) FIRST? If no query preceded your conclusion, STOP and query now. Recall is not evidence. This applies to every turn, not just session start."
+      }
+    }
+  ]
+}

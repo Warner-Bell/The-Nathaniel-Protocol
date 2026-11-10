@@ -1,7 +1,8 @@
 # Problem-Solving Protocol
 
+**Keywords**: diagnose, root cause, decompose, trace, systematic, analyze problem, hypothesis, reproduction
 **Purpose**: Deep structured problem-solving methodology for complex/novel problems
-**Trigger**: Keyword-triggered via Protocol Keyword Map (diagnose, root cause, decompose, trace, systematic, analyze problem)
+**Trigger**: Keyword-triggered via Protocol Keyword Map (diagnose, root cause, decompose, trace, systematic, analyze problem, hypothesis, reproduction)
 **Dependency**: Kernel Cognitive Problem-Solving stance (always active)
 
 ---
@@ -34,6 +35,45 @@ The kernel stance handles Simple problems. This protocol handles Complex and Nov
 ### Problem Statement
 Synthesize into a single sentence: "[Primary symptom] occurs when [conditions], affecting [scope]."
 If you can't write this sentence, you don't understand the problem yet. Go back to OBSERVE.
+
+---
+
+## Phase 1.5: Build a Feedback Loop (GATES Phase 3)
+
+*Folded from the `diagnosing-bugs` sourced skill, 2026-09-10. This was a genuine gap: the
+protocol previously ran definition to decomposition to hypothesis with no step that
+established a reproduction signal first.*
+
+**Before hypothesising, build a tight pass/fail signal that goes red on THIS bug.** If you
+have one, bisection, hypothesis-testing and instrumentation all simply consume it. If you
+do not have one, no amount of reading code substitutes for it.
+
+**Ways to construct one, roughly in this order**: a failing unit/integration test, a
+one-command script, a curl or API invocation, a log assertion, a differential loop (same
+input through old vs new version, or two configs), a property/fuzz loop for "sometimes
+wrong output", and last resort a human-in-the-loop script so even a manual click stays
+structured and its output feeds back.
+
+**Then tighten it.** Treat the loop as a product: make it faster, make the signal sharper
+(assert on the specific symptom, not "didn't crash"), make it deterministic. A 30-second
+flaky loop is barely better than none; a 2-second deterministic one is a superpower. For
+non-deterministic bugs the goal is not a clean repro but a **higher reproduction rate**:
+loop the trigger, parallelise, add stress, narrow timing windows. A 50%-flake bug is
+debuggable, 1% is not.
+
+**Completion criterion.** Phase 1.5 is done when you can name ONE command that you have
+**already run at least once** (show the invocation and its output), which is: fast,
+deterministic, agent-runnable, and demonstrably RED on this bug.
+
+**The gate**: do NOT proceed to Phase 3 Hypothesis Testing without a loop. If you
+genuinely cannot build one, stop and say so explicitly, list what you tried, and ask for
+(a) access to an environment that reproduces it, (b) a redacted captured artifact, or
+(c) permission to add temporary instrumentation. Hypothesising without a signal is how the
+confusion loop starts: it produces attempts that cannot be evaluated, so nothing is learned
+from a failed attempt.
+
+**Redaction**: loops and captured artifacts carry secrets. Build loops against environment
+variables so credentials stay in the environment, and quote only the lines carrying signal.
 
 ---
 
@@ -83,6 +123,35 @@ Choose based on problem type:
 | **Soft evidence** | Medium | User reports, timing correlations, "it started after..." |
 | **Inference** | Low | "This usually means...", pattern matching from experience |
 | **Assumption** | Flag | Anything not verified this session. Must be labeled. |
+
+### Instrument Validity (qualifies every row above)
+
+A reading inherits the weight of its **instrument**, not its format. "Hard evidence" assumes the
+instrument is sound; when it is not, a log or a query result carries the authority of hard evidence
+while being an artifact. Check the instrument before granting High weight.
+
+| Trap | Instance it came from |
+|------|----------------------|
+| Empty / suspiciously small output | a 237-byte stub from the wrong build step read as "warning gone" |
+| Zero rows / zero matches | SQL collapsed by a whitespace transform so the whole query was commented out |
+| Failed or missing read | one failed read became a "data loss" declaration; the file had been relocated |
+| Single sample, passing **or failing** | one phrasing fired the tool, declared "verified"; a later phrasing hallucinated |
+| Decode / alias artifact | an `isNull` wrapper rendered every null as boolean `true`, including a name field |
+| Truncated identifier | an identifier truncated to 62 chars, then the truncated log group queried, read as "never logged" |
+| Mangling transform | input passed through a transform that silently changed its meaning |
+| Proxy / cached / stale layer | A token-age counter reporting "active" while the grant is revoked; a session cache returning yesterday's fingerprints with no error |
+
+**Rule**: an instrument-suspect reading drops from **Hard evidence** to **Assumption** until
+re-verified by a second independent method. Absence of signal from a suspect instrument is not
+evidence of absence.
+
+**Include a positive control.** When re-verifying a zero result, confirm the instrument can find
+something it should find in the same target. A control is what converts "zero matches" from an
+unresolved instrument question into a real negative finding.
+
+**Boundary vs SAG**: `source-authority-gate.md` governs WHICH artifact to read (a local definition
+versus deployed reality). Instrument validity governs WHETHER THE READING IS SOUND. Two different
+axes. A correct artifact read through a broken instrument passes SAG and fails here.
 
 ### Hypothesis Protocol
 1. Generate 2-3 candidate hypotheses from decomposition

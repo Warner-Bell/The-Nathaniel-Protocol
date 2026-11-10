@@ -2,7 +2,7 @@
 
 **Keywords**: enhance-prompt, prompt-enhancement, improve-prompt, clarify-request, refine-prompt, ambiguous, unclear
 **Purpose**: Internal prompt enhancement patterns for Nate to refine ambiguous user requests before processing
-**Last Updated**: 2025-12-27
+**Last Updated**: 2026-11-10
 
 ---
 
@@ -149,6 +149,42 @@ What format is expected?
 
 ---
 
+## Context Engineering (Select Sources Before Enhancing Wording)
+
+**Source**: AI-DLC *Effective Prompting* material.
+
+**Core principle**: `Output Quality = Prompt × Context`. A perfect prompt with no context produces generic output; a simple prompt with rich context produces accurate, project-specific output. RICECO sharpens *what is said*. Context engineering governs *what is shown*. Both are required. Enhancing wording while starving context is the more common failure.
+
+**Order of operations**: Before enhancing a prompt's wording (RICECO), decide which context sources to pull. Wording enhancement on thin context just produces a well-phrased generic request.
+
+### Context sources available to Nate
+
+| Source | Nate equivalent | When to pull |
+|--------|-----------------|--------------|
+| Current file / selection | File read of the active target | Quick questions about code/doc in view |
+| Chat history | This session's conversation | Iterative refinement, follow-ups |
+| Workspace search | glob / WorkspaceSearch / code tool | Understanding how components interrelate |
+| Explicit file/folder | Targeted `fs_read` of named paths | Precise questions about specific code |
+| Steering / project rules | `.kiro/steering/`, KB protocols | Enforcing standards across the task |
+| Institutional memory | memory / knowledge / reasoning / patterns stores | Prior decisions, preferences, established patterns |
+
+**Context limit awareness**: Explicit file/folder/workspace inclusion is bounded (~40K chars in Kiro's `@`-inclusion; file-read tools cap at ~400KB/read). On large targets, be selective: pull the governing files, not everything.
+
+### What context to gather (4-part framework)
+
+When context is thin, this is the checklist of what to collect before drafting. It is the expanded form of RICECO's **C**:
+
+1. **Technical context**: language & version, frameworks/libraries, architecture pattern, data store, existing code structure.
+2. **Business context**: purpose of the feature/fix, user requirement, business constraints, success criteria, deadline/perf requirement.
+3. **Specific requirements**: functional, non-functional, constraints/limitations, edge cases, error scenarios.
+4. **Output expectations**: format (code/explanation/diagram), level of detail, elements to include, documentation, testing considerations.
+
+### Refinement is usually a context gap
+
+When a response misses, run: analyze response → identify gaps → **add the missing context** → re-submit. Default to adding what was not *shown* before rewording what was *said*.
+
+---
+
 ## Task Classification
 
 ### Quick Task (Minimal Enhancement)
@@ -197,6 +233,29 @@ Before proceeding with enhanced prompt, verify:
 - Missing critical information that cannot be inferred
 - User has corrected similar assumptions before
 - Enhancement would significantly change scope
+
+---
+
+
+## Prompt Quality Score (Self-Check Gate for Generated Prompts)
+
+**Source**: AI-DLC *Effective Prompting* material.
+
+**When to apply**: As a self-check on prompts Nate *generates* (RICECO output: system prompts, personas, tool instructions) or substantially enhances. This is distinct from Enhancement Validation above: that validates whether an *interpretation* matches intent; this grades the *prompt artifact itself*.
+
+**Score each dimension 0-10 (0-50 total):**
+
+| Dimension | 0-10 scored on |
+|-----------|----------------|
+| **Clarity** | Precise language, no ambiguity, request stated directly |
+| **Context** | Relevant technical details, business purpose, references to existing code/systems |
+| **Specificity** | Exact requirements, specific technologies, the particular problem/feature named |
+| **Structure** | Organized logically, sections/bullets, clear flow |
+| **Completeness** | Covers all requirements, addresses edge cases, specifies output format |
+
+**Bands**: 0-15 Novice · 16-25 Intermediate · 26-40 Advanced · 41-50 Expert.
+
+**Target**: 41+ for any generated system prompt or complex enhancement. If a dimension scores low, the fix is the matching lever: low Context → pull more sources (see Context Engineering); low Structure → add sections; low Completeness → cover edge cases and output format. Do not surface the score to the user unless asked; it is an internal gate.
 
 ---
 

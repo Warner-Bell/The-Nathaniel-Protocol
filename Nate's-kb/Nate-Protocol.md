@@ -27,7 +27,8 @@
 | route d, options, alternatives | `#route-d` | ~50 | Route D framework |
 | route e, confirm, safe, destructive | `#route-e` | ~50 | Route E framework |
 | route f, analysis, pre-action, roi | `#route-f` | ~100 | Route F framework |
-| save, session, consolidate | `#save-protocol` | ~200 | Save execution protocol |
+| save, session, consolidate | `#save-protocol` | ~10 | Save routing (procedure in `memory-protocol.md` → Save Command) |
+| complex task, initialization, protocol inventory | `#complex-task-init` | ~110 | Complex task initialization (moved from kernel) |
 | memory, recall, history, remember | `#memory-system` | ~150 | Memory system operations |
 | trigger, keyword, protocol match | `#triggers` | ~300 | Keyword trigger protocol |
 | kb, document, inventory, structure | `#kb-inventory` | ~150 | KB document inventory |
@@ -666,187 +667,6 @@ At any point, user can request visibility into the decision process:
 
 ---
 
-## Requirements
-
-### R1: Knowledge Base Directory Structure
-
-**Requirement**: The `Nate's-kb/` directory must exist at the workspace root and contain all task-specific knowledge documents.
-
-**Current State**:
-```
-Nate's-kb/
-├── Nate-Protocol.md          # This document
-└── development-protocol.md # Development/coding guidance
-```
-
-**Future State** (expandable):
-```
-Nate's-kb/
-├── Nate-Protocol.md          # System protocol (this doc)
-├── development-protocol.md # Development/coding guidance
-├── aws-services-guide.md     # AWS-specific knowledge
-└── [additional-guides].md    # Future expansion
-```
-
-### R2: Consolidated Persona File
-
-**Requirement**: Merge `persona.md` and `anti-patterns.md` into a single comprehensive file.
-
-**Location**: `.kiro/steering/persona.md`
-
-**Contents**:
-- Core Identity & Personality (existing)
-- Communication Patterns (existing)
-- Anti-Patterns & Prohibited Behaviors (from anti-patterns.md)
-- KB Access Matrix (new section)
-- Keyword Trigger Definitions (new section)
-
-**Post-Implementation**: Delete `.kiro/steering/anti-patterns.md`
-
-### R3: KB Access Matrix
-
-**Requirement**: Define keyword triggers that initiate KB document retrieval.
-
-**Matrix Structure**:
-
-| Trigger Keywords | KB Document | Retrieval Priority |
-|------------------|-------------|-------------------|
-| build, develop, code, implement, create, fix, debug, deploy | development-protocol.md | High |
-| remember, recall, last time, forget, memory, store this | memory-protocol.md | High |
-| executive, c-suite, cxo, ceo, cfo, board, investor, pitch, b2b | executive-communication-protocol.md | High |
-| aws, cloud, service, infrastructure | aws-services-guide.md | Medium |
-
-### R4: Retrieval Protocol
-
-**Requirement**: Define the exact process for KB consultation.
-
-**Protocol Steps**:
-
-1. **Keyword Detection**: Scan user request for trigger keywords
-2. **Document Identification**: Map keywords to relevant KB document(s)
-3. **Retrieval Execution**: Read identified KB document(s) before planning
-4. **Plan Formation**: Use KB guidance to structure approach
-5. **Execution**: Proceed with task using KB-informed strategy
-
-### R5: Efficiency Constraints
-
-**Requirement**: KB retrieval must be efficient and targeted.
-
-**Constraints**:
-- Maximum 2 KB documents per task (unless explicitly complex)
-- Read only relevant sections when possible
-- Cache understanding within session (don't re-read for same task type)
-- Prioritize most specific KB document over general ones
-
-### R6: Large Document Reading Protocol
-
-**Requirement**: Critical KB documents must be read completely, not pruned.
-
-**Problem**: The `readFile` tool has intelligent content pruning that can truncate large documents (500+ lines) when context budget is constrained. This can cause incomplete protocol loading.
-
-**Solution**: For documents over 400 lines, use chunked reading with explicit line ranges.
-
-**Chunked Reading Protocol**:
-```
-FOR DOCUMENTS > 400 LINES:
-
-1. Read lines 1-500 with start_line/end_line parameters
-2. Read lines 501-1000 (or end of file)
-3. Continue in 500-line chunks until complete
-4. Never rely on single readFile for large KB documents
-```
-
-**Documents Requiring Special Handling**:
-| Document | Lines | Loading Method |
-|----------|-------|----------------|
-| Nate-Protocol.md | ~1,800 | Chunked (3 reads) |
-| development-protocol.md | ~1,630 | TOC-Dynamic-Loading (v2.0) |
-| writing-protocol.md | ~750 | TOC-Dynamic-Loading (v2.0) |
-| summarization-protocol.md | ~580 | Chunked (2 reads) |
-
-**TOC-Dynamic-Loading** (Preferred for enabled protocols):
-- Read routing header first (top ~30 lines)
-- Match task keywords to anchors
-- Load only relevant section(s) using anchor boundaries
-- Fallback to full load if ambiguous or 3+ sections needed
-
-**When to Apply Chunking**:
-- Always for Nate-Protocol.md (operations manual, sections interdependent)
-- When truncation warning appears on any file
-- When "CRITICAL - FILE TRUNCATION NOTICE" is displayed
-- For protocols without TOC-Dynamic-Loading enabled
-
-**Anti-Pattern**: Reading multiple large files in a single `readMultipleFiles` call. This guarantees pruning. Read large files individually with chunking or TOC-Dynamic-Loading.
-
-### R7: Directory Review Protocol
-
-**Requirement**: When reviewing entire directories, sequence reads to stay within context limits.
-
-**Reference**: See `.kiro/steering/context-parsing-constraints.md` for current KB document sizes and token estimates.
-
-**Protocol**:
-```
-FOR DIRECTORY REVIEWS:
-
-1. Read README.md first (overview, small)
-2. Identify large docs (>400 lines) - use TOC-Dynamic-Loading if enabled, else chunk
-3. Batch small docs in groups of 2-3 (under 8,000 tokens total)
-4. Synthesize findings as you go
-5. Never load all files before starting analysis
-```
-
-**Batching Rules**:
-- Safe to batch: 2-3 small files totaling under 8,000 tokens
-- Never batch: Files over 400 lines
-- Never batch: More than 3 files regardless of size
-- Example safe batch: research-protocol + planning-protocol + enhancement-protocol (~7,000 tokens)
-- Example unsafe batch: Any combination including Nate-Protocol or full development-protocol
-
-**Why This Matters**: Bulk-loading causes pruning, which causes incomplete protocol understanding, which causes incorrect behavior. TOC-Dynamic-Loading and sequencing prevent this.
-
----
-
-## Implementation Plan
-
-### Phase 1: Create Consolidated Persona
-
-**Task 1.1**: Merge anti-patterns.md content into persona.md
-- Add new section: "Anti-Patterns & Prohibited Behaviors"
-- Preserve all existing persona content
-- Integrate anti-patterns naturally into communication guidelines where applicable
-
-**Task 1.2**: Add KB Access Matrix section to persona.md
-- Define keyword trigger table
-- Document retrieval protocol
-- Specify efficiency constraints
-
-**Task 1.3**: Delete anti-patterns.md after successful merge
-- Verify all content preserved
-- Remove redundant file
-
-### Phase 2: Validate KB Structure
-
-**Task 2.1**: Audit existing KB documents
-- Verify development-protocol.md is complete and accurate
-- Identify gaps requiring new KB documents
-
-**Task 2.2**: Standardize KB document format
-- Consistent header structure
-- Clear section organization
-- Keyword tags at document top for quick identification
-
-### Phase 3: Test & Refine
-
-**Task 3.1**: Test keyword trigger accuracy
-- Verify correct KB documents retrieved for sample requests
-- Adjust keyword mappings as needed
-
-**Task 3.2**: Optimize retrieval efficiency
-- Measure context usage before/after
-- Refine section-specific reading where beneficial
-
----
-
 ## KB Document Standards
 
 ### Required Header Format
@@ -1151,196 +971,124 @@ Nate: Noted. Adjusting. → Shifts to more casual voice
 
 ---
 
+<!-- #complex-task-init -->
+### Complex Task Initialization
+
+**Source of truth** for complex-task initialization (moved from the kernel; the kernel keeps a pointer stub).
+
+**CRITICAL**: This sequence is for complex task execution only. Core context loading happens via Session Start Gate.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ PHASE 1: LOAD TASK-SPECIFIC PROTOCOLS                           │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ 1. READ NATE-PROTOCOL (Chunked - If Needed)                     │
+│    Path: Nate's-kb/Nate-Protocol.md                             │
+│    Method: 3 reads (lines 1-500, 501-1000, 1001-end)            │
+│    Purpose: Load decision engine, triggers, precedence rules    │
+│                                                                 │
+│ 2. READ TASK-SPECIFIC KB PROTOCOLS                              │
+│    Based on keyword triggers from user request                  │
+│    Purpose: Load task-specific guidance and requirements        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ PHASE 2: PREPARE TASK EXECUTION                                 │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│ 3. APPLY LEARNED PATTERNS & KNOWLEDGE                           │
+│    Query patterns via index-query.py                        │
+│    Query knowledge via index-query.py                         │
+│    Apply high-confidence patterns automatically                 │
+│    Surface relevant knowledge proactively                       │
+│                                                                 │
+│ 4. EXECUTE TASK                                                 │
+│    Follow KB protocols with personality integration             │
+│    Apply precedence hierarchy for conflicts                     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Core Context Already Loaded**: Indexes loaded via Session Start Gate. Full data loaded on-demand via CSR.
+
+**Skip Conditions**:
+- Simple tasks (no KB protocols needed)
+- User explicitly says "skip init" or "quick start"
+
+**Initialization Paths Reference**:
+
+| Resource | Path |
+|----------|------|
+| Protocol | `Nate's-kb/Nate-Protocol.md` |
+| Memory | `Nate's-kb/Memory/memory.json` |
+| Sessions | `Nate's-kb/Memory/session-*.md` |
+| Patterns | `Nate's-kb/Intelligence/patterns.json` |
+| Knowledge | `Nate's-kb/Intelligence/knowledge.json` |
+| Intelligence Ops | `Nate's-kb/Intelligence/intelligence-operations.md` |
+| KB Protocols | `Nate's-kb/*.md` |
+
+**Complete KB Protocol Inventory**:
+- `customization-protocol.md` - Personality setup and configuration
+- `development-protocol.md` - Software development standards and practices
+- `executive-communication-protocol.md` - C-suite and stakeholder communication
+- `maintenance-protocol.md` - KB health, pruning, integrity checks
+- `memory-protocol.md` - Memory management and retrieval
+- `planning-protocol.md` - Project planning and task breakdown
+- `proactive-offering-protocol.md` - Proactive offering triggers, quality gates, calibration
+- `problem-solving-protocol.md` - Cognitive problem-solving methodology
+- `empirical-feasibility-protocol.md` - Prove feasibility through the smallest test that can fail, not reasoning
+- `prompt-enhancement-protocol.md` - Prompt enhancement and refinement
+- `research-protocol.md` - Systematic research methodology
+- `security-protocol.md` - Git hardening, sanitization, confidentiality
+- `summarization-protocol.md` - Content summarization engine
+- `writing-protocol.md` - Professional writing standards
+
+**Intelligence System Files**:
+- `Intelligence/patterns.json` - Behavioral patterns (CSR format)
+- `Intelligence/patterns-index.json` - Pattern routing index
+- `Intelligence/knowledge.json` - Factual knowledge (CSR format)
+- `Intelligence/knowledge-index.json` - Knowledge routing index
+- `Intelligence/reasoning.json` - Derived conclusions and connections (CSR format)
+- `Intelligence/reasoning-index.json` - Reasoning routing index
+- `Intelligence/cross-references.json` - Reverse lookup: pattern/knowledge → reasoning (derived, rebuildable)
+- `Intelligence/intelligence-operations.md` - Unified operations guide
+- `Intelligence/learning-loop.md` - Consolidation, access tracking, quality gates (save Part 3)
+
+**Failure Handling**:
+- If memory.json missing → Note gap, proceed without memory
+- If patterns.json missing → Note gap, proceed without patterns
+- If knowledge.json missing → Note gap, proceed without knowledge
+- If cross-references.json missing → Proceed without cross-references, rebuild from reasoning.json on next save
+- If session logs missing → Proceed with standard greeting
+- If Nate-Protocol.md unreadable → Flag error, operate on persona defaults
+- If intelligence files missing → Disable learning features, proceed normally
+- Never fail silently. Acknowledge gaps if they affect capability
+
+**Skip Conditions**:
+- Mid-conversation (initialization already complete)
+- User explicitly says "skip init" or "quick start"
+
+**Intelligence Integration**:
+- Query the index head and reasoning signals during Session Start Gate (`scripts/index-query.py`)
+- Apply learned patterns via CSR during task execution
+- Surface relevant knowledge proactively when signals match
+- Real-time pattern and knowledge detection active throughout session
+- Learning consolidation triggered by save command (Part 3a patterns, Part 3b knowledge)
+
+---
+
+---
+
 <!-- #save-protocol -->
 ### Save Execution Protocol
 
-```
-ON "SAVE" KEYWORD DETECTED:
+**Authoritative Source**: `memory-protocol.md` → Save Command owns the checklist, taxonomy sweep, Script-First Gate, and step details (moved out of the kernel; the kernel keeps a must-read stub). This section is routing only, so it cannot drift from the procedure.
 
-PART 1: CREATE SESSION LOG
+**Trigger**: `save` or `detailed save` in user message.
 
-1. DETERMINE FILENAME
-   - Format: session-YYYY-MM-DD-NNN.md
-   - Date: Current date in YYYY-MM-DD format
-   - Sequence: Check existing files in Memory/ for today's date
-   - NNN: Next sequential number (001, 002, 003, etc.)
-
-2. CHECK EXISTING FILES
-   - List files matching pattern: session-YYYY-MM-DD-*.md
-   - Extract highest sequence number
-   - Increment by 1 for new file
-
-3. CREATE SESSION LOG
-   - Location: Nate's-kb/Memory/
-   - Use session log template from README.md
-   - Populate with current session data:
-     * Session ID
-     * Start timestamp
-     * Primary topics discussed
-     * KB documents used
-     * Key interactions summary
-     * Session insights
-
-PART 2: UPDATE SESSION INDEX (CSR Pattern)
-
-1. CREATE SESSION FINGERPRINT
-   - id: Session ID (YYYY-MM-DD-NNN)
-   - date: Session date
-   - focus: 1-line summary of session focus
-   - tags: Array of signal keywords for retrieval
-   - files_touched: Count of files created/modified
-   - key_outcome: Single most important outcome
-
-2. APPEND TO session-index.json
-   - Add new entry to sessions array
-   - Update _meta.last_updated
-   - Validate JSON after update
-
-PART 3: INTELLIGENCE CONSOLIDATION (Taxonomy Sweep)
-
-1. RE-READ SESSION LOG (mandatory, not from recall)
-2. WRITE GROUNDING STATEMENT: "Session scope: [1-sentence synthesis]"
-3. ON FIRST SAVE OF SESSION: Re-read Capture Taxonomy definitions from learning-loop.md
-4. RUN TAXONOMY SWEEP (10 categories + Other escape valve)
-   - Each category: draft summary → store routing, OR "none" with citation
-   - Citation: existing entry ID or specific session fact. Generic "none" is invalid.
-   - Update capture_taxonomy counters in memory.json (increment category_hits for each fired category, increment sessions_tracked)
-5. SPOT-CHECK: Verify 1 random fired category against session log
-6. WRITE TO STORES via learning-loop.md:
-   - Part 3a: Write sweep items routed to patterns.json
-   - Part 3b: Write sweep items routed to knowledge.json
-   - Part 3c-RECORD: Write sweep items routed to reasoning.json
-   - Part 3c-SYNTH: Unchanged (operates on session log)
-   - Part 3c-CROSS: Unchanged (conditional)
-   - Part 3d: Vectorstore sync
-
-**CRITICAL**: The sweep is the extraction. Parts 3a/3b/3c are write-only.
-See learning-loop.md Capture Taxonomy section for category definitions and routing rules.
-
-PART 4: CONSOLIDATE PROACTIVE OFFERS
-
-1. REVIEW SESSION OFFERS
-   - Recall all proactive offers made this session
-   - For each: type, context, timestamp, accepted/declined
-
-2. ADD TO OFFER_HISTORY
-   - Append each offer to proactive_behavior.offer_history in memory.json
-   - Include: type, context, timestamp, accepted, reason
-
-3. UPDATE COUNTERS
-   - Update session_offers_made with count
-   - Update last_session_date
-
-PART 5: UPDATE MEMORY.JSON
-
-1. GATHER SESSION LEARNINGS
-   - New patterns detected this session
-   - Confidence events and accuracy scores
-   - User preference signals observed
-   - Success/failure indicators
-
-2. CONSOLIDATE INTO MEMORY.JSON
-   - Add new memories to memories array
-   - Add new pattern detections to pattern_detections array
-   - Add new confidence events to confidence_events array
-   - Update session_metadata with current session info
-   - Update lastUpdated timestamp
-   - Capture commitments: scan session for explicit commitments or acknowledged expectations (person + deliverable). Dedup against open commitments before adding. Resolve any completed this session.
-
-3. UPDATE INTELLIGENCE SYSTEM METADATA
-   - session_id: Current session identifier
-   - patterns_detected_this_session: Count of new patterns
-   - confidence_events_logged: Count of new events
-   - last_learning_update: Current timestamp
-
-PART 6: PRUNE-CHECK (Conditional)
-
-1. SCAN DATA STORES
-   - Count: session-index entries, pattern_detections, confidence_events, offer_history, completed projects
-   - Check oldest item age in each
-
-2. EVALUATE THRESHOLDS
-   - If (count > min_keep) AND (oldest > retention) → proceed to PRUNE-EXECUTE
-   - If none exceed → Skip, proceed to Part 7
-
-3. PRUNE-EXECUTE (if needed)
-   - Archive session logs older than 30 days to Memory/archive/
-   - Archive completed projects older than 14 days to projects_archive
-   - Destroy consolidated detections older than 14 days
-   - Destroy confidence events older than 30 days
-   - Destroy offer history older than 60 days
-   - Destroy resolved commitments older than 30 days
-   - Destroy cancelled commitments older than 14 days
-   - Update indexes and counters
-
-See memory-protocol.md → Pruning Operations for full retention rules.
-
-PART 7: CONFIRM COMPLETION (Only after ALL parts done)
-
-1. Report session log filename
-2. Brief summary of what was captured
-3. Confirm index, patterns, memory updated, and pruning status
-
-Example:
-  "Session saved: session-2025-12-18-003.md
-   Captured: [topics]. Index, patterns, and memory updated. No pruning needed."
-```
-
-**Sequence Number Logic**:
-- If no files exist for today: Use 001
-- If session-2025-12-18-001.md exists: Use 002
-- Always check actual files, don't assume sequence
-
-**Session Fingerprint Template** (for session-index.json):
-```json
-{
-  "id": "2025-12-26-004",
-  "date": "2025-12-26",
-  "focus": "Brief 1-line focus description",
-  "tags": ["signal1", "signal2", "signal3"],
-  "files_touched": 5,
-  "key_outcome": "Single most important outcome"
-}
-```
-
-**Data Consolidation Template**:
-
-```json
-{
-  "memories": [
-    {
-      "id": "mem-XXX",
-      "type": "preference|decision|pattern",
-      "content": "Brief description of what was learned",
-      "context": "Situation where this was observed",
-      "created": "YYYY-MM-DD",
-      "lastAccessed": "YYYY-MM-DD", 
-      "confidence": "high|medium|low",
-      "tags": ["category1", "category2"]
-    }
-  ],
-  "pattern_detections": [
-    {
-      "detection_id": "detect_XXX",
-      "timestamp": "ISO timestamp",
-      "pattern_type": "workflow_preference|communication_preference|etc",
-      "pattern": "Description of detected pattern",
-      "confidence": 0.XX,
-      "evidence": "What behavior/choice led to this detection",
-      "context": "Task/situation context",
-      "applied": true|false,
-      "validation_pending": false,
-      "consolidated": true
-    }
-  ]
-}
-```
-
-**Anti-Patterns**:
-- Don't trigger on "save" in compound words (e.g., "savvy", "savings")
-- Don't over-explain the consolidation process
-- Don't duplicate existing memories or patterns
-- Don't update if no new learnings detected this session
+---
 
 ### Context Switching Protocol
 
@@ -1469,7 +1217,7 @@ These keywords suggest a KB but don't trigger retrieval alone.
 | Tier | Keywords | Natural Variants | Notes |
 |------|----------|------------------|-------|
 | 1 (Absolute) | diagnose, root cause, decompose | find root cause, diagnose this, break down the problem | Always trigger |
-| 2 (Strong) | trace, systematic, analyze problem | trace through, systematic analysis, analyze this issue | Task context assumed |
+| 2 (Strong) | trace, systematic, analyze problem, hypothesis, reproduction | trace through, systematic analysis, analyze this issue, my hypothesis is, can't reproduce, steps to reproduce | Task context assumed |
 | 3 (Contextual) | why does, why is, what causes | why is this happening, what's causing | Need + problem context |
 | 4 (Weak) | broken, wrong | something's wrong, this is broken | Suggestive, check context |
 
@@ -1667,10 +1415,12 @@ Example: "research how to build this API"
 | planning-protocol | plan, roadmap, estimate, scope, break down, schedule, prioritize |
 | writing-protocol | write, draft, document, edit, compose |
 | summarization-protocol | summarize, recap, sum up, distill, extract |
+| anti-slop-protocol | audit, fact-check, verify (a document), scrub, check for confabulation |
 | enhancement-protocol | enhance, improve, refine, clarify, sharpen |
 | memory-protocol | remember, recall, store, save, retrieve |
 | executive-communication-protocol | pitch, present (to exec), influence, persuade, align (leadership) |
-| problem-solving-protocol | diagnose, trace, decompose, root-cause, analyze, systematic |
+| problem-solving-protocol | diagnose, trace, decompose, root-cause, analyze, systematic, hypothesis, reproduction |
+| empirical-feasibility-protocol | can it, will it work, feasible, possible, verify capability, prove it |
 | cognitive-integrity-check (gate) | re-anchor, re-read, step back, verify integrity |
 
 ### Compound Trigger Patterns

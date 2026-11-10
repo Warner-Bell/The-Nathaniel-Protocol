@@ -1,0 +1,16 @@
+{
+  "_purpose": "Context-depth calibration log (source-authority-gate.md, Calibration). One entry per context % the user reports, so a rung can eventually be estimated from logged proxies instead of asked.",
+  "_created": null,
+  "_fields": [
+    "date",
+    "reported_pct",
+    "rung",
+    "user_turns",
+    "tool_calls_approx",
+    "file_reads_approx",
+    "edits",
+    "compacted",
+    "session"
+  ],
+  "readings": []
+}
