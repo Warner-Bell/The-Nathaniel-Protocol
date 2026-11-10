@@ -27,7 +27,10 @@ KB_ROOT = os.path.dirname(VS_DIR)
 
 
 def _config():
-    with open(os.path.join(VS_DIR, "config.json")) as f:
+    path = os.path.join(VS_DIR, "config.json")
+    if not os.path.exists(path):
+        pytest.skip("no built vectorstore (config.json is created by kb_vectorize.py / setup.sh)")
+    with open(path) as f:
         return json.load(f)
 
 

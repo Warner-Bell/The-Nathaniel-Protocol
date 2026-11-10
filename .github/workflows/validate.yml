@@ -35,10 +35,11 @@ jobs:
           chmod +x scripts/setup.sh
           ./scripts/setup.sh --dry-run
 
-      - name: Run vectorstore tests
+      - name: Build vectorstore and run its tests
         run: |
-          pip install fastembed numpy pytest hypothesis
+          pip install fastembed numpy pytest hypothesis python-docx
           cd Nate\'s-kb/vectorstore
+          python3 kb_vectorize.py
           python3 -m pytest tests/ -v
 
       - name: Run hook and script suites

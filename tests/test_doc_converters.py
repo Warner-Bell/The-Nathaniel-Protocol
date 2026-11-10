@@ -54,6 +54,10 @@ class TestRoundTrip(unittest.TestCase):
         shutil.rmtree(self.tmp)
 
     def test_md_docx_md(self):
+        try:
+            import docx  # noqa: F401
+        except ImportError:
+            self.skipTest("python-docx not installed (pip install python-docx)")
         load("md2docx").convert(str(self.tmp / "in.md"), str(self.tmp / "out.docx"))
         md = load("docx-to-md").convert(self.tmp / "out.docx", self.tmp / "back.md")
         for want in ("# Lease summary", "## Terms", "| Rent | $2,600 per month |",
